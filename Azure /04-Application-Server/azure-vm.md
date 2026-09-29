@@ -65,7 +65,6 @@ Successful SSH access confirms private-network reachability of the Azure VM over
 
 **Please enlarge for clearer video**
 
-![SSH Session Video](evidence/ssh-session-video.mp4)
 
 ## Private Network Design
 
