@@ -105,19 +105,8 @@ The VM hosts a custom Meridian Financial Services webpage and is intentionally d
  
 Outbound Internet access for Azure application workloads is provided through an **Azure NAT Gateway**.
  
-```text
-MERIDIAN-AZ-WEB01 (10.200.10.4)
-        |
-        v
-   Azure-Apps
-        |
-        v
-   NAT Gateway
-        |
-        v
-    Internet
-```
- 
+![Topology](screenshots/internet-egress-flow.png)
+
 This enables package updates, software installation, and outbound application traffic while keeping the VM privately addressed and not directly Internet-reachable.
  
 ![VNET](screenshots/nat-gateway-relationship.png)
