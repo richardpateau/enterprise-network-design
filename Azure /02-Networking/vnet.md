@@ -49,13 +49,6 @@ Meridian-Azure-VNet provides the network foundation for:
 - **Region** – Deployed in East US to align with the overall Azure deployment
 - **Future growth** – /16 provides sufficient space for additional subnets and workloads
 
-## Screenshots
-
-| Description        | File                              |
-|--------------------|-----------------------------------|
-| VNet Overview      | `screenshots/vnet-overview.png`      |
-| VNet Address Space | `screenshots/vnet-address-space.png` |
-
 ## Related Documentation
 
 - [subnets.md](subnets.md) – Subnet design and allocation
