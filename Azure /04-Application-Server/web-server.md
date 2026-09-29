@@ -79,6 +79,8 @@ This permits HTTP traffic from the Meridian enterprise address space. Full NSG d
 
 ## Verification
 
+**Plese enlarge for clearer video**
+
 ![Overview](evidence/web-verification.mp4)
 
 
