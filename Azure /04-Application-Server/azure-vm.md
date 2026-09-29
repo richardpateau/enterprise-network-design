@@ -63,6 +63,8 @@ ssh -i ~/.ssh/Meridian-AZ-WEB01_key.pem meridianadmin@10.200.10.4
 
 Successful SSH access confirms private-network reachability of the Azure VM over the site-to-site VPN.
 
+**Please enlarge for clearer video**
+
 ![SSH Session Video](evidence/ssh-session-video.mp4)
 
 ## Private Network Design
