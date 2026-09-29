@@ -8,7 +8,7 @@ The web server provides an internal application workload that demonstrates Azure
 
 ## Web Server Software
 
-| Property          | Value                    |
+| Field          | Value                    |
 |-------------------|--------------------------|
 | Web Server        | Apache HTTP Server       |
 | Operating System  | Ubuntu Server 24.04 LTS  |
@@ -81,8 +81,7 @@ This permits HTTP traffic from the Meridian enterprise address space. Full NSG d
 
 **Plese enlarge for clearer video**
 
-![Overview](evidence/web-verification.mp4)
-
+https://github.com/user-attachments/assets/1e9e57af-f7ac-4056-a3f8-237f7d43cb66
 
 ### Application Verification
 
