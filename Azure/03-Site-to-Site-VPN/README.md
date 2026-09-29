@@ -8,7 +8,7 @@ The VPN connects the Meridian HQ firewall HA pair to an Azure VPN Gateway using 
 
 ## VPN Architecture
 
-![Topology](01-Architecture/screenshots/high-level-diagram.png)
+![Topology](screenshots/high-level-diagram.png)
 
 ## VPN Components
 
@@ -33,18 +33,7 @@ The VPN connects the Meridian HQ firewall HA pair to an Azure VPN Gateway using 
 - Azure side uses a route-based VPN Gateway
 - On-premises ASA uses a route-based IPsec VTI for the Azure connection
 
-```text
-HQ-FW-1 (10.255.110.3)
-        |
-   Tunnel100
-   172.31.254.1/30
-        |
-   IPsec / IKEv2
-        |
-Azure VPN Gateway (20.81.15.25)
-        |
-   10.200.0.0/16
-```
+![Topology](screenshots/vpn-design.png)
 
 ## Security Parameters
 
