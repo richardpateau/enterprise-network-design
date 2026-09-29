@@ -2,7 +2,7 @@
 
 ## Overview
 
-The Meridian Azure environment uses an Azure NAT Gateway to provide controlled outbound Internet connectivity for Azure workloads **without** assigning public IP addresses directly to the workloads.
+The Meridian Azure environment uses an Azure NAT Gateway to provide controlled outbound Internet connectivity for Azure resources **without** assigning public IP addresses directly to the endpoints in the VNET.
 
 The NAT Gateway is associated with the Azure application subnet that contains `MERIDIAN-AZ-WEB01`.
 
