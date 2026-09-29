@@ -19,7 +19,7 @@ Detailed implementation, testing, and evidence live in the related folders liste
  
 ## 2. High-Level Topology
 
-![Topology](evidence/screenshots/high-level-diagram.png)
+![Topology](screenshots/high-level-diagram.png)
  
 ---
  
