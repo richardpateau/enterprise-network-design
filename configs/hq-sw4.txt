@@ -1,0 +1,41 @@
+hostname HQ-SW4
+!
+vlan 10
+ name USERS
+vlan 20
+ name VOICE
+vlan 30
+ name SERVERS
+vlan 40
+ name GUEST
+vlan 50
+ name MANAGEMENT
+vlan 60
+ name IOT
+vlan 70
+ name NETWORK-INFRA
+vlan 999
+ name NATIVE
+!
+interface GigabitEthernet0/0
+ description TRUNK_TO_HQ-CORE-2
+ switchport mode trunk
+ switchport trunk native vlan 999
+ switchport trunk allowed vlan 10,20,30,40,50,60,70,999
+ switchport nonegotiate
+ no shutdown
+!
+interface range GigabitEthernet0/1 - 2
+ description LACP_TO_HQ-SW3
+ switchport mode trunk
+ switchport trunk native vlan 999
+ switchport trunk allowed vlan 10,20,30,40,50,60,70,999
+ channel-group 1 mode active
+ no shutdown
+!
+interface Port-channel1
+ description LACP_TO_HQ-SW3
+ switchport mode trunk
+ switchport trunk native vlan 999
+ switchport trunk allowed vlan 10,20,30,40,50,60,70,999
+ no shutdown

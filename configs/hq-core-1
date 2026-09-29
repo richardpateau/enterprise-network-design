@@ -1,0 +1,15 @@
+interface GigabitEthernet1/0
+ description TRUNK_TO_HQ-SW1
+ switchport mode trunk
+ switchport trunk native vlan 999
+ switchport trunk allowed vlan 10,20,30,40,50,60,70,999
+ switchport nonegotiate
+ no shutdown
+
+interface GigabitEthernet1/1
+ description TRUNK_TO_HQ-SW2
+ switchport mode trunk
+ switchport trunk native vlan 999
+ switchport trunk allowed vlan 10,20,30,40,50,60,70,999
+ switchport nonegotiate
+ no shutdown
