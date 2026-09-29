@@ -82,9 +82,7 @@ The IKEv2/IPsec packet capture provides evidence of successful negotiation:
 
 Packet capture location (filter by "ISAKMP"):
 
-```text
-pcaps/azure-ikev2-negotiation.pcap
-```
+* [Azure IKE Evidence PCAP](evidence/azure-ike.pcap)
 
 ## Design Notes
 
