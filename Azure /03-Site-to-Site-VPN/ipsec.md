@@ -84,6 +84,8 @@ Packet capture location (filter by "ISAKMP"):
 
 * [Azure IKE Evidence PCAP](evidence/azure-ike.pcap)
 
+![PCAP](screenshots/wireshark-init-auth.png)
+
 ## Design Notes
 
 - Parameters (AES-256 / SHA-256 / no PFS) are aligned with the Azure connection settings 
