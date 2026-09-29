@@ -2,8 +2,6 @@
  
 Baseline hybrid architecture connecting the Meridian on-premises network to Azure via a route-based site-to-site IKEv2/IPsec VPN.
  
-> **Note:** This is the living architecture baseline. Status and links will be updated as remaining work is completed. It is not intended as a frozen final document.
- 
 ---
  
 ## 1. Purpose
@@ -20,40 +18,8 @@ Detailed implementation, testing, and evidence live in the related folders liste
 ---
  
 ## 2. High-Level Topology
- 
-```text
-INTERNET
-    |
-NAT Gateway
-    |
-+-----------------------+
-|   Meridian Azure VNet |
-|     10.200.0.0/16     |
-|                       |
-|  Azure-Apps           |
-|  10.200.10.0/24       |
-|  MERIDIAN-AZ-WEB01    |
-|  10.200.10.4 (Apache) |
-|                       |
-|  Infrastructure       |
-|  10.200.20.0/24       |
-|                       |
-|  GatewaySubnet        |
-|  10.200.255.0/27      |
-+-----------|-----------+
-            |
-     Azure VPN Gateway
-            |
-       IKEv2/IPsec
-            |
-     Meridian ASA HA Pair
-            |
-     Meridian Network
-```
- 
-**Screenshot – High-level Azure topology**  
-`diagrams/` or `screenshots/high-level-azure-topology.png`  
-*(Overall VNet, subnets, VPN Gateway, NAT Gateway, and connection to on-premises)*
+
+![Topology](evidence/screenshots/high-level-diagram.png)
  
 ---
  
