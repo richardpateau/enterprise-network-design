@@ -8,7 +8,7 @@ The VPN connects the Meridian HQ firewall HA pair to an Azure VPN Gateway using 
 
 ## VPN Architecture
 
-![Topology](screenshots/high-level-diagram.png)
+![Topology](01-Architecturescreenshots/high-level-diagram.png)
 
 ## VPN Components
 
