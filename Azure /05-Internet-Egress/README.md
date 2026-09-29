@@ -64,6 +64,10 @@ The command successfully contacted the Ubuntu package repositories after the NAT
 
 This confirmed functional outbound Internet access from the private Azure VM.
 
+**Please enlarge for clearer video**
+
+https://github.com/user-attachments/assets/b0fced58-d7ec-450a-a6a1-acf872b78382
+
 ## Security Considerations
 
 - Outbound Internet access is provided without assigning a public IP to the application VM
