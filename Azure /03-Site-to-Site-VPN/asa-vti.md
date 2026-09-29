@@ -47,7 +47,7 @@ crypto ipsec ikev2 ipsec-proposal MERIDIAN-AES256
  protocol esp encryption aes-256
  protocol esp integrity sha-256
 ```
-![Show Run](screenshots/sh-run-crypto.png)
+![Show Run](screenshots/sh-run-ipsec.png)
 
 ## Separation from Existing Crypto Map
 
