@@ -30,10 +30,8 @@ Detailed implementation, testing, and evidence live in the related folders liste
 | Resource Group  | Meridian-Azure-RG    |
 | Region          | East US              |
  
-**Screenshot – Azure Resource Group**  
-`screenshots/azure-resource-group.png`  
-*(Resource group overview showing core resources)*
- 
+![RG](screenshots/azure-resource-group.png)
+
 ---
  
 ## 4. Virtual Network
@@ -45,10 +43,7 @@ Detailed implementation, testing, and evidence live in the related folders liste
 | Region         | East US                    |
 | Resource Group | Meridian-Azure-RG          |
  
-**Screenshot – VNet and address space**  
-`screenshots/vnet-address-space.png`  
-*(VNet overview with address space 10.200.0.0/16)*
- 
+![VNET](screenshots/vnet-address-space.png)
 ---
  
 ## 5. Subnet Layout
@@ -59,9 +54,7 @@ Detailed implementation, testing, and evidence live in the related folders liste
 | Azure-Infrastructure  | 10.200.20.0/24    | Infrastructure workloads       |
 | GatewaySubnet         | 10.200.255.0/27   | Azure VPN Gateway              |
  
-**Screenshot – Subnet layout**  
-`screenshots/subnet-layout.png`  
-*(Subnet list showing Azure-Apps, Azure-Infrastructure, and GatewaySubnet)*
+![VNET](screenshots/subnet-layout.png)
  
 ---
  
@@ -86,9 +79,8 @@ The Azure VPN Gateway terminates the encrypted connection to the Meridian ASA HA
 On-premises side:
 - Primary firewall uses a route-based IPsec VTI (`Tunnel100`, 172.31.254.1/30)
 - Existing Meridian site-to-site VPN architecture remains separate from the Azure VPN
-**Screenshot – VPN Gateway**  
-`screenshots/vpn-gateway.png`  
-*(VPN Gateway overview / connection status)*
+
+![VNET](screenshots/vpn-gateway.png)
  
 ---
  
@@ -105,9 +97,7 @@ On-premises side:
  
 The VM hosts a custom Meridian Financial Services webpage and is intentionally deployed **without a public IP**. Access is intended only from the Meridian network over the site-to-site VPN.
  
-**Screenshot – Azure VM placement**  
-`screenshots/azure-vm-placement.png`  
-*(VM overview showing private IP, subnet, and no public IP)*
+![VNET](screenshots/azure-vm-placement.png)
  
 ---
  
@@ -130,9 +120,7 @@ MERIDIAN-AZ-WEB01 (10.200.10.4)
  
 This enables package updates, software installation, and outbound application traffic while keeping the VM privately addressed and not directly Internet-reachable.
  
-**Screenshot – NAT Gateway relationship**  
-`screenshots/nat-gateway-relationship.png`  
-*(NAT Gateway associated with Azure-Apps subnet / outbound connectivity path)*
+![VNET](screenshots/nat-gateway-relationship.png)
  
 ---
  
