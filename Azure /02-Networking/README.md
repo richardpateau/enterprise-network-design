@@ -47,27 +47,6 @@ Azure networking design and configuration for the Meridian Financial Services hy
 
 ![High-level architecture diagram](../01-Architecture/screenshots/high-level-diagram.png)
 
-```text
-Meridian On-Premises (10.0.0.0/8)
-              |
-        IPsec Site-to-Site
-              |
-       Azure VPN Gateway
-              |
-         GatewaySubnet
-        10.200.255.0/27
-              |
-     Meridian-Azure-VNet
-        10.200.0.0/16
-         /          \
-        /            \
-Azure-Apps      Azure-Infrastructure
-10.200.10.0/24     10.200.20.0/24
-        |
- MERIDIAN-AZ-WEB01
-    10.200.10.4
-```
-
 ## Related Sections
 
 - [01-Architecture](../01-Architecture/) – Overall hybrid architecture

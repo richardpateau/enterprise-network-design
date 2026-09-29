@@ -155,7 +155,7 @@ Azure resources reach Meridian on-premises networks via the site-to-site VPN (ro
  
 ---
  
-## 11. Design Principles
+## 11. Design
  
 - **Private application workloads** – No public IPs on application servers  
 - **Hybrid connectivity** – Encrypted site-to-site IPsec to Meridian  
@@ -186,25 +186,8 @@ Azure resources reach Meridian on-premises networks via the site-to-site VPN (ro
 - Final architecture validation  
 ---
  
-## 13. Screenshots (Architecture Support Only)
  
-Place supporting screenshots in `screenshots/` (or link from `diagrams/` where appropriate):
- 
-| Screenshot                        | File (suggested)                     | Purpose                                      |
-|-----------------------------------|--------------------------------------|----------------------------------------------|
-| High-level Azure topology         | `high-level-azure-topology.png`      | Overall design                               |
-| Azure Resource Group              | `azure-resource-group.png`           | Resource group overview                      |
-| VNet and address space            | `vnet-address-space.png`             | 10.200.0.0/16                                |
-| Subnet layout                     | `subnet-layout.png`                  | Apps / Infrastructure / GatewaySubnet        |
-| VPN Gateway                       | `vpn-gateway.png`                    | Gateway and hybrid connection                |
-| Azure VM placement                | `azure-vm-placement.png`             | MERIDIAN-AZ-WEB01 private placement          |
-| NAT Gateway relationship          | `nat-gateway-relationship.png`       | Outbound Internet path                       |
- 
-Only screenshots that illustrate the overall architecture are kept here. Implementation detail, packet captures, and test evidence belong in the respective folders (`03-Site-to-Site-VPN`, `04-Application-Server`, `10-Testing`, `11-Evidence`, etc.).
- 
----
- 
-## 14. Related Documentation
+## 13. Related Documentation
  
 | Folder / Doc                  | Contents                                      |
 |-------------------------------|-----------------------------------------------|
