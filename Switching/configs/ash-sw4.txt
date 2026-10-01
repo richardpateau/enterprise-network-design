@@ -1,0 +1,75 @@
+version 15.1
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
+service compress-config
+!
+hostname ASH-SW-4
+!
+boot-start-marker
+boot-end-marker
+!
+no aaa new-model
+!
+ip cef
+!
+no ip igmp snooping
+no ipv6 cef
+ipv6 multicast rpf use-bgp
+!
+spanning-tree mode pvst
+spanning-tree extend system-id
+dot1x system-auth-control
+!
+vlan internal allocation policy ascending
+!
+interface Port-channel1
+ switchport
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 110,120,130,140,150
+ switchport mode trunk
+!
+interface Ethernet0/0
+ description TO-ASH-INTERNAL-R1
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 110,120,130,140,150
+ switchport mode trunk
+ duplex auto
+!
+interface Ethernet0/1
+ description ACCESS-VLAN110
+ switchport access vlan 110
+ switchport mode access
+ duplex auto
+ authentication port-control auto
+ dot1x pae authenticator
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+!
+interface Ethernet0/2
+ description TO-ASH-SW-3
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 110,120,130,140,150
+ switchport mode trunk
+ duplex auto
+ channel-group 1 mode active
+!
+interface Ethernet0/3
+ description TO-ASH-SW-3
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 110,120,130,140,150
+ switchport mode trunk
+ duplex auto
+ channel-group 1 mode active
+!
+no ip http server
+!
+control-plane
+!
+line con 0
+ logging synchronous
+line aux 0
+line vty 0 4
+ login
+!
+end

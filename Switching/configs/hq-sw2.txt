@@ -1,0 +1,184 @@
+version 15.1
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
+service compress-config
+!
+hostname HQ-SW-2
+!
+boot-start-marker
+boot-end-marker
+!
+aaa new-model
+!
+aaa group server radius MERIDIAN-RADIUS
+ server name MERIDIAN-ISE
+ ip radius source-interface Vlan50
+!
+aaa authentication dot1x default group MERIDIAN-RADIUS
+aaa authorization network default group MERIDIAN-RADIUS
+!
+aaa session-id common
+!
+ip cef
+!
+ip domain-name networkingnotebook.com
+no ip igmp snooping
+no ipv6 cef
+ipv6 multicast rpf use-bgp
+!
+spanning-tree mode rapid-pvst
+spanning-tree extend system-id
+dot1x system-auth-control
+!
+vlan internal allocation policy ascending
+!
+vlan 10
+ name USERS
+!
+vlan 20
+ name VOICE
+!
+vlan 30
+ name SERVERS
+!
+vlan 40
+ name GUEST
+!
+vlan 50
+ name MANAGEMENT
+!
+vlan 60
+ name PRINTERS_IOT
+!
+vlan 70
+ name NETWORK_INFRASTRUCTURE
+!
+vlan 999
+ name NATIVE_UNUSED
+!
+interface Port-channel1
+ switchport
+ switchport trunk encapsulation dot1q
+ switchport trunk native vlan 999
+ switchport trunk allowed vlan 10,20,30,40,50,60,70,999
+ switchport mode trunk
+!
+interface Ethernet0/0
+ description TRUNK-TO-HQ-R1-Fa1/0
+ switchport trunk encapsulation dot1q
+ switchport trunk native vlan 999
+ switchport trunk allowed vlan 10,20,30,40,50,60,70,999
+ switchport mode trunk
+ duplex auto
+!
+interface Ethernet0/1
+ description LACP-TO-HQ-SW-1
+ switchport trunk encapsulation dot1q
+ switchport trunk native vlan 999
+ switchport trunk allowed vlan 10,20,30,40,50,60,70,999
+ switchport mode trunk
+ duplex auto
+ channel-group 1 mode active
+!
+interface Ethernet0/2
+ description LACP-TO-HQ-SW-1
+ switchport trunk encapsulation dot1q
+ switchport trunk native vlan 999
+ switchport trunk allowed vlan 10,20,30,40,50,60,70,999
+ switchport mode trunk
+ duplex auto
+ channel-group 1 mode active
+!
+interface Ethernet0/3
+ description TRUNK-TO-HQ-SW-4
+ switchport trunk encapsulation dot1q
+ switchport trunk native vlan 999
+ switchport trunk allowed vlan 10,20,30,40,50,60,70,999
+ switchport mode trunk
+ duplex auto
+!
+interface Ethernet1/0
+ description 8021X-TEST-PC1
+ switchport access vlan 10
+ switchport mode access
+ switchport port-security maximum 2
+ switchport port-security violation restrict
+ switchport port-security mac-address sticky
+ switchport port-security mac-address sticky 5064.f000.2d00
+ switchport port-security mac-address sticky aa0a.8e54.863c
+ shutdown
+ duplex auto
+ authentication port-control auto
+ dot1x pae authenticator
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+!
+interface Ethernet1/1
+ switchport access vlan 10
+ switchport mode access
+ duplex auto
+ authentication event fail action next-method
+ authentication order dot1x mab
+ authentication priority dot1x mab
+ authentication port-control auto
+ mab
+ dot1x pae authenticator
+ dot1x timeout tx-period 5
+ dot1x max-reauth-req 1
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+!
+interface Ethernet1/2
+ description UNUSED
+ switchport access vlan 10
+ switchport mode access
+ switchport port-security
+ duplex auto
+ authentication order dot1x
+ authentication priority dot1x
+ authentication port-control auto
+ dot1x pae authenticator
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+!
+interface Ethernet1/3
+ description UNUSED
+ switchport mode access
+ switchport access vlan 999
+ shutdown
+ duplex auto
+ authentication port-control auto
+ dot1x pae authenticator
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+!
+interface Vlan50
+ ip address 10.10.50.10 255.255.255.0
+!
+ip default-gateway 10.10.50.1
+!
+no ip http server
+ip route 0.0.0.0 0.0.0.0 10.10.50.1
+ip route 172.16.109.150 255.255.255.255 10.10.50.1
+!
+ip access-list standard PRTG-SNMP
+ permit 172.16.109.133
+!
+snmp-server group PRTG-GROUP v3 auth read PRTG-VIEW access PRTG-SNMP
+snmp-server view PRTG-VIEW iso included
+snmp-server location Meridian-HQ
+snmp-server contact Network-Operations
+!
+radius server MERIDIAN-ISE
+ address ipv4 172.16.109.150 auth-port 1812 acct-port 1813
+ key Pateau1!
+!
+control-plane
+!
+line con 0
+ logging synchronous
+line aux 0
+line vty 0 4
+!
+end
