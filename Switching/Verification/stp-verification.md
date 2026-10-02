@@ -68,7 +68,8 @@ A controlled topology change was executed to validate STP convergence behavior.
 * **Loop Prevention:** No broadcast storms or MAC flapping were observed during the transition.
 
 **HQ-SW-1**
-![STP](screenshots/hq-sw1-stp-vlan10-after.png)
+
+![STP](screenshots/hq-sw1-sh-span-vlan10.png)
 
 ---
 
