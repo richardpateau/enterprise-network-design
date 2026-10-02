@@ -13,7 +13,7 @@ show flag **P** (bundled). Port-channel is Layer 2 and in use.
 
 **LACP Neighbor:**
 
-![HQ-SW-1 LACP Neighbor](screenshots/hq-sw1-lacp-neighbor.png)
+![HQ-SW-1 LACP Neighbor](screenshots/hq-sw1-sh-lacp-neighbor.png)
 
 **Observation:** Both neighbors report flags **SA**:
 - **S** = Slow LACPDU (1-second intervals)
@@ -50,7 +50,7 @@ confirms both links active). Zero input/output errors.
 - Port-channel1 up/up
 - LACP neighbor Dev ID: `aabb.cc00.0a00` (CHI-SW-1)
 
-![Etherchannel](screenshots/chi-sw2-sh-lacp-neighbor.png)
+![Etherchannel](screenshots/chi-sw-2-sh-lacp-neighbor.png)
 
 ---
 
