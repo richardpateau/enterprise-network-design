@@ -28,14 +28,14 @@ aligns with multi-vendor strategy documented in `docs/standards/01-requirements.
 
 Standardized 2-link LACP bundles between switch pairs using Et0/1 + Et0/2.
 
-![Etherchannel](screenshots/branc.png)
+![Etherchannel](screenshots/branch-lacp.png)
 
 ### Ashburn DR Site
 
 Modified design using **Et0/2 + Et0/3** (vs. standard Et0/1 + Et0/2) due to 
 interface availability constraints.
 
-![Etherchannel](screenshots/lacp.png)
+![Etherchannel](screenshots/ashburn-lacp.png)
 
 ## Configuration Model
 

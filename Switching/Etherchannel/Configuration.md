@@ -41,32 +41,38 @@ confirms both links active). Zero input/output errors.
 
 ### Chicago (CHI-SW-1 ↔ CHI-SW-2)
 
-![CHI-SW-1 EtherChannel Summary](screenshots/chi-sw1-etherchannel-summary.png)
-
 **Observation:** Po1(SU), LACP, Et0/1(P) + Et0/2(P). Standard branch design.
+
+![CHI-SW-1 EtherChannel Summary](screenshots/chi-sw1-etherchannel-summary.png)
 
 **CHI-SW-2 Independent Verification:**
 - Po1(SU), LACP, Et0/1(P) + Et0/2(P)
 - Port-channel1 up/up
 - LACP neighbor Dev ID: `aabb.cc00.0a00` (CHI-SW-1)
 
+![Etherchannel](screenshots/chi-sw2-sh-lacp-neighbor.png)
+
 ---
 
 ### Dallas (DAL-SW-1 ↔ DAL-SW-2)
 
-![DAL-SW-1 EtherChannel Summary](screenshots/dal-sw1-etherchannel-summary.png)
-
 **Observation:** Po1(SU), LACP, Et0/1(P) + Et0/2(P). Consistent with 
 Chicago design.
+
+![DAL-SW-1 EtherChannel Summary](screenshots/dal-sw1-etherchannel-summary.png)
 
 **DAL-SW-2 Independent Verification:**
 - Po1(SU), LACP, Et0/1(P) + Et0/2(P)
 - Port-channel1 up/up
 - LACP neighbor Dev ID: `aabb.cc00.0b00` (DAL-SW-1)
 
+![Etherchannel](screenshots/dal-sw2-sh-lacp-neighbor.png)
+
 ---
 
 ### Miami (MIA-SW-1 ↔ MIA-SW-2)
+
+**Observation:** Po1(SU), LACP, Et0/1(P) + Et0/2(P). Standard branch design.
 
 ![MIA-SW-1 EtherChannel Summary](screenshots/mia-sw1-etherchannel-summary.png)
 
@@ -77,13 +83,15 @@ Chicago design.
 - Port-channel1 up/up
 - LACP neighbor Dev ID: `aabb.cc00.0d00` (MIA-SW-1)
 
+![Etherchannel](screenshots/mia-sw2-sh-lacp-neighbor.png)
+
 ---
 
 ### Ashburn DR Site (ASH-SW-3 ↔ ASH-SW-4)
 
-![ASH-SW-3 EtherChannel Summary](screenshots/ash-sw3-etherchannel-summary.png)
+**Observation:** Po1(SU), LACP, **Et0/2(P) + Et0/3(P)**.
 
-**Observation:** Po1(SU), LACP, **Et0/2(P) + Et0/3(P)**. 
+![Etherchannel](screenshots/ash-sw3-etherchannel-summary.png) 
 
 **Note:** Ashburn uses different member interfaces (Et0/2 + Et0/3) vs. 
 standard branch design (Et0/1 + Et0/2) due to interface availability.
@@ -93,6 +101,7 @@ standard branch design (Et0/1 + Et0/2) due to interface availability.
 - Port-channel1 up/up
 - LACP neighbor Dev ID: `aabb.cc00.1400` (ASH-SW-3)
 
+![Etherchannel](screenshots/ash-sw4-sh-lacp-neighbor.png)
 ---
 
 ## HQ Second Switch Pair (HQ-SW-3 ↔ HQ-SW-4)
@@ -101,6 +110,7 @@ standard branch design (Et0/1 + Et0/2) due to interface availability.
 - HQ-SW-3: Po1(SU), LACP, Et0/1(P) + Et0/2(P), up/up
 - HQ-SW-4: Po1(SU), LACP, Et0/1(P) + Et0/2(P), up/up
 - LACP neighbor adjacency confirmed both directions
+
 
 ---
 
