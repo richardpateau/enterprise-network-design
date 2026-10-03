@@ -1,7 +1,3 @@
-
-
-https://github.com/user-attachments/assets/1628cc9e-87ca-401d-be04-46b367282ff5
-
 # Cisco ISE — AD & RADIUS Implementation Model
 
 ## Overview
