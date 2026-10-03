@@ -1,7 +1,3 @@
-
-
-https://github.com/user-attachments/assets/ae8f8982-e587-487d-b652-b4f0a5b4d7c8
-
 # HSRP Operational Verification & Failover Testing
 
 ## Overview
