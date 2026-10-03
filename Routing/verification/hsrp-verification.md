@@ -98,8 +98,6 @@ The failed interface on HQ-R1 was restored (`no shutdown`).
 | Failover Convergence | `show standby brief`, `ping` | ✅ Verified | `hsrp-failover.png` |
 | Preemption Recovery | `show standby brief` | ✅ Verified | `hsrp-failover-recovered.png` |
 
-*(Note: Status reflects completed lab validation. If a specific advanced test has not yet been executed, simply update the status to "⏳ Pending".)*
-
 ---
 
 ## 5. Related Documentation
