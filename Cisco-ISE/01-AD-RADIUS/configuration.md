@@ -1,3 +1,7 @@
+
+
+https://github.com/user-attachments/assets/1628cc9e-87ca-401d-be04-46b367282ff5
+
 # Cisco ISE — AD & RADIUS Implementation Model
 
 ## Overview
@@ -136,6 +140,7 @@ Successful integration is validated through both functional testing and ISE's na
 
 **Enlarge for clearer video**
 
+https://github.com/user-attachments/assets/8c8f75a4-2d0f-4a13-8a7b-30a92bc39b8f
 
 ### 5.2 ISE Live Logs
 All authentication attempts are captured in `Operations` → `RADIUS` → `Live Logs`. This provides real-time visibility into:
