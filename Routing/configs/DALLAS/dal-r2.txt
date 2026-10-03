@@ -1,0 +1,139 @@
+hostname DAL-R2
+
+interface Loopback0
+ description Router-ID
+ ip address 10.255.30.2 255.255.255.255
+!
+interface FastEthernet0/0
+ description WAN-to-HQ-EDGE-2
+ ip address 172.16.1.6 255.255.255.252
+ duplex half
+!
+interface FastEthernet1/0
+ description TRUNK-to-DAL-SW2
+ no ip address
+ duplex half
+!
+interface FastEthernet1/0.10
+ description USERS
+ encapsulation dot1Q 10
+ ip address 10.30.10.3 255.255.255.0
+ standby 10 ip 10.30.10.1
+ standby 10 preempt
+!
+interface FastEthernet1/0.20
+ description VOICE
+ encapsulation dot1Q 20
+ ip address 10.30.20.3 255.255.255.0
+ standby 20 ip 10.30.20.1
+ standby 20 preempt
+!
+interface FastEthernet1/0.30
+ description SERVERS
+ encapsulation dot1Q 30
+ ip address 10.30.30.3 255.255.255.0
+ standby 30 ip 10.30.30.1
+ standby 30 preempt
+!
+interface FastEthernet1/0.40
+ description GUEST
+ encapsulation dot1Q 40
+ ip address 10.30.40.3 255.255.255.0
+ standby 40 ip 10.30.40.1
+ standby 40 preempt
+!
+interface FastEthernet1/0.50
+ description MANAGEMENT
+ encapsulation dot1Q 50
+ ip address 10.30.50.3 255.255.255.0
+ standby 50 ip 10.30.50.1
+ standby 50 preempt
+!
+interface FastEthernet1/0.60
+ description PRINTERS-IOT
+ encapsulation dot1Q 60
+ ip address 10.30.60.3 255.255.255.0
+ standby 60 ip 10.30.60.1
+ standby 60 preempt
+!
+interface FastEthernet1/0.70
+ description NETWORK-INFRASTRUCTURE
+ encapsulation dot1Q 70
+ ip address 10.30.70.3 255.255.255.0
+ standby 70 ip 10.30.70.1
+ standby 70 preempt
+!
+interface FastEthernet2/0
+ no ip address
+ shutdown
+ duplex half
+!
+interface FastEthernet3/0
+ no ip address
+ shutdown
+ duplex half
+!
+interface FastEthernet4/0
+ no ip address
+ shutdown
+ duplex half
+!
+interface FastEthernet5/0
+ no ip address
+ shutdown
+ duplex half
+!
+interface FastEthernet6/0
+ no ip address
+ shutdown
+ duplex half
+!
+router ospf 10
+ router-id 10.255.30.2
+ passive-interface FastEthernet1/0.10
+ passive-interface FastEthernet1/0.20
+ passive-interface FastEthernet1/0.30
+ passive-interface FastEthernet1/0.40
+ passive-interface FastEthernet1/0.50
+ passive-interface FastEthernet1/0.60
+ network 10.30.10.0 0.0.0.255 area 30
+ network 10.30.20.0 0.0.0.255 area 30
+ network 10.30.30.0 0.0.0.255 area 30
+ network 10.30.40.0 0.0.0.255 area 30
+ network 10.30.50.0 0.0.0.255 area 30
+ network 10.30.60.0 0.0.0.255 area 30
+ network 10.30.70.0 0.0.0.255 area 30
+ network 10.255.30.2 0.0.0.0 area 30
+ network 172.16.1.4 0.0.0.3 area 0
+!
+ip forward-protocol nd
+no ip http server
+no ip http secure-server
+!
+ip tacacs source-interface FastEthernet1/0.50
+!
+ip access-list standard PRTG-SNMP
+ permit 172.16.109.133
+!
+snmp-server group PRTG-GROUP v3 auth read PRTG-VIEW access PRTG-SNMP
+snmp-server view PRTG-VIEW iso included
+snmp-server location Meridian-Dallas
+snmp-server contact Network-Operations
+!
+tacacs server MERIDIAN-ISE
+ address ipv4 172.16.109.150
+ key Pateau1!
+!
+radius server MERIDIAN-ISE
+ address ipv4 172.16.109.150 auth-port 1812 acct-port 1812
+ key Pateau1!
+!
+line vty 0 4
+ login authentication TACACS-LOGIN
+ transport input ssh
+!
+line vty 5 15
+ login authentication TACACS-LOGIN
+ transport input ssh
+!
+ntp server 172.16.109.133

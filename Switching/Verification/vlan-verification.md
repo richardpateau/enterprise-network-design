@@ -36,7 +36,7 @@ Beyond operational state, functional testing was performed to prove that Layer 2
 
 **Same-VLAN Ping**
 
-![VLAN](screenshots/vlan-topology.png)
+![VLAN](screenshots/same-vlan-ping.png)
 
 **Inter-VLAN Ping**
 

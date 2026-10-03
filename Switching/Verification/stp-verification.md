@@ -1,9 +1,3 @@
-Here is the polished, portfolio-ready version of your `stp-verification.md`. 
-
-Just like the VLAN document, I have transformed this from a "lab checklist" into a formal **engineering validation report**. It clearly separates steady-state topology verification from dynamic convergence testing, which is exactly what hiring managers look for when evaluating network resiliency.
-
-***
-
 # STP Operational Verification & Convergence Testing
 
 ## Objective
@@ -67,9 +61,25 @@ A controlled topology change was executed to validate STP convergence behavior.
 * **Traffic Restoration:** The continuous ping experienced a brief, acceptable interruption (sub-second to a few seconds, depending on STP mode) before successfully restoring Layer 2 connectivity.
 * **Loop Prevention:** No broadcast storms or MAC flapping were observed during the transition.
 
+**STP Test Topology**
+
+![STP](screenshots/stp-topology.png)
+
 **HQ-SW-1**
 
 ![STP](screenshots/hq-sw1-sh-span-vlan10.png)
+
+**HQ-SW-2**
+
+![STP](screenshots/hq-sw2-sh-span-vlan10.png)
+
+**HQ-SW-3**
+
+![STP](screenshots/hq-sw3-sh-span-vlan10.png)
+
+**HQ-SW-4**
+
+![STP](screenshots/hq-sw4-sh-span-vlan10.png)
 
 ---
 

@@ -1,0 +1,105 @@
+hostname HQ-EDGE-2
+
+interface Loopback0
+ description OSPF_ROUTER_ID
+ ip address 10.255.10.2 255.255.255.255
+!
+interface FastEthernet0/0
+ description WAN_TO_CHI-R2
+ ip address 172.16.1.1 255.255.255.252
+ duplex half
+!
+interface FastEthernet1/0
+ description WAN_TO_DAL-R2
+ ip address 172.16.1.5 255.255.255.252
+ duplex half
+!
+interface FastEthernet2/0
+ description WAN_TO_MIA-R2
+ ip address 172.16.1.9 255.255.255.252
+ duplex half
+!
+interface FastEthernet3/0
+ description WAN_TO_ASH-R2
+ ip address 172.16.1.13 255.255.255.252
+ duplex half
+!
+interface FastEthernet4/0
+ description TO_R43_OUTSIDE_TRANSIT
+ ip address 10.255.110.2 255.255.255.240
+ ip ospf 10 area 0
+ duplex half
+ ipv6 address 2001:DB8:1000:1201::2/64
+!
+interface FastEthernet5/0
+ description TO_HQ-FW-2
+ no ip address
+ duplex half
+ ipv6 address 2001:DB8:1000:1203::2/64
+ ipv6 ospf 10 area 0
+!
+interface FastEthernet6/0
+ ip address 192.0.2.6 255.255.255.252
+ duplex half
+!
+router ospf 10
+ router-id 10.255.10.2
+ network 10.10.10.0 0.0.0.255 area 0
+ network 10.10.20.0 0.0.0.255 area 0
+ network 10.10.30.0 0.0.0.255 area 0
+ network 10.10.40.0 0.0.0.255 area 0
+ network 10.10.50.0 0.0.0.255 area 0
+ network 10.10.60.0 0.0.0.255 area 0
+ network 10.10.70.0 0.0.0.255 area 0
+ network 10.255.10.2 0.0.0.0 area 0
+ network 10.255.110.0 0.0.0.7 area 0
+ network 10.255.110.0 0.0.0.15 area 0
+ network 172.16.1.0 0.0.0.3 area 0
+ network 172.16.1.4 0.0.0.3 area 0
+ network 172.16.1.8 0.0.0.3 area 0
+ network 172.16.1.12 0.0.0.3 area 0
+ default-information originate metric 100 metric-type 1
+!
+router bgp 65000
+ bgp router-id 10.255.10.2
+ bgp log-neighbor-changes
+ network 10.0.0.0
+ network 10.10.10.0 mask 255.255.255.0
+ network 10.255.0.0 mask 255.255.0.0
+ network 10.255.10.2 mask 255.255.255.255
+ neighbor 10.255.10.1 remote-as 65000
+ neighbor 10.255.10.1 update-source Loopback0
+ neighbor 10.255.10.1 next-hop-self
+ neighbor 192.0.2.5 remote-as 65002
+!
+ip forward-protocol nd
+no ip http server
+no ip http secure-server
+!
+ip access-list standard PRTG-SNMP
+ permit 172.16.109.133
+!
+ip tacacs source-interface FastEthernet4/0
+!
+tacacs server MERIDIAN-ISE
+ address ipv4 172.16.109.150
+ key Pateau1!
+!
+radius server MERIDIAN-ISE
+ address ipv4 172.16.109.150 auth-port 1812 acct-port 1812
+ key Pateau1!
+!
+ipv6 router ospf 10
+!
+snmp-server group PRTG-GROUP v3 auth read PRTG-VIEW access PRTG-SNMP
+snmp-server view PRTG-VIEW iso included
+snmp-server location Meridian-HQ
+snmp-server contact Network-Operations
+!
+line vty 0 4
+ login authentication TACACS-LOGIN
+ transport input ssh
+!
+line vty 5 15
+ login authentication TACACS-LOGIN
+ transport input ssh

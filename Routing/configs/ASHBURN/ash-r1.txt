@@ -1,0 +1,142 @@
+!
+upgrade fpd auto
+version 15.3
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
+!
+hostname ASH-R1
+!
+boot-start-marker
+boot-end-marker
+!
+aqm-register-fnf
+!
+!
+no aaa new-model
+!
+!
+!
+!
+!
+!
+ip cef
+no ipv6 cef
+!
+multilink bundle-name authenticated
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+redundancy
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+interface Loopback0
+ ip address 10.255.50.1 255.255.255.255
+!
+interface FastEthernet0/0
+ ip address 172.16.0.14 255.255.255.252
+ ip ospf cost 10
+ duplex half
+!
+interface FastEthernet1/0
+ description DOWNLINK-TO-FWs
+ ip address 10.255.112.1 255.255.255.248
+ ip ospf 10 area 0
+ duplex half
+!
+interface FastEthernet2/0
+ description TO-ASH-FW-2
+ no ip address
+ ip ospf 10 area 0
+ shutdown
+ duplex half
+!
+interface FastEthernet3/0
+ no ip address
+ shutdown
+ duplex half
+!
+interface FastEthernet4/0
+ no ip address
+ shutdown
+ duplex half
+!
+interface FastEthernet5/0
+ no ip address
+ shutdown
+ duplex half
+!
+interface FastEthernet6/0
+ no ip address
+ shutdown
+ duplex half
+!
+router ospf 10
+ router-id 10.255.50.1
+ passive-interface Loopback0
+ network 10.255.50.1 0.0.0.0 area 0
+ network 10.255.112.0 0.0.0.7 area 0
+ network 172.16.0.12 0.0.0.3 area 0
+!
+ip tacacs source-interface FastEthernet1/0
+!
+tacacs server MERIDIAN-ISE
+ address ipv4 172.16.109.150
+ key Pateau1!
+!
+radius server MERIDIAN-ISE
+ address ipv4 172.16.109.150 auth-port 1812 acct-port 1812
+ key Pateau1!
+!
+ip forward-protocol nd
+no ip http server
+no ip http secure-server
+!
+!
+!
+!
+!
+!
+control-plane
+!
+!
+mgcp behavior rsip-range tgcp-only
+mgcp behavior comedia-role none
+mgcp behavior comedia-check-media-src disable
+mgcp behavior comedia-sdp-force disable
+!
+mgcp profile default
+!
+!
+!
+gatekeeper
+ shutdown
+!
+!
+line con 0
+ stopbits 1
+line aux 0
+ stopbits 1
+line vty 0 4
+ login
+ transport input all
+!
+!
+end
