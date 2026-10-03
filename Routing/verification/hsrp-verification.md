@@ -1,3 +1,7 @@
+
+
+https://github.com/user-attachments/assets/ae8f8982-e587-487d-b652-b4f0a5b4d7c8
+
 # HSRP Operational Verification & Failover Testing
 
 ## Overview
@@ -79,6 +83,8 @@ Immediately following the failure, the network state was re-evaluated on the sec
 - **Ping Test:** The continuous ping from the endpoint experienced a brief, acceptable interruption (typically 3–5 dropped packets, aligning with HSRP hold-timer defaults) before seamlessly restoring connectivity through the new Active router (HQ-R2).  
 
 **Please enlarge for clearer video**
+
+https://github.com/user-attachments/assets/b726446d-5f2e-445f-bfa7-cb1e55ea5388
 
 ### 3.5 Path Recovery & Preemption
 The failed interface on HQ-R1 was restored (`no shutdown`). 
