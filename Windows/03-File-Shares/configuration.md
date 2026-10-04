@@ -66,7 +66,7 @@ Successfully opened and read a file from the share.
 ### 4.2 Write Access (DENIED)
 Attempted to modify the file. The OS explicitly denied the action.
 
-https://github.com/user-attachments/assets/1522c632-2694-4d01-9f12-606014ad3c2c
+https://github.com/user-attachments/assets/534d7390-f90b-4b52-af95-c18066ef3c44
 
 ![Write Denied Screenshot](screenshots/unable-to-write.png)
 
