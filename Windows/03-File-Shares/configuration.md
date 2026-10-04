@@ -26,11 +26,11 @@ Access is dictated by the authenticated Windows identity. Two distinct identitie
 
 1. **Network Administrator:** A privileged account granted Full Control/Modify rights.
    
-   ![File Share](screenshots/network-user-shares.png)
+   ![Network Admin Identity](screenshots/network-admin-shares.png)
    
 2. **802.1X Network User:** A standard domain account granted Read & Execute rights.
    
-   ![File Share](screenshots/network-admin-shares.png)
+   ![Network User Identity](screenshots/network-user-share.png)
 
 ---
 
@@ -42,9 +42,13 @@ The administrator account was tested to verify full management capabilities.
   
   **Please enlarge for clearer video**
   
+  <video src="screenshots/write-privilege.mp4" width="100%" controls></video>
+  
 - **Create/Delete:** Successfully created a new file and subsequently deleted it.
   
   **Please enlarge for clearer video**
+  
+  <video src="screenshots/create-delete.mp4" width="100%" controls></video>
 
 **Result:** Administrative access controls are functioning as designed.
 
@@ -54,39 +58,42 @@ The administrator account was tested to verify full management capabilities.
 
 Negative testing is critical to prove that permissions are actively enforced, not just configured. The standard user account was tested against the same share.
 
-- **Read:** Successfully opened and read a file from the share.
-  
-  ![File Share](screenshots/read-successful.png)
-  
-- **Write:** Attempted to modify the file. The OS explicitly denied the action.
-  
-  **Please enlarge for clearer video**
-  
-  ![File Share](screenshots/unable-to-write.png)
-  
-- **Create:** Attempted to create a new file in the directory. The OS explicitly denied the action.
-  
-  ![File Share](screenshots/unable-to-write.png)
+### 4.1 Read Access
+Successfully opened and read a file from the share.
+
+![Read Successful](screenshots/read-successful.png)
+
+### 4.2 Write Access (DENIED)
+Attempted to modify the file. The OS explicitly denied the action.
+
+<video src="screenshots/write-denied.mp4" width="100%" controls></video>
+
+![Write Denied Screenshot](screenshots/unable-to-write.png)
+
+### 4.3 Create Access (DENIED)
+Attempted to create a new file in the directory. The OS explicitly denied the action.
+
+![Unable to Create](screenshots/unable-to-create.png)
 
 **Result:** The Principle of Least Privilege is successfully enforced.
 
+## 5. Evidence Repository
 
-
-**Architecture & Configuration**
+### Architecture & Configuration
 - [x] `file-share-visio.png` — File share access model diagram.
-- [x] `ntfs-permissions.png` — Granular NTFS permissions configured correctly.
+- [x] `nfts-permissions.png` — Granular NTFS permissions configured correctly.
 - [x] `network-admin-shares.png` — Share-level permissions established (Admin context).
 - [x] `network-user-share.png` — Share-level permissions established (User context).
 
-**Admin Validation (Positive Testing)**
+### Admin Validation (Positive Testing)
 - [x] `write-privilege.mp4` — Video proof of admin write/modify privileges.
 - [x] `share-permissions.gif` — Animated proof of admin share access.
 - [x] `creating-file.mp4` — Video proof of admin successfully creating a file.
 
-**User Validation (Read Access)**
+### User Validation (Read Access)
 - [x] `read-successful.png` — Standard user can successfully read files.
 
-**User Validation (Negative Testing)**
+### User Validation (Negative Testing)
 - [x] `unable-to-write.png` — Standard user write attempts blocked (Screenshot).
 - [x] `write-denied-screenshot.png` — Additional screenshot of write denial.
 - [x] `write-denied.mp4` — Video proof of standard user write attempts blocked.
