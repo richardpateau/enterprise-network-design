@@ -12,17 +12,7 @@ This section documents the deployment of IEEE 802.1X port-based Network Access C
 
 The Meridian 802.1X deployment follows the standard RADIUS framework, utilizing three distinct roles:
 
-```text
-   [ Supplicant ]          [ Authenticator ]          [ Authentication Server ]
-  (Endpoint/PC)            (Cisco Catalyst Switch)          (Cisco ISE + AD)
-       |                           |                               |
-       |--- EAPOL (802.1X) ------->|                               |
-       |                           |--- RADIUS (EAP) ------------->|
-       |                           |                               |--- LDAP/MS-RPC ---> [ Active Directory ]
-       |                           |<-- RADIUS Access-Accept -------|<-- Auth Success ---|
-       |<--- EAP Success ----------|                               |
-       |                           |--- Dynamic VLAN Assignment -->|
-```
+![ISE](screenshots/ise-visio.png)
 
 1.  **Supplicant:** The endpoint (e.g., PC1, Alpine Linux) requesting network access, configured with user credentials.
 2.  **Authenticator:** The Cisco switch port, which acts as the gatekeeper, blocking all traffic except 802.1X EAPOL frames until authentication succeeds.
