@@ -42,7 +42,7 @@ The administrator account was tested to verify full management capabilities.
   
   **Please enlarge for clearer video**
   
-  <video src="video/write-privilege.mp4" width="100%" controls></video>
+<video src="video/write-privilege.mp4" width="100%" controls></video>
   
 - **Create/Delete:** Successfully created a new file and subsequently deleted it.
   
