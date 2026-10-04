@@ -31,6 +31,8 @@ After configuring the service, a remote administrative client was used to initia
 
 **Please enlarge for clearer video**
 
+https://github.com/user-attachments/assets/bd9072b5-1eef-4855-a0c9-b1bac05a9bb1
+
 ---
 
 ## 3. Evidence
