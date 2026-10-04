@@ -13,8 +13,6 @@ To enforce granular access control, permissions are evaluated at the NTFS level.
 ### 1.1 Share Configuration
 A dedicated file share was created to host Meridian network resources. Share-level permissions were configured to allow baseline access, delegating the actual access control to NTFS.
 
-![File Share](screenshots/share-permission.png)
-
 ### 1.2 NTFS Permissions
 Granular NTFS permissions were applied to the folder. This ensures that even if a user bypasses the network share, the underlying file system enforces the security boundary.
 
@@ -72,24 +70,27 @@ Negative testing is critical to prove that permissions are actively enforced, no
 
 **Result:** The Principle of Least Privilege is successfully enforced.
 
----
 
-## 5. Evidence
 
-| Verification Stage | Evidence File | What It Proves |
-| :--- | :--- | :--- |
-| **Architecture & Config** | `file-share-visio.png` | File share architecture and access model diagram. |
-| | `nfts-permissions.png` | Granular NTFS permissions configured correctly. |
-| | `network-admin-shares.png` | Share-level permissions established (Admin context). |
-| | `network-user-share.png` | Share-level permissions established (User context). |
-| **Admin Validation (Positive)** | `write-privilege.mp4` | Video proof of admin write/modify privileges. |
-| | `share-permissions.gif` | Animated proof of admin share access/permissions. |
-| | `creating-file.mp4` | Video proof of admin successfully creating a file. |
-| **User Validation (Read Access)** | `read-successful.png` | Standard user can successfully read files. |
-| **User Validation (Negative)** | `unable-to-write.png` | Standard user write attempts are blocked (Screenshot). |
-| | `write-denied-screenshot.png` | Additional screenshot of write denial. |
-| | `write-denied.mp4` | Video proof of standard user write attempts being blocked. |
-| | `unable-to-create.png` | Standard user create attempts are blocked. |
+**Architecture & Configuration**
+- [x] `file-share-visio.png` — File share access model diagram.
+- [x] `ntfs-permissions.png` — Granular NTFS permissions configured correctly.
+- [x] `network-admin-shares.png` — Share-level permissions established (Admin context).
+- [x] `network-user-share.png` — Share-level permissions established (User context).
+
+**Admin Validation (Positive Testing)**
+- [x] `write-privilege.mp4` — Video proof of admin write/modify privileges.
+- [x] `share-permissions.gif` — Animated proof of admin share access.
+- [x] `creating-file.mp4` — Video proof of admin successfully creating a file.
+
+**User Validation (Read Access)**
+- [x] `read-successful.png` — Standard user can successfully read files.
+
+**User Validation (Negative Testing)**
+- [x] `unable-to-write.png` — Standard user write attempts blocked (Screenshot).
+- [x] `write-denied-screenshot.png` — Additional screenshot of write denial.
+- [x] `write-denied.mp4` — Video proof of standard user write attempts blocked.
+- [x] `unable-to-create.png` — Standard user create attempts blocked.
 
 ---
 
