@@ -42,7 +42,7 @@ The administrator account was tested to verify full management capabilities.
   
   **Please enlarge for clearer video**
 
-  https://github.com/user-attachments/assets/63795653-7082-4d36-92fb-2957f73b54e9
+  https://github.com/user-attachments/assets/f1a60925-6aff-44ef-b04b-1053acdbaae0
 
 - **Create/Delete:** Successfully created a new file and subsequently deleted it.
   
