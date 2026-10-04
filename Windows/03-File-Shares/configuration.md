@@ -16,7 +16,7 @@ A dedicated file share was created to host Meridian network resources. Share-lev
 ### 1.2 NTFS Permissions
 Granular NTFS permissions were applied to the folder. This ensures that even if a user bypasses the network share, the underlying file system enforces the security boundary.
 
-![File Share](screenshots/nfts-permission.png)
+![File Share](screenshots/nfts-permissions.png)
 
 ---
 
