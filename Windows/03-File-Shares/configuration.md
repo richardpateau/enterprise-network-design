@@ -41,14 +41,14 @@ The administrator account was tested to verify full management capabilities.
 - **Write/Modify:** Successfully edited an existing file.
   
   **Please enlarge for clearer video**
-  
-  [▶️ Watch the Network Administrator Write Test](./videos/write-privilege.mp4)
-  
+
+  https://github.com/user-attachments/assets/63795653-7082-4d36-92fb-2957f73b54e9
+
 - **Create/Delete:** Successfully created a new file and subsequently deleted it.
   
   **Please enlarge for clearer video**
-  
-  <video src="screenshots/create-delete.mp4" width="100%" controls></video>
+
+  https://github.com/user-attachments/assets/71a86de9-49cf-473b-a7bf-8d13078ca982
 
 **Result:** Administrative access controls are functioning as designed.
 
@@ -66,7 +66,7 @@ Successfully opened and read a file from the share.
 ### 4.2 Write Access (DENIED)
 Attempted to modify the file. The OS explicitly denied the action.
 
-<video src="screenshots/write-denied.mp4" width="100%" controls></video>
+https://github.com/user-attachments/assets/1522c632-2694-4d01-9f12-606014ad3c2c
 
 ![Write Denied Screenshot](screenshots/unable-to-write.png)
 
