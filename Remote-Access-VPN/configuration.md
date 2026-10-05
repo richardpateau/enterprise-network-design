@@ -102,6 +102,8 @@ With the VPN tunnel active, the remote client successfully accessed the internal
 
 **Please enlarge for clearer video**
 
+https://github.com/user-attachments/assets/7d1570e3-e0d5-493a-9c50-fc34d82003b4
+
 ![Remote Access](screenshots/successful-sign-in.png)
 
 ### 3.3 Negative Access Test (Zero Trust Validation)
