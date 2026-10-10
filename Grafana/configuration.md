@@ -59,6 +59,7 @@ An intentional interface shutdown was performed on the active HSRP router. The d
 
 **Please enlarge for clearer video**
 
+https://github.com/user-attachments/assets/ad01abb8-8132-4b85-8e25-184b26ef6647
 
 ### 3.2 ISP Connectivity Failure
 The primary ISP-A path was deliberately failed. The Grafana IP SLA panel immediately reflected the loss of reachability.  
@@ -72,6 +73,7 @@ The primary ISP-A path was deliberately failed. The Grafana IP SLA panel immedia
 
 **Please enlarge for clearer video**
 
+https://github.com/user-attachments/assets/c9854e59-7ff9-44e1-9842-84976e060ad2
 
 ### 3.3 OSPF Neighbor Monitoring
 A routing link was shut down to verify OSPF adjacency monitoring. The dashboard correctly showed the neighbor state transitioning from FULL to DOWN, matching the CLI output.  
@@ -84,13 +86,14 @@ A routing link was shut down to verify OSPF adjacency monitoring. The dashboard 
 
 **Please enlarge for clearer video**
 
+https://github.com/user-attachments/assets/cd50167f-3b7e-4b0a-a045-076df29ae1f4
+
 ### 3.4 Site-to-Site VPN Verification
 Grafana IPsec tunnel counters were cross-referenced with the Cisco ASA CLI to ensure data accuracy.  
 
 ![Grafana](screenshots/ip-sec-panel.png)
 
 ![Grafana](screenshots/ip-sec-cli.png)
-
 
 ### 3.5 DMZ Web Server Health
 An HTTP health check panel was implemented to monitor the DMZ web server's response time, distinguishing between basic ICMP reachability and actual application-layer availability.
