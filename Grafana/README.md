@@ -59,7 +59,7 @@ The automation code is fully documented in the [`ansible-lab/`](./ansible-lab/) 
 
 This approach eliminates configuration drift and ensures that monitoring security (SNMPv3) is standardized across all Cisco IOS and ASA devices.
 
-![Grafana](screenshots/ansible-telegraf-playbook.png)
+![Grafana](screenshots/telegraf-anisble-playbook.png)
 
 ![Grafana](screenshots/telegraf-playbook-results.png)
 

@@ -21,7 +21,7 @@ The deployment followed a strict sequence to ensure security compliance:
 
 ![Grafana](screenshots/snmpv3-playbook.png)
 
-![Grafana](screenshots/snmpv3-playbook-results.png.png)
+![Grafana](screenshots/snmpv3-playbook-results.png)
 
 ## Phase 2: Telegraf Agent Deployment
 
@@ -30,7 +30,7 @@ Telegraf was deployed as the data collection agent, configured to poll the netwo
 **Ansible Automation:**  
 The Telegraf configuration and service deployment were automated via Ansible, eliminating manual configuration drift.  
 
-![Grafana](screenshots/ansible-telegraf-playbook.png)
+![Grafana](screenshots/telegraf-anisble-playbook.png)
 
 ![Grafana](screenshots/telegraf-playbook-results.png)
 
@@ -53,9 +53,10 @@ An intentional interface shutdown was performed on the active HSRP router. The d
 
 ![Grafana](screenshots/hsrp-test-baseline.png)
 
+![Grafana](screenshots/hsrp-intentional-shutdown-r1.png)
+
 ![Grafana](screenshots/hsrp-panel-during-failure.png)
 
-![Grafana](screenshots/hsrp-intentional-shutdown-r1.png)
 
 **Please enlarge for clearer video**
 
@@ -63,7 +64,6 @@ https://github.com/user-attachments/assets/ad01abb8-8132-4b85-8e25-184b26ef6647
 
 ### 3.2 ISP Connectivity Failure
 The primary ISP-A path was deliberately failed. The Grafana IP SLA panel immediately reflected the loss of reachability.  
-*[Insert Screenshots: `isp-a-test-before-baseline.png`, `isp-a-failure-panel-during-failure.png`]*  
 
 ![Grafana](screenshots/isp-panel-before-failure.png)
 
