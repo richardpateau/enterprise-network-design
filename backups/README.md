@@ -10,6 +10,8 @@ Additionally, the project includes a manually validated configuration restore wo
 
 **Please enlarge for clearer video**
 
+https://github.com/user-attachments/assets/ef7bc7d0-d128-4386-ac00-e87fcb181183
+
 ---
 
 ## Architecture
