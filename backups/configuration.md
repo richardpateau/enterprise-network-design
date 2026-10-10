@@ -74,6 +74,8 @@ The script successfully validated the environment variables, authenticated with 
 
 🎬 **Execution Evidence: Plrease enlarge for clearer video**
 
+https://github.com/user-attachments/assets/ef7bc7d0-d128-4386-ac00-e87fcb181183
+
 ---
 
 ## 5. Error Handling Implementation
