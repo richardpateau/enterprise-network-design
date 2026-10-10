@@ -1,0 +1,13 @@
+- name: Configure HQ-SW-1 base configuration
+  hosts: HQ-SW1
+  gather_facts: false 
+
+  vars: 
+    ansible_connection: ansible.netcommon.network_cli
+
+  tasks: 
+    - name: Configure hostname 
+      cisco.ios.ios_config: 
+        lines: 
+          - hostname HQ-SW-1 
+

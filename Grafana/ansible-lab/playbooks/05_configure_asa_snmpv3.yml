@@ -1,0 +1,31 @@
+- name: Configure SNMPv3 for ASA
+  hosts: HQ-FW-1 
+  gather_facts: false
+  become: true
+  become_method: enable 
+
+  vars: 
+    ansible_connection: ansible.netcommon.network_cli
+    ansible_network_os: cisco.asa.asa
+    ansible_user: "{{ lookup('env', 'SSH_USERNAME') }}"
+    ansible_password: "{{ lookup('env', 'ASA_PASSWORD') }}"
+    ansible_become_password: "{{ lookup('env', 'ASA_SECRET') }}"
+    snmp_auth_password: "{{ lookup('env', 'SNMP_AUTH_PASSWORD') }}"
+
+  tasks: 
+    - name: Configure SNMPv3 user 
+      cisco.asa.asa_config:
+        lines: 
+          - "snmp-server group PRTG-GROUP v3 auth"
+          - "snmp-server user prtgadmin PRTG-GROUP v3 auth sha {{ snmp_auth_password }}"
+          - "snmp-server host EDGE-ROUTERS 172.16.109.1 version 3 prtgadmin"
+          - "write"
+    - name: Configure SNMPv3 Location 
+      cisco.asa.asa_config: 
+        lines: 
+          - "snmp-server location Meridian-HQ"
+
+    - name: Configure SNMPv3 Contact 
+      cisco.asa.asa_config:
+        lines: 
+          - "snmp-server contact Network-Operations"

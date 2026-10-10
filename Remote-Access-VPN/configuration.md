@@ -15,7 +15,7 @@ Active Directory was synchronized with Microsoft Entra ID. This included configu
 
 **Downloading Connect Sync via Entra ID**
 
-![Remote Access](screenshots/hq-fw1-ikev2-sa.png)
+![Remote Access](screenshots/ad-connect-sync.png)
 
 **Applying UPN for Entra ID**
 
@@ -35,7 +35,7 @@ Active Directory was synchronized with Microsoft Entra ID. This included configu
 
 **Users in Active Directory**
 
-![Remote Access](screenshots/hq-fw1-ikev2-sa.png)
+![Remote Access](screenshots/ad-users.png)
 
 **AD users successfully added to Entra ID**
 
@@ -44,7 +44,7 @@ Active Directory was synchronized with Microsoft Entra ID. This included configu
 ### 1.2 SAML & Certificate Configuration
 The Cisco ASA was registered as an Enterprise Application in Entra ID. The SAML SSO configuration was finalized by downloading the base64 SSO certificate from the IdP and installing it onto the ASA's crypto CA trustpoint.
 
-![Remote Access](screenshots/vbase64-cert.png)
+![Remote Access](screenshots/base64-cert.png)
 
 ![Remote Access](screenshots/certs-used-base64.png)
 
@@ -71,7 +71,7 @@ A specific IP address pool was configured to assign virtual IPs to remote client
 
 ![Remote Access](screenshots/address-pool-config.png)
 
-![Remote Access](screenshots/address-pools.png)
+![Remote Access](screenshots/asa-address-pools.png)
 
 ![Remote Access](screenshots/vpn-acl.png)
 

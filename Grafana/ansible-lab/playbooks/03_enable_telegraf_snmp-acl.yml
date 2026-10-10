@@ -1,0 +1,18 @@
+- name: Allow Telegraf SNMP Monitoring 
+  hosts: HQ-EDGE-1, HQ-EDGE-2, HQ-SW-1, HQ-SW-2, HQ-SW-3, HQ-SW-4, HQ-R2, HQ-R1
+  gather_facts: false 
+
+  vars: 
+    ansible_connection: ansible.netcommon.network_cli
+    ansible_user: "{{ lookup('env', 'SSH_USERNAME') }}"
+    ansible_password: "{{ lookup('env', 'SSH_PASSWORD') }}"
+    ansible_become_password: "{{ lookup('env', 'SECRET') }}"
+
+  tasks:
+    - name: Permit Telegraf Monitoring host 
+      cisco.ios.ios_config:
+        parents: 
+          - ip access-list standard PRTG-SNMP
+        lines: 
+          - permit host 172.16.109.1 
+          - do write

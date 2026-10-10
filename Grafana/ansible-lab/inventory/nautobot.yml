@@ -1,0 +1,5 @@
+plugin: networktocode.nautobot.gql_inventory
+
+# Optional: Add this if your lab uses self-signed certificates
+validate_certs: false
+

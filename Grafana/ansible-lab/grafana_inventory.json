@@ -1,0 +1,67 @@
+{
+  "devices": {
+    "HQ-EDGE-1": {
+      "address": "10.255.10.1",
+      "location": "New York",
+      "role": "WAN Edge",
+      "platform": "cisco_ios"
+    },
+    "HQ-EDGE-2": {
+      "address": "10.255.10.2",
+      "location": "New York",
+      "role": "WAN Edge",
+      "platform": "cisco_ios"
+    },
+    "HQ-FW-1": {
+      "address": "10.255.110.3",
+      "location": "New York",
+      "role": "Firewall",
+      "platform": "Cisco ASA"
+    },
+    "HQ-FW-2": {
+      "address": "10.255.110.4",
+      "location": "New York",
+      "role": "Firewall",
+      "platform": "Cisco ASA"
+    },
+    "HQ-R1": {
+      "address": "10.10.10.2",
+      "location": "New York",
+      "role": "Core",
+      "platform": "Cisco IOS-XE"
+    },
+    "HQ-R2": {
+      "address": "10.10.10.3",
+      "location": "New York",
+      "role": "Core",
+      "platform": "Cisco IOS-XE"
+    },
+    "HQ-SW-1": {
+      "address": "10.10.50.11",
+      "location": "New York",
+      "role": "Access",
+      "platform": "cisco_ios"
+    },
+    "HQ-SW-2": {
+      "address": "10.10.50.10",
+      "location": "New York",
+      "role": "Access",
+      "platform": "cisco_ios"
+    },
+    "HQ-SW-3": {
+      "address": "10.10.50.12",
+      "location": "New York",
+      "role": "Access",
+      "platform": "cisco_ios"
+    },
+    "HQ-SW-4": {
+      "address": "10.10.50.13",
+      "location": "New York",
+      "role": "Access",
+      "platform": "cisco_ios"
+    }
+  },
+  "skipped": [
+    "HQ-FW-2"
+  ]
+}

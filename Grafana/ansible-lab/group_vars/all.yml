@@ -1,0 +1,7 @@
+ansible_connection: ansible.netcommon.network_cli
+ansible_become_method: enable
+asnible_become: true
+
+ansible_user: "{{ lookup('env', 'SSH_USERNAME') }}"
+ansible_password: "{{ lookup('env', 'SSH_PASSWORD') }}"
+ansible_become_password: "{{ lookup('env', 'SECRET') }}"

@@ -1,0 +1,35 @@
+- name: Deploy Meridian Telegraf SNMP configuration 
+  hosts: localhost
+  connection: local 
+  gather_facts: false 
+
+  vars: 
+    inventory_file: "/home/rich/ansible-lab/grafana_inventory.json"
+    snmp_auth_password: "{{ lookup('env', 'SNMP_AUTH_PASSWORD') }}"
+
+  tasks: 
+    - name: Load Nautobot generated monitoring inventory  
+      ansible.builtin.include_vars:
+        file: "{{ inventory_file }}"
+        name: grafana_inventory 
+
+    - name: Build Monitoring device list 
+      ansible.builtin.set_fact:
+        monitoring_devices: "{{ grafana_inventory.devices | dict2items }}"
+
+    - name: Deploy Telegraf SNMP configuration 
+      become: true 
+      ansible.builtin.template: 
+        src: "/home/rich/ansible-lab/templates/meridian-snmp-conf.j2"
+        dest: /etc/telegraf/telegraf.d/meridian-snmp.conf
+        owner: root
+        group: telegraf
+        mode: "0640"
+      notify: Restart Telegraf 
+
+  handlers: 
+    - name: Restart Telegraf
+      become: true
+      ansible.builtin.service: 
+        name: telegraf
+        state: restarted 

@@ -1,0 +1,27 @@
+- name: Configure SNMPv3 username 
+  hosts: HQ-SW-1, HQ-SW-2, HQ-SW-3, HQ-SW-4, HQ-R1, HQ-R2, HQ-EDGE-1, HQ-EDGE-2
+  gather_facts: false 
+
+  vars: 
+    ansible_connection: ansible.netcommon.network_cli
+    ansible_user: "{{ lookup('env', 'SSH_USERNAME') }}"
+    ansible_password: "{{ lookup('env', 'SSH_PASSWORD') }}"
+    ansible_become_password: "{{ lookup('env', 'SECRET') }}"
+    snmp_auth_password: "{{ lookup('env', 'SNMP_AUTH_PASSWORD') }}"
+
+  tasks: 
+    - name: Configure SNMPv3 Monitoring user
+      cisco.ios.ios_config: 
+        lines: 
+          - "snmp-server user prtgadmin PRTG-GROUP v3 auth sha {{ snmp_auth_password }}"
+        save_when: always
+
+    - name: Verify SNMPv3 username  
+      cisco.ios.ios_command:
+        commands: 
+          - show snmp user 
+      register: snmp_user
+
+    - name: Display SNMPv3 User  
+      ansible.builtin.debug: 
+        var: snmp_user.stdout_lines
