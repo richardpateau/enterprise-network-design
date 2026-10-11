@@ -8,6 +8,8 @@ The implementation ensures business continuity through stateful firewall failove
 
 **HA Sync Video: Please enlarge for clearer video**
 
+https://github.com/user-attachments/assets/67745aa3-b243-4254-87ff-124be2f53263
+
 ---
 
 ## Architecture
@@ -76,6 +78,8 @@ A controlled interruption was introduced to the Active firewall. The Standby fir
 | **Direct IP Access** | Ext Client | Private DMZ IP (10.10.80.10) | Blocked (No NAT match) |  Host Unreachable |
 
 **Please enlarger for clearer video: External to DMZ Web Server**
+
+https://github.com/user-attachments/assets/60b0a6e6-7976-4952-8b85-6190bee31837
 
 ---
 
