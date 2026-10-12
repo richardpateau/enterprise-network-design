@@ -82,7 +82,7 @@ show xlate
 
 ![ASA](screenshots/sh-nat-detail.png)
 
-![ASA](screenshots/sh-xlate.png)
+![ASA](screenshots/show-xlate.png)
 
 ![ASA](screenshots/wireshark-http-overview.png)
 
