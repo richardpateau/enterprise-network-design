@@ -109,8 +109,6 @@ https://github.com/user-attachments/assets/79a4933e-8b98-496c-a6c6-0bd5d6783693
 
 ![WLC](screenshots/meridian-corporate-joined.png)
 
-![WLC](screenshots/pc-vlan-10-ip.png)
-
 ![WLC](screenshots/phone-vlan-10-ip.png)
 
 ---
