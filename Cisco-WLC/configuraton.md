@@ -75,9 +75,13 @@ The WLC forwards EAPOL frames to ISE. ISE evaluates the user against the `Networ
 
 **Successful sign in: Please enlarge for clearer video**
 
-![WLC](screenshots/sh-802.11.png)
+https://github.com/user-attachments/assets/112f8caf-2f7e-4619-bd21-2da0dc6e4e84
+
+![WLC](screenshots/meridian-corporate-joined.png)
 
 **Wrong password: Please enlarge for clearer video**
+
+https://github.com/user-attachments/assets/79a4933e-8b98-496c-a6c6-0bd5d6783693
 
 ![WLC](screenshots/sh-802.11.png)
 
@@ -88,7 +92,6 @@ The WLC forwards EAPOL frames to ISE. ISE evaluates the user against the `Networ
 **Adding RADUS via ISE to WLAN**
 
 ![WLC](screenshots/aaa-authentication.png)
-
 
 ![WLC](screenshots/corporate-aaa-settings.png)
 
@@ -108,9 +111,7 @@ The WLC forwards EAPOL frames to ISE. ISE evaluates the user against the `Networ
 
 ![WLC](screenshots/meridian-corporate-joined.png)
 
-
 ![WLC](screenshots/pc-vlan-10-ip.png)
-
 
 ![WLC](screenshots/phone-vlan-10-ip.png)
 
@@ -144,10 +145,11 @@ Extended IP access list GUEST-VLAN40-IN
     70 permit ip 10.10.40.0 0.0.0.255 any                   ! Allow internet access
 
 ```
-
 *Troubleshooting Note: The guest virtual gateway was updated from the default `1.1.1.1` to `192.0.2.1` to resolve web redirection routing issues, after which the passthrough flow functioned correctly.*
 
 **Please enlarge for clearer video**
+
+https://github.com/user-attachments/assets/891f2b92-c25b-47c6-bdd4-850c34146110
 
 **Guest VLAN 40 interface created**
 
