@@ -8,6 +8,10 @@ The implementation delivers two distinct wireless services: a secure, 802.1X-aut
 
 **Please enlarge for clearer video**
 
+https://github.com/user-attachments/assets/60321737-4bc5-41d0-8398-0254bff6391e
+
+https://github.com/user-attachments/assets/2099af68-b40b-473f-a3a3-b1ba622819ed
+
 ---
 
 ## Architecture
