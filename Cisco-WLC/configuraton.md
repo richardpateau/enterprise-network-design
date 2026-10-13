@@ -77,8 +77,6 @@ The WLC forwards EAPOL frames to ISE. ISE evaluates the user against the `Networ
 
 https://github.com/user-attachments/assets/112f8caf-2f7e-4619-bd21-2da0dc6e4e84
 
-![WLC](screenshots/meridian-corporate-joined.png)
-
 **Wrong password: Please enlarge for clearer video**
 
 https://github.com/user-attachments/assets/79a4933e-8b98-496c-a6c6-0bd5d6783693
