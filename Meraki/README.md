@@ -47,7 +47,7 @@ https://github.com/user-attachments/assets/85b8cb94-f67c-4e26-bf8f-c9c49aff8157
 
 ![Meraki](screenshots/meraki-visio.png)
 
-![Meraki](screenshots/physical-meraki.png)
+![Meraki](screenshots/physical-meraki.jpeg)
 
 ### Wireless Networks
 
