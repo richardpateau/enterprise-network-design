@@ -16,9 +16,9 @@ The implementation delivers two distinct wireless services: a secure, 802.1X-aut
 
 ![Topology](screenshots/topology.png)
 
-![Topology](screenshots/topology.png)
+![Topology](screenshots/physical-ap.png)
 
-![Topology](screenshots/topology.png)
+![Topology](screenshots/physical-switch.png)
 
 ### Core Components
 | Component | Purpose |
