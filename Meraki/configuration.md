@@ -50,6 +50,10 @@ The lab includes a successful corporate sign-in recording and a failed sign-in r
 
 **Please enlarge for clearer video**
 
+https://github.com/user-attachments/assets/46924ebf-e3ba-4a8e-abd3-4ff0f9657b83
+
+https://github.com/user-attachments/assets/03e36f05-ce47-4136-941c-e6338bec11ff
+
 **ISE: Adding Meraki to network devices**
 
 ![Meraki](screenshots/ise-meraki-added.png)
@@ -94,6 +98,8 @@ The lab includes a successful corporate sign-in recording and a failed sign-in r
 The guest workflow presents the customized splash page to the connecting client. The splash-page screenshot, guest client screenshots, and guest connection recording document the onboarding experience. A working splash page does not independently prove network-layer isolation.
 
 **Pleas enlarge for clearer video**
+
+https://github.com/user-attachments/assets/dbd81db5-aa3e-489a-8814-2c49e5d13373
 
 **Configuring click-through for Meridian-Guest-Meraki**
 
