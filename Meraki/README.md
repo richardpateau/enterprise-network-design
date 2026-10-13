@@ -14,6 +14,9 @@ The lab demonstrates cloud-based access point management, corporate 802.1X authe
 
 **Please enlarge for clearer video**
 
+https://github.com/user-attachments/assets/fb88896f-27e0-4841-9747-cd123ecaec80
+
+https://github.com/user-attachments/assets/85b8cb94-f67c-4e26-bf8f-c9c49aff8157
 
 ---
 
