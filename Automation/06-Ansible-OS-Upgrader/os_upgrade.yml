@@ -1,0 +1,85 @@
+- name: 
+  hosts: PHYSICAL-SWITCH
+  gather_facts: false
+  connection: network_cli 
+
+  vars: 
+    new_image: "c2960s-universalk9-mz.152-2.E9.bin"
+    tftp_server_ip: "172.16.109.1"
+    target_version: "15.2(2)E9"
+
+  tasks: 
+    - name: Check Flash  
+      cisco.ios.ios_command: 
+        commands: show flash
+      register: flash_output
+
+    - name: Display Flash (Check Memory during DRY_RUN)
+      debug: 
+        msg: "Current Flash Output: {{ flash_output }}"
+
+    - name: Check Current IOS Version 
+      cisco.ios.ios_command: 
+        commands: show version 
+      register: current_version_output
+
+    - name: Display IOS Version 
+      debug: 
+        msg: "Current Version: {{ current_version_output }}"
+
+    - name: Download New Image (TFTP)
+      cisco.ios.ios_command: 
+        commands:
+          - command: "copy tftp://{{ tftp_server_ip }}/{{ new_image }} flash:"
+            prompt: "Destination filename"
+            answer: "{{ new_image }}"
+      vars: 
+        ansible_command_timeout: 2000
+      register: download_result 
+
+    - name: Confirm Download Success 
+      debug: 
+        msg: "New Image Download Successfully"
+      when: download_result.changed
+
+    - name: Configure boot 
+      cisco.ios.ios_config: 
+        lines: 
+          - "boot system flash:{{ new_image }}"
+        save_when: always
+      register: boot_config
+
+    - name: Confirm Boot Configuration 
+      debug: 
+        msg: "Boot Configuration successful: {{ boot_config }}"
+      when: boot_config.changed
+
+    - name: Reload Switch 
+      ansible.netcommon.cli_command:
+        command: "reload"
+        prompt: 
+          - "Proceed with reload?"
+        answer: 
+          - "y"
+      vars: 
+        ansible_command_timeout: 2000
+      register: reload_result 
+      ignore_errors: yes
+
+    - name: Wait for Switch to Reboot 
+      wait_for_connection: 
+        delay: 60
+        timeout: 600
+        sleep: 10 
+    
+    - name: Verify New IOS version 
+      cisco.ios.ios_command: 
+        commands: show version 
+      register: new_version_output
+
+    - name: Validate Upgrade successful
+      assert: 
+        that: 
+          - "target_version in new_version_output.stdout[0]"
+        success_msg: "Switch successfully upgraded to {{ target_version }}"
+        fail_msg: "Switch failed to upgrade to {{ target_version }}"
