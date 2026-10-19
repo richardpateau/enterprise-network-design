@@ -34,7 +34,6 @@ jobs:
 
   jinja2-dry-run:
     runs-on: self-hosted
-    if: contains(github.event.head_commit.modified, '04-Ansible-Jinja2-Deployer') || contains(github.event.head_commit.added, '04-Ansible-Jinja2-Deployer')
     steps:
       - name: Check Repository
         uses: actions/checkout@v3
@@ -53,7 +52,6 @@ jobs:
 
   os-upgrade-dry-run:
     runs-on: self-hosted
-    if: contains(github.event.head_commit.modified, '06-Ansible-OS-Upgrader') || contains(github.event.head_commit.added, '06-Ansible-OS-Upgrader')
     steps:
       - name: Check Repository
         uses: actions/checkout@v3
