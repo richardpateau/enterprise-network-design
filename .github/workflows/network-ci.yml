@@ -1,0 +1,72 @@
+name: Network CI/CD Pipeline
+
+on:
+  push:
+    branches: ["main"]
+  pull_requests:
+    branches: ["main"]
+
+jobs:
+  compliance-audit:
+    runs-on: self-hosted
+    steps:
+      - name: Check Repository
+        uses: actions/checkout@v3
+
+      - name: Install Ansible and Dependencies
+        run: | 
+          pip install ansible netaddr
+          ansible-galaxy collection install networktocode.nautobot cisco.ios
+
+      - name: Run VLAN Validation (Read Only)
+        run: | 
+          ansible-playbook -i nautobot_inventory.yml ../03-Ansible-State-Validator/vlan_validation.yml
+        env:
+          NAUTOBOT_TOKEN: ${{ secrets.NAUTOBOT_TOKEN }}
+          ANSIBLE_HOST_KEY_CHECKING: False
+
+      - name: Run ROAS Validation (Read Only)
+        run: | 
+          ansible-playbook -i nautobot_inventory.yml ../03-Ansible-State-Validator/roas_validation.yml
+        env:
+          NAUTOBOT_TOKEN: ${{ secrets.NAUTOBOT_TOKEN }}
+          ANSIBLE_HOST_KEY_CHECKING: False
+
+  jinja2-dry-run:
+    runs-on: self-hosted
+    if: contains(github.event.head_commit.modified, '04-Ansible-Jinja2-Deployer') || contains(github.event.head_commit.added, '04-Ansible-Jinja2-Deployer')
+    steps:
+      - name: Check Repository
+        uses: actions/checkout@v3
+
+      - name: Install Ansible and Dependencies
+        run: |
+          pip install ansible netaddr
+          ansible-galaxy collection install networktocode.nautobot cisco.ios
+
+      - name: Jinja2 Config Dry-Run
+        run: |
+          ansible-playbook -i nautobot_inventory.yml ../04-Ansible-Jinja2-Deployer/deploy_baseline.yml --check --diff
+        env:
+          NAUTOBOT_TOKEN: ${{ secrets.NAUTOBOT_TOKEN }}
+          ANSIBLE_HOST_KEY_CHECKING: False
+
+  os-upgrade-dry-run:
+    runs-on: self-hosted
+    if: contains(github.event.head_commit.modified, '06-Ansible-OS-Upgrader') || contains(github.event.head_commit.added, '06-Ansible-OS-Upgrader')
+    steps:
+      - name: Check Repository
+        uses: actions/checkout@v3
+
+      - name: Install Ansible and Dependencies
+        run: |
+          pip install ansible netaddr
+          ansible-galaxy collection install networktocode.nautobot cisco.ios
+
+      - name: OS Upgrade Pre-Flight Check
+        run: |
+          ansible-playbook -i nautobot_inventory.yml ../06-Ansible-OS-Upgrader/os_upgrade.yml --check --diff --limit PHYSICAL-SWITCH
+        env:
+          NAUTOBOT_TOKEN: ${{ secrets.NAUTOBOT_TOKEN }}
+          ANSIBLE_HOST_KEY_CHECKING: False
+
