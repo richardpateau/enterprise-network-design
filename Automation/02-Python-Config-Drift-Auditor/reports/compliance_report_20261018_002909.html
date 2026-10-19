@@ -1,0 +1,2499 @@
+<!-- templates/report_template.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Network Compliance Audit Report</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f7f6; margin: 0; padding: 20px; color: #333; }
+        .container { max-width: 900px; margin: 0 auto; background: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        .header { border-bottom: 2px solid #007bff; padding-bottom: 15px; margin-bottom: 20px; }
+        .header h1 { margin: 0; color: #007bff; font-size: 24px; }
+        .header p { margin: 5px 0 0; color: #666; font-size: 14px; }
+        .summary { display: flex; gap: 20px; margin-bottom: 30px; }
+        .stat-box { flex: 1; padding: 15px; border-radius: 6px; text-align: center; }
+        .stat-box h3 { margin: 0 0 10px; font-size: 14px; text-transform: uppercase; color: #555; }
+        .stat-box .value { font-size: 28px; font-weight: bold; }
+        .status-compliant { background-color: #d4edda; color: #155724; }
+        .status-drift { background-color: #f8d7da; color: #721c24; }
+        .status-error { background-color: #fff3cd; color: #856404; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { padding: 12px; text-align: left; border-bottom: 1px solid #ddd; }
+        th { background-color: #f8f9fa; color: #333; }
+        .badge { padding: 4px 8px; border-radius: 4px; font-size: 12px; font-weight: bold; color: #fff; }
+        .badge-added { background-color: #dc3545; } /* Red for rogue changes */
+        .badge-removed { background-color: #fd7e14; } /* Orange for missing config */
+        .code-snippet { font-family: 'Courier New', Courier, monospace; background: #f8f9fa; padding: 2px 5px; border-radius: 3px; }
+        .footer { margin-top: 40px; text-align: center; font-size: 12px; color: #999; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Network Configuration Compliance Report</h1>
+            <p>Generated on: 2026-10-18 00:29:09</p>
+        </div>
+
+        <div class="summary">
+            <div class="stat-box status-drift">
+                <h3>Overall Status</h3>
+                <div class="value">DRIFT DETECTED</div>
+            </div>
+            <div class="stat-box" style="background-color: #e2e3e5; color: #383d41;">
+                <h3>Total Devices Audited</h3>
+                <div class="value">3</div>
+            </div>
+            <div class="stat-box" style="background-color: #e2e3e5; color: #383d41;">
+                <h3>Total Drifts Found</h3>
+                <div class="value">399</div>
+            </div>
+        </div>
+
+        
+        <h2>Detailed Device Audit</h2>
+        
+            <h3 style="margin-top: 30px; color: #333;">️ HQ-EDGE-1</h3>
+            
+            
+                <p style="color: green; font-weight: bold;">✅ Device is fully compliant with the Golden Config.</p>
+            
+        
+            <h3 style="margin-top: 30px; color: #333;">️ HQ-EDGE-2</h3>
+            
+            
+                <p style="color: red; font-weight: bold;">❌ Configuration Drift Detected! (199 changes)</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Type</th>
+                            <th>Configuration Line</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">Current configuration : 3875 bytes</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">Current configuration : 3489 bytes</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">upgrade fpd auto</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">service compress-config</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">hostname HQ-SW-1</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">hostname HQ-EDGE-2</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">enable secret 4 8Yn3YXhZzp7CvwylTqs7xosa/yPYiGsjoYJpDDVNa7A</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">username sysadmin privilege 15 secret 4 8Yn3YXhZzp7CvwylTqs7xosa/yPYiGsjoYJpDDVNa7A</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">aqm-register-fnf</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">enable secret 5 $1$eR1a$QBUbAY680mMOMGFtKEX1a0</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">no ipv6 cef</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">ipv6 multicast rpf use-bgp</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">no ip domain-lookup</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">no ip domain lookup</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">ip domain-name networkingnotebook.com</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">ip domain name networkingnotebook.com</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">ipv6 unicast-routing</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">ipv6 cef</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">multilink bundle-name authenticated</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">username sysadmin privilege 15 secret 5 $1$vJJG$XUiHKwEtafOk6j4xfIMn./</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">redundancy</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">interface Loopback0</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">description OSPF_ROUTER_ID</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">ip address 10.255.10.2 255.255.255.255</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">ip dhcp snooping vlan 10,20,30,40,50,60,70</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">no ip dhcp snooping information option</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">ip dhcp snooping</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">spanning-tree mode rapid-pvst</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">spanning-tree extend system-id</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">spanning-tree vlan 10,20,30,40,50,60,70 priority 24576</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">vlan internal allocation policy ascending</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">interface Port-channel1</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">switchport</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">switchport trunk encapsulation dot1q</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">switchport trunk native vlan 999</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">switchport trunk allowed vlan 10,20,30,40,50,60,70,999</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">switchport mode trunk</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">interface Ethernet0/0</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">interface FastEthernet0/0</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">description WAN_TO_CHI-R2</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">ip address 172.16.1.1 255.255.255.252</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">description TRUNK-TO-HQ-R1-Fa0/0</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">switchport trunk encapsulation dot1q</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">switchport trunk native vlan 999</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">switchport trunk allowed vlan 10,20,30,40,50,60,70,999</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">switchport mode trunk</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">duplex auto</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">duplex half</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">ip dhcp snooping trust</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">interface Ethernet0/1</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">description LACP-TO-HQ-SW-2</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">switchport trunk encapsulation dot1q</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">switchport trunk native vlan 999</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">switchport trunk allowed vlan 10,20,30,40,50,60,70,999</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">switchport mode trunk</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">duplex auto</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">channel-group 1 mode active</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">interface Ethernet0/2</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">description LACP-TO-HQ-SW-2</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">switchport trunk encapsulation dot1q</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">switchport trunk native vlan 999</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">switchport trunk allowed vlan 10,20,30,40,50,60,70,999</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">switchport mode trunk</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">duplex auto</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">channel-group 1 mode active</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">interface Ethernet0/3</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">description TRUNK-TO-HQ-SW-3</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">switchport trunk encapsulation dot1q</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">switchport trunk native vlan 999</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">switchport trunk allowed vlan 10,20,30,40,50,60,70,999</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">switchport mode trunk</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">duplex auto</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">interface Ethernet1/0</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">interface FastEthernet1/0</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">description WAN_TO_DAL-R2</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">ip address 172.16.1.5 255.255.255.252</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">description PC1-VLAN10</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">switchport access vlan 10</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">switchport mode access</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">switchport port-security maximum 2</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">switchport port-security violation restrict</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">switchport port-security mac-address sticky</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">switchport port-security mac-address sticky 5042.e100.5500</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">switchport port-security mac-address sticky 767f.cefa.502e</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">duplex auto</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">duplex half</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">spanning-tree portfast</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">spanning-tree bpduguard enable</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">interface Ethernet1/1</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">interface FastEthernet2/0</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">description WAN_TO_MIA-R2</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">ip address 172.16.1.9 255.255.255.252</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">description UNUSED</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">switchport access vlan 999</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">switchport mode access</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">switchport port-security maximum 2</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">switchport port-security</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">switchport port-security violation restrict</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">switchport port-security mac-address sticky</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">switchport port-security mac-address sticky 5064.f000.2d00</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">switchport port-security mac-address sticky aa0a.8e54.863c</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">shutdown</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">duplex auto</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">duplex half</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">authentication port-control auto</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">dot1x pae authenticator</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">spanning-tree portfast</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">spanning-tree bpduguard enable</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">interface Ethernet1/2</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">interface FastEthernet3/0</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">description WAN_TO_ASH-R2</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">ip address 172.16.1.13 255.255.255.252</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">description UNUSED</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">switchport trunk encapsulation dot1q</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">switchport trunk native vlan 999</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">switchport trunk allowed vlan 10,20,30,40,50,60,70</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">switchport mode trunk</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">duplex auto</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">duplex half</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">interface Ethernet1/3</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">interface FastEthernet4/0</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">description TO_R43_OUTSIDE_TRANSIT</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">description UNUSED</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">switchport access vlan 70</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">switchport trunk native vlan 999</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">switchport mode access</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">duplex auto</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">interface Vlan50</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">ip address 10.10.50.11 255.255.255.0</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">ip address 10.255.110.2 255.255.255.240</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">ip default-gateway 10.10.50.1</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">ip ospf 10 area 0</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">duplex half</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">ipv6 address 2001:DB8:1000:1201::2/64</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">interface FastEthernet5/0</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">description TO_HQ-FW-2</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">no ip address</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">duplex half</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">ipv6 address 2001:DB8:1000:1203::2/64</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">ipv6 ospf 10 area 0</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">interface FastEthernet6/0</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">ip address 192.0.2.6 255.255.255.252</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">duplex half</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">router ospf 10</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">router-id 10.255.10.2</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">network 10.10.10.0 0.0.0.255 area 0</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">network 10.10.20.0 0.0.0.255 area 0</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">network 10.10.30.0 0.0.0.255 area 0</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">network 10.10.40.0 0.0.0.255 area 0</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">network 10.10.50.0 0.0.0.255 area 0</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">network 10.10.60.0 0.0.0.255 area 0</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">network 10.10.70.0 0.0.0.255 area 0</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">network 10.255.10.2 0.0.0.0 area 0</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">network 10.255.110.0 0.0.0.7 area 0</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">network 10.255.110.0 0.0.0.15 area 0</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">network 172.16.1.0 0.0.0.3 area 0</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">network 172.16.1.4 0.0.0.3 area 0</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">network 172.16.1.8 0.0.0.3 area 0</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">network 172.16.1.12 0.0.0.3 area 0</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">default-information originate metric 100 metric-type 1</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">router bgp 65000</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">bgp router-id 10.255.10.2</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">bgp log-neighbor-changes</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">network 10.0.0.0</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">network 10.255.10.2 mask 255.255.255.255</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">network 192.0.2.4 mask 255.255.255.252</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">network 198.18.0.50 mask 255.255.255.255</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">neighbor 10.255.10.1 remote-as 65000</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">neighbor 10.255.10.1 update-source Loopback0</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">neighbor 10.255.10.1 next-hop-self</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">neighbor 192.0.2.5 remote-as 65002</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">ip forward-protocol nd</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">no ip http secure-server</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">ip route 198.18.0.50 255.255.255.255 10.255.110.3</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">ip route 0.0.0.0 0.0.0.0 10.10.50.2</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">ip route 0.0.0.0 0.0.0.0 10.10.50.1</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">ip route 0.0.0.0 0.0.0.0 10.10.10.1</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">ip sla auto discovery</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">ip sla 1</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">icmp-echo 192.0.2.5 source-interface FastEthernet6/0</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">frequency 10</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">ip sla schedule 1 life forever start-time now</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">logging source-interface Ethernet0/0</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">logging source-interface FastEthernet0/0</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">ipv6 router ospf 10</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">mgcp behavior rsip-range tgcp-only</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">mgcp behavior comedia-role none</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">mgcp behavior comedia-check-media-src disable</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">mgcp behavior comedia-sdp-force disable</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">mgcp profile default</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">gatekeeper</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">shutdown</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">logging synchronous</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">stopbits 1</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">stopbits 1</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">transport input all</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">line vty 5 44</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">login</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">transport input all</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                    </tbody>
+                </table>
+            
+        
+            <h3 style="margin-top: 30px; color: #333;">️ HQ-EDGE-1</h3>
+            
+            
+                <p style="color: red; font-weight: bold;">❌ Configuration Drift Detected! (200 changes)</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Type</th>
+                            <th>Configuration Line</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">Current configuration : 4238 bytes</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">Current configuration : 5576 bytes</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">hostname HQ-EDGE-1</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">hostname HQ-R1</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">enable secret 5 $1$D68S$wWtUdHn9nZR1MY1exIc58.</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">clock timezone EST -5 0</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">clock summer-time EDT recurring</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">ip dhcp pool VOICE</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">network 10.10.20.0 255.255.255.0</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">default-router 10.10.20.1</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">option 150 ip 172.16.109.1</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">ip domain name networkingnotebook.com</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">ip domain name meridan.local</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">ipv6 unicast-routing</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">ipv6 cef</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">no ipv6 cef</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">username sysadmin privilege 15 secret 5 $1$Bhkq$QbkxjqYukOaMYIVLl8MPH0</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">username sysadmin privilege 15 secret 5 $1$wpoF$pRGyo1g/opvVet2yg26z7.</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">interface Loopback0</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">description OSPF_ROUTER_ID</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">ip address 10.255.10.1 255.255.255.255</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">ip ospf 10 area 0</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">description WAN_TO_CHI-R1</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">ip address 172.16.0.1 255.255.255.252</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">no ip address</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">ip helper-address 172.16.109.133</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">interface FastEthernet0/0.10</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">description VLAN10-USERS</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">encapsulation dot1Q 10</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">ip address 10.10.10.2 255.255.255.0</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">ip helper-address 172.16.109.133</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">standby version 2</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">standby 10 ip 10.10.10.1</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">standby 10 priority 110</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">standby 10 preempt</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">interface FastEthernet0/0.20</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">description VLAN20-VOICE</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">encapsulation dot1Q 20</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">ip address 10.10.20.2 255.255.255.0</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">ip helper-address 172.16.109.133</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">standby version 2</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">standby 20 ip 10.10.20.1</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">standby 20 priority 110</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">standby 20 preempt</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">interface FastEthernet0/0.30</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">description VLAN30-SERVERS</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">encapsulation dot1Q 30</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">ip address 10.10.30.2 255.255.255.0</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">standby version 2</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">standby 30 ip 10.10.30.1</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">standby 30 priority 110</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">standby 30 preempt</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">interface FastEthernet0/0.40</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">description VLAN40-GUEST</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">encapsulation dot1Q 40</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">ip address 10.10.40.2 255.255.255.0</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">ip access-group GUEST-VLAN-40-IN in</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">ip helper-address 172.16.109.133</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">standby version 2</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">standby 40 ip 10.10.40.1</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">standby 40 priority 110</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">standby 40 preempt</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">interface FastEthernet0/0.50</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">description VLAN50-MANAGEMENT</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">encapsulation dot1Q 50</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">ip address 10.10.50.2 255.255.255.0</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">standby version 2</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">standby 50 ip 10.10.50.1</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">standby 50 priority 110</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">standby 50 preempt</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">interface FastEthernet0/0.60</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">description VLAN60-PRINTERS-IOT</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">encapsulation dot1Q 60</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">ip address 10.10.60.2 255.255.255.0</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">ip helper-address 172.16.109.133</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">standby version 2</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">standby 60 ip 10.10.60.1</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">standby 60 priority 110</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">standby 60 preempt</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">interface FastEthernet0/0.70</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">description VLAN70-NETWORK-INFRASTRUCTURE</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">encapsulation dot1Q 70</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">ip address 10.10.70.2 255.255.255.0</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">standby version 2</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">standby 70 ip 10.10.70.1</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">standby 70 priority 110</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">standby 70 preempt</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">no ip address</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">description WAN_TO_DAL-R1</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">ip address 172.16.0.5 255.255.255.252</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">description WAN_TO_MIA-R1</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">description TO_SW_5</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">ip address 172.16.0.9 255.255.255.252</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">ip address 10.255.111.3 255.255.255.248</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">ip ospf 10 area 0</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">description WAN_TO_ASH-R1</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">ip address 172.16.0.13 255.255.255.252</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">description MERIDIAN-WINDOWS-SERVER-NET</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">no ip address</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">ip ospf 10 area 0</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">no ip address</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">shutdown</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">description TO_R43_OUTSIDE_TRANSIT</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">ip address 10.255.110.1 255.255.255.240</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">ip nat inside</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">ip virtual-reassembly in</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">ipv6 address 2001:DB8:1000:1200::2/64</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">ipv6 ospf 10 area 0</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">description TO_HQ-FW-2</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">ip ospf 10 area 0</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">duplex half</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">interface FastEthernet6/0</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">no ip address</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">duplex full</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">ipv6 address 2001:DB8:1000:1202::2/64</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">interface FastEthernet6/0</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">ip address 192.0.2.2 255.255.255.252</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">ip nat outside</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">ip virtual-reassembly in</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">router-id 10.255.10.1</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">router-id 10.255.10.11</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">redistribute static subnets route-map REDISTRIBUTION-STATIC</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">passive-interface FastEthernet0/0.10</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">passive-interface FastEthernet0/0.20</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">passive-interface FastEthernet0/0.30</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">passive-interface FastEthernet0/0.40</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">passive-interface FastEthernet0/0.50</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">passive-interface FastEthernet0/0.60</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">passive-interface FastEthernet0/0.70</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">network 10.255.10.1 0.0.0.0 area 0</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">network 10.10.10.0 0.0.0.255 area 0</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">network 10.10.20.0 0.0.0.255 area 0</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">network 10.10.30.0 0.0.0.255 area 0</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">network 10.10.40.0 0.0.0.255 area 0</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">network 10.10.50.0 0.0.0.255 area 0</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">network 10.10.60.0 0.0.0.255 area 0</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">network 10.10.70.0 0.0.0.255 area 0</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">network 10.255.110.0 0.0.0.15 area 0</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">network 10.255.111.0 0.0.0.15 area 0</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">network 172.16.0.0 0.0.0.3 area 0</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">network 172.16.0.4 0.0.0.3 area 0</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">network 172.16.0.8 0.0.0.3 area 0</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">network 172.16.0.12 0.0.0.3 area 0</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">default-information originate metric 10 metric-type 1</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">bgp router-id 10.255.10.1</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">network 192.0.0.0 mask 255.0.0.0</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">network 10.10.10.0 mask 255.255.255.0</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">network 192.0.2.0 mask 255.255.255.252</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">network 10.10.20.0 mask 255.255.255.0</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">network 10.10.30.0 mask 255.255.255.0</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">neighbor 10.255.10.2 remote-as 65000</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">neighbor 10.255.10.2 update-source Loopback0</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">neighbor 10.255.10.2 next-hop-self</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">neighbor 192.0.2.1 remote-as 65001</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">neighbor 192.0.2.1 route-map ISP-A-IN in</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">ip nat inside source list NAT-ELIGIBLE-LAN interface FastEthernet6/0 overload</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">ip route 0.0.0.0 0.0.0.0 10.255.111.1</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">ip route 10.10.71.0 255.255.255.0 10.255.111.1</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">ip route 10.10.71.0 255.255.255.0 192.168.255.1</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">ip route 10.10.80.0 255.255.255.0 192.168.255.1</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">ip route 10.10.80.0 255.255.255.0 10.255.110.3</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">ip route 172.16.109.1 255.255.255.255 10.255.110.3</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">ip route 172.16.109.133 255.255.255.255 192.168.255.1</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">ip route 172.16.109.1 255.255.255.255 192.168.255.1</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">ip route 172.16.109.133 255.255.255.255 10.255.111.1</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">ip route 172.16.109.150 255.255.255.255 192.168.255.1</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">ip route 172.16.109.150 255.255.255.255 10.255.111.1</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">ip route 192.0.0.0 255.0.0.0 10.255.111.1</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">permit 10.0.0.0 0.255.255.255</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">permit 10.10.80.0 0.0.0.255</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">ip access-list standard STATIC-OSPF-ROUTES</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">permit 172.16.109.133</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">permit 172.16.109.1</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">ip access-list extended GUEST-VLAN40-IN</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">remark Allow DHCP client requests</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">permit udp any eq bootpc any eq bootps</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">permit tcp 10.10.40.0 0.0.0.255 host 172.16.109.133 eq domain</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">remark Block corporate and other private internal networks</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">deny   ip 10.10.40.0 0.0.0.255 10.0.0.0 0.255.255.255</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">deny   ip 10.10.40.0 0.0.0.255 172.16.0.0 0.15.255.255</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">deny   ip 10.10.40.0 0.0.0.255 192.168.0.0 0.0.255.255</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">remark Permit remaining Internet-bound traffic</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">permit ip 10.10.40.0 0.0.0.255 any</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">ip sla auto discovery</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">ip sla 1</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">icmp-echo 192.0.2.1 source-interface FastEthernet6/0</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">frequency 10</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">ip sla schedule 1 life forever start-time now</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">logging source-interface FastEthernet0/0</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">logging host 172.16.109.1 transport udp port 5514</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">ipv6 router ospf 10</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">route-map ISP-A-IN permit 10</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">set local-preference 200</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">route-map REDISTRIBUTION-STATIC permit 10</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">match ip address STATIC-OSPF-ROUTES</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-removed">Removed</span></td>
+                            <td><span class="code-snippet">transport input all</span></td>
+                            <td>Configuration taken out of Golden Config (Missing)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">transport input ssh</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">line vty 5 15</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">login</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><span class="badge badge-added">Added</span></td>
+                            <td><span class="code-snippet">transport input ssh</span></td>
+                            <td>Extra Configuration Added to Golden Config</td>
+                        </tr>
+                        
+                    </tbody>
+                </table>
+            
+        
+        
+
+        <div class="footer">
+            Automated by Python NetDevOps Framework | Source of Truth: Nautobot
+        </div>
+    </div>
+</body>
+</html>

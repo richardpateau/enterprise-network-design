@@ -1,0 +1,51 @@
+- name: ROAS Network State Validator (Read Only)
+  hosts: platforms_cisco_ios
+  gather_facts: false
+  connection: network_cli
+
+  tasks: 
+    - name: Check if Device Requires ROAS
+      debug:
+        msg: "Skipping ROAS Validation {{ inventory_hostname }} No ROAS Intent (Nautobot)"
+      when: 
+        - target_subinterface is none
+        - target_ip is none 
+    
+    - name: Gather Router State 
+      cisco.ios.ios_command: 
+        commands: 
+          - show ip interface brief
+      register: router_state
+      when: 
+        - target_subinterface is not none
+        - target_ip is not none 
+
+    - name: Convert SOT str to txt 
+      set_fact: 
+        sub_int_list: "{{ target_subinterface.split(',') }}"
+        ip_list: "{{ target_ip.split(',') }}"
+      when: 
+        - target_subinterface is not none
+        - target_ip is not none 
+
+    - name: Paring Interface to IP 
+      set_fact: 
+        roas_pairs: "{{ target_subinterface.split(',') | zip(target_ip.split(',')) | list }}"
+      when: 
+        - target_subinterface is not none
+        - target_ip is not none 
+
+    - name: Router Compliance
+      assert: 
+        that:
+          - "router_state.stdout[0] | regex_search(item.0 + '\\s+' + item.1 + '.*up\\s+up', multiline=True) is not none"
+        success_msg: "PASSED: Router {{ inventory_hostname }} is ROAS Compliant"
+        fail_msg: >-
+          FAILED: Router {{ inventory_hostname }} ROAS Misconfigured - Non Compliant Interface: {{ item.0 }} IP: {{ item.1 }}
+          show ip interface brief: 
+          {{ router_state.stdout_lines[0] | join('\n') }}
+      loop: "{{ roas_pairs }}"
+      when: 
+        - target_subinterface is not none
+        - target_ip is not none 
+      ignore_errors: yes

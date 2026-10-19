@@ -1,0 +1,25 @@
+# nautobot_inventory.yml
+plugin: networktocode.nautobot.inventory
+api_endpoint: http://localhost:8080
+token: "c2fe8d5558da63757f71015448c7b55cf07302fc"
+
+group_by:
+  - device_roles
+  - locations
+  - platforms
+
+compose:
+  ansible_host: "primary_ip4.address | default('') | regex_replace('/\\d+', '')"
+  ansible_network_os: "'cisco.ios.ios'"
+  ansible_user: "'sysadmin'"
+  ansible_password: "'ccna'"
+  ansible_become: true
+  ansible_become_method: "'enable'"
+  ansible_become_password: "'ccna'"
+  ansible_connection: "'network_cli'"
+  target_vlan: "custom_fields.expected_vlan | default('')"
+  target_subinterface: "custom_fields.expected_subinterface | default('')"
+  target_ip: "custom_fields.expected_ip | default('')"
+  target_vlan_name: "custom_fields.expected_vlan_names | default('')"
+filters:
+  - status: Active

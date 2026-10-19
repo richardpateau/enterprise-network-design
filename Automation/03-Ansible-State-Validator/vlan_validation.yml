@@ -1,0 +1,51 @@
+- name: Validate Switch State (VLANs and Trunks)
+  hosts: device_roles_access
+  gather_facts: false
+  connection: network_cli 
+
+  tasks: 
+    - name: Check if VLAN is Required
+      debug: 
+        msg: "Skipping VLAN Validation for {{ inventory_hostname }}"
+      when:  
+        - target_vlan is none 
+
+    - name: Gather Switch State 
+      cisco.ios.ios_command: 
+        commands: 
+          - show vlan brief
+      register: switch_state
+      when: target_vlan is not none 
+    
+    - name: VLAN List 
+      set_fact: 
+        vlan_list: "{{ target_vlan.split(',') }}"
+      when: target_vlan is not none 
+    
+    - name: VLAN Names 
+      set_fact: 
+        vlan_name_list: "{{ target_vlan_name.split(',') }}"
+      when: target_vlan is not none 
+
+    - name: VLAN to Name Joining 
+      set_fact: 
+        vlan_pairs: "{{ target_vlan.split(',') | zip(target_vlan_name.split(',')) | list }}"
+      when:
+        - target_vlan is not none 
+        - target_vlan_name is not none 
+    
+    - name: VLAN Compliance 
+      assert: 
+        that: 
+          - "switch_state.stdout[0] | regex_search(item.0 + '\\s+' + item.1 + '.*\\s+active', multiline=True) is not none"
+        success_msg: "PASSED: Switch {{ inventory_hostname }} is VLAN Compliant VLAN: {{ item.0 }} Name: {{ item.1 }}"
+        fail_msg: >-
+          FAILED: Switch {{ inventory_hostname }} is not VLAN Compliant VLAN: {{ item.0 }} Name: {{ item.1 }}
+          Live Switch Output: 
+          {{ switch_state.stdout[0] }}
+
+      loop: "{{ vlan_pairs }}"
+      when:
+        - target_vlan is not none 
+        - target_vlan_name is not none 
+      ignore_errors: yes 

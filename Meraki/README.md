@@ -53,8 +53,8 @@ https://github.com/user-attachments/assets/85b8cb94-f67c-4e26-bf8f-c9c49aff8157
 
 | SSID | Security / Access | VLAN |
 | :--- | :--- | :--- |
-| `Meridian-Corporate` | WPA2-Enterprise / 802.1X | 10 |
-| `Meridian-Guest` | Guest splash page with click-through onboarding | 40 |
+| `Meridian-Corporate-Meraki` | WPA2-Enterprise / 802.1X | 10 |
+| `Meridian-Guest-Meraki` | Guest splash page with click-through onboarding | 40 |
 
 ![Meraki](screenshots/meraki-beacons.png)
 

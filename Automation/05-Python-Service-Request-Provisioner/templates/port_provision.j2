@@ -1,0 +1,15 @@
+! Automated Port Provisioning for Ticket: {{ ticket_id }}
+!
+interface {{ target_interface }}
+ description {{ port_description }}
+ switchport mode access
+ switchport access vlan {{ vlan_id }}
+{% if voice_vlan %}
+ switchport voice vlan {{ voice_vlan }}
+{% endif %}
+ spanning-tree portfast
+ no shutdown
+!
+vlan {{ vlan_id }}
+ name {{ vlan_name }}
+!

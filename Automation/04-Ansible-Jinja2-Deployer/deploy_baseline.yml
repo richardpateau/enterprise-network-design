@@ -1,0 +1,21 @@
+- name: Deply Standard Baseline Configuration via Jinja2 
+  hosts: platforms_cisco_ios
+  gather_facts: false 
+  connection: network_cli 
+
+  vars: 
+    snmp_community: "Meridian-SNMP"
+    location_name: "Enterprise HQ"
+
+  tasks: 
+    - name: Push Baseline Config 
+      cisco.ios.ios_config: 
+        src: templates/base_config.j2
+        replace: block 
+      register: config_output 
+
+    - name: Show Configuration Changes 
+      debug: 
+        msg: "Configuration applied to {{ inventory_hostname }}"
+      when: config_output.changed 
+
