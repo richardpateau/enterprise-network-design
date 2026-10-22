@@ -1,0 +1,183 @@
+Current configuration : 4132 bytes
+!
+version 15.1
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
+service compress-config
+!
+hostname HQ-SW-1
+!
+boot-start-marker
+boot-end-marker
+!
+!
+enable secret 4 8Yn3YXhZzp7CvwylTqs7xosa/yPYiGsjoYJpDDVNa7A
+!
+username sysadmin privilege 15 secret 4 8Yn3YXhZzp7CvwylTqs7xosa/yPYiGsjoYJpDDVNa7A
+no aaa new-model
+no ipv6 cef
+ipv6 multicast rpf use-bgp
+!
+no ip domain-lookup
+ip domain-name networkingnotebook.com
+ip cef
+!
+!
+ip dhcp snooping vlan 10,20,30,40,50,60,70
+no ip dhcp snooping information option
+ip dhcp snooping
+!
+!
+!
+spanning-tree mode rapid-pvst
+spanning-tree extend system-id
+spanning-tree vlan 10,20,30,40,50,60,70 priority 24576
+!
+!
+!
+!
+vlan internal allocation policy ascending
+!
+ip ssh maxstartups 5
+ip ssh time-out 60
+ip ssh port 2222 rotary 1
+ip ssh logging events
+ip ssh version 2
+ip ssh dh min size 2048
+! 
+!
+!
+!
+!
+!
+!
+!
+!
+interface Port-channel1
+ switchport
+ switchport trunk encapsulation dot1q
+ switchport trunk native vlan 999
+ switchport trunk allowed vlan 10,20,30,40,50,60,70,999
+ switchport mode trunk
+!
+interface Ethernet0/0
+ description TRUNK-TO-HQ-R1-Fa0/0
+ switchport trunk encapsulation dot1q
+ switchport trunk native vlan 999
+ switchport trunk allowed vlan 10,20,30,40,50,60,70,999
+ switchport mode trunk
+ duplex auto
+ ip dhcp snooping trust
+!
+interface Ethernet0/1
+ description LACP-TO-HQ-SW-2
+ switchport trunk encapsulation dot1q
+ switchport trunk native vlan 999
+ switchport trunk allowed vlan 10,20,30,40,50,60,70,999
+ switchport mode trunk
+ duplex auto
+ channel-group 1 mode active
+!
+interface Ethernet0/2
+ description LACP-TO-HQ-SW-2
+ switchport trunk encapsulation dot1q
+ switchport trunk native vlan 999
+ switchport trunk allowed vlan 10,20,30,40,50,60,70,999
+ switchport mode trunk
+ duplex auto
+ channel-group 1 mode active
+!
+interface Ethernet0/3
+ description TRUNK-TO-HQ-SW-3
+ switchport trunk encapsulation dot1q
+ switchport trunk native vlan 999
+ switchport trunk allowed vlan 10,20,30,40,50,60,70,999
+ switchport mode trunk
+ duplex auto
+!
+interface Ethernet1/0
+ description PC1-VLAN10
+ switchport access vlan 10
+ switchport mode access
+ switchport port-security maximum 2
+ switchport port-security violation restrict
+ switchport port-security mac-address sticky
+ switchport port-security mac-address sticky 5042.e100.5500
+ switchport port-security mac-address sticky 767f.cefa.502e
+ duplex auto
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+!
+interface Ethernet1/1
+ description UNUSED
+ switchport access vlan 999
+ switchport mode access
+ switchport port-security maximum 2
+ switchport port-security
+ switchport port-security violation restrict
+ switchport port-security mac-address sticky
+ switchport port-security mac-address sticky 5064.f000.2d00
+ switchport port-security mac-address sticky aa0a.8e54.863c
+ shutdown
+ duplex auto
+ authentication port-control auto
+ dot1x pae authenticator
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+!
+interface Ethernet1/2
+ description UNUSED
+ switchport trunk encapsulation dot1q
+ switchport trunk native vlan 999
+ switchport trunk allowed vlan 10,20,30,40,50,60,70
+ switchport mode trunk
+ duplex auto
+!
+interface Ethernet1/3
+ description configured via JIRA-PYTHON
+ switchport access vlan 90
+ switchport trunk native vlan 999
+ switchport mode access
+ switchport voice vlan 90
+ duplex auto
+ spanning-tree portfast
+!
+interface Vlan50
+ ip address 10.10.50.11 255.255.255.0
+!
+ip default-gateway 10.10.50.1
+!
+no ip http server
+!
+ip route 0.0.0.0 0.0.0.0 10.10.50.1
+!
+!
+ip access-list standard MGMT-SSH
+ permit 172.16.109.1
+ permit 10.10.50.0 0.0.0.255
+ip access-list standard PRTG-SNMP
+ permit 172.16.109.133
+ permit 172.16.109.1
+logging source-interface Ethernet0/0
+logging host 172.16.109.1 transport udp port 5514
+!
+!
+snmp-server group PRTG-GROUP v3 auth read PRTG-VIEW access PRTG-SNMP
+snmp-server view PRTG-VIEW iso included
+snmp-server location Meridian-HQ
+snmp-server contact Network-Operations 
+!
+control-plane
+!
+!
+line con 0
+ logging synchronous
+line aux 0
+line vty 0 4
+ access-class MGMT-SSH in
+ login local
+ transport input ssh
+!
+ntp server 172.16.109.133
+end       

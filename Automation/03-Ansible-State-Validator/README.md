@@ -54,7 +54,7 @@ To prevent false positives (e.g., an IP existing on the wrong interface), the pl
 *   **Detailed Failure Reporting:** When drift is detected, the playbook outputs the exact failed parameters alongside the raw live CLI output for instant troubleshooting.
 *   **Read-Only Safety:** Uses `cisco.ios.ios_command` exclusively, ensuring zero risk of accidental configuration changes during audits.
 
-![Automation](screenshots/ansible-vlan-visio.png)
+![Automation](screenshots/vlan-is-not-none.png)
 
 ---
 

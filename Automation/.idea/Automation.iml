@@ -6,6 +6,7 @@
       <excludeFolder url="file://$MODULE_DIR$/01-Python-NAD-Onboarding/.venv" />
       <excludeFolder url="file://$MODULE_DIR$/02-Python-Config-Drift-Auditor/.venv" />
       <excludeFolder url="file://$MODULE_DIR$/05-Python-Service-Request-Provisioner/.venv" />
+      <excludeFolder url="file://$MODULE_DIR$/08-Python-Batfish-Modeler/.venv" />
     </content>
     <orderEntry type="jdk" jdkName="~/Documents/enterprise-network-design/Automation/.venv" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />

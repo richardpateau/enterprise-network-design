@@ -3,7 +3,7 @@ name: Network CI/CD Pipeline
 on:
   push:
     branches: ["main"]
-  pull_request:
+  pull_requests:
     branches: ["main"]
 
 jobs:
@@ -17,6 +17,12 @@ jobs:
         run: | 
           pip install ansible netaddr
           ansible-galaxy collection install networktocode.nautobot cisco.ios
+
+      - name: Install Ansible Lint
+        run: pip install ansible-lint
+
+      - name: Run Ansible Lint
+        run: ansible-lint Automation/03-Ansible-State-Validator/vlan_validation.yml || true
 
       - name: Run VLAN Validation (Read Only)
         run: | 
@@ -43,6 +49,12 @@ jobs:
           pip install ansible netaddr
           ansible-galaxy collection install networktocode.nautobot cisco.ios
 
+      - name: Install Ansible Lint
+        run: pip install ansible-lint
+
+      - name: Run Ansible Lint
+        run: ansible-lint Automation/04-Ansible-Jinja2-Deployer/deploy_baseline.yml || true
+
       - name: Jinja2 Config Dry-Run
         run: |
           ansible-playbook -i nautobot_inventory.yml Automation/04-Ansible-Jinja2-Deployer/deploy_baseline.yml --check --diff
@@ -60,6 +72,11 @@ jobs:
         run: |
           pip install ansible netaddr
           ansible-galaxy collection install networktocode.nautobot cisco.ios
+      - name: Install Ansible Lint
+        run: pip install ansible-lint
+
+      - name: Run Ansible Lint
+        run: ansible-lint Automation/06-Ansible-OS-Upgrader/os_upgrade.yml || true
 
       - name: OS Upgrade Pre-Flight Check
         run: |
@@ -67,5 +84,4 @@ jobs:
         env:
           NAUTOBOT_TOKEN: ${{ secrets.NAUTOBOT_TOKEN }}
           ANSIBLE_HOST_KEY_CHECKING: False
-
 
