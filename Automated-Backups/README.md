@@ -79,6 +79,18 @@ The `backups/` directory contains curated evidence documenting the automation an
 
 ![Backup](screenshots/backup-results-terminal.png)
 
+---
+## Detailed Configuration
 
+For the complete implementation details, including:
+- Python script source code and dependencies
+- Nautobot API integration specifics
+- Netmiko device handling logic
+- Environment variable setup
+- TFTP restore procedure walkthrough
+
+See: **[Configuration Details](configuration.md)** →
 
 ---
+
+*Designed and implemented by Richard Pateau. All configurations, diagrams, and documentation represent a comprehensive enterprise network engineering portfolio.*
