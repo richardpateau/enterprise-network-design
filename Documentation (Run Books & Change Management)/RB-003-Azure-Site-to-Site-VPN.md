@@ -62,6 +62,15 @@ IP address = 96.246.138.240
 169.254.0.0/16
 192.0.0.0/8
 
+### Configure Azure NAT Gateway 
+Subscription = Azure Subscription 1 
+Resource Group = Meridian-RG
+Name = Meridian-NAT 
+SKU = StandardV2
+Region = East US 
+Public IP address (IPv4) = Meridian-Public-IP
+Virtual Network = Meridian-VNet
+
 ### Configure Azure Virtual Network Gateway 
 
 **Parameters**

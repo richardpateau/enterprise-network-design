@@ -24,48 +24,7 @@ The design provides:
 
 The Azure environment is built around the following architecture:
 
-```text
-                         Internet
-                            │
-                            │
-                     Azure NAT Gateway
-                            │
-                            ▼
-                    ┌─────────────────┐
-                    │  Azure VNet     │
-                    │ 10.200.0.0/16   │
-                    │                 │
-                    │ ┌─────────────┐ │
-                    │ │ Azure-Apps  │ │
-                    │ │10.200.10/24│ │
-                    │ │             │ │
-                    │ │ WEB01       │ │
-                    │ │10.200.10.4  │ │
-                    │ └─────────────┘ │
-                    │                 │
-                    │ Infrastructure  │
-                    │ 10.200.20.0/24 │
-                    │                 │
-                    │ GatewaySubnet   │
-                    │ 10.200.255.0/27│
-                    └────────┬────────┘
-                             │
-                    Azure VPN Gateway
-                    ASN 65515
-                    BGP 10.200.255.30
-                             │
-                       IPsec / IKEv2
-                             │
-                       Tunnel 100
-                             │
-                    ┌────────▼────────┐
-                    │   HQ-FW-1       │
-                    │   ASA           │
-                    │   ASN 65000     │
-                    └────────┬────────┘
-                             │
-                     Meridian On-Prem
-```
+![Topology](screenshots/azure-diagram-visio.png)
 
 **Topology**
 

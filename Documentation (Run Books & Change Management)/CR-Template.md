@@ -21,12 +21,6 @@ show [command to check current state]
 ## 4. Implementation Steps
 *Sequential steps to apply the change.*
 
-### Phase 1: [Step Name]
-1. Log into [Device].
-2. Apply the following configuration:
-```config
-! Configuration syntax
-```
 
 ## 5. Post-Implementation Validation (Post-Checks)
 *Execute these commands immediately after implementation to verify success.*
