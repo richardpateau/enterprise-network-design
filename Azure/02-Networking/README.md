@@ -51,4 +51,4 @@ Azure networking design and configuration for the Meridian Financial Services hy
 
 - [01-Architecture](../01-Architecture/) – Overall hybrid architecture
 - [03-Site-to-Site-VPN](../03-Site-to-Site-VPN/) – VPN Gateway and IPsec details
-- [07-Routing](../07-Routing/) – Expanded routing documentation (if used)
+

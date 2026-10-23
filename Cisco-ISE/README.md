@@ -1,9 +1,3 @@
-Here is the polished, portfolio-ready version of your top-level `Cisco-ISE/README.md`. 
-
-I have elevated the language to match the senior enterprise-engineer tone of the rest of your portfolio, removed the AI artifacts (like the chatgpt references), and made the **"No MAB"** scope boundary highly visible and professional. This ensures the document reads as a deliberate architectural choice rather than a missing feature.
-
-***
-
 # Cisco Identity Services Engine (ISE) Implementation
 
 ## Overview
@@ -44,6 +38,11 @@ Delivers controlled, segmented network access for unmanaged or temporary endpoin
 Secures administrative access to network infrastructure through centralized AAA.
 - **Key Implementations:** TACACS+ authentication, role-based shell profiles (Privilege 15), granular command-set authorization, and comprehensive TACACS+ command accounting for non-repudiation.
 - **Documentation:** [`04-TACACS/`](./04-TACACS/)
+
+### 05 — MAB Profiling & Dynamic VLAN Assignment
+Provides secure, identity-driven access for non-802.1X IoT and Voice endpoints.
+- **Key Implementations:** Multi-domain host mode, MAB-first authentication ordering, Endpoint Identity Groups, and RADIUS-driven dynamic VLAN assignment (VLAN 90) for Cisco IP Phones.
+- **Documentation:** [`05-MAB-Profiling/`](./05-MAB-Profiling/)
 
 ---
 
@@ -104,9 +103,12 @@ Cisco-ISE/
 │   ├── README.md
 │   ├── configuration.md
 │   └── screenshots/
-└── 04-TACACS/
+├── 04-TACACS/
+│   ├── README.md
+│   ├── configuration.md
+│   └── screenshots/
+└── 05-MAB-Profiling/
     ├── README.md
-    ├── configuration.md
     └── screenshots/
 ```
 ---

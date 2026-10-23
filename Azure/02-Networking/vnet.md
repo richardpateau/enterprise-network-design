@@ -52,5 +52,4 @@ Meridian-Azure-VNet provides the network foundation for:
 ## Related Documentation
 
 - [subnets.md](subnets.md) – Subnet design and allocation
-- [routing.md](routing.md) – Hybrid routing and connectivity
 - [01-Architecture](../01-Architecture/) – Overall architecture baseline

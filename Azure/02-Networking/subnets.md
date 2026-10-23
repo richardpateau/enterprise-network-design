@@ -87,6 +87,5 @@ This subnet provides the Azure-side network location for the site-to-site IPsec 
 ## Related Documentation
 
 - [vnet.md](vnet.md) – Virtual Network configuration
-- [routing.md](routing.md) – Hybrid routing and connectivity
 - [03-Site-to-Site-VPN](../03-Site-to-Site-VPN/) – VPN Gateway details
 - [06-Security](../06-Security/) – Network Security Groups

@@ -85,9 +85,11 @@ Below is visual proof of the physical OS upgrade workflow.
 
 ### 3. Edge Case Testing (Dry Run)
 
-**Testing the strict regex validation to ensure the playbook correctly fails if the version does not match expectations**
+**Testing the strict validation to ensure the playbook correctly fails if the version does not match expectations**
 
 ![Automation](screenshots/playbook-fail-during-dry-run.png)
+
+![Automation](screenshots/playbook-validation.png)
 
 ### 4. Post-Upgrade Validation
 
