@@ -3,7 +3,7 @@
 ## Summary
 This repository represents a comprehensive, production-grade enterprise network design and implementation for "Meridian Financial Services," a fictional 500–2,000 user multi-site organization. 
 
-Rather than a collection of isolated scripts, this portfolio demonstrates a cohesive, end-to-end NetDevOps ecosystem. It spans traditional on-premises routing/switching, advanced security and identity management, hybrid cloud integration (Azure), enterprise Windows infrastructure, and automated CI/CD pipelines. Every component is documented with architectural diagrams, configuration models, and rigorous positive/negative testing evidence.
+This portfolio documents the end-to-end design, implementation, and operation of a resilient, multi-site enterprise network. It seamlessly bridges traditional core infrastructure (routing, switching, firewalls) with modern hybrid cloud architectures (Azure), centralized identity management, and comprehensive observability. Rather than a collection of isolated configurations, this project demonstrates a cohesive, production-ready environment where every component is validated through rigorous testing, documented with architectural diagrams, and ultimately orchestrated by a modern, end-to-end NetDevOps ecosystem.
 
 ---
 

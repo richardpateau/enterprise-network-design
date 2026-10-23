@@ -141,9 +141,15 @@ The automation successfully generated timestamped backup directories containing 
 - 📁 [Backup Run 3](configs-backups/2026-10-06_09-50-34/) - Final automated backup execution.
 
 **Sample Device Configuration:**
-- 📄 [HQ-EDGE-1.cfg](configs-backups/HQ-EDGE-1.cfg) - Example of a sanitized running configuration saved by the script.
+- 📄 [HQ-EDGE-1.cfg](HQ-EDGE-1.cfg) - Example of a sanitized running configuration saved by the script.
 
 *(Note: As this is a lab environment, these files are provided for transparency and portfolio review purposes.)*
 
+---
 
-***
+### What's Next?
+
+Having established a reliable, automated configuration backup workflow, the next logical step in enterprise infrastructure is extending and securing that network into the cloud. 
+
+Continue to the next module to see how this on-premises network integrates with Microsoft Azure:
+- **[Azure Hybrid Cloud Implementation](../Azure/)** – VNet design, Site-to-Site BGP VPN, NAT Gateway egress, and hybrid connectivity.
