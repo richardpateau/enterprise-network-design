@@ -52,7 +52,7 @@ For each device, the script was programmed to extract the primary IPv4 address. 
 
 ![Backup](screenshots/code-device-skipped.png)
 
-![Backup](screenshots/backup-results-terminal-2.png.png)
+![Backup](screenshots/backup-results-terminal-2.png)
 
 **Connection Type Logic:**  
 A naming convention heuristic was implemented to determine the Netmiko device type dynamically:
@@ -60,6 +60,8 @@ A naming convention heuristic was implemented to determine the Netmiko device ty
 - All other devices defaulted to the `cisco_ios` device type.
 
 ![Backup](screenshots/nautobot-device-gui.png)
+
+![Backup](screenshots/name-conditional.png)
 
 ---
 
