@@ -31,6 +31,8 @@ SECRET="your_ios_enable_secret"
 ASA_PASSWORD="your_asa_ssh_password"
 ASA_ENABLE="your_asa_enable_secret"
 ```
+![Backup](screenshots/load-env.png)
+
 ---
 
 ## 3. Device Discovery Implementation
