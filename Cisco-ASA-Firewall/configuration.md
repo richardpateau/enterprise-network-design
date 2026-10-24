@@ -73,7 +73,11 @@ show failover interface
 | Standby IPs | FW-2: 10.255.110.4, 10.255.111.2 | FW-1: 10.255.110.4, 10.255.111.2 | Roles swapped |
 | OSPF neighbors | FW-1: 4 × FULL, FW-2: none | FW-2: 4 × FULL, FW-1: none | Same neighbors, served by the new active |
 
-**OSPF neighbor table (identical before and after, only the unit changes):** 10.255.10.11 (HQ-LAN, 10.255.111.3), 10.255.10.12 (HQ-LAN, 10.255.111.6), 10.255.10.1 (EDGE-ROUTERS, 10.255.110.1), 10.255.10.2 (EDGE-ROUTERS, 10.255.110.2).
+**OSPF neighbor table (identical before and after, only the unit changes):** 
+- 10.255.10.11 (HQ-LAN, 10.255.111.3)
+- 10.255.10.12 (HQ-LAN, 10.255.111.6)
+- 10.255.10.1 (EDGE-ROUTERS, 10.255.110.1)
+- 10.255.10.2 (EDGE-ROUTERS, 10.255.110.2).
 
 ### Evidence
  
@@ -98,7 +102,7 @@ show failover interface
     <td><b>FW-2</b> <code>show failover state</code>: Secondary, Active<br><img src="screenshots/fw-2-sh-failover-state-during-failure.png" alt="FW-2 failover state during"></td>
   </tr>
   <tr>
-    <td></td>
+    <td><b>FW-2</b> <code>show failover</code>: Secondary, Standby Ready<br><img src="screenshots/fw-2-sh-failover-before.png" alt="FW-2 show failover before"></td>
     <td><b>FW-2</b> <code>show failover</code>: Secondary, Active<br><img src="screenshots/fw-2-sh-failover-during-failure.png" alt="FW-2 show failover during"></td>
   </tr>
 </table>
@@ -130,7 +134,6 @@ show failover interface
 **Failover configuration**
  
 <img src="screenshots/sh-run-failover.png" width="600" alt="show run failover on FW-1">
-
 
 ---
 
