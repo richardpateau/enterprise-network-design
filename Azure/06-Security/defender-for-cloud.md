@@ -21,7 +21,7 @@ At the time of validation:
 
 No recommendations were reported during the validation.
 
-![Defender](screenshots/defeneder-for-cloud.png)
+![Defender](screenshots/defender-web01.png)
 
 ## Interpretation
 
@@ -35,9 +35,9 @@ This represents the security state observed during the project validation period
 - A clean recommendation state supports the layered security posture of the environment
 - Ongoing monitoring is recommended as the environment grows
 
-## Related Documentation
+---
 
-- [06-Security/README.md](README.md) – Security overview
-- [nsg.md](nsg.md) – Network Security Group
-- [trusted-launch.md](trusted-launch.md) – Trusted Launch configuration
-- [resource-locks.md](resource-locks.md) – Resource deletion protection
+### ➡️ Next Section
+
+Continue to the detailed Network Security Group (NSG) configuration and rule validation:
+- **[Network Security Groups (NSG)](nsg.md)** – Inbound/outbound rules, effective security validation, and traffic filtering.

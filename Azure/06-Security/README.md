@@ -158,7 +158,7 @@ These controls were configured and validated through the Azure portal.
 
 ---
 
-### ➡️ Next Section
+### Next Section
 
 Continue to the detailed Microsoft Defender for Cloud configuration and security posture review:
 - **[Defender for Cloud](defender-for-cloud.md)** – Security recommendations, threat protection, and posture management.
