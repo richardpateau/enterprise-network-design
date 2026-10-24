@@ -50,7 +50,7 @@ Average round-trip time during final validation: **43.370 ms**
 
 **Outcome: PASS**
 
-![ping](screenshots/vm-successful-ping.png)
+![ping](screenshots/pc-successful-ping.png)
 
 ## On-Premises → Azure Test
 
@@ -87,9 +87,11 @@ These are separate functions:
 | IPsec     | Secure transport        |
 | BGP       | Dynamic route exchange  |
 
-## Related Documentation
+---
 
-- [07-Routing/README.md](README.md) – Routing overview
-- [azure-routing.md](azure-routing.md) – Azure-side routing details
-- [bgp.md](bgp.md) – BGP configuration and session
-- [03-Site-to-Site-VPN](../03-Site-to-Site-VPN/) – VPN Gateway and IPsec
+### What's Next?
+
+With routing fully validated and traffic flowing securely between the on-premises network and Azure, the next step is to ensure this hybrid environment is continuously monitored and observable.
+
+Continue to the next module to explore the monitoring and alerting architecture:
+- **[08 — Monitoring](../08-Monitoring/)** – Azure Monitor, OpenTelemetry, Data Collection Rules, metrics, and alerting.
