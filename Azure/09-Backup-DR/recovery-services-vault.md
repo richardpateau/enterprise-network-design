@@ -17,6 +17,8 @@ The Meridian Azure environment uses a Recovery Services vault to protect the app
 | Cross Region Restore       | Disabled                   |
 | Immutability               | Disabled                   |
 
+![geo redundant](screenshots/recovery-services-overview.png)
+
 ## Backup Storage
 
 The vault uses **geo-redundant storage (GRS)**.
@@ -43,10 +45,9 @@ For this project, a recovery point was successfully used to create a separate re
 
 The Recovery Services vault was successfully created and used to protect the Meridian Azure application server.
 
-## Related Documentation
+---
 
-- [09-Backup-DR/README.md](README.md) – Backup and DR overview
-- [backup-policy.md](backup-policy.md) – Backup policy details
-- [restore-test.md](restore-test.md) – Restore validation
-- [04-Application-Server](../04-Application-Server/) – Application VM
-```
+### Next Section
+
+Continue to the final validation of the backup and disaster recovery process:
+- **[Restore Test & Validation](restore-test.md)** – Step-by-step recovery point restoration and post-restore application validation.
