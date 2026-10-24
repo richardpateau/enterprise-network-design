@@ -110,8 +110,9 @@ Operational tests also confirmed:
 - Default-deny inbound behavior is preserved
 - Outbound Internet access is intentionally allowed so the NAT Gateway can function
 
-## Related Documentation
+---
 
-- [06-Security/README.md](README.md) – Security overview
-- [04-Application-Server](../04-Application-Server/) – Application VM
-- [05-Internet-Egress](../05-Internet-Egress/) – NAT Gateway
+### ➡️ Next Section
+
+Continue to the configuration that prevents accidental deletion of the environment:
+- **[Resource Deletion Protection](resource-locks.md)** – Resource lock configuration and validation.

@@ -37,7 +37,7 @@ This represents the security state observed during the project validation period
 
 ---
 
-### ➡️ Next Section
+### Next Section
 
 Continue to the detailed Network Security Group (NSG) configuration and rule validation:
 - **[Network Security Groups (NSG)](nsg.md)** – Inbound/outbound rules, effective security validation, and traffic filtering.
