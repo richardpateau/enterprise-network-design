@@ -88,7 +88,7 @@ MERIDIAN-AZ-WEB01 uses Trusted Launch security features:
 
 The VM was rebooted after enabling these settings and connectivity was re-verified.
 
-![Trusted Launch](screenshots/trsuted-launch.png)
+![Trusted Launch](screenshots/trusted-launch.png)
 
 ## Microsoft Defender for Cloud
 
@@ -173,9 +173,9 @@ These controls were configured and validated through the Azure portal.
 └── screenshots/
 ```
 
-## Related Sections
+---
 
-- [01-Architecture](../01-Architecture/) – Overall hybrid architecture
-- [02-Networking](../02-Networking/) – VNet and subnet design
-- [04-Application-Server](../04-Application-Server/) – Application VM
-- [05-Internet-Egress](../05-Internet-Egress/) – NAT Gateway outbound access
+### ➡️ Next Section
+
+Continue to the detailed Microsoft Defender for Cloud configuration and security posture review:
+- **[Defender for Cloud](defender-for-cloud.md)** – Security recommendations, threat protection, and posture management.
