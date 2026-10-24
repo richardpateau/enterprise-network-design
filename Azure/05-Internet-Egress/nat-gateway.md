@@ -91,9 +91,11 @@ No public IP is assigned directly to the VM.
 The NAT Gateway provides outbound translation while the VM's inbound traffic remains governed by its Network Security Group and private network connectivity.
 
 
-## Related Documentation
+---
 
-- [README.md](README.md) – Internet egress overview
-- [02-Networking](../02-Networking/) – VNet and subnet design
-- [04-Application-Server](../04-Application-Server/) – Application VM
-- [06-Security](../06-Security/) – Network Security Groups
+### What's Next?
+
+With outbound Internet access securely configured via the NAT Gateway, the next step is to review the comprehensive security controls protecting this environment.
+
+Continue to the next module to explore the security architecture:
+- **[06 — Security](../06-Security/)** – Network Security Groups, Trusted Launch, Defender for Cloud, and resource locks.
