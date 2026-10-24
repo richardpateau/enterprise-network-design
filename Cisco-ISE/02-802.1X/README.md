@@ -62,3 +62,10 @@ Related but distinct ISE capabilities are documented in their respective section
 | `README.md` | Architecture, design objectives, and testing scope. |
 | `configuration.md` | ISE policy logic, switch authenticator configuration, and evidence matrix. |
 | `screenshots/` | Curated evidence of policy configuration, switch state, and test results. |
+
+---
+
+### Next Section
+
+Continue to the detailed configuration, policy logic, and switch authenticator setup for 802.1X:
+- **[Configuration Details](configuration.md)** – ISE authorization policies, switch port configuration, and test result evidence.

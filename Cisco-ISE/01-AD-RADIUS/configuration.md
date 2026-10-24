@@ -168,7 +168,7 @@ Curated screenshots validating this implementation are stored in:
 
 ---
 
-### ➡️ What's Next?
+### What's Next?
 
 With the foundational Active Directory and RADIUS integration complete, the next step is to implement identity-driven network access control for corporate endpoints.
 
