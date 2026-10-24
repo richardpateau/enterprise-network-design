@@ -10,7 +10,7 @@ The VPN provides a secure, encrypted tunnel for inter-site traffic, ensuring dat
 
 ## Architecture
 
-![IPSec](screenshots/site-to-stie-visio.png)
+![IPSec](screenshots/site-to-site-visio.png)
 
 ![IPSec](screenshots/topology.png)
 
