@@ -17,21 +17,7 @@ The site-to-site IPsec tunnel provides the transport path while BGP dynamically 
 
 ## Routing Architecture
 
-```text
-                Meridian On-Premises
-                        |
-                 HQ-FW-1 / ASA
-                  BGP ASN 65000
-                        |
-                 Tunnel100 / IPsec
-                        |
-                 Azure VPN Gateway
-                  BGP ASN 65515
-                        |
-                   Azure VNet
-                  10.200.0.0/16
-
-```
+![ASN](screenshots/bgp-visio.png)
 
 ### Autonomous Systems
 
@@ -132,10 +118,9 @@ BGP validation confirmed:
 └── screenshots/
 
 ```
+---
 
-## Related Sections
+### Next Section
 
-* [01-Architecture](https://www.google.com/search?q=../01-Architecture/) – Overall hybrid architecture
-* [02-Networking](https://www.google.com/search?q=../02-Networking/) – VNet and subnet design
-* [03-Site-to-Site-VPN](https://www.google.com/search?q=../03-Site-to-Site-VPN/) – VPN Gateway and IPsec
-* [04-Application-Server](https://www.google.com/search?q=../04-Application-Server/) – Application VM
+Continue to the detailed Azure routing configuration and BGP implementation:
+- **[Azure Routing Configuration](azure-routing.md)** – Detailed BGP setup, route exchange, and effective route validation.
