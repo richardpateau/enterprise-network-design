@@ -50,7 +50,7 @@ https://github.com/user-attachments/assets/2099af68-b40b-473f-a3a3-b1ba622819ed
 ### 1. Controller & AP Provisioning
 The vWLC was deployed and configured with management addressing (VLAN 70). Physical Aironet 2802I APs were connected via PoE switches, obtained IP addresses via DHCP, and successfully established CAPWAP tunnels to the vWLC.
 
-![WLC](screenshots/ap-joining-live.png)
+![WLC](screenshots/authorization-policy.png)
 
 ### 2. Corporate 802.1X Integration
 The `Meridian-Corporate` WLAN was configured to forward 802.1X credentials to Cisco ISE (RADIUS). ISE evaluates the user against Active Directory and returns a dynamic authorization profile (`MERIDIAN-VLAN10`), placing the authenticated client directly into the corporate VLAN.
@@ -62,7 +62,7 @@ The `Meridian-Guest` WLAN provides a customized web splash page for onboarding. 
 
 ![WLC](screenshots/vlan-40-acl.png)
 
-![WLC](screenshots/isolated-guest.png)
+![WLC](screenshots/guest-isolation.png)
 
 ---
 
@@ -70,11 +70,11 @@ The `Meridian-Guest` WLAN provides a customized web splash page for onboarding. 
 
 The implementation was rigorously validated through both positive and negative testing, captured via CLI, GUI, and packet analysis:
 
-- ✅ **AP Registration:** Verified CAPWAP join process and radio status.
-- ✅ **Corporate Success:** Validated 802.1X authentication success and dynamic VLAN 10 assignment (see video evidence).
-- ✅ **Corporate Failure:** Validated that incorrect credentials are rejected by ISE, preventing network access (see video evidence).
-- ✅ **Guest Onboarding:** Verified splash page rendering on mobile devices and successful VLAN 40 IP assignment.
-- ✅ **Guest Isolation:** Confirmed via ICMP testing and ACL verification that guest clients cannot reach internal corporate resources.
+- **AP Registration:** Verified CAPWAP join process and radio status.
+- **Corporate Success:** Validated 802.1X authentication success and dynamic VLAN 10 assignment (see video evidence).
+- **Corporate Failure:** Validated that incorrect credentials are rejected by ISE, preventing network access (see video evidence).
+- **Guest Onboarding:** Verified splash page rendering on mobile devices and successful VLAN 40 IP assignment.
+- **Guest Isolation:** Confirmed via ICMP testing and ACL verification that guest clients cannot reach internal corporate resources.
 
 ---
 
@@ -88,3 +88,10 @@ The implementation was rigorously validated through both positive and negative t
 | `videos/` | Dynamic proof of 802.1X authentication flows and guest onboarding. |
 
 ---
+
+---
+
+### Next Section
+
+Continue to the detailed configuration reference, ISE integration, and evidence matrix for the wireless implementation:
+- **[Configuration Details](configuration.md)** – Detailed WLC configuration, CAPWAP setup, ISE RADIUS integration, and validation evidence.
