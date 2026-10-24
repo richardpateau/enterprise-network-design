@@ -35,9 +35,9 @@ The lock was verified in the Azure resource group’s **Locks** configuration an
 - The lock can be removed by an authorized administrator if deliberate deletion is required
 - Complements the other security controls (NSG, Trusted Launch, Defender for Cloud)
 
-## Related Documentation
+---
 
-- [06-Security/README.md](README.md) – Security overview
-- [nsg.md](nsg.md) – Network Security Group
-- [trusted-launch.md](trusted-launch.md) – Trusted Launch
-- [defender.md](defender.md) – Microsoft Defender for Cloud
+### Next Section
+
+Continue to the configuration of virtual machine security features:
+- **[Trusted Launch Configuration](trusted_launch.md)** – Secure Boot, vTPM, and integrity monitoring settings.
