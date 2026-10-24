@@ -203,11 +203,11 @@ Immediately following the failure, the network state was re-evaluated:
 - **Neighbor State:** The failed BGP session transitioned to `Idle` or `Active`.
 - **Routing Table:** BGP rapidly withdrew the affected routes. The alternate path (e.g., via the secondary ISP or the iBGP peer) was evaluated and installed into the RIB.  
 
-**Neighbor State during failure**
+**HQ-EDGE-1: Neighbor State during failure**
 
 ![BGP](screenshots/bgp-failover-after-summary.png)
 
-**Routing table during failure**
+**HQ-EDGE-1: Routing table during failure**
 
 ![BGP](screenshots/edge-1-sh-ip-route-bgp-during-failure.png)
 
@@ -215,25 +215,21 @@ Immediately following the failure, the network state was re-evaluated:
 ### 2.4 Connectivity Validation
 - **Ping Test:** The continuous ping experienced a brief interruption (aligning with BGP hold-timer defaults and routing table update time) before seamlessly restoring connectivity via the alternate path.
 - **Traceroute:** Confirmed traffic is now flowing through the redundant BGP topology.  
-*[Insert Screenshot: `bgp-failover-after-connectivity.png`]*
 
 **Continous ping PC 1 > 203.0.113.10**
 
 ![OSPF](screenshots/pc-continuous-ping-bgp.png)
 
-**Traceroute before and during failure**
+**Traceroute before and during failure: Click to Enlarge**
 
 ![OSPF](screenshots/bgp-traceroute.png)
 
 ### 2.5 Path Recovery
 The failed interface was restored (`no shutdown`). BGP successfully re-established the TCP connection, exchanged Open/Keepalive messages, and the routing table reconverged to the intended primary operational state.  
 
-## Verification Evidence 
+---
 
-| Verification Area | Command(s) Used | Status | Evidence File |
-| :--- | :--- | :---: | :--- |
-| BGP Process & Neighbor State | `show ip bgp summary` | Verified | `hq-edge1-sh-bgp-summary.png)` |
-| iBGP / eBGP Session Details | `show ip bgp neighbors` | Verified | `bgp-neighbors.png` |
-| Route Installation & Best Path | `show ip bgp`, `show ip route bgp` | Verified | `bgp-routes.png` |
-| Route Policy & Filtering | `show ip bgp neighbors ... advertised-routes` | Verified | `sh-route-map.png` |
-| Failover Convergence | `show ip bgp summary`, `ping` | Verified | `bgp-failover-after-routes.png` |
+### What's Next?
+
+Continue to the next module to explore the HSRP implementation:
+- **[HSRP Configuration & Verification](../HSRP/)** – First-hop redundancy design, active/standby roles, preemption, and failover testing.
