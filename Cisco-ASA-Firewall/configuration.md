@@ -63,7 +63,7 @@ show failover interface
 ![ASA](screenshots/fw-2-sh-ospf-neighbor-during-failure.png)
 
 **Test:** `no failover active` on HQ-FW-1 (Primary/Active) to force HQ-FW-2 to take over.
- 
+
 | Check | Before | During | Result |
 |---|---|---|---|
 | FW-1 role | Primary, **Active** (95 s) | Primary, **Standby Ready** | Demoted at 05:46:23 UTC |
@@ -72,20 +72,64 @@ show failover interface
 | Active IPs | FW-1: 10.255.110.3, 10.255.111.1 | FW-2: 10.255.110.3, 10.255.111.1 | Same IPs, now on FW-2 |
 | Standby IPs | FW-2: 10.255.110.4, 10.255.111.2 | FW-1: 10.255.110.4, 10.255.111.2 | Roles swapped |
 | OSPF neighbors | FW-1: 4 × FULL, FW-2: none | FW-2: 4 × FULL, FW-1: none | Same neighbors, served by the new active |
- 
+
 **OSPF neighbor table (identical before and after, only the unit changes):** 10.255.10.11 (HQ-LAN, 10.255.111.3), 10.255.10.12 (HQ-LAN, 10.255.111.6), 10.255.10.1 (EDGE-ROUTERS, 10.255.110.1), 10.255.10.2 (EDGE-ROUTERS, 10.255.110.2).
- 
+
 ### Evidence
- 
-| Before | During |
-|---|---|
-| ![FW-1 failover](screenshots/fw-1-sh-failover-before.png) | ![no failover active](screenshots/fw-1-no-failover-active-during.png) |
-| ![FW-2 failover state](screenshots/fw-2-sh-failover-state-before.png) | ![FW-1 failover](screenshots/fw-1-sh-failover-during.png) |
-| | ![FW-1 failover state](screenshots/fw-1-sh-failover-state-during.png) |
-| | ![FW-2 failover](screenshots/fw-2-sh-failover-during.png) |
-| ![FW-1 OSPF](screenshots/fw-1-sh-ospf-neighbor-before.png) | ![FW-2 OSPF](screenshots/fw-2-sh-ospf-neighbor-during.png) |
-| ![FW-2 OSPF (none)](screenshots/fw-2-sh-ospf-neighbor-before.png) | ![FW-1 OSPF (none)](screenshots/fw-1-sh-ospf-neighbor-during.png) |
-| ![FW-2 int brief](screenshots/fw-2-sh-int-ip-brief-before.png) | ![FW-2 int brief](screenshots/fw-2-sh-int-ip-brief-during.png) |
+
+**Trigger: command run on HQ-FW-1**
+
+<img src="screenshots/fw-1-intentional-shutdown.png" width="600" alt="no failover active on FW-1">
+
+**Failover state**
+
+<table>
+  <tr><th width="50%">Before</th><th width="50%">During</th></tr>
+  <tr>
+    <td><b>FW-1</b> <code>show failover</code>: Primary, Active<br><img src="screenshots/fw-1-sh-failover.png" alt="FW-1 show failover before"></td>
+    <td><b>FW-1</b> <code>show failover</code>: Primary, Standby Ready<br><img src="screenshots/fw-1-sh-failover-during-failure.png" alt="FW-1 show failover during"></td>
+  </tr>
+  <tr>
+    <td><b>FW-1</b> <code>show failover state</code><br><img src="screenshots/fw-1-sh-failover-state-before.png" alt="FW-1 failover state before"></td>
+    <td><b>FW-1</b> <code>show failover state</code><br><img src="screenshots/fw-1-sh-failover-state-during-failure.png" alt="FW-1 failover state during"></td>
+  </tr>
+  <tr>
+    <td><b>FW-2</b> <code>show failover</code>: Secondary, Standby Ready<br><img src="screenshots/fw-2-show-failover.png" alt="FW-2 show failover before"></td>
+    <td><b>FW-2</b> <code>show failover</code>: Secondary, Active<br><img src="screenshots/fw-2-sh-failover-during-failure.png" alt="FW-2 show failover during"></td>
+  </tr>
+  <tr>
+    <td><b>FW-2</b> <code>show failover state</code><br><img src="screenshots/fw-2-sh-failover-state-before.png" alt="FW-2 failover state before"></td>
+    <td></td>
+  </tr>
+</table>
+
+**OSPF neighbors**
+
+<table>
+  <tr><th width="50%">Before</th><th width="50%">During</th></tr>
+  <tr>
+    <td><b>FW-1</b>: 4 neighbors FULL<br><img src="screenshots/fw-1-sh-ospf-neighbor-before.png" alt="FW-1 OSPF before"></td>
+    <td><b>FW-1</b>: none (standby)<br><img src="screenshots/fw-1-sh-ospf-neighbor-during-failure.png" alt="FW-1 OSPF during"></td>
+  </tr>
+  <tr>
+    <td><b>FW-2</b>: none (standby)<br><img src="screenshots/fw-2-sh-ospf-neighbor-before.png" alt="FW-2 OSPF before"></td>
+    <td><b>FW-2</b>: 4 neighbors FULL<br><img src="screenshots/fw-2-sh-ospf-neighbor-during-failure.png" alt="FW-2 OSPF during"></td>
+  </tr>
+</table>
+
+**Interface IPs on FW-2**
+
+<table>
+  <tr><th width="50%">Before (standby)</th><th width="50%">During (active)</th></tr>
+  <tr>
+    <td>Gi0/0 10.255.110.4, Gi0/2 10.255.111.2<br><img src="screenshots/fw-2-sh-int-ip-brief-before.png" alt="FW-2 int brief before"></td>
+    <td>Gi0/0 10.255.110.3, Gi0/2 10.255.111.1<br><img src="screenshots/fw-2-sh-int-ip-brief-during-failure.png" alt="FW-2 int brief during"></td>
+  </tr>
+</table>
+
+**Failover configuration**
+
+<img src="screenshots/sh-run-failover.png" width="600" alt="show run failover on FW-1">
 
 
 ---
