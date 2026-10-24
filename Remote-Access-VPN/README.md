@@ -18,6 +18,8 @@ The deployment was validated end-to-end using an internal Apache web server as a
 
 https://github.com/user-attachments/assets/2a8c1a98-9edd-40f3-8df8-a9ca3221c619
 
+![IPSec](screenshots/successful-anyconnect-session.png)
+
 ---
 
 ## Design Objectives
@@ -67,7 +69,9 @@ It focuses on the successful integration of SAML SSO, ASA tunnel establishment, 
 
 ---
 
-## Related Documentation
+---
 
-- **Site-to-Site VPN:** `Site-to-Site-VPN/` (IPsec tunnel between HQ and Ashburn)
-- **Identity Management:** `Windows/07-Microsoft-365/` (Entra ID and user management)
+### Next Section
+
+Continue to the detailed implementation phases, ASA verification, and evidence matrix for the Remote Access VPN:
+- **[Configuration Details](configuration.md)** – SAML SSO integration, ASA Group Policies, split-tunneling ACLs, and end-to-end validation evidence.
