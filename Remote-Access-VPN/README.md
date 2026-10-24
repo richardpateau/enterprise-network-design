@@ -16,7 +16,7 @@ The deployment was validated end-to-end using an internal Apache web server as a
 
 **Please enlarge for clearer video**
 
-https://github.com/user-attachments/assets/4f52c487-2326-4659-98a9-9a6258cde421
+https://github.com/user-attachments/assets/2a8c1a98-9edd-40f3-8df8-a9ca3221c619
 
 ---
 
