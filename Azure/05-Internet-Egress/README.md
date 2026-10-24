@@ -90,9 +90,9 @@ https://github.com/user-attachments/assets/b0fced58-d7ec-450a-a6a1-acf872b78382
 | `nat-gateway.md`  | NAT Gateway configuration details  |
 | `screenshots/`    | Supporting screenshots             |
 
-## Related Sections
+---
 
-- [01-Architecture](../01-Architecture/) – Overall hybrid architecture
-- [02-Networking](../02-Networking/) – VNet and subnet design
-- [04-Application-Server](../04-Application-Server/) – Application VM
-- [06-Security](../06-Security/) – Network Security Groups
+### Next Section
+
+Continue to the detailed NAT Gateway configuration and deployment details:
+- **[NAT Gateway Configuration](nat-gateway.md)** – NAT Gateway setup, public IP association, and subnet integration.
