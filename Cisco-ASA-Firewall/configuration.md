@@ -34,33 +34,10 @@ show failover interface
 - **Failover Status:** Enabled
 - **Stateful Updates:** Active
 
-**show failover before failure FW-1 **
-
-![ASA](screenshots/fw-1-sh-failover-state-before.png)
-
-**show failover before failure FW-2**
-
-![ASA](screenshots/fw-2-sh-failover-state-before.png)
-
-**show ospf neighbor before failure FW-2**
-
-![ASA](screenshots/fw-2-sh-ospf-neighbor-before.png)
-
-**show int ip brief FW-2 before failure**
-
-![ASA](screenshots/fw-2-sh-int-ip-brief-before.png)
 
 **FW-1 intentional failure: no failover active**
 
 ![ASA](screenshots/fw-1-intentional-shutdown.png)
-
-**show int ip brief during failure FW-2**
-
-![ASA](screenshots/fw-2-sh-int-ip-brief-during-failure.png)
-
-**show ospf neighbor during failure FW-2**
-
-![ASA](screenshots/fw-2-sh-ospf-neighbor-during-failure.png)
 
 **Test:** `no failover active` on HQ-FW-1 (Primary/Active) to force HQ-FW-2 to take over.
 
