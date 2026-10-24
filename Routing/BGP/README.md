@@ -43,7 +43,7 @@ Maintaining a strict boundary between the IGP and EGP is critical for enterprise
 
 ## Hybrid Cloud Integration (Azure)
 
-Meridian’s hybrid architecture extends the on-premises network to Microsoft Azure. BGP serves as the dynamic routing control plane for this connectivity (e.g., Azure VPN Gateway or ExpressRoute), allowing seamless, dynamic exchange of routes between the on-premises AS 65000 and the Azure virtual network infrastructure. 
+Meridian’s hybrid architecture extends the on-premises network to Microsoft Azure. BGP serves as the dynamic routing control plane for this connectivity (e.g., Azure VPN Gateway), allowing seamless, dynamic exchange of routes between the on-premises AS 65000 and the Azure virtual network infrastructure. 
 
 *(Note: Detailed Azure BGP peering configurations and topology are documented within the `Azure/` directory).*
 
@@ -98,7 +98,7 @@ router bgp 65000
   network 10.10.50.0 mask 255.255.255.0
   network 10.10.60.0 mask 255.255.255.0
   network 10.10.70.0 mask 255.255.255.0
-  network 10.255.110.1 mask 255.255.255.240
+  network 10.255.110.0 mask 255.255.255.240
   network 192.0.2.0 mask 255.255.255.252
   ```
 
@@ -119,7 +119,21 @@ Before testing failure scenarios, the baseline health of the BGP control plane w
 - **iBGP:** HQ-EDGE-1 (`10.255.10.1`) and HQ-EDGE-2 (`10.255.10.2`) show an `Established` session with uptime, confirming control-plane redundancy.
 - **eBGP:** External sessions to AS 65001 and AS 65002 are `Established`, with expected prefix counts received.
 
+**HQ-EDGE-1: show ip bgp summary**
+
 ![BGP](screenshots/hq-edge1-sh-bgp-summary.png)
+
+**HQ-EDGE-1: show ip bgp summary**
+
+![BGP](screenshots/edge-2-sh-ip-bgp-summary.png)
+
+**HQ-EDGE-1: show ip bgp neighbors**
+
+![BGP](screenshots/edge-1-sh-ip-bgp-neighbors.png)
+
+**HQ-EDGE-2: show ip bgp neighbors**
+
+![BGP](screenshots/edge-2-sh-ip-bgp-neighbors.png)
 
 ### 1.2 Routing Table & Best-Path Selection
 **Commands:** `show ip bgp`, `show ip route bgp`, `show ip bgp <prefix>`  
@@ -128,22 +142,29 @@ Before testing failure scenarios, the baseline health of the BGP control plane w
 
 **HQ-EDGE-1: show ip bgp**
 
-![BGP](screenshots/hq-edge1-sh-bgp-summary.png)
+![BGP](screenshots/edge-1-show-ip-bgp.png)
 
 **HQ-EDGE-1: show ip route bgp**
 
-![BGP](screenshots/hq-edge1-sh-bgp-summary.png)
+![BGP](screenshots/edge-1-show-ip-route-bgp.png)
 
-**HQ-EDGE-1: show ip bgp 203.0.113.10**
+**HQ-EDGE-1: show ip route 203.0.113.10**
 
-![BGP](screenshots/hq-edge1-sh-bgp-summary.png)
+![BGP](screenshots/edge-1-show-ip-route-203.0.113.10.png)
 
-### 1.3 Route Policy & Filtering Verification
-**Commands:** `show ip bgp neighbors <IP> advertised-routes`, `show ip bgp neighbors <IP> routes`, `show route-map`  
+
+### 1.3 Route Policy Verification
+**Commands:** `show ip bgp neighbors <IP> advertised-routes`, `show route-map`  
 **Validation Criteria:** Confirms that inbound and outbound route-maps are actively filtering traffic.    
 **Observation:** The inbound route-map on the eBGP session successfully filters unexpected prefixes, ensuring only legitimate, intended routes are accepted into the Meridian BGP table.
 
-![BGP](screenshots/sh-route-map.png)
+**HQ-EDGE-1: show ip bgp neighbors 192.0.2.1**
+
+![BGP](screenshots/edge-1-show-ip-bgp-advertised-routes.png)
+
+**HQ-EDGE-1: show route-map**
+
+![BGP](screenshots/edge-1-show-route-map.png)
 
 ---
 

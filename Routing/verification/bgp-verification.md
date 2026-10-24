@@ -17,7 +17,21 @@ Before testing failure scenarios, the baseline health of the BGP control plane w
 - **iBGP:** HQ-EDGE-1 (`10.255.10.1`) and HQ-EDGE-2 (`10.255.10.2`) show an `Established` session with uptime, confirming control-plane redundancy.
 - **eBGP:** External sessions to AS 65001 and AS 65002 are `Established`, with expected prefix counts received.
 
+**HQ-EDGE-1: show ip bgp summary**
+
 ![BGP](screenshots/hq-edge1-sh-bgp-summary.png)
+
+**HQ-EDGE-1: show ip bgp summary**
+
+![BGP](screenshots/edge-2-sh-ip-bgp-summary.png)
+
+**HQ-EDGE-1: show ip bgp neighbors**
+
+![BGP](screenshots/edge-1-sh-ip-bgp-neighbors.png)
+
+**HQ-EDGE-2: show ip bgp neighbors**
+
+![BGP](screenshots/edge-2-sh-ip-bgp-neighbors.png)
 
 ### 1.2 Routing Table & Best-Path Selection
 **Commands:** `show ip bgp`, `show ip route bgp`, `show ip bgp <prefix>`  
