@@ -6,9 +6,11 @@ This project implements a secure, controller-based enterprise wireless network f
 
 The implementation delivers two distinct wireless services: a secure, 802.1X-authenticated corporate network and a segmented, splash-page-enabled guest network.
 
-**Please enlarge for clearer video**
+**Guest Captive Portal: Please enlarge for clearer video**
 
 https://github.com/user-attachments/assets/60321737-4bc5-41d0-8398-0254bff6391e
+
+**Incorrect Credentials: Please enlarge for clearer video**
 
 https://github.com/user-attachments/assets/2099af68-b40b-473f-a3a3-b1ba622819ed
 
@@ -20,9 +22,9 @@ https://github.com/user-attachments/assets/2099af68-b40b-473f-a3a3-b1ba622819ed
 
 ![Topology](screenshots/topology.png)
 
-![Topology](screenshots/physical-ap.png)
+![Topology](screenshots/physical-ap.jpeg)
 
-![Topology](screenshots/physical-switch.png)
+![Topology](screenshots/physical-switch.jpeg)
 
 ### Core Components
 | Component | Purpose |

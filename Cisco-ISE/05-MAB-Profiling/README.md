@@ -92,7 +92,7 @@ This negative test proves that the network is not open; only devices explicitly 
 
 ---
 
-### ➡️ What's Next?
+### What's Next?
 
 With the wired network access control, guest isolation, administrative security, and IoT/Voice profiling fully implemented and validated, the next step is to extend this identity-driven security to the wireless network.
 
