@@ -114,9 +114,9 @@ Azure VPN Gateway
 - A host route to `10.200.255.30/32` remains on the ASA so the BGP peer is reachable over the VTI
 - Active-Active is currently disabled (active-standby operation)
 
-## Related Documentation
+---
 
-- [07-Routing/README.md](README.md) – Routing overview
-- [03-Site-to-Site-VPN](../03-Site-to-Site-VPN/) – VPN Gateway and IPsec
-- [02-Networking](../02-Networking/) – VNet and subnet design
+### Next Section
 
+Continue to the detailed BGP configuration and route exchange validation:
+- **[BGP Configuration & Validation](bgp.md)** – Detailed BGP setup, neighbor establishment, and route advertisement evidence.
