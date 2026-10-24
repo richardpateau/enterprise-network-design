@@ -80,7 +80,7 @@ The route is identified as:
 ```text
 Known via "bgp 65000"
 ```
-![BGP CONFIG](screenshots/fw1-sh-route-10.200.0.0.png)
+![BGP CONFIG](screenshots/fw1-sh-bgp-sh-route-10.200.0.0.png)
 
 ## Azure Learned Prefixes
 
@@ -127,9 +127,10 @@ All required BGP routing relationships were established successfully.
 - The previous static route for `10.200.0.0/16` was removed after BGP became operational while maintaining connectivity.
 - A host route to `10.200.255.30/32` remains so the BGP peer is reachable over the VTI
 
-## Related Documentation
+---
 
-- [07-Routing/README.md](README.md) – Routing overview
-- [azure-routing.md](azure-routing.md) – Azure-side routing details
-- [03-Site-to-Site-VPN](../03-Site-to-Site-VPN/) – VPN Gateway and IPsec
+### Next Section
+
+Continue to the operational validation of the routing between the Azure environment and the Meridian on-premises network:
+- **[Route Validation](route-validation.md)** – End-to-end connectivity tests, effective route verification, and ping results.
 
