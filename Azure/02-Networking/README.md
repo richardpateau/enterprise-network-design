@@ -47,8 +47,9 @@ Azure networking design and configuration for the Meridian Financial Services hy
 
 ![High-level architecture diagram](../01-Architecture/screenshots/high-level-diagram.png)
 
-## Related Sections
+---
 
-- [01-Architecture](../01-Architecture/) – Overall hybrid architecture
-- [03-Site-to-Site-VPN](../03-Site-to-Site-VPN/) – VPN Gateway and IPsec details
+### ➡️ Next Section
 
+Continue to the detailed subnet design and allocation documentation:
+- **[Subnet Design & Allocation](subnets.md)** – Detailed breakdown of the Azure-Apps, Azure-Infrastructure, and GatewaySubnet configurations.
