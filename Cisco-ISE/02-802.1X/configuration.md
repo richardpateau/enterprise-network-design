@@ -58,7 +58,6 @@ The access port is configured to block traffic until authentication succeeds.
 interface GigabitEthernet1/0/1
  description 802.1X-ACCESS-PORT
  switchport mode access
- ! Note: switchport access vlan 10 is NOT required here; ISE assigns it dynamically.
  
  ! Enable 802.1X authentication
  authentication port-control auto
@@ -92,7 +91,7 @@ The implementation was validated through rigorous functional testing. The follow
 
 **SW2 show authentication sessions interface e1/0 details**
 
-![ISE](screenshots/authentication-result.png)
+![ISE](screenshots/sw2-authentication-result.png)
 
 **SW2 authentication successful syslog**
 
@@ -167,3 +166,11 @@ Curated screenshots validating this implementation are stored in:
 - [x] `rouge-pc-unable-to-ping.png` (Proof of rogue device isolation - no gateway connectivity)
 - [x] `sw2-rogue-pc-syslog.png` (Switch syslog showing authentication failure for rogue device)
 
+---
+
+### What's Next?
+
+With 802.1X network access control successfully configured and validated for corporate endpoints, the next step is to define the access model for unmanaged or temporary devices.
+
+Continue to the next module to explore guest and unknown device access:
+- **[03 — Guest & Unknown Device Access](../03-Guest/)** – Unknown-device policy conditions, guest authorization profiles, and restricted VLAN 40 assignment.
