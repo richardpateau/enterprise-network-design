@@ -6,17 +6,7 @@ This document details the configuration model used to enforce centralized TACACS
 
 ---
 
-## 1. ISE Policy Framework
-
-Yes, absolutely. The screenshot shows the standard, clean way ISE handles Device Administration (TACACS+) authentication. 
-
-Because this Policy Set is specifically inside the **Device Administration** work center, ISE already knows these are TACACS+ requests. Therefore, you don't need complex conditions inside the rule; a simple **Default** rule that catches everything and sends it to your identity stores is the best practice.
-
-Here is the updated **Section 1.1** for your `Cisco-ISE/04-TACACS/configuration.md` to perfectly match your screenshot:
-
-***
-
-### 1.1 Authentication Policy
+### 1 Authentication Policy
 
 Within the Device Administration Policy Set, the Authentication Policy is configured to validate all administrative login attempts against the available identity sources.
 
@@ -29,7 +19,7 @@ By using the `All_User_ID_Stores` sequence, ISE will automatically check the adm
 
 ![ISE](screenshots/tacacs-visio.png)
 
-### 1.2 Authorization Policy (Shell Profiles)
+### 1.1 Authorization Policy (Shell Profiles)
 Upon successful authentication, ISE evaluates the Authorization Policy to determine the administrator's privileges.
 *   **Condition:** `External Groups` CONTAINS `Meridian_Network_Admins`
 *   **Action:** Apply Shell Profile: `NetAdmin_Priv15_FullAccess`
@@ -41,7 +31,7 @@ Upon successful authentication, ISE evaluates the Authorization Policy to determ
 
 **Conditions: Net Admin**
 
-![ISE](screenshots/coditional-rule.png)
+![ISE](screenshots/conditional-rule.png)
 
 **Command Set: MERIDIAN-ADMIN-ALL**
 
@@ -51,7 +41,7 @@ Upon successful authentication, ISE evaluates the Authorization Policy to determ
 
 ![ISE](screenshots/tacacs-profile-privilege-15.png)
 
-### 1.3 Accounting Policy
+### 1.2 Accounting Policy
 Accounting is enabled to track administrative sessions and command execution.
 *   **Action:** Account `Session` (Start/Stop) and `Command` (per-command logging) to the ISE TACACS+ Accounting service.
 
@@ -81,7 +71,7 @@ line vty 0 15
  transport input ssh
  login authentication default
 ```
-*Key Directive:* The `local` keyword at the end of the AAA commands provides a fallback mechanism in case ISE becomes unreachable, preventing administrative lockout.
+The `local` keyword at the end of the AAA commands provides a fallback mechanism in case ISE becomes unreachable, preventing administrative lockout.
 
 ---
 
@@ -107,6 +97,7 @@ The implementation was validated through rigorous functional testing. The follow
 
 ![ISE](screenshots/ise-log-failures.png)
 
+**HQ-R1: debug tacas authentication**
 ![ISE](screenshots/r1-debug-failed-auth.png)
 
 ### 3.3 Accounting Verification (Audit Trail & Non-Repudiation)
@@ -120,21 +111,18 @@ The administrator logged into **HQ-R1** and performed configuration changes, spe
 
 1.  **Device-Side Execution:**
     The terminal session on HQ-R1 confirms the execution of specific configuration commands by the authenticated user.
-    *[Insert Screenshot: `tacacs-accounting-hq-r1-cli.png`]*
+
+![ISE](screenshots/accounting-test-cli.png)
 
 2.  **ISE Command Accounting Report:**
     The ISE "TACACS Command Accounting" report provides a granular, timestamped log of the session. Crucially, it captures not just the commands, but the **arguments** used.
-    *[Insert Screenshot: `tacacs-command-accounting-ise-report.png`]*
+
+![ISE](screenshots/logs-accounting-test.png)
 
 **Key Observations from ISE Report:**
 *   **Identity Correlation:** Every command is explicitly tied to the `netadmin.test` identity.
 *   **Command Granularity:** ISE logged the exact sequence: `configure terminal` $\rightarrow$ `interface FastEthernet 0/0.80` $\rightarrow$ `encapsulation dot1Q 900`.
 *   **Audit Capability:** This level of visibility ensures that if a configuration change causes a network outage, the exact administrator and the specific commands responsible can be identified immediately.
-
-![ISE](screenshots/accounting-test-cli.png)
-
-![ISE](screenshots/logs-accounting-test.png)
-
 
 ## 4. Evidence Repository
 
@@ -160,3 +148,12 @@ Curated screenshots validating this implementation are stored in:
 **Accounting Verification (Audit Trail):**
 - [x] `accounting-test-cli.png` (Router-side CLI proof of commands executed by admin)
 - [x] `logs-accounting-test.png` (ISE TACACS Command Accounting report showing exact commands logged)
+
+---
+
+### What's Next?
+
+With administrative access securely controlled and audited via TACACS+, the final piece of the ISE implementation focuses on securely onboarding non-802.1X capable devices.
+
+Continue to the final ISE module to explore MAC Authentication Bypass and device profiling:
+- **[05 — MAB Profiling & Dynamic VLAN Assignment](../05-MAB-Profiling/)** – Multi-domain host mode, MAB-first authentication, Endpoint Identity Groups, and RADIUS-driven VLAN assignment for IoT/Voice endpoints.
