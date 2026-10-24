@@ -53,7 +53,6 @@ Meridian’s hybrid architecture extends the on-premises network to Microsoft Az
 
 ### Routing Policy Controls
 BGP is deployed with intentional route-policy controls to govern traffic flow:
-- **Inbound Filtering:** Prefix-lists and route-maps are used to accept only expected, legitimate routes from external peers, protecting the Meridian routing table from spoofing or accidental leaks.
 - **Outbound Advertisement:** Strict controls dictate which internal Meridian subnets are advertised to external peers.
 - **Path Manipulation:** Techniques such as `LOCAL_PREF` or `AS_PATH` prepending are available to influence inbound/outbound traffic engineering across the dual ISP links.
 
@@ -99,7 +98,7 @@ router bgp 65000
   network 10.10.60.0 mask 255.255.255.0
   network 10.10.70.0 mask 255.255.255.0
   network 10.255.110.0 mask 255.255.255.240
-  network 192.0.2.0 mask 255.255.255.252
+  network 192.0.2.0 mask 255.255.255.25
   ```
 
 ### Key Configuration Directives
@@ -153,10 +152,9 @@ Before testing failure scenarios, the baseline health of the BGP control plane w
 ![BGP](screenshots/edge-1-show-ip-route-203.0.113.10.png)
 
 
-### 1.3 Route Policy Verification
+### 1.3 Route Map & Advertised Route Verification
+
 **Commands:** `show ip bgp neighbors <IP> advertised-routes`, `show route-map`  
-**Validation Criteria:** Confirms that inbound and outbound route-maps are actively filtering traffic.    
-**Observation:** The inbound route-map on the eBGP session successfully filters unexpected prefixes, ensuring only legitimate, intended routes are accepted into the Meridian BGP table.
 
 **HQ-EDGE-1: show ip bgp neighbors 192.0.2.1**
 
@@ -172,7 +170,6 @@ Before testing failure scenarios, the baseline health of the BGP control plane w
 
 **Objective:** Demonstrate that the Meridian network maintains external routing continuity when a primary BGP path fails, and correctly reconverges upon recovery.
 
-
 ### 2.1 Pre-Failure Baseline
 Before inducing a failure, the baseline state was captured to confirm normal routing and connectivity.
 - **Neighbor State:** Primary eBGP/iBGP adjacency is `Established`.
@@ -183,15 +180,15 @@ Before inducing a failure, the baseline state was captured to confirm normal rou
 
 ![BGP](screenshots/bgp-topology.png)
 
-**Neighbor State**
+**HQ-EDGE-1: Neighbor State before failure**
 
 ![BGP](screenshots/hq-edge1-sh-bgp-summary.png)
 
-**Routing Table**
+**HQ-EDGE-1: Routing Table before failure**
 
-![BGP](screenshots/bgp-failover-before-routes.png)
+![BGP](screenshots/edge-1-show-ip-route-bgp.png)
 
-**HQ PC1 ping to 203.0.113.10 successful**
+**HQ PC1 ping to 203.0.113.10 successful before failure**
 
 ![BGP](screenshots/bgp-failover-before-connectivity.png)
 
@@ -199,20 +196,20 @@ Before inducing a failure, the baseline state was captured to confirm normal rou
 A controlled failure was introduced by administratively shutting down the primary BGP transport interface (or clearing the BGP session) on the active edge router.
 *Example:* `interface FastEthernet0/0` → `shutdown`
 
-![BGP](screenshots/hq-edge1-f6-0-shutdown.png)
+![BGP](screenshots/edge-1-bgp-intentional-failure.png)
 
 ### 2.3 Convergence Observation
 Immediately following the failure, the network state was re-evaluated:
 - **Neighbor State:** The failed BGP session transitioned to `Idle` or `Active`.
 - **Routing Table:** BGP rapidly withdrew the affected routes. The alternate path (e.g., via the secondary ISP or the iBGP peer) was evaluated and installed into the RIB.  
 
-**Neighbor State**
+**Neighbor State during failure**
 
 ![BGP](screenshots/bgp-failover-after-summary.png)
 
-**Routing table**
+**Routing table during failure**
 
-![BGP](screenshots/bgp-failover-after-routes.png)
+![BGP](screenshots/edge-1-sh-ip-route-bgp-during-failure.png)
 
 
 ### 2.4 Connectivity Validation
@@ -226,7 +223,7 @@ Immediately following the failure, the network state was re-evaluated:
 
 **Traceroute before and during failure**
 
-![OSPF](screenshots/traceroute.png)
+![OSPF](screenshots/bgp-traceroute.png)
 
 ### 2.5 Path Recovery
 The failed interface was restored (`no shutdown`). BGP successfully re-established the TCP connection, exchanged Open/Keepalive messages, and the routing table reconverged to the intended primary operational state.  
@@ -235,8 +232,8 @@ The failed interface was restored (`no shutdown`). BGP successfully re-establish
 
 | Verification Area | Command(s) Used | Status | Evidence File |
 | :--- | :--- | :---: | :--- |
-| BGP Process & Neighbor State | `show ip bgp summary` | ✅ Verified | `hq-edge1-sh-bgp-summary.png)` |
-| iBGP / eBGP Session Details | `show ip bgp neighbors` | ✅ Verified | `bgp-neighbors.png` |
-| Route Installation & Best Path | `show ip bgp`, `show ip route bgp` | ✅ Verified | `bgp-routes.png` |
-| Route Policy & Filtering | `show ip bgp neighbors ... advertised-routes` | ✅ Verified | `sh-route-map.png` |
-| Failover Convergence | `show ip bgp summary`, `ping` | ✅ Verified | `bgp-failover-after-routes.png` |
+| BGP Process & Neighbor State | `show ip bgp summary` | Verified | `hq-edge1-sh-bgp-summary.png)` |
+| iBGP / eBGP Session Details | `show ip bgp neighbors` | Verified | `bgp-neighbors.png` |
+| Route Installation & Best Path | `show ip bgp`, `show ip route bgp` | Verified | `bgp-routes.png` |
+| Route Policy & Filtering | `show ip bgp neighbors ... advertised-routes` | Verified | `sh-route-map.png` |
+| Failover Convergence | `show ip bgp summary`, `ping` | Verified | `bgp-failover-after-routes.png` |
