@@ -52,7 +52,7 @@ The implementation was validated across two primary vectors:
 ### 1. HA Failover Testing
 A controlled interruption was introduced to the Active firewall. The Standby firewall successfully assumed the Active role, and OSPF adjacencies were re-established, proving stateful redundancy.
 
-**show failover before failure FW-1 **
+**show failover before failure FW-1**
 
 ![ASA](screenshots/fw-1-sh-failover-state-before.png)
 
@@ -72,9 +72,9 @@ A controlled interruption was introduced to the Active firewall. The Standby fir
 ### 2. DMZ Security & Isolation Testing
 | Test Scenario | Source | Destination | Expected Result | Observed Result |
 | :--- | :--- | :--- | :--- | :--- |
-| **Internal Access** | HQ-LAN Client | DMZ Web Server | Allowed (High to Mid) | ✅ HTTP 200 OK |
-| **External Access** | Ext Client (203.0.113.10) | Public IP (198.18.0.50) | Allowed via NAT/ACL | ✅ HTTP 200 OK |
-| **DMZ Isolation** | DMZ Web Server | Internal Host (10.10.10.101) | Blocked (Mid to High) | 🛑 ICMP Requests Sent, No Replies |
+| **Internal Access** | HQ-LAN Client | DMZ Web Server | Allowed (High to Mid) |  HTTP 200 OK |
+| **External Access** | Ext Client (203.0.113.10) | Public IP (198.18.0.50) | Allowed via NAT/ACL |  HTTP 200 OK |
+| **DMZ Isolation** | DMZ Web Server | Internal Host (10.10.10.101) | Blocked (Mid to High) |  ICMP Requests Sent, No Replies |
 | **Direct IP Access** | Ext Client | Private DMZ IP (10.10.80.10) | Blocked (No NAT match) |  Host Unreachable |
 
 **Please enlarger for clearer video: External to DMZ Web Server**
@@ -98,3 +98,10 @@ During the post-implementation verification, two operational states were noted f
 | `README.md` | Architecture, HA design, DMZ security model, and testing summary. |
 | `configuration.md` | Interface addressing, NAT rules, ACL structure, and detailed test procedures. |
 | `screenshots/` | Curated evidence of CLI outputs, packet captures, and browser tests. |
+
+---
+
+### Next Section
+
+Continue to the detailed configuration documentation:
+- **[Configuration Details](configuration.md)** – Interface addressing, NAT rules, ACL structure, failover configuration, and detailed test procedures.
