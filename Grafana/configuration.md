@@ -15,13 +15,18 @@ SNMPv3 users, groups, and access control lists were deployed consistently using 
 
 **Ansible Automation:**  
 The deployment followed a strict sequence to ensure security compliance:
-1. `02_base_config.yml`: Established baseline management access.
-2. `04_configure_snmpv3_usernames.yml` & `05_configure_asa_snmpv3.yml`: Deployed secure SNMPv3 users and groups.
-3. `03_enable_telegraf_snmp-acl.yml`: Restricted SNMP polling strictly to the Telegraf server IP via ACLs.
+1. `enable_telegraf_snmp-acl.yml`
 
-![Grafana](screenshots/snmpv3-playbook.png)
+![Grafana](screenshots/acl-playbook.png)
+
+2. `configure_snmpv3_usernames.yml` & `configure_asa_snmpv3.yml`: Deployed secure SNMPv3 users and groups.
+
+![Grafana](screenshots/configure-snmp-user.png)
 
 ![Grafana](screenshots/snmpv3-playbook-results.png)
+
+3. `enable_telegraf_snmp-acl.yml`: Restricted SNMP polling strictly to the Telegraf server IP via ACLs.
+
 
 ## Phase 2: Telegraf Agent Deployment
 
@@ -132,4 +137,12 @@ An HTTP health check panel was implemented to monitor the DMZ web server's respo
 | | `ip-sec-cli.png` | CLI verification (`show crypto ipsec sa`) matching Grafana. |
 | **Application Health** | `dmz-server.png` | HTTP response time and availability for DMZ web server. |
 | | `dmz-server-oid.png` | SNMP OID mapping for application-layer monitoring. |
+
 ---
+
+### What's Next?
+
+With the network observability and monitoring fully automated and validated, the next step is to explore the modernization of the network addressing scheme.
+
+Continue to the next major module to explore the IPv6 implementation:
+- **[IPv6 (Dual-Stack)](../IPv6%20(Dual-Stack)/)** – Dual-stack configuration, IPv6 routing, security, and migration strategies.
