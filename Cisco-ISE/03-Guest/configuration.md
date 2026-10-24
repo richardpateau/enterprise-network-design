@@ -60,10 +60,6 @@ The implementation was validated through functional testing to prove that an unk
 
 ![ISE](screenshots/guest-policy-overview.png)
 
-![ISE](screenshots/sw2-guest-success-syslog.png)
-
-![ISE](screenshots/gest-authorization-profile.png)
-
 ### 3.2 Functional Guest Test (VLAN 40 & DHCP)
 **Objective:** Verify that a guest endpoint successfully authenticates and receives an IP address in the guest subnet.
 - **ISE Evidence:** Live Logs showing `Authentication: SUCCESS` (via MAB) and `Authorization: Guest-VLAN40`.
@@ -72,11 +68,11 @@ The implementation was validated through functional testing to prove that an unk
 
 **Guest Credentials**
 
-![ISE](screenshots/gest-credentials.png)
+![ISE](screenshots/guest-credentials.png)
 
 **SW2: show authentication interface e1/0**
 
-![ISE](screenshots/guest-authorization-profile.png)
+![ISE](screenshots/sw2-sh-authentication-interface.png)
 
 **SW2: Authentication syslogs / show authentication sessions**
 
@@ -88,7 +84,11 @@ The implementation was validated through functional testing to prove that an unk
 
 ` %AUTHMGR-5-SUCCESS: Authorization succeeded for client (50e9.5600.2d00) on Int erface Et1/0 AuditSessionID 0A0A320A00000000A0084EAB2`
 
-![ISE](screenshots/gest-authorization-profile.png)
+![ISE](screenshots/sw2-guest-success-syslog.png)
+
+**ISE Live Logs**
+
+![ISE](screenshots/ise-live-logs-guest-success.png)
 
 ---
 
@@ -113,3 +113,12 @@ Curated screenshots validating this implementation are stored in:
 **Endpoint Validation:**
 - [x] `pc1-successful-dhcp.png` (Endpoint proof of successful IP acquisition in VLAN 40)
 - [x] `guest-credentials.png` (Proof of guest endpoint credentials used during test)
+
+---
+
+### What's Next?
+
+With guest and unknown device access securely isolated and validated, the next step is to secure administrative access to the network infrastructure itself.
+
+Continue to the next module to explore TACACS+ network administration:
+- **[04 — TACACS+ Network Administration](../04-TACACS/)** – TACACS+ authentication, role-based shell profiles, granular command-set authorization, and comprehensive command accounting.
