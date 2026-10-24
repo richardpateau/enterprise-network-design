@@ -10,7 +10,7 @@ In this implementation, a Cisco CP-8841 IP phone is authenticated via its MAC ad
 | Access switch | `PHYSICAL-SW`, port `Gi1/0/2` |
 | RADIUS / policy server | Cisco ISE `192.168.122.2` (evaluation license) |
 | Endpoint | Cisco CP-8841 IP phone, MAC `00:A2:89:6D:E9:CC` |
-| DHCP | Served by the switch in this topology (ISE cannot see the DHCP probe) |
+| DHCP | Served by the switch in this topology |
  
 
 ![ISE](screenshots/ip-phone.jpeg)
@@ -24,7 +24,7 @@ To support both 802.1X laptops and MAB IP phones on the same physical port, the 
 
 The authentication order is explicitly set to `mab dot1x`. If a port is set to `dot1x mab`, the switch waits for an 802.1X timeout (up to 60 seconds) before trying MAB. By prioritizing MAB, non-802.1X devices authenticate instantly, drastically reducing boot times for IP phones.
 
-![ISE](screenshots/interface-configuration.png)
+![ISE](screenshots/interface-config.png)
 
 **AAA Configuration**
 
@@ -35,7 +35,7 @@ Because the local switch acts as the DHCP server in this specific lab topology, 
 
 1. **Endpoint Identity Group:** Created a dedicated group (`Cisco-IP-Phones`) to logically separate voice devices from standard data endpoints.
    
-   ![Endpoint Identity Group](screenshots/adding%20endpoint%20ID%20group.png)
+   ![ISE](screenshots/endpoint-identity-group.png)
 
 2. **Endpoint Registration:** The MAC address of the physical CP-8841 (`00:A2:89:6D:E9:CC`) was added to ISE and statically mapped to the `Cisco-IP-Phones` profile.
    
@@ -47,6 +47,7 @@ An Authorization Profile was created in ISE containing specific RADIUS AV-pairs.
 *   `Tunnel-Type`: VLAN
 *   `Tunnel-Medium-Type`: IEEE-802
 *   `Tunnel-Private-Group-ID`: 90
+*   `Voice Domain Permission`: Enabled 
 
 ![ISE](screenshots/authorization-profile.png)
 
@@ -88,3 +89,12 @@ To validate the security posture, a test device with an unregistered MAC address
   ![ISE](screenshots/logging-authentication-failures.png)
   
 This negative test proves that the network is not open; only devices explicitly defined in the ISE policy can gain access.
+
+---
+
+### ➡️ What's Next?
+
+With the wired network access control, guest isolation, administrative security, and IoT/Voice profiling fully implemented and validated, the next step is to extend this identity-driven security to the wireless network.
+
+Continue to the next major module to explore the Wireless LAN Controller implementation:
+- **[Cisco Wireless LAN Controller (WLC)](../../Cisco-WLC/)** – Wireless network design, WLC configuration, AP join process, and wireless security policies.
