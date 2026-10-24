@@ -64,10 +64,9 @@ The presence of these alert instances confirms that Azure Monitor was processing
 
 Azure Monitor metric alerting was configured and verified for the Meridian Azure application server.
 
-## Related Documentation
+---
 
-- [08-Monitoring/README.md](README.md) – Monitoring overview
-- [azure-monitor.md](azure-monitor.md) – Azure Monitor configuration
-- [data-collection.md](data-collection.md) – Data Collection Rule
-- [metrics.md](metrics.md) – Metrics details
-```
+### Next Section
+
+Continue to the detailed Azure Monitor workspace and Data Collection Rule configuration:
+- **[Azure Monitor Configuration](azure-monitor.md)** – Workspace setup, Data Collection Rules, and metric collection details.
