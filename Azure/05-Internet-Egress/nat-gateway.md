@@ -21,23 +21,7 @@ The NAT Gateway is associated with the `Azure-Apps` subnet and uses a dedicated 
 
 ## Network Placement
 
-```text
-Meridian-Azure-VNet
-10.200.0.0/16
-        |
-        v
-Azure-Apps
-10.200.10.0/24
-        |
-        v
-Meridian-AZ-NAT
-        |
-        v
-MERIDIAN-NAT-PIP
-        |
-        v
-Internet
-```
+![NSG](screenshots/az-nat-visio.png)
 
 ## Purpose
 

@@ -21,17 +21,7 @@ The NAT Gateway is associated with the Azure application subnet that contains `M
 
 ## Architecture
 
-```text
-MERIDIAN-AZ-WEB01 (10.200.10.4)
-            |
-       Azure-Apps (10.200.10.0/24)
-            |
-      Meridian-AZ-NAT
-            |
-      MERIDIAN-NAT-PIP
-            |
-         Internet
-```
+![AZ](screenshots/az-nat-visio.png)
 
 ## Design
 
