@@ -50,3 +50,10 @@ The latest file-system-consistent recovery point was selected as the source for 
 ## Result
 
 A valid recovery point was available and successfully used for the restore validation.
+
+---
+
+### Next Section
+
+Continue to the detailed configuration of the Recovery Services Vault:
+- **[Recovery Services Vault](recovery-services-vault.md)** – Vault configuration, storage redundancy, and protection settings.
