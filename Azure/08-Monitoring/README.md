@@ -115,3 +115,10 @@ The alert occurrence was recorded as an observed monitoring event rather than tr
 Azure monitoring is configured and operational for `MERIDIAN-AZ-WEB01`.
 
 The implementation provides centralized visibility into VM availability and resource utilization and provides alerting for defined resource thresholds.
+
+---
+
+### Next Section
+
+Continue to the detailed alert configuration and action group setup:
+- **[Alerts Configuration](alerts.md)** – Detailed alert rules, thresholds, and email notification setup.
