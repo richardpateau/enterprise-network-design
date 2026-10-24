@@ -131,4 +131,4 @@ The temporary restored VM was subsequently stopped after testing.
 With the Azure hybrid cloud environment fully configured, monitored, and backed up, the next step is to examine the core on-premises security boundary that protects the entire enterprise network.
 
 Continue to the next major module to explore the firewall architecture:
-- **[Cisco ASA Firewall](../Cisco-ASA-Firewall/)** – High Availability (HA), NAT, DMZ segmentation, and stateful firewall policies.
+- **[Cisco ASA Firewall](../../Cisco-ASA-Firewall/)** – High Availability (HA), NAT, DMZ segmentation, and stateful firewall policies.
