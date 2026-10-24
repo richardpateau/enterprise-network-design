@@ -51,7 +51,7 @@ Meridian-Azure-VNet provides the network foundation for:
 
 ---
 
-### ➡️ What's Next?
+### What's Next?
 
 With the Virtual Network and subnet design established, the next step is to connect this Azure environment to the on-premises Meridian network.
 

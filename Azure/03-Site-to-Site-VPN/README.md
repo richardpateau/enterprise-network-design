@@ -48,7 +48,8 @@ The VPN connects the Meridian HQ firewall HA pair to an Azure VPN Gateway using 
 | Authentication       | Pre-shared key         |
 | NAT-T                | Enabled where required |
 
-The pre-shared key is intentionally not documented in this repository.
+
+![Topology](screenshots/vpn-connection-configuration.png)
 
 ## Implementation Status
 
@@ -91,8 +92,9 @@ Packet capture evidence confirms successful IKEv2 negotiation.
 | `ipsec.md`                | IPsec proposals and profiles         |
 | `screenshots/`            | Supporting screenshots and captures  |
 
-## Related Sections
+---
 
-- [01-Architecture](../01-Architecture/) – Overall hybrid architecture
-- [02-Networking](../02-Networking/) – VNet and subnet design
-- [07-Routing](../07-Routing/) – Hybrid routing details
+### Next Section
+
+Continue to the detailed on-premises firewall configuration for the route-based Virtual Tunnel Interface (VTI):
+- 🔒 **[ASA Route-Based VTI](asa-vti.md)** – Detailed configuration of the on-premises firewall tunnel interface and routing.
