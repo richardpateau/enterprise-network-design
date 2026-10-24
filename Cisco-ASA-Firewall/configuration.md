@@ -154,17 +154,17 @@ access-list EDGE-IN extended deny ip any any log informational interval 300
 ### Test A: Internal-to-DMZ Access
 - **Source:** HQ-LAN Client
 - **Destination:** `10.10.80.10` (HTTP)
-- **Result:** ✅ **Success.** The ASA permits traffic from Security Level 100 to 50 by default.
+- **Result:** **Success.** The ASA permits traffic from Security Level 100 to 50 by default.
 
 ![ASA](screenshots/internal-reaches-dmz.png)
 
-![ASA](screenshots/internal-to-dmz-success.png)
+![ASA](screenshots/internal-to-dmz-server-success.png)
 
 
 ### Test B: External-to-DMZ Access (NAT Traversal)
 - **Source:** External Client (`203.0.113.10`)
 - **Destination:** `198.18.0.50` (HTTP)
-- **Result:** ✅ **Success.** Wireshark captures confirm the HTTP GET request was NATed to `10.10.80.10` and the server responded with HTTP 200 OK.
+- **Result:** **Success.** Wireshark captures confirm the HTTP GET request was NATed to `10.10.80.10` and the server responded with HTTP 200 OK.
 
 **Please enlarger for clearer video**
 
@@ -177,7 +177,7 @@ https://github.com/user-attachments/assets/1d6e5a5f-8697-4d75-a9d2-c144f0b6d05a
 ### Test C: DMZ-to-Internal Isolation
 - **Source:** DMZ Web Server (`10.10.80.10`)
 - **Destination:** Internal Host (`10.10.10.101`) (ICMP)
-- **Result:** 🛑 **Blocked.** Wireshark captures show ICMP Echo Requests leaving the DMZ server, but no Echo Replies are received, proving the ASA successfully blocks traffic from Security Level 50 to 100.
+- **Result:** **Blocked.** Wireshark captures show ICMP Echo Requests leaving the DMZ server, but no Echo Replies are received, proving the ASA successfully blocks traffic from Security Level 50 to 100.
 
 ![ASA](screenshots/wireshark-no-replies-dmz.png)
 
@@ -192,13 +192,13 @@ https://github.com/user-attachments/assets/1d6e5a5f-8697-4d75-a9d2-c144f0b6d05a
 ### Test D: Direct Private IP Access
 - **Source:** External Client
 - **Destination:** `10.10.80.10` (Private IP)
-- **Result:** 🛑 **Blocked.** The external host cannot route to or access the private DMZ IP directly, proving that access is strictly controlled via the NAT public IP.
+- **Result:** **Blocked.** The external host cannot route to or access the private DMZ IP directly, proving that access is strictly controlled via the NAT public IP.
 
 ![ASA](screenshots/external-unable-to-reach-private-dmz.png)
 
 ---
 
-## 6. Evidence Matrix
+## 6. Evidence 
 
 | Verification Stage | Evidence File | What It Proves |
 | :--- | :--- | :--- |
@@ -222,3 +222,12 @@ https://github.com/user-attachments/assets/1d6e5a5f-8697-4d75-a9d2-c144f0b6d05a
 | | `fw-2-sh-int-ip-brief-before.png` | Interface status before failover. |
 
 ---
+
+---
+
+### ➡What's Next?
+
+With the firewall security boundary fully configured and validated, the next step is to implement centralized identity and access control for the entire network infrastructure.
+
+Continue to the next major module to explore Cisco ISE integration:
+- **[Cisco ISE](../Cisco-ISE/)** – 802.1X authentication, TACACS+ device administration, guest access, and MAB profiling.
