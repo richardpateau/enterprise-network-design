@@ -116,3 +116,12 @@ Cisco-ISE/
 ## Implementation Result
 
 The Meridian ISE implementation successfully delivers a centralized, identity-driven security architecture. By integrating Active Directory, enforcing 802.1X NAC, segmenting guest traffic, and securing device administration via TACACS+, the environment meets enterprise standards for network access control, compliance, and operational visibility.
+
+---
+
+### What's Next?
+
+With the high-level ISE architecture and functional areas established, the next step is to configure the foundational trust between Cisco ISE and the enterprise directory.
+
+Continue to the first module to explore the Active Directory and RADIUS integration:
+- **[01 — Active Directory & RADIUS](01-AD-RADIUS/)** – Domain join, AD group mapping, RADIUS network device definitions, and identity-source sequencing.
