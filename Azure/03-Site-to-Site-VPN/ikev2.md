@@ -84,7 +84,7 @@ Packet capture:
 
 ---
 
-### ➡️ Next Section
+### Next Section
 
 Continue to the detailed IPsec configuration that secures the actual data payload:
 - **[IPsec Proposals & Profiles](ipsec.md)** – IPsec encryption, integrity, and profile configuration.

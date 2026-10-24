@@ -91,9 +91,9 @@ Packet capture location (filter by "ISAKMP"):
 - Parameters (AES-256 / SHA-256 / no PFS) are aligned with the Azure connection settings 
 - Profile is bound only to Tunnel100 so it does not affect other VPNs
 
-## Related Documentation
+---
 
-- [asa-vti.md](asa-vti.md) – ASA route-based VTI
-- [ikev2.md](ikev2.md) – IKEv2 policy and negotiation
-- [vpn-connection.md](vpn-connection.md) – Azure site-to-site connection
-- [azure-vpn-gateway.md](azure-vpn-gateway.md) – Azure VPN Gateway
+### Next Section
+
+Continue to the configuration that defines the on-premises Meridian network to the Azure VPN Gateway:
+- **[Local Network Gateway](local-network-gateway.md)** – On-premises public IP and address space configuration.
