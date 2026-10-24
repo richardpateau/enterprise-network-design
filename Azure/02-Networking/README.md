@@ -49,7 +49,7 @@ Azure networking design and configuration for the Meridian Financial Services hy
 
 ---
 
-### ➡️ Next Section
+### Next Section
 
 Continue to the detailed subnet design and allocation documentation:
 - **[Subnet Design & Allocation](subnets.md)** – Detailed breakdown of the Azure-Apps, Azure-Infrastructure, and GatewaySubnet configurations.
