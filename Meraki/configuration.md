@@ -1,4 +1,4 @@
-# Meraki Wireless Lab — Configuration Reference
+# Meraki Wireless Lab — Configuration 
 
 ## 1. Scope
 
@@ -30,7 +30,7 @@ This is a configuration reference, not a full Dashboard configuration export. Un
 
 | Setting | Value |
 | :--- | :--- |
-| **SSID** | `Meridian-Corporate` |
+| **SSID** | `Meridian-Corporate-Meraki` |
 | **Security** | WPA2-Enterprise / 802.1X |
 | **Authentication** | External RADIUS |
 | **RADIUS server** | `172.16.109.150` |
@@ -74,7 +74,7 @@ https://github.com/user-attachments/assets/03e36f05-ce47-4136-941c-e6338bec11ff
 
 ![Meraki](screenshots/ssid-overview.png)
 
-**VLAN 10 IP address successfully assigned**
+**VLAN 10 IP address successfully associated**
 
 ![Meraki](screenshots/iphone-connected-corporate.png)
 
@@ -109,19 +109,23 @@ https://github.com/user-attachments/assets/dbd81db5-aa3e-489a-8814-2c49e5d13373
 
 ![Meraki](screenshots/guest-vlan-40-mapping.png)
 
-**Configuring splash page **
+**Configuring splash page**
 
 ![Meraki](screenshots/splash-page-config.png)
 
 **Guest beacons**
 
-![Meraki](screenshots/ssid-overview.png)
+![Meraki](screenshots/meraki-beacons.png)
 
 **Meridian-Guest-Meraki VLAN 40 IP address assigned**
 
 ![Meraki](screenshots/iphone-connected-to-guest.png)
 
 ![Meraki](screenshots/meraki-vlan-40-ip-iphone.png)
+
+**Captive Portal**
+
+![Meraki](screenshots/splash-page-iphone.png)
 
 **Clients**
 
@@ -133,7 +137,7 @@ https://github.com/user-attachments/assets/dbd81db5-aa3e-489a-8814-2c49e5d13373
 
 ---
 
-## 5. HQ-R1 Guest ACL Evidence
+## 5. HQ-R1 Guest ACL
 
 The screenshot `vlan-40-sh-acl.png` shows the following extended ACL on HQ-R1:
 
@@ -146,4 +150,12 @@ Extended IP access list GUEST-VLAN40-IN
  60 deny ip 10.10.40.0 0.0.0.255 192.168.0.0 0.0.255.255
  70 permit ip 10.10.40.0 0.0.0.255 any
 ```
-![Meraki](screenshots/ap-overview.png)
+
+---
+
+### ➡️ What's Next?
+
+With the cloud-managed Meraki wireless network configured and validated, the next step is to explore centralized observability and monitoring for the entire infrastructure.
+
+Continue to the next major module to explore the Grafana implementation:
+- **[Grafana Observability](../Grafana/)** – Dashboard configuration, data sources, metrics visualization, and infrastructure monitoring.
