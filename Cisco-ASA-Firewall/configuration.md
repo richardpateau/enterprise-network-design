@@ -76,9 +76,9 @@ show failover interface
 **OSPF neighbor table (identical before and after, only the unit changes):** 10.255.10.11 (HQ-LAN, 10.255.111.3), 10.255.10.12 (HQ-LAN, 10.255.111.6), 10.255.10.1 (EDGE-ROUTERS, 10.255.110.1), 10.255.10.2 (EDGE-ROUTERS, 10.255.110.2).
 
 ### Evidence
-
+ 
 **Trigger: command run on HQ-FW-1**
-
+ 
 <img src="screenshots/fw-1-intentional-shutdown.png" width="600" alt="no failover active on FW-1">
 
 **Failover state**
@@ -90,12 +90,8 @@ show failover interface
     <td><b>FW-1</b> <code>show failover</code>: Primary, Standby Ready<br><img src="screenshots/fw-1-sh-failover-during-failure.png" alt="FW-1 show failover during"></td>
   </tr>
   <tr>
-    <td><b>FW-1</b> <code>show failover state</code><br><img src="screenshots/fw-1-sh-failover-state-before.png" alt="FW-1 failover state before"></td>
-    <td><b>FW-1</b> <code>show failover state</code><br><img src="screenshots/fw-1-sh-failover-state-during-failure.png" alt="FW-1 failover state during"></td>
-  </tr>
-  <tr>
-    <td><b>FW-2</b> <code>show failover</code>: Secondary, Standby Ready<br><img src="screenshots/fw-2-show-failover.png" alt="FW-2 show failover before"></td>
-    <td><b>FW-2</b> <code>show failover</code>: Secondary, Active<br><img src="screenshots/fw-2-sh-failover-during-failure.png" alt="FW-2 show failover during"></td>
+    <td><b>FW-1</b> <code>show failover state</code>: Primary, Active<br><img src="screenshots/fw-1-sh-failover-state-before.png" alt="FW-1 failover state before"></td>
+    <td><b>FW-1</b> <code>show failover state</code>: Primary, Standby Ready<br><img src="screenshots/fw-1-sh-failover-state-during-failure.png" alt="FW-1 failover state during"></td>
   </tr>
   <tr>
     <td><b>FW-2</b> <code>show failover state</code>: Secondary, Standby Ready<br><img src="screenshots/fw-2-sh-failover-state-before.png" alt="FW-2 failover state before"></td>
@@ -108,7 +104,7 @@ show failover interface
 </table>
 
 **OSPF neighbors**
-
+ 
 <table>
   <tr><th width="50%">Before</th><th width="50%">During</th></tr>
   <tr>
@@ -122,7 +118,7 @@ show failover interface
 </table>
 
 **Interface IPs on FW-2**
-
+ 
 <table>
   <tr><th width="50%">Before (standby)</th><th width="50%">During (active)</th></tr>
   <tr>
@@ -132,7 +128,7 @@ show failover interface
 </table>
 
 **Failover configuration**
-
+ 
 <img src="screenshots/sh-run-failover.png" width="600" alt="show run failover on FW-1">
 
 
