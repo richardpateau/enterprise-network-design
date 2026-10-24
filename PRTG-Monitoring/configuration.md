@@ -92,7 +92,7 @@ Sensors are linked to **Notification Triggers** to automate the response to fail
 
 ## 7. Functional Validation & Evidence Matrix
 
-The monitoring implementation was rigorously validated through intentional fault injection. The following evidence matrix maps the tested failure scenarios to the captured artifacts.
+The monitoring implementation was rigorously validated through intentional fault injection.
 
 ### 7.1 Network Fault Injection
 - **CPU/Memory:** Simulated high utilization to verify threshold alerts and ticket generation.
@@ -159,7 +159,7 @@ The monitoring implementation was rigorously validated through intentional fault
 
 **Example: DHCP Notifcation Trigger**
 
-![PRTG](screenshots/dhcp-notifcation-trigger.png)
+![PRTG](screenshots/dhcp-notification-trigger.png)
 
 **Powershell: Intentional DHCP shutdown**
 
@@ -211,3 +211,12 @@ Curated screenshots validating this implementation are stored in:
 **Architecture & Overview:**
 - [x] `prtg-visio.png` / `prft-alerting-visio.png` (Proof of monitoring architecture)
 - [x] `r1-sensor-overview.png` (Proof of comprehensive sensor scale on HQ-R1)
+
+---
+
+### What's Next?
+
+With proactive network and infrastructure monitoring fully configured, automated, and validated, the next step is to explore secure remote access for the enterprise workforce.
+
+Continue to the next major module to explore the Remote Access VPN implementation:
+- **[Remote Access VPN](../Remote-Access-VPN/)** – Secure remote connectivity, AnyConnect client deployment, and split-tunneling policies.
