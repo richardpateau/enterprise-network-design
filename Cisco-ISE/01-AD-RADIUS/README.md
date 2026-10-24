@@ -1,5 +1,3 @@
-### `Cisco-ISE/01-AD-RADIUS/README.md`
-
 # Cisco ISE — Active Directory & RADIUS Integration
 
 ## Overview
