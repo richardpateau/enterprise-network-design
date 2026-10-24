@@ -64,7 +64,7 @@ The Cisco ASA was configured to terminate AnyConnect sessions and enforce access
 ### 2.1 Group Policy & Connection Profiles
 A dedicated Group Policy was created to define client parameters (DNS, split-tunnel rules). A corresponding Connection Profile was configured to link the AnyConnect client to the SAML identity provider and the specific Group Policy.
 
-![Remote Access](screenshots/group-policy.png)
+![Remote Access](screenshots/asa-group-policy.png)
 
 ### 2.2 Address Pool & Access Control
 A specific IP address pool was configured to assign virtual IPs to remote clients upon successful authentication. A VPN ACL was applied to the Group Policy to strictly limit the remote users' access to authorized internal subnets.
@@ -148,8 +148,11 @@ The VPN tunnel was disconnected. The remote client attempted to access the Apach
 
 ---
 
-## 6. Scope & Boundaries
+---
 
-This document validates the **operational state and functional access** of the Remote Access VPN. 
+### ➡️ What's Next?
 
-It does not document the underlying Entra ID tenant configuration details or specific ASA crypto-map commands, as those are outside the scope of this operational validation evidence.
+With secure remote access for the workforce fully configured, integrated with SAML SSO, and validated, the next step is to explore the secure, high-availability connectivity between enterprise sites.
+
+Continue to the next major module to explore the Site-to-Site VPN implementation:
+- **[Site-to-Site VPN](../Site-to-site-VPN/)** – IPsec tunnel configuration, BGP routing over the tunnel, and high-availability failover testing.
