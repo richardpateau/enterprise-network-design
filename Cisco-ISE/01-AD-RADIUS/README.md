@@ -57,3 +57,10 @@ Related but distinct ISE capabilities are documented in their respective section
 | `README.md` | Architecture, design objectives, and scope. |
 | `configuration.md` | Implementation model, policy framework, and network device configuration. |
 | `screenshots/` | Curated evidence of successful AD join, group mapping, and authentication. |
+
+---
+
+### Next Section
+
+Continue to the detailed configuration and policy framework for the AD and RADIUS integration:
+- **[Configuration Details](configuration.md)** – Implementation model, identity source sequencing, AD group mapping, and network device RADIUS configuration.
