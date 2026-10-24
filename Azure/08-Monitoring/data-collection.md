@@ -27,7 +27,7 @@ Detailed OpenTelemetry metrics were enabled during the VM monitoring configurati
 
 This provided guest operating-system and resource-level metric visibility beyond basic VM availability.
 
-![workspace](screenshots/monitoring-settings.png)
+![workspace](screenshots/monitor-settings.png)
 
 ## Metrics Observed
 
@@ -59,9 +59,11 @@ The Monitor page showed populated metric data after onboarding completed success
 
 The Azure VM was successfully connected to Azure Monitor through the configured monitoring workspace and Data Collection Rule.
 
-## Related Documentation
+---
 
-- [08-Monitoring/README.md](README.md) – Monitoring overview
-- [azure-monitor.md](azure-monitor.md) – Azure Monitor configuration
-- [metrics.md](metrics.md) – Metrics details
-- [alerts.md](alerts.md) – Alert configuration
+### What's Next?
+
+With monitoring and alerting fully configured and validated, the final step is to ensure the environment can be recovered in the event of a disaster.
+
+Continue to the final module to explore the backup and disaster recovery architecture:
+- **[09 — Backup & Disaster Recovery](../09-Backup-DR/)** – Recovery Services Vault, backup policies, recovery points, and restore validation.
