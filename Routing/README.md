@@ -53,6 +53,8 @@ Border Gateway Protocol manages external routing policies and cloud integration.
 ### Firewall HA Integration
 The HQ firewall pair operates in Active/Standby HA mode. For routing purposes (OSPF/BGP), the pair is treated as a **single logical routing endpoint** utilizing a shared virtual MAC and IP, ensuring seamless failover without routing adjacency flapping.
 
+![Routing](screenshots/firewall-ha.png)
+
 ---
 
 ## 3. Addressing & Identification
