@@ -28,24 +28,7 @@ The security design focuses on:
 
 The application VM is deployed in the `Azure-Apps` subnet and protected by an NSG on its network interface.
 
-```text
-                    Internet
-                        |
-                 Azure NAT Gateway
-                        |
-              +-------------------+
-              |   Azure VNet      |
-              |  10.200.0.0/16    |
-              |                   |
-              |   Azure-Apps      |
-              |  10.200.10.0/24   |
-              |         |         |
-              |  MERIDIAN-AZ-WEB01|
-              |     10.200.10.4   |
-              |         |         |
-              |  NSG: WEB01-nsg   |
-              +-------------------+
-```
+![NSG](screenshots/nsg-visio.png)
 
 ## Network Security Group
 
