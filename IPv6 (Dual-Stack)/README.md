@@ -1,7 +1,5 @@
 # Meridian Financial Services — Enterprise IPv6 Dual-Stack Implementation
 
-> **Portfolio Lab Project.** This documentation details the manual design, configuration, and troubleshooting of an enterprise-wide IPv6 migration within the fictional "Meridian Financial Services" multi-site topology (PNETLab). 
-
 ## Summary
 
 The objective of this project was to extend Meridian's existing IPv4 enterprise network (HQ, Chicago, Dallas, Miami, and Ashburn DR) to support IPv6 using a dual-stack approach. 
@@ -22,18 +20,18 @@ The implementation spans a multi-region enterprise topology:
 ---
 
 ## What was built
- 
-| Area | Summary | Status |
-|---|---|---|
-| Addressing | Site-coded `/48` per site, `/64` per VLAN, `/128` loopbacks | Working; spreadsheet/Nautobot still to reconcile |
-| OSPFv3 | Process 10, FULL adjacencies on HQ-EDGE-1 and HQ-FW-1; client VLANs passive | Neighbors observed; cross-site reachability to capture |
-| IPv6 HSRP | HQ-R1 (priority 110, preempt) / HQ-R2 on VLANs 10-70, virtual link-local gateways (e.g. `FE80::30` on VLAN 30) | Configured; failover test to capture |
-| SLAAC / RA | RA interval 30s, router lifetime 90s, prefix 86400/14400 on HQ VLANs | Working; packet captures done |
-| Stateless DHCPv6 | `MERIDIAN-STATELESS` on HQ-R1 (O flag): SLAAC address plus DNS/domain via Information-request/Reply | Working; captures done |
-| Stateful DHCPv6 | `MERIDIAN-STATEFUL-VLAN30` on HQ VLAN 30 (M flag, `no-autoconfig`) | Client lease obtained |
-| Branch DHCPv6 relay | VLAN 30 relays to HQ-R1; per-site pools selected by `link-address` | Relay forwarding confirmed; lease end-to-end still to confirm (see troubleshooting) |
-| IPv6 ACL | `MERIDIAN-VLAN30-IN` on VLAN 30 (RA deny, ICMPv6, DHCPv6, HSRP, default deny with logging) | Counters observed |
-| Duplicate Address Detection | Captured and explained | Done |
+
+| Area | Summary |
+|---|---|
+| Addressing | Site-coded `/48` per site, `/64` per VLAN, `/128` loopbacks |
+| OSPFv3 | Process 10, FULL adjacencies on HQ-EDGE-1 and HQ-FW-1; client VLANs passive |
+| IPv6 HSRP | HQ-R1 (priority 110, preempt) / HQ-R2 on VLANs 10-70, virtual link-local gateways (e.g. `FE80::30` on VLAN 30) |
+| SLAAC / RA | RA interval 30s, router lifetime 90s, prefix 86400/14400 on HQ VLANs |
+| Stateless DHCPv6 | `MERIDIAN-STATELESS` on HQ-R1 (O flag): SLAAC address plus DNS/domain via Information-request/Reply |
+| Stateful DHCPv6 | `MERIDIAN-STATEFUL-VLAN30` on HQ VLAN 30 (M flag, `no-autoconfig`) |
+| Branch DHCPv6 relay | VLAN 30 relays to HQ-R1; per-site pools selected by `link-address` |
+| IPv6 ACL | `MERIDIAN-VLAN30-IN` on VLAN 30 (RA deny, ICMPv6, DHCPv6, HSRP, default deny with logging) |
+| Duplicate Address Detection | Captured and explained |
  
 ## Addressing
  
@@ -59,7 +57,7 @@ interface FastEthernet0/0.<VLAN>
 
 **show ipv6 ospf neighbor**
 
-![Automation](screenshots/area-number.png)
+![Automation](screenshots/sh-ospf-neighbor-edge-1.png)
 
 **show ipv6 route**
 
@@ -80,11 +78,11 @@ interface FastEthernet0/0.30
  standby 130 priority 110      ! HQ-R2 uses the default (100)
  standby 130 preempt
 ```
-**HQ-R1**
+**HQ-R1: show standby brief**
 
 ![Automation](screenshots/sh-standby-brief-r1.png)
 
-**HQ-R2**
+**HQ-R2: show standby brief**
 
 ![Automation](screenshots/sh-standby-brief-r2.png)
 
@@ -136,21 +134,21 @@ The M flag plus `no-autoconfig` means clients get addresses from DHCPv6 only, no
 
 **PCAP: RA Details**
 
-![Automation](screenshots/slaac-pcap-details.png)
+![Automation](screenshots/slaac-pcap-ra-details.png)
 
 **Stateless DHCP Configuration**
 
 ![Automation](screenshots/stateless-config-r1.png)
 
-**PC obtains IP via Stateless DHCPv6**
+**PC obtains DNS Server and domain name via Stateless DHCPv6**
 
 ![ipv6](screenshots/stateless-pc-gets-config.png)
 
 **PCAP: Stateless DHCPv6 Information Requests**
 
-![ipv6](screenshots/slaac-pcap-details.png)
+![ipv6](screenshots/stateless-pcap-information-request.png)
 
-**PCAP: Stateless DHCPv6 Information Reply**
+**PCAP: Stateless DHCPv6 Information Reply Details**
 
 ![ipv6](screenshots/stateless-pcap-information-reply.png)
 
@@ -166,9 +164,7 @@ The Wireshark captures show ICMPv6 Type 135 (Neighbor Solicitation) messages sen
 
 **Tip:** The raw packet captures for SLAAC, Stateless DHCPv6, Stateful DHCPv6, and Rogue RA testing are available in the [`pcaps/`](pcaps/) directory of this repository for hands-on Wireshark analysis.
 
-**
-
-### 3. Host Provisioning (SLAAC & DHCPv6)
+### 3. Host Provisioning (DHCPv6)
 
 *   **Stateful DHCPv6:** Configured on HQ VLAN 30. The Managed-config-flag (M-flag) is set, and SLAAC is disabled (`no-autoconfig`), forcing hosts to obtain their IPv6 address entirely from the DHCPv6 server.
 
@@ -184,11 +180,11 @@ The Wireshark captures show ICMPv6 Type 135 (Neighbor Solicitation) messages sen
 
 ![Automation](screenshots/stateful-switch-config.png)
 
-**PC Successfulyl obtains IP via Stateful DHCP**
+**PC Successfully obtains IP via Stateful DHCP**
 
 ![Automation](screenshots/stateful-pc-1-gets-ip.png)
 
-**PCAP: PC Successfulyl obtains IP via Stateful DHCP**
+**PCAP: PC Successfully obtains IP via Stateful DHCP**
 
 ![Automation](screenshots/stateful-pcap-pc-gets-ip.png)
 
@@ -229,16 +225,21 @@ To connect the Meridian network to external providers, a dual-stack BGP implemen
 *   **Dual-Stack Address Families:** BGP is configured with separate `address-family ipv4` and `address-family ipv6` blocks, peering with ISP-A (AS 65001) and ISP-B (AS 65002) over both IPv4 and IPv6 transit links.
 *   **iBGP Peering:** HQ-EDGE-1 and HQ-EDGE-2 establish an iBGP session (AS 65000) using Loopback interfaces for stability, with `next-hop-self` configured for the IPv6 address family to ensure proper reachability.
 *   **Inbound Traffic Engineering:** A route-map (`ISP-A-IN`) is applied to the ISP-A neighbor to set the `local-preference` to 200. This ensures that Meridian prefers ISP-A as the primary exit and entry point for traffic.
-*   **Controlled Redistribution:** External BGP routes are carefully redistributed into the internal OSPF/OSPFv3 domain using a prefix-list (`BGP-TO-OSPF-PREFIX`) and route-map (`FILTER-BGP-INTO-OSPF`) to prevent default routes or unwanted external prefixes from flooding the internal routing table.
 
 ```cisco
 route-map ISP-A-IN permit 10
  set local-preference 200
+ 
+! Applying the route-map 
+neighbor 2001:DB8:200:1:: route-map ISP-A-IN in
 ```
 
 ![ipv6](screenshots/sh-run-section-bgp.png)
 
 ![ipv6](screenshots/sh-bgp-summary.png)
+
+![ipv6](screenshots/sh-ip-bgp.png)
+
 ---
 
 ##  Repository Structure
@@ -247,3 +248,10 @@ route-map ISP-A-IN permit 10
 *   `screenshots/` - Contains all CLI outputs, Wireshark packet captures, and topology diagrams referenced above.
 
 ---
+
+### What's Next?
+
+With the enterprise IPv6 dual-stack implementation fully configured, routed, and secured, the next step is to explore comprehensive network monitoring and proactive alerting.
+
+Continue to the next major module to explore the PRTG implementation:
+- **[PRTG Monitoring](../PRTG-Monitoring/)** – Network sensor configuration, custom dashboards, and proactive alerting.
