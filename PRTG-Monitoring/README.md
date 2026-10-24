@@ -56,7 +56,6 @@ Monitoring is only valuable if it triggers action. PRTG is configured with a mul
 
 This ensures that the NOC dashboard reflects real-time status, on-call engineers receive immediate email notifications, and a formal ticket is generated for tracking and resolution.
 
-![PRTG](screenshots/prtg-alerting-visio.png)
 
 **Email Configuration**
 
@@ -88,3 +87,10 @@ This directory documents the PRTG monitoring implementation for:
 | `README.md` | Monitoring architecture, domains, and alerting strategy. |
 | `configuration.md` | Sensor implementation model, threshold logic, and evidence matrix. |
 | `screenshots/` | Curated evidence of sensor configuration, threshold triggers, and ticket generation. |
+
+---
+
+### Next Section
+
+Continue to the detailed sensor implementation, threshold logic, and evidence matrix for the PRTG monitoring deployment:
+- ️**[Configuration Details](configuration.md)** – Sensor setup, threshold configuration, alerting workflows, and validation evidence.

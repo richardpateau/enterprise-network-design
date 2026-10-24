@@ -15,11 +15,11 @@ SNMPv3 users, groups, and access control lists were deployed consistently using 
 
 **Ansible Automation:**  
 The deployment followed a strict sequence to ensure security compliance:
-1. `enable_telegraf_snmp-acl.yml`
+1. `enable_telegraf_snmp-acl.yml` Permitting 172.16.109.1 across all devices. 
 
 ![Grafana](screenshots/acl-playbook.png)
 
-2. `configure_snmpv3_usernames.yml` & `configure_asa_snmpv3.yml`: Deployed secure SNMPv3 users and groups.
+2. `configure_snmpv3_usernames.yml` & `configure_asa_snmpv3.yml`: Deployed secure SNMPv3 users.
 
 ![Grafana](screenshots/configure-snmp-user.png)
 
