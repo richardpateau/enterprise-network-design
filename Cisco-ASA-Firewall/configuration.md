@@ -62,6 +62,27 @@ show failover interface
 
 ![ASA](screenshots/fw-2-sh-ospf-neighbor-during-failure.png)
 
+### Summary
+
+| Check | Before failure | During failure | Result |
+|---|---|---|---|
+| FW-1 failover state | Primary, Active (active time 1779 s, last failure reason: None) | `no failover active` → "Switching to Standby" | FW-1 demoted as intended |
+| FW-2 failover state | Secondary, Standby Ready (active time 0 s) | "Switching to Active" | FW-2 promoted |
+| OSPF on FW-1 | 4 neighbors, all FULL | No neighbors (empty output) | Expected: a standby unit holds no adjacencies |
+| OSPF on FW-2 | Standby, adjacencies held by FW-1 | 4 neighbors, all FULL | Adjacencies re-formed on FW-2 |
+| OSPF neighbor set | 10.255.10.11 and .12 (HQ-LAN), 10.255.10.1 and .2 (edge) | Same four neighbors, same addresses | No neighbors lost |
+| Interface IPs | FW-1 active: 10.255.110.3, 10.255.111.1, 10.10.80.1. FW-2 standby: 10.255.110.4, 10.255.111.2, 10.10.80.2 | FW-2 shows Gi0/0 10.255.110.3, Gi0/2 10.255.111.1, Gi0/4 10.10.80.1, all up/up | FW-2 took over the active IPs |
+| Config sync | In sync (Sync Skipped on active) | FW-1 warns standby-to-active replication is not performed | Expected after manual demotion |
+
+### Evidence
+
+| Before failure | During failure |
+|---|---|
+| ![FW-1 failover before](screenshots/fw-1-sh-failover-state-before.png) | ![FW-1 shutdown](screenshots/fw-1-intentional-shutdown.png) |
+| ![FW-2 failover before](screenshots/fw-2-sh-failover-state-before.png) | |
+| ![FW-2 OSPF before](screenshots/fw-2-sh-ospf-neighbor-before.png) | ![FW-2 OSPF during](screenshots/fw-2-sh-ospf-neighbor-during-failure.png) |
+| ![FW-2 int brief before](screenshots/fw-2-sh-int-ip-brief-before.png) | ![FW-2 int brief during](screenshots/fw-2-sh-int-ip-brief-during-failure.png) |
+
 
 ---
 
