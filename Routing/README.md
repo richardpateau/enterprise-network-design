@@ -71,10 +71,6 @@ The enterprise utilizes a structured `10.0.0.0/8` private addressing scheme, wit
 | **Ashburn DR** | `10.50.0.0/16` | `10.255.50.0/24` |
 | **WAN Links** | `172.16.0.0/16` | N/A |
 
-### IPv6 Addressing Plan
-*   **Enterprise Block:** `2001:DB8:1000::/48`
-*   **Implementation:** OSPFv3 is deployed for IPv6 internal routing, mirroring the IPv4 topology.
-
 ---
 
 ## 4. Verification & Testing Strategy
@@ -119,25 +115,17 @@ Routing/
 
 | Component | Implementation Status | Verification Status |
 | :--- | :--- | :--- |
-| **OSPF (Multi-Area)** | ✅ Implemented | ✅ Verified (Adjacencies & Convergence) |
-| **HSRP** | ✅ Implemented | ✅ Verified (Failover & Preemption) |
-| **iBGP / eBGP** | ✅ Implemented | ✅ Verified (Session State & Routing) |
-| **Azure Hybrid BGP** | ✅ Implemented | ✅ Verified (Route Exchange) |
-| **Firewall OSPF HA** | ✅ Implemented | ✅ Verified (Logical Endpoint Stability) |
-| **OSPFv3 (IPv6)** | ️ Planned/Partial | ⏳ Pending Full Validation |
+| **OSPF (Multi-Area)** |  Implemented |  Verified (Adjacencies & Convergence) |
+| **HSRP** |  Implemented |  Verified (Failover & Preemption) |
+| **iBGP / eBGP** |  Implemented |  Verified (Session State & Routing) |
+| **Azure Hybrid BGP** |  Implemented |  Verified (Route Exchange) |
+| **Firewall OSPF HA** |  Implemented |  Verified (Logical Endpoint Stability) |
 
 ---
 
-## Related Documentation
-*   **Layer 2 Switching:** [`../Switching/`](../Switching/)
-*   **Azure Hybrid Network:** [`../Azure/`](../Azure/)
-*   **Enterprise Standards:** [`../docs/standards/`](../docs/standards/)
+### What's Next?
 
-***
+With the high-level routing architecture, protocol implementations, and addressing plan established, the next step is to explore the detailed Border Gateway Protocol (BGP) configuration for edge and hybrid routing.
 
-### Next Step: Updating `hsrp-verification.md`
-Since you confirmed you **already have** the HSRP evidence (briefs, failover video, ARP, gateway ping), we should update `Routing/verification/hsrp-verification.md` to reflect that. 
-
-Instead of the "Pending" status I suggested earlier, we will change the **Verification Evidence Matrix** to show **✅ Verified** and reference your actual screenshots (e.g., `hq-r1-hsrp-brief.png`, `hq-hsrp-failover.mp4`). 
-
-Shall we generate the final, evidence-backed version of `hsrp-verification.md` now?
+Continue to the next module to explore the BGP implementation:
+- **[BGP Configuration & Verification](BGP/)** – iBGP/eBGP peering, Azure hybrid BGP, route policies, and operational verification.
