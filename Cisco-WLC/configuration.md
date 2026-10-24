@@ -29,10 +29,6 @@ Physical Cisco Aironet 2802I APs were connected to PoE switches. They successful
 - APs transitioned to the "Registered" state.
 - 802.11a/n/ac and 802.11b/g/n radios are enabled and broadcasting.
 
-**AP received DHCP IP upon boot**
-
-![WLC](screenshots/ap-dhcp-ip.png)
-
 **Live AP joining via console***
 
 ![WLC](screenshots/ap-joining-live.png)
@@ -49,11 +45,11 @@ Physical Cisco Aironet 2802I APs were connected to PoE switches. They successful
 
 ![WLC](screenshots/sh-802.11.png)
 
-**WLC GUI: 802.11a UP**
+**WLC GUI: 802.11a is UP**
 
 ![WLC](screenshots/802.11a-up.png)
 
-**WLC GUI: 802.11b UP**
+**WLC GUI: 802.11b is UP**
 
 ![WLC](screenshots/802.11b-up.png)
 
@@ -81,15 +77,15 @@ https://github.com/user-attachments/assets/112f8caf-2f7e-4619-bd21-2da0dc6e4e84
 
 https://github.com/user-attachments/assets/79a4933e-8b98-496c-a6c6-0bd5d6783693
 
-![WLC](screenshots/sh-802.11.png)
-
 **Adding WLC to network devices on ISE**
 
 ![WLC](screenshots/adding-wlc-ise.png)
 
-**Adding RADUS via ISE to WLAN**
+**Adding RADIUS via ISE to WLAN**
 
 ![WLC](screenshots/aaa-authentication.png)
+
+**Applying RADIUS (ISE) to SSID**
 
 ![WLC](screenshots/corporate-aaa-settings.png)
 
@@ -101,13 +97,15 @@ https://github.com/user-attachments/assets/79a4933e-8b98-496c-a6c6-0bd5d6783693
 
 ![WLC](screenshots/corporate-general.png)
 
-**Meridian-Corporate beacond found**
+**Meridian-Corporate beacons found**
 
-![WLC](screenshots/sh-802.11.png)
+![WLC](screenshots/meridian-beacons.png)
 
-**VLAN 10 IP assigned**
+**Successfully Associated with Meridian-Corporate**
 
 ![WLC](screenshots/meridian-corporate-joined.png)
+
+**VLAN 10 IP assigned: 10.10.10.0/24**
 
 ![WLC](screenshots/phone-vlan-10-ip.png)
 
@@ -123,8 +121,6 @@ https://github.com/user-attachments/assets/79a4933e-8b98-496c-a6c6-0bd5d6783693
 | **Security** | Open (Web Auth) |
 | **Onboarding** | Custom Guest Splash Page |
 | **Guest Isolation** | Layer 3 ACL Enforcement |
-
-*Troubleshooting Note: The guest virtual gateway was updated from the default `1.1.1.1` to `192.0.2.1` to resolve web redirection routing issues, after which the passthrough flow functioned correctly.*
 
 ### Guest Network Isolation
 
@@ -209,20 +205,7 @@ https://github.com/user-attachments/assets/891f2b92-c25b-47c6-bdd4-850c34146110
 
 ---
 
-## 6. Troubleshooting & Validation Checklist
+### What's Next?
 
-The following workflows were validated during implementation:
-1. **AP Join Failure:** Verified PoE, DHCP scope, and WLC discovery reachability.
-2. **802.1X Failure:** Cross-referenced client supplicant settings with ISE Live Logs to identify credential or policy mismatches.
-3. **Guest Redirection Failure:** Corrected the WLC Virtual Gateway IP to ensure HTTP intercepts function properly.
-4. **Incorrect VLAN Assignment:** Verified the WLC WLAN-to-Interface mapping and switch port trunk configurations.
-
----
-
-## 7. Operational Security
-
-- RADIUS shared secrets are excluded from this documentation.
-- Guest and corporate traffic are strictly segregated via VLANs and ACLs.
-- WLC management access should be restricted to the out-of-band management network (VLAN 70) in production.
-
----
+Continue to the next major module to explore the Meraki architecture:
+- ☁**[Cisco Meraki](../Meraki/)**With the controller-based wireless network fully configured, integrated with ISE, and validated, the next step is to explore the cloud-managed wireless implementation.
