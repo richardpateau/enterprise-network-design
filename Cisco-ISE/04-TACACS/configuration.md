@@ -6,7 +6,7 @@ This document details the configuration model used to enforce centralized TACACS
 
 ---
 
-### 1 Authentication Policy
+### 1. Authentication Policy
 
 Within the Device Administration Policy Set, the Authentication Policy is configured to validate all administrative login attempts against the available identity sources.
 
@@ -55,7 +55,7 @@ The Cisco device must be configured to use ISE as the primary TACACS+ server for
 ! 1. Define the TACACS+ Server
 tacacs server MERIDIAN-ISE
  address ipv4 10.50.50.10
- key <STRONG_SHARED_SECRET>
+ key <SHARED_SECRET>
  timeout 5
 
 ! 2. Configure AAA Methods

@@ -13,7 +13,7 @@ In this implementation, a Cisco CP-8841 IP phone is authenticated via its MAC ad
 | DHCP | Served by the switch in this topology (ISE cannot see the DHCP probe) |
  
 
-![ISE](screenshots/ip-phone.png)
+![ISE](screenshots/ip-phone.jpeg)
 
 ---
 
