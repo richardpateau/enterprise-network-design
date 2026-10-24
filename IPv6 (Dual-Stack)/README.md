@@ -174,7 +174,7 @@ The Wireshark captures show ICMPv6 Type 135 (Neighbor Solicitation) messages sen
 
 **Stateful DHCP Assigned to Interface**
 
-![Automation](screenshots/Stateful-dhcp-r1-config.png)
+![Automation](screenshots/stateful-dhcp-r1-config.png)
 
 **Switching Access VLAN to 30**
 
