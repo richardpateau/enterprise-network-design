@@ -52,3 +52,10 @@ Related but distinct ISE capabilities are documented in their respective section
 | `README.md` | Architecture, AAA workflow, and design objectives. |
 | `configuration.md` | ISE Shell Profiles, Command Sets, IOS device configuration, and evidence matrix. |
 | `screenshots/` | Curated evidence of policy configuration, Live Logs, and CLI validation. |
+
+---
+
+### Next Section
+
+Continue to the detailed configuration, policy logic, and evidence matrix for TACACS+ device administration:
+- **[Configuration Details](configuration.md)** – ISE Shell Profiles, Command Sets, IOS device configuration, and AAA validation evidence.
