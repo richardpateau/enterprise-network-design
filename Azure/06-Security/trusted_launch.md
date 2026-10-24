@@ -43,7 +43,11 @@ This confirmed that enabling the security features did not disrupt normal VM ope
 - Secure Boot and vTPM provide measured boot and hardware-rooted trust
 - Integrity Monitoring enables ongoing attestation of the VM’s boot state
 
-## Related Documentation
+---
 
-- [06-Security/README.md](README.md) – Security overview
-- [04-Application-Server/azure-vm.md](../04-Application-Server/azure-vm.md) – Azure VM configuration
+### What's Next?
+
+With the Azure environment fully secured and protected against accidental deletion, the next step is to explore how traffic dynamically flows between the on-premises network and Azure.
+
+Continue to the next module to explore the dynamic routing configuration:
+- **[07 — Routing](../07-Routing/)** – BGP configuration, route exchange, Azure effective routes, and routing validation.
