@@ -82,7 +82,7 @@ show failover interface
 <img src="screenshots/fw-1-intentional-shutdown.png" width="600" alt="no failover active on FW-1">
 
 **Failover state**
-
+ 
 <table>
   <tr><th width="50%">Before</th><th width="50%">During</th></tr>
   <tr>
@@ -98,8 +98,12 @@ show failover interface
     <td><b>FW-2</b> <code>show failover</code>: Secondary, Active<br><img src="screenshots/fw-2-sh-failover-during-failure.png" alt="FW-2 show failover during"></td>
   </tr>
   <tr>
-    <td><b>FW-2</b> <code>show failover state</code><br><img src="screenshots/fw-2-sh-failover-state-before.png" alt="FW-2 failover state before"></td>
+    <td><b>FW-2</b> <code>show failover state</code>: Secondary, Standby Ready<br><img src="screenshots/fw-2-sh-failover-state-before.png" alt="FW-2 failover state before"></td>
+    <td><b>FW-2</b> <code>show failover state</code>: Secondary, Active<br><img src="screenshots/fw-2-sh-failover-state-during-failure.png" alt="FW-2 failover state during"></td>
+  </tr>
+  <tr>
     <td></td>
+    <td><b>FW-2</b> <code>show failover</code>: Secondary, Active<br><img src="screenshots/fw-2-sh-failover-during-failure.png" alt="FW-2 show failover during"></td>
   </tr>
 </table>
 
