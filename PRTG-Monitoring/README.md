@@ -93,4 +93,4 @@ This directory documents the PRTG monitoring implementation for:
 ### Next Section
 
 Continue to the detailed sensor implementation, threshold logic, and evidence matrix for the PRTG monitoring deployment:
-- ️**[Configuration Details](configuration.md) ** – Sensor setup, threshold configuration, alerting workflows, and validation evidence.
+- ️**[Configuration Details](configuration.md)** – Sensor setup, threshold configuration, alerting workflows, and validation evidence.
