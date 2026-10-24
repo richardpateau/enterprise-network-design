@@ -62,26 +62,30 @@ show failover interface
 
 ![ASA](screenshots/fw-2-sh-ospf-neighbor-during-failure.png)
 
-### Summary
-
-| Check | Before failure | During failure | Result |
+**Test:** `no failover active` on HQ-FW-1 (Primary/Active) to force HQ-FW-2 to take over.
+ 
+| Check | Before | During | Result |
 |---|---|---|---|
-| FW-1 failover state | Primary, Active (active time 1779 s, last failure reason: None) | `no failover active` → "Switching to Standby" | FW-1 demoted as intended |
-| FW-2 failover state | Secondary, Standby Ready (active time 0 s) | "Switching to Active" | FW-2 promoted |
-| OSPF on FW-1 | 4 neighbors, all FULL | No neighbors (empty output) | Expected: a standby unit holds no adjacencies |
-| OSPF on FW-2 | Standby, adjacencies held by FW-1 | 4 neighbors, all FULL | Adjacencies re-formed on FW-2 |
-| OSPF neighbor set | 10.255.10.11 and .12 (HQ-LAN), 10.255.10.1 and .2 (edge) | Same four neighbors, same addresses | No neighbors lost |
-| Interface IPs | FW-1 active: 10.255.110.3, 10.255.111.1, 10.10.80.1. FW-2 standby: 10.255.110.4, 10.255.111.2, 10.10.80.2 | FW-2 shows Gi0/0 10.255.110.3, Gi0/2 10.255.111.1, Gi0/4 10.10.80.1, all up/up | FW-2 took over the active IPs |
-| Config sync | In sync (Sync Skipped on active) | FW-1 warns standby-to-active replication is not performed | Expected after manual demotion |
-
+| FW-1 role | Primary, **Active** (95 s) | Primary, **Standby Ready** | Demoted at 05:46:23 UTC |
+| FW-2 role | Secondary, **Standby Ready** | Secondary, **Active** (16 s) | Promoted at 05:46:25 UTC |
+| Last failure reason | None / None | None / None | Manual failover, no fault |
+| Active IPs | FW-1: 10.255.110.3, 10.255.111.1 | FW-2: 10.255.110.3, 10.255.111.1 | Same IPs, now on FW-2 |
+| Standby IPs | FW-2: 10.255.110.4, 10.255.111.2 | FW-1: 10.255.110.4, 10.255.111.2 | Roles swapped |
+| OSPF neighbors | FW-1: 4 × FULL, FW-2: none | FW-2: 4 × FULL, FW-1: none | Same neighbors, served by the new active |
+ 
+**OSPF neighbor table (identical before and after, only the unit changes):** 10.255.10.11 (HQ-LAN, 10.255.111.3), 10.255.10.12 (HQ-LAN, 10.255.111.6), 10.255.10.1 (EDGE-ROUTERS, 10.255.110.1), 10.255.10.2 (EDGE-ROUTERS, 10.255.110.2).
+ 
 ### Evidence
-
-| Before failure | During failure |
+ 
+| Before | During |
 |---|---|
-| ![FW-1 failover before](screenshots/fw-1-sh-failover-state-before.png) | ![FW-1 shutdown](screenshots/fw-1-intentional-shutdown.png) |
-| ![FW-2 failover before](screenshots/fw-2-sh-failover-state-before.png) | |
-| ![FW-2 OSPF before](screenshots/fw-2-sh-ospf-neighbor-before.png) | ![FW-2 OSPF during](screenshots/fw-2-sh-ospf-neighbor-during-failure.png) |
-| ![FW-2 int brief before](screenshots/fw-2-sh-int-ip-brief-before.png) | ![FW-2 int brief during](screenshots/fw-2-sh-int-ip-brief-during-failure.png) |
+| ![FW-1 failover](screenshots/fw-1-sh-failover-before.png) | ![no failover active](screenshots/fw-1-no-failover-active-during.png) |
+| ![FW-2 failover state](screenshots/fw-2-sh-failover-state-before.png) | ![FW-1 failover](screenshots/fw-1-sh-failover-during.png) |
+| | ![FW-1 failover state](screenshots/fw-1-sh-failover-state-during.png) |
+| | ![FW-2 failover](screenshots/fw-2-sh-failover-during.png) |
+| ![FW-1 OSPF](screenshots/fw-1-sh-ospf-neighbor-before.png) | ![FW-2 OSPF](screenshots/fw-2-sh-ospf-neighbor-during.png) |
+| ![FW-2 OSPF (none)](screenshots/fw-2-sh-ospf-neighbor-before.png) | ![FW-1 OSPF (none)](screenshots/fw-1-sh-ospf-neighbor-during.png) |
+| ![FW-2 int brief](screenshots/fw-2-sh-int-ip-brief-before.png) | ![FW-2 int brief](screenshots/fw-2-sh-int-ip-brief-during.png) |
 
 
 ---
