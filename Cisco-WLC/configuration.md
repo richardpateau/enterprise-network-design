@@ -208,4 +208,4 @@ https://github.com/user-attachments/assets/891f2b92-c25b-47c6-bdd4-850c34146110
 ### What's Next?
 
 Continue to the next major module to explore the Meraki architecture:
-- ☁**[Cisco Meraki](../Meraki/)**With the controller-based wireless network fully configured, integrated with ISE, and validated, the next step is to explore the cloud-managed wireless implementation.
+- **[Cisco Meraki](../Meraki/)** With the controller-based wireless network fully configured, integrated with ISE, and validated, the next step is to explore the cloud-managed wireless implementation.
