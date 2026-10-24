@@ -82,8 +82,6 @@ Post-configuration, the ASA was verified via CLI to confirm the WebVPN status, t
 
 ![Remote Access](screenshots/sh-run-tunnel-group.png)
 
-![Remote Access](screenshots/sh-crypto-ca.png)
-
 ---
 
 ## Phase 3: Client Deployment & Application Testing
@@ -150,7 +148,7 @@ The VPN tunnel was disconnected. The remote client attempted to access the Apach
 
 ---
 
-### ➡️ What's Next?
+### What's Next?
 
 With secure remote access for the workforce fully configured, integrated with SAML SSO, and validated, the next step is to explore the secure, high-availability connectivity between enterprise sites.
 
