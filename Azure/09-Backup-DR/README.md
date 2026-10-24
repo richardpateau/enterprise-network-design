@@ -150,9 +150,9 @@ The test demonstrated that a protected Azure VM could be restored from a recover
 └── screenshots/
 ```
 
-## Related Sections
+---
 
-- [01-Architecture](../01-Architecture/) – Overall hybrid architecture
-- [04-Application-Server](../04-Application-Server/) – Application VM
-- [08-Monitoring](../08-Monitoring/) – Azure monitoring
-```
+### Next Section
+
+Continue to the detailed configuration of the Recovery Services Vault and backup policies:
+- **[Backup Policy Configuration](backup-policy.md)** – Detailed backup policy settings, retention, and recovery point management.
