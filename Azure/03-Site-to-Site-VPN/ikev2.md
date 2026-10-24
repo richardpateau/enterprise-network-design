@@ -48,8 +48,6 @@ A corresponding IKEv2 tunnel-group is configured for this peer.
 
 The VPN uses pre-shared key authentication.
 
-The actual pre-shared key is intentionally not stored in this repository.
-
 ## IKEv2 Negotiation Evidence
 
 A packet capture was collected during VPN negotiation. The capture shows successful bidirectional IKEv2 exchange:
@@ -63,7 +61,7 @@ A packet capture was collected during VPN negotiation. The capture shows success
 
 Key observations:
 
-- The IKE_AUTH exchange transitioned to UDP/4500, confirming NAT-T negotiation
+- The IKE_AUTH exchange transitioned to UDP/4500 confirming negotiation
 - The IKE_AUTH response contained encrypted and authenticated payload data
 - Negotiation completed successfully
 
@@ -71,13 +69,9 @@ Key observations:
 
 Packet capture:
 
-** INIT and AUTH pcaps**
+**INIT and AUTH pcaps**
 
 ![PCAP](screenshots/wireshark-init-auth.png)
-
-**SPI Verification**
-
-![PCAP](screenshots/wireshark-spi-match.png)
 
 **INFORMATIONAL packets**
 
@@ -87,11 +81,10 @@ Packet capture:
 
 - Policy parameters (AES-256 / SHA-256 / DH14) are aligned with the Azure connection settings
 - Lifetime of 86400 seconds matches common Azure defaults
-- NAT-T is required because the ASA sits behind the edge/public path
 
-## Related Documentation
+---
 
-- [asa-vti.md](asa-vti.md) – ASA route-based VTI
-- [ipsec.md](ipsec.md) – IPsec proposals and profiles
-- [vpn-connection.md](vpn-connection.md) – Azure site-to-site connection
-- [azure-vpn-gateway.md](azure-vpn-gateway.md) – Azure VPN Gateway
+### ➡️ Next Section
+
+Continue to the detailed IPsec configuration that secures the actual data payload:
+- **[IPsec Proposals & Profiles](ipsec.md)** – IPsec encryption, integrity, and profile configuration.
