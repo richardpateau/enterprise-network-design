@@ -19,6 +19,7 @@ tunnel-group 10.255.112.2 ipsec-attributes
  ikev2 remote-authentication pre-shared-key *****
  ikev2 local-authentication pre-shared-key *****
 ```
+![IPSec](screenshots/hq-fw-1-tunnel-group.png)
 
 **ASH-FW-1 Configuration:**
 Points to the HQ peer IP (`10.255.110.3`) with matching IKEv2 pre-shared keys.
@@ -29,6 +30,8 @@ tunnel-group 10.255.110.3 ipsec-attributes
  ikev2 remote-authentication pre-shared-key *****
  ikev2 local-authentication pre-shared-key *****
 ```
+
+![IPSec](screenshots/ash-fw-1-tunnel-group.png)
 
 - **Type `ipsec-l2l`:** Configures the tunnel for site-to-site (Layer 2 Layer) connectivity rather than remote access. 
 
@@ -44,6 +47,7 @@ crypto ipsec ikev2 ipsec-proposal MERIDIAN-AES256
  protocol esp integrity sha-256
 crypto ipsec security-association pmtu-aging infinite
 ```
+![IPSec](screenshots/ash-fw-1-ip-sec-proposal.png)
 
 **HQ-FW-1 Configuration:**
 ```cisco
@@ -56,6 +60,8 @@ crypto ipsec profile AZURE-IPSEC-PROFILE
 crypto ipsec security-association pmtu-aging infinite
 ```
 
+![IPSec](screenshots/hq-fw-1-ip-sec-proposal.png)
+
 ## 3. ACLs
 
 The "interesting traffic" that triggers IPsec encryption is defined by extended access-lists on each firewall. These ACLs are mirrored to ensure bidirectional traffic between the HQ and Ashburn networks is encrypted.
@@ -67,6 +73,7 @@ ASH-FW-1# sh run | include ASH-HQ-VPN
 access-list ASH-HQ-VPN extended permit ip 10.50.10.0 255.255.255.0 10.10.10.0 255.255.255.0
 crypto map MERIDIAN-VPN 10 match address ASH-HQ-VPN
 ```
+![IPSec](screenshots/ash-fw-1-acl.png)
 
 **HQ-FW-1 Configuration:**
 Permits traffic from the HQ network (`10.10.10.0/24`) to the Ashburn network (`10.50.10.0/24`).
@@ -75,13 +82,14 @@ HQ-FW-1# sh run | include HQ-ASH-VPN
 access-list HQ-ASH-VPN extended permit ip 10.10.10.0 255.255.255.0 10.50.10.0 255.255.255.0
 crypto map MERIDIAN-VPN 10 match address HQ-ASH-VPN
 ```
+![IPSec](screenshots/hq-fw-1-acl.png)
 
 **Key Design Elements:**
 - **Mirrored ACLs:** The source and destination subnets are swapped between the two firewalls to ensure bidirectional encryption.
 - **Subnet Specificity:** Only traffic between the specific `10.10.10.0/24` (HQ) and `10.50.10.0/24` (Ashburn) subnets triggers the IPsec tunnel.
 - **Crypto Map Binding:** The `match address` command in the crypto map explicitly references these ACLs to define what traffic is protected.
 
-## 3. Crypto Map & Interface Application
+## 4. Crypto Map & Interface Application
 
 **ASH-FW-1 Configuration:**
 Applied to the `ROUTER` interface, matching traffic defined in the `ASH-HQ-VPN` ACL.
@@ -92,6 +100,7 @@ crypto map MERIDIAN-VPN 10 set peer 10.255.110.3
 crypto map MERIDIAN-VPN 10 set ikev2 ipsec-proposal MERIDIAN-AES256
 crypto map MERIDIAN-VPN interface ROUTER
 ```
+![IPSec](screenshots/ash-fw-1-crypto-map.png)
 
 **HQ-FW-1 Configuration:**
 Applied to the `EDGE-ROUTERS` interface, matching traffic defined in the `HQ-ASH-VPN` ACL. Includes the SSL trustpoint for the remote access portal.
@@ -104,6 +113,7 @@ crypto map MERIDIAN-VPN interface EDGE-ROUTERS
 crypto ca trustpoint MERIDIAN-VPN-SSL
 crypto ca certificate chain MERIDIAN-VPN-SSL
 ```
+![IPSec](screenshots/hq-fw-1-crypto-map.png)
 
 **Key Design Elements:**
 - **`match address`:** References the specific ACLs that define the traffic to be encrypted.
@@ -126,6 +136,7 @@ crypto ikev2 policy 10
  lifetime seconds 86400
 crypto ikev2 enable ROUTER
 ```
+![IPSec](screenshots/ash-fw-1-ikev2.png)
 
 **HQ-FW-1 Configuration:**
 ```cisco
@@ -139,7 +150,8 @@ crypto ikev2 policy 10
 crypto ikev2 enable EDGE-ROUTERS
 crypto ikev2 enable HQ-LAN
 ```
-
+![IPSec](screenshots/hq-fw-1-ikev2.png)
+ik
 The foundation of the IPsec tunnel is the IKEv2 negotiation, which establishes a secure channel for key exchange.
 
 **Firewall Verification:**  
@@ -156,7 +168,7 @@ Wireshark was used to capture and analyze the ISAKMP/IKE negotiation. The captur
 
 ---
 
-## . Data Plane Verification (IPsec SA & ESP)
+## 6. Data Plane Verification (IPsec SA & ESP)
 
 Once the IKE SA is established, the IPsec SA is negotiated to protect the actual data traffic.
 
@@ -174,7 +186,7 @@ Wireshark filters were applied to observe the traffic crossing the tunnel. The c
 
 ---
 
-## . Functional End-to-End Connectivity
+## 7. Functional End-to-End Connectivity
 
 To validate that the encrypted tunnel is functionally routing traffic, an end-to-end ping test was performed.
 
