@@ -51,7 +51,7 @@ It proves the successful establishment of IKEv2/IPsec Security Associations and 
 
 ---
 
-### ➡️ Next Section
+### Next Section
 
 Continue to the detailed implementation workflow, packet analysis methodology, and evidence matrix for the Site-to-Site IPsec VPN:
--  **[Configuration Details](configuration.md)** – Implementation workflow, packet analysis methodology, and evidence matrix.
+-  **[Configuration Details](configuration.md)** – Implementation workflow, packet analysis methodology, and evidence.
