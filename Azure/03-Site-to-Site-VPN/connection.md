@@ -67,10 +67,9 @@ It works together with the VPN Gateway and Local Network Gateway to establish an
 - BGP disabled — routing relies on address spaces defined on the Local Network Gateway
 - Parameters are aligned with the ASA IKEv2/IPsec configuration for successful negotiation
 
-## Related Documentation
+---
 
-- [azure-vpn-gateway.md](azure-vpn-gateway.md) – Azure VPN Gateway
-- [local-network-gateway.md](local-network-gateway.md) – Local Network Gateway
-- [asa-vti.md](asa-vti.md) – ASA route-based VTI
-- [ikev2.md](ikev2.md) – IKEv2 details
-- [ipsec.md](ipsec.md) – IPsec details
+### Next Section
+
+Continue to the detailed IKEv2 policy and negotiation configuration:
+- **[IKEv2 Details](ikev2.md)** – IKEv2 policy, tunnel-group, and negotiation parameters.
