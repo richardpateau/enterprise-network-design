@@ -225,7 +225,7 @@ https://github.com/user-attachments/assets/1d6e5a5f-8697-4d75-a9d2-c144f0b6d05a
 
 ---
 
-### ➡What's Next?
+### What's Next?
 
 With the firewall security boundary fully configured and validated, the next step is to implement centralized identity and access control for the entire network infrastructure.
 

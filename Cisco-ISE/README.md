@@ -62,13 +62,13 @@ The Meridian design strictly separates endpoint network access from infrastructu
 
 The ISE implementation was rigorously validated using both positive and negative test cases to prove policy enforcement, not just configuration.
 
-### ✅ Positive Validation
+### Positive Validation
 - Successful AD integration and user resolution.
 - Successful 802.1X authentication and dynamic VLAN 10 assignment.
 - Successful Guest unknown-device detection and VLAN 40 assignment.
 - Successful Network Administrator SSH login with Privilege 15 and command accounting.
 
-### ❌ Negative Validation
+### Negative Validation
 - Invalid 802.1X credentials (Access-Reject).
 - Rogue/unauthorized endpoint connection attempts (Blocked).
 - Invalid TACACS+ administrative login attempts (Access-Denied with router-side debug verification).
