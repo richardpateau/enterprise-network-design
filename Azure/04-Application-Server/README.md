@@ -114,10 +114,9 @@ Full NSG details are documented in 06-Security/.
 | `web-server.md` | Apache installation and webpage |
 | `screenshots/`  | Supporting screenshots         |
 
-## Related Sections
+---
 
-- [01-Architecture](../01-Architecture/) – Overall hybrid architecture
-- [02-Networking](../02-Networking/) – VNet and subnet design
-- [03-Site-to-Site-VPN](../03-Site-to-Site-VPN/) – Hybrid connectivity
-- [05-Internet-Egress](../05-Internet-Egress/) – NAT Gateway outbound access
-- [06-Security](../06-Security/) – NSG and security controls
+### Next Section
+
+Continue to the detailed Azure Virtual Machine configuration and deployment details:
+- **[Azure VM Configuration](azure-vm.md)** – Virtual machine sizing, networking, and deployment configuration.
