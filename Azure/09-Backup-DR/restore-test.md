@@ -51,6 +51,8 @@ Azure required a staging storage account for the restore operation.
 
 ![recovery storage](screenshots/restore-storage.png)
 
+**Creating Blob Storage**
+
 ![recovery storage](screenshots/storage-overview.png)
 
 ## Restore Result
@@ -122,9 +124,11 @@ The Azure VM was successfully restored from a backup recovery point into a separ
 
 The temporary restored VM was subsequently stopped after testing.
 
-## Related Documentation
+---
 
-* `09-Backup-DR/README.md` – Backup and DR overview
-* `recovery-services-vault.md` – Recovery Services vault
-* `backup-policy.md` – Backup policy
-* `recovery-points.md` – Recovery points
+### What's Next?
+
+With the Azure hybrid cloud environment fully configured, monitored, and backed up, the next step is to examine the core on-premises security boundary that protects the entire enterprise network.
+
+Continue to the next major module to explore the firewall architecture:
+- **[Cisco ASA Firewall](../Cisco-ASA-Firewall/)** – High Availability (HA), NAT, DMZ segmentation, and stateful firewall policies.
