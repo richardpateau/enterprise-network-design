@@ -55,5 +55,9 @@ Related but distinct ISE capabilities are documented in their respective section
 | `configuration.md` | ISE policy logic, switch integration, and evidence matrix. |
 | `screenshots/` | Curated evidence of policy configuration, Live Logs, and DHCP validation. |
 
-
 ---
+
+### Next Section
+
+Continue to the detailed configuration, policy logic, and evidence matrix for guest network access:
+- **[Configuration Details](configuration.md)** – ISE unknown-device conditions, guest authorization profiles, and DHCP validation evidence.
