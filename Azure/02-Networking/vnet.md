@@ -49,7 +49,11 @@ Meridian-Azure-VNet provides the network foundation for:
 - **Region** – Deployed in East US to align with the overall Azure deployment
 - **Future growth** – /16 provides sufficient space for additional subnets and workloads
 
-## Related Documentation
+---
 
-- [subnets.md](subnets.md) – Subnet design and allocation
-- [01-Architecture](../01-Architecture/) – Overall architecture baseline
+### ➡️ What's Next?
+
+With the Virtual Network and subnet design established, the next step is to connect this Azure environment to the on-premises Meridian network.
+
+Continue to the next module to explore the hybrid connectivity implementation:
+- **[03 — Site-to-Site VPN](../03-Site-to-Site-VPN/)** – Azure VPN Gateway, Local Network Gateway, IKEv2/IPsec configuration, and ASA VTI integration.
