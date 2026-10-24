@@ -42,7 +42,7 @@ Azure establishes the site-to-site connection to the Meridian environment using 
 96.246.138.240
 ```
 
-This address is the public IP of the Meridian Internet connection (FiOS) in front of the HQ firewall HA pair.
+This address is the public IP of the Meridian Internet connection (ISP Router) in front of the HQ firewall HA pair.
 
 ![Local Network Gateway](screenshots/local-network-gateway.png)
 
@@ -62,9 +62,11 @@ It is required for the Azure site-to-site connection object and works together w
 - Overly broad prefixes (for example 192.0.0.0/8) should be reviewed and tightened if not required
 - BGP is disabled; routing relies on the address spaces defined on this Local Network Gateway
 
-## Related Documentation
+---
 
-- [azure-vpn-gateway.md](azure-vpn-gateway.md) – Azure VPN Gateway
-- [vpn-connection.md](vpn-connection.md) – Site-to-site connection
-- [asa-vti.md](asa-vti.md) – ASA route-based VTI
-- [02-Networking/routing.md](../02-Networking/routing.md) – Hybrid routing
+### What's Next?
+
+With the hybrid connectivity fully configured and validated, the next step is to explore the workloads hosted within the Azure environment.
+
+Continue to the next module to explore the application server deployment:
+- **[04 — Application Server](../04-Application-Server/)** – Azure VM configuration, Apache web server setup, and private network access.
