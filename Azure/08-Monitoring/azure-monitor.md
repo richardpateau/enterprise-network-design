@@ -70,9 +70,9 @@ The monitoring configuration populated data for:
 
 Azure Monitor was successfully configured for the Meridian application server and began reporting VM and guest operating-system metrics.
 
-## Related Documentation
+---
 
-- [08-Monitoring/README.md](README.md) – Monitoring overview
-- [data-collection-rule.md](data-collection-rule.md) – Data Collection Rule details
-- [metrics.md](metrics.md) – Metrics details
-- [alerts.md](alerts.md) – Alert configuration
+### Next Section
+
+Continue to the detailed Data Collection Rule configuration:
+- **[Data Collection Rule](data-collection.md)** – Data Collection Rule setup and metric collection details.
