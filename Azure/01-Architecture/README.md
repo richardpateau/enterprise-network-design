@@ -164,15 +164,12 @@ Azure resources reach Meridian on-premises networks via the site-to-site VPN (ro
 - VPN connectivity testing  
 - Application VM (private addressing) + Apache + Meridian webpage  
 - NAT Gateway and controlled outbound Internet  
-### Planned
 - Complete application-layer VPN testing  
 - Azure security hardening  
 - Azure routing documentation  
 - Monitoring / Log Analytics  
-- Backup and disaster recovery  
-- VPN failover testing  
-- Additional workloads as required  
-- Final architecture validation  
+- Backup and disaster recovery      
+  
 ---
  
  
