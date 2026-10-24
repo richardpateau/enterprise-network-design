@@ -73,6 +73,10 @@ The system successfully downloaded package metadata from the Internet.
 
 This confirmed that the NAT Gateway was providing functional outbound Internet connectivity.
 
+**Verification: Please enlarge for clearer video**
+
+https://github.com/user-attachments/assets/bce980a2-4144-4611-ac19-c536a280dfdb
+
 ## Security Model
 
 The application VM remains private:
