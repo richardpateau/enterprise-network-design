@@ -47,7 +47,7 @@ To validate the Active Directory join and ensure ISE can successfully query the 
 
 ![ISE](screenshots/vpn.test-ad.png)
 
-![ISE](screenshots/vpn.tes-ise.png)
+![ISE](screenshots/vpn.test-ise.png)
 ---
 
 ## 2. RADIUS Network Device Definition
@@ -63,7 +63,7 @@ For network devices to communicate with ISE, they must be explicitly defined as 
 - **RADIUS Accounting Port:** `1813`
 - **Shared Secret:** Strong, matching pre-shared key
 
-![ISE](screenshots/as-network-device-r1.png)
+![ISE](screenshots/ad-network-device-r1.png)
 ---
 
 ## 3. Policy Framework
@@ -76,7 +76,7 @@ Within the Default Policy Set, specific rules route authentication requests to t
 *   **MAB Rule:** Routes MAC Authentication Bypass requests to `Internal Endpoints` (ISE local database).
 *   **Dot1X Rule:** Routes 802.1X requests (Wired and Wireless) to `All_User_ID_Stores`, which includes the integrated Active Directory.
 
-![ISE](screenshots/ise-ad-groups.png)
+![ISE](screenshots/authentication-policy.png)
 
 ### 3.2 Authorization Policy
 The Authorization Policy dictates *what* network access the user receives after successful authentication. This leverages the Active Directory integration and device profiling to enforce role-based access control.
@@ -165,3 +165,12 @@ Curated screenshots validating this implementation are stored in:
 - [x] `vpn.test-ise-logs.png` (Proof of functional authentication in Live Logs)
 
 ---
+
+---
+
+### ➡️ What's Next?
+
+With the foundational Active Directory and RADIUS integration complete, the next step is to implement identity-driven network access control for corporate endpoints.
+
+Continue to the next module to explore 802.1X authentication and dynamic VLAN assignment:
+- **[02 — 802.1X Network Access Control](../02-802.1X/)** – 802.1X authentication policies, dynamic VLAN 10 assignment based on AD group membership, and positive/negative testing.
