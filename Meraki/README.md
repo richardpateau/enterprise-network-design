@@ -112,8 +112,10 @@ Configured `Meridian-Guest` with a customized splash page and click-through onbo
 - Cisco ISE and RADIUS integration
 - Guest splash-page configuration
 - VLAN assignment and client addressing
-- Authentication troubleshooting
-- ACL review and test-scope documentation
 
 ---
 
+### Next Section
+
+Continue to the detailed configuration reference, ISE integration, and evidence matrix for the Meraki wireless implementation:
+- **[Configuration Details](configuration.md)** – Detailed Dashboard configuration, CAPWAP/Cloud setup, ISE RADIUS integration, and validation evidence.
