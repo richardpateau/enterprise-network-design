@@ -76,8 +76,9 @@ This approach eliminates configuration drift and ensures that monitoring securit
 
 ---
 
-## Future Enhancements
+---
 
-- **Proactive Alerting:** Implement Grafana alert rules for critical events (e.g., OSPF adjacency loss, ISP reachability, Firewall HA state change) with Slack/Email notifications.
-- **Data Freshness Monitoring:** Add panels to detect and alert on missing telemetry data (e.g., Telegraf agent down).
-- **Expanded Application Metrics:** Deepen DMZ web server monitoring to include application-level metrics beyond basic HTTP response.
+### Next Section
+
+Continue to the detailed configuration reference, automation pipeline, and evidence matrix for the observability implementation:
+- **[Configuration Details](configuration.md)** – Monitoring pipeline setup, Ansible automation, and validation evidence.

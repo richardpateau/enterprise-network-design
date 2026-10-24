@@ -155,7 +155,7 @@ Extended IP access list GUEST-VLAN40-IN
 
 ---
 
-### ➡️ What's Next?
+### What's Next?
 
 With the cloud-managed Meraki wireless network configured and validated, the next step is to explore centralized observability and monitoring for the entire infrastructure.
 
