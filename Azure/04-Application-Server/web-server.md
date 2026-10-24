@@ -75,7 +75,7 @@ The VM’s Network Security Group includes the following rule:
 | Action           | Allow               |
 | Priority         | 1010                |
 
-This permits HTTP traffic from the Meridian enterprise address space. Full NSG details are in 06-Security/.
+![NSG](screenshots/vm-nsg.png)
 
 ## Verification
 
@@ -107,9 +107,11 @@ This confirms:
 - Private HTTP application access tested
 - Custom webpage successfully served from 10.200.10.4
 
-## Related Documentation
+---
 
-- [azure-vm.md](azure-vm.md) – Azure VM configuration
-- [06-Security](../06-Security/) – Network Security Groups
-- [03-Site-to-Site-VPN](../03-Site-to-Site-VPN/) – Hybrid connectivity
-- [05-Internet-Egress](../05-Internet-Egress/) – NAT Gateway outbound access
+### What's Next?
+
+With the application server fully configured, secured, and successfully serving traffic over the private hybrid network, the next step is to provide it with controlled outbound Internet access for updates and external communications.
+
+Continue to the next module to explore the controlled egress implementation:
+- **[05 — Internet Egress](../05-Internet-Egress/)** – Azure NAT Gateway configuration and private VM Internet egress.
