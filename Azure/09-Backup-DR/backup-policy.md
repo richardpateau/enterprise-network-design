@@ -57,9 +57,9 @@ The Azure Backup pre-check completed successfully before protection was finalize
 
 The enhanced Azure Backup policy was successfully configured for `MERIDIAN-AZ-WEB01`.
 
-## Related Documentation
+---
 
-- [09-Backup-DR/README.md](README.md) – Backup and DR overview
-- [recovery-services-vault.md](recovery-services-vault.md) – Recovery Services vault
-- [restore-test.md](restore-test.md) – Restore validation
-```
+### Next Section
+
+Continue to the detailed recovery points and restore validation:
+- **[Recovery Points & Restore Test](recovery-points.md)** – Recovery point creation, retention, and restore validation details.
