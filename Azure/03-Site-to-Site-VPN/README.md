@@ -97,4 +97,4 @@ Packet capture evidence confirms successful IKEv2 negotiation.
 ### Next Section
 
 Continue to the detailed on-premises firewall configuration for the route-based Virtual Tunnel Interface (VTI):
-- 🔒 **[ASA Route-Based VTI](asa-vti.md)** – Detailed configuration of the on-premises firewall tunnel interface and routing.
+- **[ASA Route-Based VTI](asa-vti.md)** – Detailed configuration of the on-premises firewall tunnel interface and routing.

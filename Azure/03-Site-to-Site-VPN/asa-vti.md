@@ -77,9 +77,9 @@ A corresponding IKEv2 tunnel-group exists for this peer (documented in ikev2.md)
 - Tunnel source is the inside-facing interface toward the edge routers (EDGE-ROUTERS)
 - Tunnel destination is the primary Azure VPN Gateway public IP
 
-## Related Documentation
+---
 
-- [azure-vpn-gateway.md](azure-vpn-gateway.md) – Azure VPN Gateway
-- [vpn-connection.md](vpn-connection.md) – Azure site-to-site connection
-- [ikev2.md](ikev2.md) – IKEv2 policy and tunnel-group
-- [ipsec.md](ipsec.md) – IPsec proposals and profiles
+### Next Section
+
+Continue to the Azure-side configuration for the VPN Gateway:
+- **[Azure VPN Gateway](azure-vpn-gateway.md)** – Azure VPN Gateway configuration, SKU, and BGP settings.
