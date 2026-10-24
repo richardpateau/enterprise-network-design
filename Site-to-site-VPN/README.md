@@ -49,7 +49,9 @@ It proves the successful establishment of IKEv2/IPsec Security Associations and 
 
 ---
 
-## Related Documentation
+---
 
-- **Network Routing:** `Routing/` (OSPF/BGP routing over the tunnel)
-- **Firewall High Availability:** `Switching/` or `Security/` (Firewall stateful failover, if applicable)
+### ➡️ Next Section
+
+Continue to the detailed implementation workflow, packet analysis methodology, and evidence matrix for the Site-to-Site IPsec VPN:
+-  **[Configuration Details](configuration.md)** – Implementation workflow, packet analysis methodology, and evidence matrix.
