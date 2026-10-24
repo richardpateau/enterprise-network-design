@@ -281,7 +281,7 @@ Detailed security configuration and validation are documented in:
 
 `06-Security`
 
-![Locl](screenshots/detection-failure-lock.png)
+![Locl](screenshots/deletion-failure-lock.png)
 
 ---
 
@@ -501,3 +501,9 @@ The completed implementation demonstrates:
 * End-to-end hybrid connectivity
 
 The Azure environment was implemented, tested, and documented as part of the broader Meridian Financial Services enterprise network project.
+
+---
+
+### What's Next?
+
+- **[01 — Architecture](01-Architecture/)** – High-level topology, resource group design, and relationship between Azure and the Meridian on-premises environment.
