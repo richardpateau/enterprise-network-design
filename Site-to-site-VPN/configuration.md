@@ -64,8 +64,6 @@ crypto ipsec security-association pmtu-aging infinite
 
 ## 3. ACLs
 
-The "interesting traffic" that triggers IPsec encryption is defined by extended access-lists on each firewall. These ACLs are mirrored to ensure bidirectional traffic between the HQ and Ashburn networks is encrypted.
-
 **ASH-FW-1 Configuration:**
 Permits traffic from the Ashburn network (`10.50.10.0/24`) to the HQ network (`10.10.10.0/24`).
 ```cisco
@@ -110,8 +108,6 @@ crypto map MERIDIAN-VPN 10 match address HQ-ASH-VPN
 crypto map MERIDIAN-VPN 10 set peer 10.255.112.2
 crypto map MERIDIAN-VPN 10 set ikev2 ipsec-proposal MERIDIAN-AES256
 crypto map MERIDIAN-VPN interface EDGE-ROUTERS
-crypto ca trustpoint MERIDIAN-VPN-SSL
-crypto ca certificate chain MERIDIAN-VPN-SSL
 ```
 ![IPSec](screenshots/hq-fw-1-crypto-map.png)
 
@@ -151,7 +147,7 @@ crypto ikev2 enable EDGE-ROUTERS
 crypto ikev2 enable HQ-LAN
 ```
 ![IPSec](screenshots/hq-fw-1-ikev2.png)
-ik
+
 The foundation of the IPsec tunnel is the IKEv2 negotiation, which establishes a secure channel for key exchange.
 
 **Firewall Verification:**  
@@ -197,7 +193,7 @@ A host on the Meridian HQ network successfully pinged a server located in the As
 
 ---
 
-## . Evidence Matrix
+## 8. Evidence Matrix
 
 | Validation Area | Evidence File | What It Proves |
 | :--- | :--- | :--- |
@@ -222,9 +218,10 @@ The VPN validation followed this logical progression:
 
 ---
 
+### What's Next?
 
+With the Site-to-Site IPsec VPN fully configured, encrypted, and validated, the next step is to explore the dynamic routing architecture that directs traffic across the enterprise network.
 
-
-
-
+Continue to the next major module to explore the routing implementation:
+- **[Routing](../Routing/)** – OSPF, BGP, and dynamic route exchange across the hybrid infrastructure.
 
