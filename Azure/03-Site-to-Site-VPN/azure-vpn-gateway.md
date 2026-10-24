@@ -67,9 +67,9 @@ The VPN Gateway provides the Azure-side termination point for the Meridian site-
 
 ![Networking](screenshots/vpn-gateway-configuration.png)
 
-## Related Documentation
+---
 
-- [local-network-gateway.md](local-network-gateway.md) – Local Network Gateway
-- [vpn-connection.md](vpn-connection.md) – Site-to-site connection
-- [asa-vti.md](asa-vti.md) – ASA route-based VTI
-- [02-Networking/subnets.md](../02-Networking/subnets.md) – GatewaySubnet design
+### Next Section
+
+Continue to the configuration of the site-to-site connection linking the Azure VPN Gateway to the on-premises network:
+- **[Site-to-Site Connection](connection.md)** – Connection configuration, shared keys, and validation.
