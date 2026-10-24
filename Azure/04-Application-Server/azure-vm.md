@@ -47,8 +47,6 @@ The VM’s network security group includes an HTTP rule permitting traffic from 
 | Action            | Allow                |
 | Priority          | 1010                 |
 
-Full NSG documentation is maintained in `06-Security/`.
-
 ![NSG](screenshots/vm-nsg.png)
 
 ## SSH Access
@@ -85,9 +83,9 @@ This keeps the workload inside the hybrid/private network architecture.
 - SSH key-based authentication is used (no password authentication)
 - Outbound Internet access (package updates, etc.) is provided via the Azure NAT Gateway (see 05-Internet-Egress/)
 
-## Related Documentation
+---
 
-- [web-server.md](web-server.md) – Apache installation and webpage
-- [02-Networking/subnets.md](../02-Networking/subnets.md) – Azure-Apps subnet
-- [05-Internet-Egress](../05-Internet-Egress/) – NAT Gateway outbound access
-- [06-Security](../06-Security/) – Network Security Groups
+### Next Section
+
+Continue to the application layer configuration hosted on this virtual machine:
+- **[Web Server Configuration](web-server.md)** – Apache installation, webpage deployment, and service validation.
