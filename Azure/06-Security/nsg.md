@@ -112,7 +112,7 @@ Operational tests also confirmed:
 
 ---
 
-### ➡️ Next Section
+### Next Section
 
 Continue to the configuration that prevents accidental deletion of the environment:
-- **[Resource Deletion Protection](resource-locks.md)** – Resource lock configuration and validation.
+- **[Resource Deletion Protection](resource-lock.md)** – Resource lock configuration and validation.
