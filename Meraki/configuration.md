@@ -125,6 +125,8 @@ https://github.com/user-attachments/assets/dbd81db5-aa3e-489a-8814-2c49e5d13373
 
 **Captive Portal**
 
+![Meraki](screenshots/captive-portal-pc.png)
+
 ![Meraki](screenshots/splash-page-iphone.png)
 
 **Clients**
