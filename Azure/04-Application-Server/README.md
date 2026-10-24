@@ -6,6 +6,14 @@ The Meridian Azure environment includes an application server hosted in Microsof
 
 The server provides a private web application workload that is accessible only through the Meridian hybrid network (site-to-site VPN).
 
+**SSH Access to Server: Please enlarge for clearer video**
+
+https://github.com/user-attachments/assets/e9331150-ea8c-4248-ac42-2fe628bdeb34
+
+**HTTP Access to Website: Please enlarge for clearer video**
+
+https://github.com/user-attachments/assets/a8e0c2bf-5871-4ae6-b612-b469b78b91c8
+
 ## Application Server
 
 | Property          | Value                      |
