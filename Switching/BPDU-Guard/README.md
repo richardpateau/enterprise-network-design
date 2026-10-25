@@ -54,10 +54,15 @@ A controlled BPDU Guard test was executed on **HQ-SW-2 Ethernet1/1** to validate
 **Result:** 
 The interface immediately transitioned to an `err-disabled` state, dropping all traffic and generating a syslog violation. This successfully prevented a potential Layer 2 loop from propagating into the core network.
 
+![BPDU Guard](screenshots/bpdu-guard-topology.png)
+
 ![BPDU Guard](screenshots/hq-sw2-bpduguard-errdisabled.png)
 
-![BPDU Guard](screenshots/topology.png)
+---
 
-## Evidence & Verification
-Configuration and operational verification screenshots are stored in:
-`Switching/BPDU-Guard/screenshots/`
+### ️ What's Next?
+
+With the access edge fully protected against rogue switches and Layer 2 loops, the next step is to explore how physical link redundancy and bandwidth aggregation are implemented across the switching infrastructure.
+
+Continue to the next module to explore LACP EtherChannel:
+- **[EtherChannel](../Etherchannel/)** – LACP configuration, link aggregation, N+1 redundancy, and member-link failover testing.
