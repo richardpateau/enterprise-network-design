@@ -165,4 +165,4 @@ Beyond operational state, functional testing was performed to prove that Layer 2
 With the Layer 2 switching architecture, VLAN segmentation, and trunking fully configured and validated, the next step is to explore the enterprise Windows Server infrastructure that provides core network services.
 
 Continue to the next major module to explore the Windows implementation:
-- **[Windows Infrastructure](../Windows/)** – Active Directory, DNS, DHCP, Group Policy Objects (GPO), and Microsoft 365/Entra ID integration.
+- **[Windows Infrastructure](../../Windows/)** – Active Directory, DNS, DHCP, Group Policy Objects (GPO), and Microsoft 365/Entra ID integration.
