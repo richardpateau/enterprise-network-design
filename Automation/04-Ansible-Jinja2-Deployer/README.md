@@ -5,6 +5,8 @@ This project represents the transition from "Read-Only" auditing to "Read-Write"
 
 **Playbook Execution: Please enlarge for clearer video**
 
+https://github.com/user-attachments/assets/eddabe68-45e7-4fd1-bce4-767873592d50
+
 ---
 
 ## Architecture & Design Patterns
