@@ -119,3 +119,11 @@ Screenshots and media files are strictly contained within the `screenshots/` sub
 The Windows and Microsoft 365 environments serve as the foundational identity, directory, and productivity layer for the broader Meridian enterprise network. They integrate seamlessly with the network routing, Cisco ISE security policies, and PRTG monitoring systems to deliver a cohesive, secure, and manageable enterprise IT ecosystem.
 
 ***
+---
+
+### What's Next?
+
+With the high-level Windows infrastructure architecture and feature areas established, the next step is to explore the centralized IP address management implementation.
+
+Continue to the first module to explore the DHCP configuration and validation:
+- 🌐 **[01 — Dynamic Host Configuration Protocol (DHCP)](01-DHCP/)** – Windows DHCP scope configuration, `ip helper` relay integration, and packet-level DORA validation.

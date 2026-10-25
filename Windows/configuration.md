@@ -8,7 +8,7 @@ Rather than duplicating detailed steps, this document provides a high-level summ
 
 ---
 
-## Configuration Matrix
+## Configuration 
 
 | Feature Area | Core Configuration Scope |
 | :--- | :--- |

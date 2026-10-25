@@ -79,8 +79,9 @@ The DHCP implementation was validated through a three-tier approach:
 
 ---
 
-## Related Documentation
+---
 
-- **DNS & GPO:** `Windows/02-DNS-GPO/` (DNS server configuration and Group Policy)
-- **Network Infrastructure:** `Switching/` and `Routing/` (VLAN and routing configuration)
-- **Firewall/IPsec:** `Azure/03-Site-to-Site-VPN/` (VPN connectivity for remote DHCP relay)
+### Next Section
+
+Continue to the detailed implementation steps, relay configuration, and evidence matrix for the DHCP deployment:
+- **[Configuration Details](configuration.md)** – Implementation details, relay configuration, and evidence matrix.
