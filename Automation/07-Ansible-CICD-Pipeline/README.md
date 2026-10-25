@@ -3,6 +3,10 @@
 ## Summary
 This project represents the principles of NetDevOps: **Continuous Integration and Continuous Deployment (CI/CD) for physical network infrastructure**. By integrating Ansible with GitHub Actions via a **Self-Hosted Runner**, this pipeline bridges the gap between cloud-based version control and on-premise network hardware. It automatically lints code, runs Ansible `--check` dry-runs, and validates network state against Nautobot, ensuring zero misconfigurations ever reach production.
 
+**Live GitHub Actions: Please enlarge for clearer video**
+
+https://github.com/user-attachments/assets/f7ba6260-1b68-468b-aeda-80597c1d5624
+
 ---
 
 ## Architecture & Design Patterns
