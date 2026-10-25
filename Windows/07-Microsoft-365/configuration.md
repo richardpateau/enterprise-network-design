@@ -117,4 +117,4 @@ The M365 Audit Log was utilized to track administrative activities. The logs suc
 With Microsoft 365 cloud administration, identity management, and collaboration features fully configured and validated, the next step is to explore the centralized SIEM and log aggregation platform.
 
 Continue to the next major module to explore Splunk:
-- **[Splunk SIEM](../Splunk/)** – Log ingestion, search queries, dashboard creation, and security monitoring.
+- **[Splunk SIEM](../../Splunk/)** – Log ingestion, search queries, dashboard creation, and security monitoring.
