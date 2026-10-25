@@ -10,7 +10,7 @@ DNS provides the foundational name resolution required for Active Directory func
 
 ## Architecture
 
-![DNS](screenshots/discover-offer-overview.png)
+![DNS](screenshots/dns-gpo-visio.png)
 
 ---
 
@@ -63,3 +63,10 @@ DNS provides the foundational name resolution required for Active Directory func
 - **Dynamic Addressing:** `Windows/01-DHCP/`
 - **File Access Control:** `Windows/03-File-Shares/`
 - **Audit & Compliance:** `Windows/04-Logging-SIEM/`
+
+---
+
+### Next Section
+
+Continue to the detailed implementation steps, security baselines, and evidence matrix for the DNS and Group Policy deployment:
+- **[Configuration Details](configuration.md)** – Implementation details, security baselines, and evidence matrix.
