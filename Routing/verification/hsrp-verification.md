@@ -109,8 +109,6 @@ The failed interface on HQ-R1 was restored (`no shutdown`).
 
 ---
 
----
-
 ### What's Next?
 
 With First-Hop Redundancy (HSRP) fully configured and validated for seamless gateway failover, the next step is to explore the dynamic routing protocol that directs traffic across the enterprise WAN.

@@ -70,6 +70,8 @@ User-facing SVI (Switched Virtual Interface) and access VLAN interfaces are conf
 - **Benefit:** Advertises the connected subnet into the OSPF domain without attempting to form unnecessary (and potentially insecure) neighbor adjacencies with endpoint devices.
 - **Exception:** Transit interfaces and point-to-point links remain active to facilitate required neighbor relationships.
 
+![HSRP](screenshots/hq-r1-sh-standby-brief.png)
+
 ### Route Summarization
 Where applicable, ABRs are configured to summarize branch subnets before advertising them into Area 0, reducing the size of the backbone routing table and limiting the scope of topology change notifications (Type 3 LSAs).
 
@@ -83,17 +85,3 @@ OSPF does not operate in a vacuum. Its behavior is carefully coordinated with ot
 - **OSPF & HSRP:** HSRP provides First-Hop Redundancy (FHRP) for local VLAN default gateways, while OSPF handles dynamic routing *between* those routed segments. They operate at different layers of the forwarding path. *(See: `Routing/verification/hsrp-verification.md`)*
 - **OSPF & BGP:** Strict separation of concerns. OSPF manages the internal IGP domain. BGP is reserved for External Gateway Protocol (EGP) tasks, such as ISP peering and hybrid cloud connectivity. Route redistribution between the two is strictly controlled and filtered. *(See: `Routing/BGP/`)*
 
----
-
-## Configuration & Verification
-
-To maintain a clean separation of concerns, implementation details and testing evidence are organized into dedicated sub-directories:
-
-### Configuration
-- [Single-Area OSPF Implementation](single-area/README.md) *(if applicable)*
-- [Multi-Area OSPF Implementation](multi-area/README.md)
-
-### Operational Verification
-Comprehensive steady-state and functional failure testing is documented separately to prove resiliency.
-- **Documentation:** [`Routing/verification/ospf-verification.md`](verification/ospf-verification.md)
-- **Verification Scope:** Neighbor adjacency states, Router ID validation, Area assignments, LSDB integrity, path selection, and convergence behavior during intentional link/node failures.
