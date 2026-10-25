@@ -5,6 +5,8 @@ This project represents the pinnacle of operational network automation: **Ticket
 
 **Script Execution: Please enlarge for clearer video**
 
+https://github.com/user-attachments/assets/03a67445-3661-43b1-973e-99ac33ec2ee3
+
 ---
 
 ## ️ Architecture & Design Patterns
