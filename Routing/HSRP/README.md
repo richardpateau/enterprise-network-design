@@ -92,27 +92,29 @@ interface FastEthernet0/0.110
 ```
 ---
 
+
 ## 1. Steady-State Operational Verification
 
 Before testing failure scenarios, the baseline health of the HSRP topology was verified to ensure correct role assignment and gateway reachability.
 
-### 1.2 HSRP State & Role Verification
+### 1.1 HSRP State & Role Verification
 **Command:** `show standby brief`  
 **Validation Criteria:** Confirms the correct router is in the `Active` state (indicated by the `A` flag and priority 110) and the secondary is in the `Standby` state (`S` flag). The Virtual IP column must match the design.    
 **Observation:** HQ-R1 correctly holds the Active role for VLANs 10-70, while HQ-R2 is in Standby. Preemption (`P` flag) is active.
 
 ![HSRP](screenshots/hq-r1-sh-standby-brief.png)
 
-### 1.3 Detailed HSRP & ARP Verification
-**Commands:** `show standby interface [interface]`, `show arp`  
+### 1.2 Detailed HSRP & ARP Verification
+**Commands:** `show standby [interface]`, `show arp`  
 **Validation Criteria:** Verifies HSRP version (v2), hello/hold timers, and confirms that the ARP table on the switch/router resolves the VIP to the correct HSRP virtual MAC address (`0000.0C9F.FXXX`).  
 
 ![HSRP](screenshots/hq-r1-sh-arp.png)
 
-### 1.4 Gateway Reachability
+![HSRP](screenshots/sh-standby-f0-0.10.png)
+
+### 1.3 Gateway Reachability
 **Command:** `ping [VIP]` (from an endpoint or management station)  
 **Validation Criteria:** Confirms that the virtual gateway is actively responding to ICMP requests, proving the Active router is successfully processing traffic destined for the VIP.  
-*[Insert Screenshot: `hq-hsrp-gateway-ping.png`]*
 
 ![HSRP](screenshots/hq-hsrp-gateway-ping.png)
 
@@ -125,7 +127,11 @@ Before testing failure scenarios, the baseline health of the HSRP topology was v
 ### 2.1 Pre-Failure Baseline
 Before inducing a failure, the baseline state was captured to confirm normal routing and connectivity.
 - **HSRP State:** R1 is `Active`, R2 is `Standby`.
-- **Connectivity:** Continuous ICMP ping from a VLAN 10 endpoint to a remote destination (e.g., Ashburn DR subnet) is successful via the VIP (`10.10.10.1`).  
+- **Connectivity:** Continuous ICMP ping from a VLAN 10 endpoint to a remote destination (203.0.113.10) is successful via the VIP (`10.10.10.1`).  
+
+![HSRP](screenshots/hq-r1-intentional-shutdown.png)
+
+![HSRP](screenshots/pc-ping-before.png)
 
 ### 2.2 Failure Injection
 A controlled failure was introduced by administratively shutting down the primary VLAN interface on the Active router (HQ-R1).
@@ -146,9 +152,13 @@ Immediately following the failure, the network state was re-evaluated on the sec
 
 https://github.com/user-attachments/assets/b726446d-5f2e-445f-bfa7-cb1e55ea5388
 
+![HSRP](screenshots/pc-ping-during-failure.png)
+
 ### 2.5 Path Recovery & Preemption
 The failed interface on HQ-R1 was restored (`no shutdown`). 
 - **Observation:** Because `standby 10 preempt` is configured, HQ-R1 immediately reclaimed the `Active` role upon interface recovery, and HQ-R2 gracefully returned to the `Standby` state.  
+
+![HSRP](screenshots/hq-r1-preempt-successful.png)
 
 ---
 
@@ -156,13 +166,11 @@ The failed interface on HQ-R1 was restored (`no shutdown`).
 
 | Verification Area | Command(s) Used | Status | Evidence File |
 | :--- | :--- | :---: | :--- |
-| HSRP State & Roles | `show standby brief` | ✅ Verified | `hq-r1-sh-standby-brief.png` |
-| HSRP v2 MAC | `show arp` | ✅ Verified | `hq-r1-sh-arp.png` |
-| Gateway Reachability | `ping [VIP]` | ✅ Verified | `hq-hsrp-gateway-ping.png` |
-| Failover Convergence | `show standby brief`, `ping` | ✅ Verified | `hsrp-failover.png` |
-| Preemption Recovery | `show standby brief` | ✅ Verified | `hsrp-failover-recovered.png` |
-
----
+| HSRP State & Roles | `show standby brief` | Verified | `hq-r1-sh-standby-brief.png` |
+| HSRP v2 MAC | `show arp` | Verified | `hq-r1-sh-arp.png` |
+| Gateway Reachability | `ping [VIP]` | Verified | `hq-hsrp-gateway-ping.png` |
+| Failover Convergence | `show standby brief`, `ping` | Verified | `hsrp-failover.png` |
+| Preemption Recovery | `show standby brief` | Verified | `hsrp-failover-recovered.png` |
 
 ---
 
