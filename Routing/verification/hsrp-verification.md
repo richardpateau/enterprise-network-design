@@ -50,7 +50,6 @@ Before testing failure scenarios, the baseline health of the HSRP topology was v
 ### 2.3 Gateway Reachability
 **Command:** `ping [VIP]` (from an endpoint or management station)  
 **Validation Criteria:** Confirms that the virtual gateway is actively responding to ICMP requests, proving the Active router is successfully processing traffic destined for the VIP.  
-*[Insert Screenshot: `hq-hsrp-gateway-ping.png`]*
 
 ![HSRP](screenshots/hq-hsrp-gateway-ping.png)
 
