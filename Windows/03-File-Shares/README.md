@@ -52,8 +52,7 @@ The file share access model relies on Windows authentication and NTFS permission
 
 ---
 
-## Scope & Boundaries
+### Next Section
 
-This section documents **Windows File Share and NTFS permission enforcement**. 
-
-It utilizes an identity that was previously authenticated via 802.1X to demonstrate end-to-end identity continuity, but the *802.1X network authentication configuration itself* is documented separately under `Cisco-ISE/02-802.1X/`.
+Continue to the detailed NTFS configuration, testing methodology, and evidence matrix for the file share deployment:
+- **[Configuration Details](configuration.md)** – NTFS configuration, testing methodology, and evidence.
