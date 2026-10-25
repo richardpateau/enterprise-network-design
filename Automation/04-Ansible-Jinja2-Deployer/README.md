@@ -51,7 +51,7 @@ A critical component of enterprise automation is safety. The framework is design
 
 ---
 
-## Portfolio Evidence & Execution
+## Evidence & Execution
 
 Below is visual proof of the Jinja2 templating and deployment workflow.
 
@@ -61,8 +61,6 @@ Below is visual proof of the Jinja2 templating and deployment workflow.
 
 ### 2. Playbook Execution & Diff
 *Ansible successfully rendering the Jinja2 template and applying the configuration block.*
-
-![Automation](screenshots/jinja-2.png)
 
 ![Automation](screenshots/playbook-results-successful.png)
 
@@ -76,3 +74,10 @@ Below is visual proof of the Jinja2 templating and deployment workflow.
 *   [Jinja2 Template Playbook Execution](media/template-playbook.mp4)
 
 ---
+
+### ➡️ What's Next?
+
+With configuration templating and mass deployment fully automated, the next step is to integrate automation with ITSM workflows for service request fulfillment.
+
+Continue to the next module to explore ITSM-Driven Service Request Provisioning:
+- **[05 — ITSM-Driven Service Request Fulfillment Engine](../05-Python-Service-Request-Provisioner/)** – Jira REST API integration, automated port provisioning, and ticket closure.
