@@ -49,7 +49,7 @@ Instead of outputting a messy terminal diff, the script parses the `difflib` out
 
 ![Automation](screenshots/conn.enable.png)
 
-Connecting -----> enable -----> send command -----> Disconnet
+*Connecting -----> enable -----> send command -----> Disconnect*
 
 ---
 
@@ -69,7 +69,7 @@ Connecting -----> enable -----> send command -----> Disconnet
 
 ---
 
-## Portfolio Evidence & Execution
+## Evidence 
 
 Below is visual proof of the compliance workflow in action.
 
@@ -103,7 +103,7 @@ Below is visual proof of the compliance workflow in action.
 
 ![Automation](screenshots/edge-1-html-results.png)
 
-*Testing false-positive handling by applying a Switch config to a Router comment field.*
+**Applying a Switch config to a Router comment field (Golden Configuration)**
 
 ![Automation](screenshots/edge-2-html-results.png)
 
