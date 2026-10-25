@@ -81,10 +81,6 @@ Operational verification is strictly separated from configuration documentation 
 1.  **Steady-State Validation:** Confirming protocol adjacencies (OSPF `FULL`, BGP `Established`, HSRP `Active/Standby`) and routing table population.
 2.  **Functional Failure Testing:** Intentionally disrupting primary paths (interface shutdowns) to validate protocol convergence, alternate path selection, and preemption behavior.
 
-### Evidence Repository
-All operational screenshots, packet captures, and failover videos are centralized in:
-[`Routing/verification/screenshots/`](verification/screenshots/)
-
 ---
 
 ## 5. Documentation Structure

@@ -54,9 +54,10 @@ To ensure operational consistency, all branch sites follow the exact same addres
 
 The following represents the standard configuration applied to the preferred (Active) router for a given VLAN:
 
+### Active Router Template (Preferred)
 ```cisco
-interface Vlan10
- description USERS-VLAN-HSRP-ACTIVE
+interface FastEthernet0/0.10
+ encapsulation dot1Q 10
  ip address 10.10.10.2 255.255.255.0
  !
  ! --- HSRP Configuration ---
@@ -64,29 +65,114 @@ interface Vlan10
  standby 10 ip 10.10.10.1
  standby 10 priority 110
  standby 10 preempt
- !
- ! --- Optional but Recommended: Interface Tracking ---
- ! standby 10 track GigabitEthernet0/1 20
 ```
 
+### Standby Router Template (Secondary)
+```cisco
+interface FastEthernet0/0.10
+ encapsulation dot1Q 10
+ ip address 10.10.10.3 255.255.255.0
+ !
+ ! --- HSRP Configuration ---
+ standby version 2
+ standby 10 ip 10.10.10.1
+ standby 10 preempt
+ ! Priority defaults to 100
+```
+### Ashburn DR Site
+**Interfaces:** `FastEthernet0/0.x`
+**Active Router:** ASH-INTERNAL-1 | **Standby Router:** INTERNAL-2
+**Note:** Ashburn subinterfaces also integrate OSPF Area 50 directly on the interface.
+
+**Example Configuration (VLAN 110):**
+```cisco
+! ASH-INTERNAL-1 (Active)
+interface FastEthernet0/0.110
+ encapsulation dot1Q 110
+ ip address 10.50.10.2 255.255.255.0
+ standby 110 ip 10.50.10.1
+ standby 110 priority 110
+ standby 110 preempt
+```
 ---
 
-## Protocol Interaction: HSRP vs. OSPF
+## 1. Steady-State Operational Verification
 
-It is critical to distinguish the roles of FHRP and the Interior Gateway Protocol (IGP), as they operate at different layers of the forwarding path but must work in harmony:
+Before testing failure scenarios, the baseline health of the HSRP topology was verified to ensure correct role assignment and gateway reachability.
 
-| Feature | HSRP (First-Hop Redundancy) | OSPF (Dynamic Routing) |
-| :--- | :--- | :--- |
-| **Primary Function** | Provides default-gateway redundancy for endpoints within a specific broadcast domain (VLAN). | Provides dynamic, loop-free path selection *between* routed network segments. |
-| **Operational Scope** | Local to the Layer 2 segment (VLAN). | Enterprise-wide (across Area 0 and non-backbone areas). |
-| **Mechanism** | Hello messages between HSRP peers to elect Active/Standby roles for a Virtual IP. | Link-State Advertisements (LSAs) to build a synchronized topology database (LSDB). |
+### 1.2 HSRP State & Role Verification
+**Command:** `show standby brief`  
+**Validation Criteria:** Confirms the correct router is in the `Active` state (indicated by the `A` flag and priority 110) and the secondary is in the `Standby` state (`S` flag). The Virtual IP column must match the design.    
+**Observation:** HQ-R1 correctly holds the Active role for VLANs 10-70, while HQ-R2 is in Standby. Preemption (`P` flag) is active.
 
-**Integration:** HSRP ensures endpoints always have a valid next-hop. Once traffic reaches the Active HSRP router, OSPF takes over to route that traffic across the WAN to its final destination.
+![HSRP](screenshots/hq-r1-sh-standby-brief.png)
+
+### 1.3 Detailed HSRP & ARP Verification
+**Commands:** `show standby interface [interface]`, `show arp`  
+**Validation Criteria:** Verifies HSRP version (v2), hello/hold timers, and confirms that the ARP table on the switch/router resolves the VIP to the correct HSRP virtual MAC address (`0000.0C9F.FXXX`).  
+
+![HSRP](screenshots/hq-r1-sh-arp.png)
+
+### 1.4 Gateway Reachability
+**Command:** `ping [VIP]` (from an endpoint or management station)  
+**Validation Criteria:** Confirms that the virtual gateway is actively responding to ICMP requests, proving the Active router is successfully processing traffic destined for the VIP.  
+*[Insert Screenshot: `hq-hsrp-gateway-ping.png`]*
+
+![HSRP](screenshots/hq-hsrp-gateway-ping.png)
 
 ---
 
-## Verification
+## 2. Functional Failover Testing (Resiliency)
 
-Operational verification, including `show standby brief` outputs, preemption behavior, and intentional failover testing (with continuous ping validation), is documented separately.
+**Objective:** Demonstrate that the Meridian network maintains default-gateway continuity when the Active HSRP router fails, and correctly preempts upon recovery.
 
-See: [`Routing/verification/hsrp-verification.md`](../verification/hsrp-verification.md)
+### 2.1 Pre-Failure Baseline
+Before inducing a failure, the baseline state was captured to confirm normal routing and connectivity.
+- **HSRP State:** R1 is `Active`, R2 is `Standby`.
+- **Connectivity:** Continuous ICMP ping from a VLAN 10 endpoint to a remote destination (e.g., Ashburn DR subnet) is successful via the VIP (`10.10.10.1`).  
+
+### 2.2 Failure Injection
+A controlled failure was introduced by administratively shutting down the primary VLAN interface on the Active router (HQ-R1).
+*Example:* `interface FastEthernet0/0.10` → `shutdown`
+
+![HSRP](screenshots/hq-r1-intentional-shutdown.png)
+
+### 2.3 Convergence & Role Transition
+Immediately following the failure, the network state was re-evaluated on the secondary router (HQ-R2):
+- **HSRP State:** HQ-R2 detected the loss of HSRP hello messages (after the hold timer expired) and immediately transitioned to the **`Active`** state for Group 10.  
+
+![HSRP](screenshots/hq-r2-failover-successful.png)
+
+### 2.4 Connectivity Validation
+- **Ping Test:** The continuous ping from the endpoint experienced a brief, acceptable interruption (typically 3–5 dropped packets, aligning with HSRP hold-timer defaults) before seamlessly restoring connectivity through the new Active router (HQ-R2).  
+
+**Please enlarge for clearer video**
+
+https://github.com/user-attachments/assets/b726446d-5f2e-445f-bfa7-cb1e55ea5388
+
+### 2.5 Path Recovery & Preemption
+The failed interface on HQ-R1 was restored (`no shutdown`). 
+- **Observation:** Because `standby 10 preempt` is configured, HQ-R1 immediately reclaimed the `Active` role upon interface recovery, and HQ-R2 gracefully returned to the `Standby` state.  
+
+---
+
+## 3. Verification Evidence Matrix
+
+| Verification Area | Command(s) Used | Status | Evidence File |
+| :--- | :--- | :---: | :--- |
+| HSRP State & Roles | `show standby brief` | ✅ Verified | `hq-r1-sh-standby-brief.png` |
+| HSRP v2 MAC | `show arp` | ✅ Verified | `hq-r1-sh-arp.png` |
+| Gateway Reachability | `ping [VIP]` | ✅ Verified | `hq-hsrp-gateway-ping.png` |
+| Failover Convergence | `show standby brief`, `ping` | ✅ Verified | `hsrp-failover.png` |
+| Preemption Recovery | `show standby brief` | ✅ Verified | `hsrp-failover-recovered.png` |
+
+---
+
+---
+
+### What's Next?
+
+With First-Hop Redundancy (HSRP) fully configured and validated for seamless gateway failover, the next step is to explore the dynamic routing protocol that directs traffic across the enterprise WAN.
+
+Continue to the next module to explore the OSPF implementation:
+- **[OSPF Configuration & Verification](../OSPF/)** – Multi-area OSPF design, neighbor adjacencies, route redistribution, and convergence testing.
