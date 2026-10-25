@@ -39,7 +39,7 @@ To prevent bricking devices or causing outages, the playbook is strictly divided
 
 ##  Workflow Diagram
 
-![Automation](screenshots/os-upgrade-visio.png)
+![Automation](screenshots/os-upgrade.visio.png)
 
 ---
 
@@ -61,7 +61,7 @@ To prevent bricking devices or causing outages, the playbook is strictly divided
 
 ---
 
-##  Portfolio Evidence & Execution
+## Evidence & Execution
 
 Below is visual proof of the physical OS upgrade workflow.
 
@@ -71,9 +71,13 @@ Below is visual proof of the physical OS upgrade workflow.
 
 ![Automation](screenshots/sh-version-before.png)
 
+**dir flash:**
+
 ![Automation](screenshots/sh-dir-before.png)
 
-![Automation](screenshots/physical-switch.png)
+**Physical Switch Used: 2960**
+
+![Automation](screenshots/physical-switch.jpeg)
 
 ### 2. The Automation Engine in Action
 
