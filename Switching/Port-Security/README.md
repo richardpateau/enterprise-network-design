@@ -72,7 +72,7 @@ Functional testing was performed to prove that the switch actively enforces the 
 
 **Port-Security Test Topology**
 
-![Port-Security](screenshots/port-security topology.png)
+![Port-Security](screenshots/port-security-topology.png)
 
 **HQ-SW-2 show port-security: maximum mac-addresses full**
 
