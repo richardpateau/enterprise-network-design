@@ -66,6 +66,7 @@ This repository is organized into modular, production-ready projects. Click on a
 ---
 
 ## High-Level Architecture
+**ITSM-Driven Service Request Fulfillment Engine**
 
 ![Automation](screenshots/jira-visio.png)
 
