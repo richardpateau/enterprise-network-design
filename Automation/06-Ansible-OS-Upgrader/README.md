@@ -113,11 +113,6 @@ https://github.com/user-attachments/assets/e83aa885-9556-46dd-bacf-53748ee26343
 
 ![Automation](screenshots/sh-flash-after.png)
 
-### TFTP Synchronized with Playbook Proof
-
- Video
-* [Real-Time TFTP Download and Upgrade](media/tftp-download-real-time.mp4)
-
 ---
 
 ### What's Next?

@@ -10,7 +10,7 @@ This project represents the principles of NetDevOps: **Continuous Integration an
 ### 1. The Self-Hosted Runner Bridge
 GitHub Actions runs in the cloud, but network hardware lives on-premise. To solve this, a GitHub Actions Self-Hosted Runner was installed on the local MX Linux control node. This allows the cloud pipeline to securely execute Ansible playbooks against the local Nautobot instance and physical switches without exposing the lab to the public internet.
 
-### 2. Continuous Integration (The "Spellcheck")
+### 2. Continuous Integration
 Every time code is pushed or a Pull Request is opened, the pipeline automatically triggers:
 *   **Ansible Linting:** Checks YAML syntax and best practices.
 *   **Dry-Run Validation:** Executes `ansible-playbook --check --diff`. This connects to the live network, compares the intended state against the actual state, and generates a detailed diff report *without changing a single configuration*.
@@ -23,9 +23,9 @@ The pipeline is divided into distinct, parallel jobs to maximize efficiency and 
 *   **Jinja2 Dry-Run:** Validates template rendering and configuration merging.
 *   **OS Upgrade Pre-Flight:** Runs strict pre-upgrade checks on physical hardware.
 
-![Automation](screenshots/ci-cd-dry-run-configs-jinja.png)
+![Automation](screenshots/ci-cd-dry-run-config-jinja.png)
 
-![Automation](screenshots/ci-cd-dry-os-upgrade.png)
+![Automation](screenshots/ci-cd-dry-run-config-os-upgrade.png)
 
 ---
 
