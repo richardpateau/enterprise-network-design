@@ -8,10 +8,13 @@ This tool reduces device onboarding time from hours to seconds, eliminates human
 **Automated Cisco ISE and Nautobot: 16 devices in 4:17!**
 **Please enlarge for clearer video**
 
+https://github.com/user-attachments/assets/b05e784b-5f10-4eed-bbde-ac6dc558a46c
+
 ![Automation](screenshots/time.png)
+
 ---
 
-## 🏗️ Architecture & Design Patterns
+## Architecture & Design Patterns
 
 ### 1. Modular Object-Oriented Design
 The codebase is strictly separated into logical modules to ensure maintainability and reusability:
@@ -42,7 +45,7 @@ The script is entirely idempotent. It checks for the existence of Locations, Rol
 ![Automation](screenshots/terminal-output.png)
 ---
 
-## ⚙️ Key Technical Features
+## Key Technical Features
 
 *   **Nautobot v3 Compatibility:** Utilizes the modern `Locations` hierarchy instead of legacy `Sites`.
 *   **Dynamic Interface Typing:** Automatically parses Cisco interface names (e.g., `TenGigabitEthernet`, `Loopback`) to assign the correct Nautobot slug (`10gbase-x-sfpp`, `virtual`), while allowing manual YAML overrides.
@@ -75,7 +78,7 @@ The script is entirely idempotent. It checks for the existence of Locations, Rol
 
 ---
 
-## 📸 Portfolio Evidence & Execution
+## Portfolio Evidence & Execution
 
 Below is visual proof of the automation workflow in action.
 
@@ -139,6 +142,6 @@ Below is visual proof of the automation workflow in action.
 
 ---
 
-## 🚀 Future Enhancements
+## Future Enhancements
 *   **Day 2 Configuration Push:** Integrate `Netmiko` to SSH into the newly created devices and push the base configuration (VLANs, AAA, Syslog, SNMP) immediately after Nautobot provisioning.
 *   **Webhook Integration:** Trigger this script automatically via a ServiceNow API webhook when a new hardware ticket is approved.
