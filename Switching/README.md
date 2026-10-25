@@ -141,4 +141,4 @@ This implementation is guided by core enterprise networking principles:
 With the Layer 2 switching architecture fully documented, the next step is to explore the specific security controls that protect the network edge from rogue devices and Layer 2 attacks.
 
 Continue to the first switching security module to explore BPDU Guard implementation:
-- **[BPDU Guard](BPDU%20Guard/)** – Edge-port protection, rogue switch detection, and automatic err-disable response.
+- **[BPDU Guard](BPDU-Guard/)** – Edge-port protection, rogue switch detection, and automatic err-disable response.
