@@ -63,11 +63,11 @@ The script is designed to act as a hard gate in a CI/CD pipeline. It distinguish
 2. **Python Environment:** Python 3.8+ with `pybatfish` installed (`pip install pybatfish`).
 3. **Configuration Snapshots:** A directory containing the raw `.cfg` files for the network devices (Routers, Switches, Firewalls).
 
-![Automation](screenshots/docker-batfish.png)
+![Automation](screenshots/batfish-docker.png)
 
 ---
 
-## 📸 Portfolio Evidence & Execution
+## Evidence 
 
 Below is visual proof of the Batfish modeling and reachability validation workflow.
 
@@ -87,7 +87,7 @@ Below is visual proof of the Batfish modeling and reachability validation workfl
 
 ![Automation](screenshots/terminal-success.png)
 
-### 3. Intentional Failure Testing (CI/CD Gating)
+### 3. Intentional Failure Testing 
 
 **To prove the validator works, an intentional failure was introduced: removing the IP access-group from the router interface**
 
@@ -108,3 +108,10 @@ Below is visual proof of the Batfish modeling and reachability validation workfl
 *   [Batfish Intentional Fail - Firewall](media/batfish-intentional-fail-fw-2026-10-20_01.23.22.mp4)
 
 ---
+
+### What's Next?
+
+With pre-deployment mathematical modeling and CI/CD safety gates fully integrated, the automation lifecycle is complete. The final step is to explore the standardized operational procedures and change management processes that govern this enterprise environment.
+
+Continue to the final section to explore operational documentation:
+- **[Documentation (Run Books & Change Management)](../../Documentation%20(Run%20Books%20&%20Change%20Management)/)** – Standardized Change Requests (CR), Run Books (RB), and enterprise operational procedures.
