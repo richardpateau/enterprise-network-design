@@ -69,13 +69,13 @@ Below is visual proof of the Jinja2 templating and deployment workflow.
 
 ![Automation](screenshots/ash-r1-after-playbook.png)
 
-### 🎥 Execution Video
+### Execution Video
 
 *   [Jinja2 Template Playbook Execution](media/template-playbook.mp4)
 
 ---
 
-### ➡️ What's Next?
+### What's Next?
 
 With configuration templating and mass deployment fully automated, the next step is to integrate automation with ITSM workflows for service request fulfillment.
 

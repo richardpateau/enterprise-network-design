@@ -24,7 +24,7 @@ By relying on a standardized Jinja2 template, the script eliminates human copy-p
 
 ## Workflow Diagram
 
-![Automation](screenshots/jia-visio.png)
+![Automation](screenshots/jira-visio.png)
 
 ---
 
