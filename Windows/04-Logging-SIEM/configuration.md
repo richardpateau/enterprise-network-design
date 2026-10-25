@@ -37,13 +37,13 @@ A valid credential was used to generate a baseline successful logon event for co
 
 Before checking the SIEM, the local Windows Event Viewer was inspected to confirm the events were generated correctly.
 
-- **Failed Logon (Event ID 4625):** Confirms the system rejected the invalid credential.
+- **Failed Logon (Event ID 4625): Click to enlarge** Confirms the system rejected the invalid credential.
   
   ![logs](screenshots/failed-log-on.png)
   
 - **Successful Logon (Event ID 4624):** Confirms the system accepted the valid credential.
   
-  ![logs](screenshots/log-on-success.png)
+  ![logs](screenshots/log-on-success-event.png)
   
 - **Account Lockout (Event ID 4740):** Confirms the system locked the account after repeated failures.
   
@@ -88,10 +88,9 @@ A broader search confirms that Windows security events are consistently appearin
 
 ---
 
-## 6. Scope & Boundaries
+### What's Next?
 
-This section documents **Windows Security Auditing and Splunk log visibility**.
+With Windows Security Auditing and Splunk log visibility fully configured and validated, the next step is to explore the critical time synchronization infrastructure that underpins Active Directory Kerberos and accurate SIEM log correlation.
 
-**Not covered here:**
-- Group Policy creation for audit policies (covered in `Windows/02-DNS-GPO/`)
-- Advanced Splunk correlation rules or dashboards (out of scope for this validation)
+Continue to the next module to explore Network Time Protocol (NTP):
+- **[05 — Network Time Protocol (NTP)](../05-NTP/)** – Centralized NTP client configuration, PowerShell validation, and NTP association verification.
