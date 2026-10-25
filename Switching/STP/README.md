@@ -225,3 +225,12 @@ A controlled topology change was executed to validate STP convergence behavior.
 **HQ-SW-4**
 
 ![STP](screenshots/hq-sw4-sh-span-vlan10.png)
+
+---
+
+### ➡️ What's Next?
+
+With Spanning Tree Protocol fully configured, verified, and proven to converge rapidly during link failures, the next step is to explore the foundational Layer 2 segmentation that defines the network's broadcast domains.
+
+Continue to the next module to explore VLAN configuration and trunking:
+- **[VLAN Configuration & Trunking](../VLAN/)** – VLAN segmentation, 802.1Q trunking, native VLAN security, and inter-VLAN routing integration.
