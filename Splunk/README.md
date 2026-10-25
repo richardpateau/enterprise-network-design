@@ -78,3 +78,10 @@ This implementation demonstrates the following enterprise monitoring capabilitie
 | `README.md` | Architecture, dashboard portfolio, and core capabilities. |
 | `configuration.md` | Syslog ingestion settings, ISE integration, and SPL query reference. |
 | `screenshots/` | Curated evidence of dashboard panels, SPL searches, and device logging config. |
+
+---
+
+### Next Section
+
+Continue to the detailed syslog ingestion settings, ISE integration steps, and SPL query reference for the Splunk deployment:
+- **[Configuration Details](configuration.md)** – Syslog ingestion settings, ISE integration, and SPL query reference.
