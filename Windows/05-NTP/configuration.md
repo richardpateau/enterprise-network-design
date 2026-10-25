@@ -17,6 +17,8 @@ A GPO named **"Meridian - Domain Time Synchronization"** was created to centrall
 
 ![NTP](screenshots/ntp-gpo-added.png)
 
+![NTP](screenshots/gpo-report.png)
+
 ### 1.2 NTP Client Policy Settings
 Within the GPO, the "Configure Windows NTP Client" policy was enabled. This configures the Windows Time service (`w32time`) to synchronize with the domain hierarchy (NT5DS mode) or a specific external source.
 
