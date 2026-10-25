@@ -135,7 +135,7 @@ Before inducing a failure, the baseline state was captured to confirm normal rou
 
 ### 2.2 Failure Injection
 A controlled failure was introduced by administratively shutting down the primary VLAN interface on the Active router (HQ-R1).
-*Example:* `interface FastEthernet0/0.10` → `shutdown`
+*Example:* `interface FastEthernet0/0` → `shutdown`
 
 ![HSRP](screenshots/hq-r1-intentional-shutdown.png)
 
