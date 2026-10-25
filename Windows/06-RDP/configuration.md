@@ -24,7 +24,7 @@ To enable remote administration, the Remote Desktop service was enabled on the t
 After configuring the service, a remote administrative client was used to initiate an RDP connection to the target system.
 
 **Test Workflow:**
-1. Launch the Remote Desktop Connection client (`mstsc.exe`).
+1. Launch the Remote Desktop Connection client.
 2. Enter the target system's IP address or hostname.
 3. Authenticate using valid domain credentials.
 4. Verify that the remote desktop session loads successfully and the desktop environment is fully interactive.
@@ -39,17 +39,14 @@ https://github.com/user-attachments/assets/bd9072b5-1eef-4855-a0c9-b1bac05a9bb1
 
 | Verification Stage | Evidence File | What It Proves |
 | :--- | :--- | :--- |
-| **Service Configuration** | `01-rdp-configuration.png` | RDP service enabled and NLA configured. |
+| **Service Configuration** | `01-rdp-configuration.png` | RDP service enabled  configured. |
 | **Functional Validation** | `rdp.mp4` | Successful remote session established and interactive. |
 
 ---
 
-## 4. Scope & Boundaries
+### ➡️ What's Next?
 
-This section documents **RDP service configuration and basic connectivity testing**.
+With Remote Desktop Protocol (RDP) securely configured and validated for remote administration, the final step in the Windows infrastructure module is to explore cloud integration and identity management.
 
-**Not covered here:**
-- Windows Firewall rule creation for TCP 3389 (covered in `02-DNS-GPO/`)
-- Remote Desktop Gateway (RD Gateway) deployment (out of scope)
-- Advanced GPO restrictions for RDP (out of scope)
- within the context of **enterprise remote administration and security best practices**.
+Continue to the final module to explore Microsoft 365 Administration:
+- **[07 — Microsoft 365 Administration](../07-Microsoft-365/)** – Cloud user provisioning, MFA enforcement, RBAC, and SharePoint/OneDrive configuration.
