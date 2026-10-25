@@ -61,7 +61,7 @@ The pipeline is divided into distinct, parallel jobs to maximize efficiency and 
 
 ---
 
-## 📸 Portfolio Evidence & Execution
+## Evidence
 
 Below is visual proof of the CI/CD pipeline architecture and execution.
 
@@ -86,13 +86,17 @@ Below is visual proof of the CI/CD pipeline architecture and execution.
 
 ![Automation](screenshots/dry-run-success.png)
 
-**Live Execution: Please enlarge for clearer video**
-
 
 **The terminal output showing every dry-run passing successfully, proving the network is compliant and the code is safe**
 
 ![Automation](screenshots/terminal-success.png)
 
-
 ---
+
+### What's Next?
+
+With CI/CD pipelines, linting, and dry-run validation fully integrated into the version control workflow, the final step in the automation lifecycle is mathematical pre-deployment modeling to guarantee network behavior before code ever touches a device.
+
+Continue to the final module to explore Pre-Deployment Network Modeling:
+-  **[08 — Pre-Deployment Network Modeling & Reachability (Batfish)](../08-Python-Batfish-Modeler/)** – Vendor-agnostic mathematical modeling, Batfish Docker integration, and packet flow simulation.
 
