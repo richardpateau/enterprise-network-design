@@ -187,7 +187,7 @@ Immediately following the failure, the network state was re-evaluated:
 
 **Routing table during failure**
 
-![OSPF](screenshots/CHI-R1-intentional-shutdown.png)
+![OSPF](screenshots/CHI-R1-sh-ip-route-ospf-during-failure.png)
 
 ### 2.4 Connectivity Validation
 - **Ping Test:** The continuous ping experienced a brief, acceptable interruption (typically 1–3 dropped packets, aligning with OSPF dead timer defaults) before seamlessly restoring connectivity via the alternate path.
@@ -222,13 +222,18 @@ HSRP provides local first-hop redundancy (Active/Standby gateways), while OSPF h
 
 | Verification Area | Command(s) Used | Status | Evidence File |
 | :--- | :--- | :---: | :--- |
-| OSPF Process & Router ID | `show ip ospf` | ✅ Verified | `ospf-process.png` |
-| Neighbor Adjacencies | `show ip ospf neighbor` | ✅ Verified | `ospf-neighbors.png` |
-| Route Installation | `show ip route ospf` | ✅ Verified | `ospf-routes.png` |
-| LSDB Synchronization | `show ip ospf database` | ✅ Verified | `ospf-database.png` |
-| Multi-Area & Passive Interfaces | `show ip ospf interface brief` | ✅ Verified | `ospf-passive-interface.png` |
-| Failover Convergence | `show ip route`, `ping` | ✅ Verified | `ospf-failover-*.png` |
-
-*(Note: Status reflects completed lab validation. If a specific test has not yet been executed in your environment, simply change "✅ Verified" to "⏳ Pending".)*
+| OSPF Process & Router ID | `show ip ospf` | Verified | `ospf-process.png` |
+| Neighbor Adjacencies | `show ip ospf neighbor` | Verified | `ospf-neighbors.png` |
+| Route Installation | `show ip route ospf` | Verified | `ospf-routes.png` |
+| LSDB Synchronization | `show ip ospf database` | Verified | `ospf-database.png` |
+| Multi-Area & Passive Interfaces | `show ip ospf interface brief` | Verified | `ospf-passive-interface.png` |
+| Failover Convergence | `show ip route`, `ping` | Verified | `ospf-failover-*.png` |
 
 ---
+
+### What's Next?
+
+With the dynamic OSPF routing protocol fully configured, validated, and proven to converge during failover scenarios, the next step is to explore the Layer 2 switching infrastructure that forms the foundation of the enterprise LAN.
+
+Continue to the next module to explore the Switching implementation:
+-  **[Switching Configuration & Verification](../Switching/)** – VLAN segmentation, 802.1Q trunking, STP/RPVST+, LACP EtherChannels, and port security.
