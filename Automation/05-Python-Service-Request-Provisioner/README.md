@@ -106,6 +106,13 @@ Below is visual proof of the end-to-end ITSM automation workflow.
 ![Automation](screenshots/jira-ticket-completed.png)
 
 ### Full Execution Video
-*   [End-to-End Jira Automation Workflow](media/jira-automation.mp4)
+*  [End-to-End Jira Automation Workflow](media/jira-automation.mp4)
 
 ---
+
+### What's Next?
+
+With ITSM-driven service request fulfillment and logical port provisioning fully automated, the next step is to tackle physical infrastructure maintenance and upgrades.
+
+Continue to the next module to explore Automated Hardware OS Upgrades:
+- **[06 — Automated Physical Hardware OS Upgrade Pipeline](../06-Ansible-OS-Upgrader/)** – 5-phase Ansible playbook, pre-flight checks, TFTP transfers, and post-flight validation.
