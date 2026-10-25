@@ -7,7 +7,11 @@ Unlike basic scripts that check for single strings, this framework uses **Layer-
 
 **VLAN Playbook Execution: Please enlarge for clearer video**
 
+https://github.com/user-attachments/assets/010d3b51-de5c-4aba-b8fc-3b432eff161d
+
 **ROAS Playbook Execution: Please enlarge for clearer video**
+
+https://github.com/user-attachments/assets/407d94f7-6a37-4e40-b1ad-b10e53bc6207
 
 ---
 
