@@ -138,10 +138,17 @@ Below is visual proof of the automation workflow in action.
 
 ![Automation](screenshots/ise-after-2.png)
 
+**RADIUS Authentication**
+
 ![Automation](screenshots/ise-radius.png)
 
 ---
 
-## Future Enhancements
-*   **Day 2 Configuration Push:** Integrate `Netmiko` to SSH into the newly created devices and push the base configuration (VLANs, AAA, Syslog, SNMP) immediately after Nautobot provisioning.
-*   **Webhook Integration:** Trigger this script automatically via a ServiceNow API webhook when a new hardware ticket is approved.
+---
+
+### What's Next?
+
+With Day-1 Zero-Touch Provisioning fully automated and validated, the next step is to ensure ongoing configuration compliance and detect unauthorized changes.
+
+Continue to the next module to explore Configuration Drift Auditing:
+- **[02 — Day 2 Configuration Drift Auditor & Alerting](../02-Python-Config-Drift-Auditor/)** – Netmiko-based config comparison and HTML compliance reports.
