@@ -27,7 +27,7 @@ The VLAN design is implemented across the headquarters and branch switching infr
 
 These VLANs are carried across the required 802.1Q trunk links.
 
-![Show vlan](screenshots/hq-sw1-vlan-brief.png)
+![Show vlan](screenshots/hq-sw2-vlan-brief.png)
 
 ### Ashburn
 
@@ -44,7 +44,7 @@ Ashburn uses a site-specific VLAN range:
 
 The Ashburn switching configuration uses VLANs 110–150 on the trunk infrastructure.
 
-![Show vlan](screenshots/ash-sw3-vlan-brief.png)
+![Show vlan](screenshots/ash-sw4-vlan-brief.png)
 
 ---
 
@@ -102,28 +102,6 @@ ASH-SW-3 and ASH-SW-4 provide endpoint access switching and use VLANs 110–150.
 
 ---
 
-## Access Port Security
-
-Endpoint access ports are configured with:
-
-```text
-switchport mode access
-switchport access vlan <VLAN>
-authentication port-control auto
-dot1x pae authenticator
-spanning-tree portfast
-spanning-tree bpduguard enable
-switchport port-security
-switchport port-security maximum 2
-switchport port-security violation restrict
-switchport port-security mac-address sticky
-
-```
-
-Unused endpoint-capable ports are placed into VLAN 999, administratively shut down, and receive the same access-port protection.
-
----
-
 ## Trunking
 
 Infrastructure trunk links use 802.1Q encapsulation.
@@ -145,60 +123,37 @@ Ashburn trunks carry:
 
 ---
 
-## EtherChannel
+## HQ Infrastructure/Uplink Switches
 
-Where redundant switch-to-switch links are present, LACP is used to form EtherChannels.
+- HQ-SW-5
+- HQ-EDGE-SW
 
-The physical member interfaces are configured as trunk ports and participate in the corresponding Port-channel.
+These switches provide infrastructure/uplink connectivity between routers and firewalls.
 
+They are not configured as endpoint access switches.
 
----
+![topology](screenshots/uplink_downlink.png)
 
-## Verification
+## Functional Testing (Isolation & Connectivity)
 
-VLAN configuration is verified using:
+Beyond operational state, functional testing was performed to prove that Layer 2 segmentation is actively enforced and that traffic flows correctly within boundaries.
 
-```text
-show vlan brief
-show interfaces trunk
-show interfaces <interface> switchport
-```
+### Test Methodology
+1. **Intra-VLAN Connectivity:** Verified that endpoints within the same VLAN (e.g., VLAN 10) can successfully communicate (ping/ARP resolution).
+2. **Inter-VLAN Isolation:** Verified that endpoints in different VLANs (e.g., VLAN 10 and VLAN 20) **cannot** communicate at Layer 2, proving the switch is correctly enforcing broadcast domain boundaries.
 
-These commands verify:
+### Test Results
+* **Same-VLAN Communication:** Successful. Endpoints successfully resolved ARP and passed ICMP traffic.
+* **Cross-VLAN Communication:** Blocked. ICMP traffic between VLAN 10 and VLAN 20 failed at the Layer 2 boundary, confirming strict segmentation.
 
-- VLAN existence
-- VLAN names
-- Access-port assignments
-- Trunk VLAN membership
-- Native VLAN configuration
-- Operational switchport mode
+**VLAN Topology**
 
----
+![VLAN](screenshots/vlan-topology.png)
 
-## Evidence
+**Same-VLAN Ping**
 
-Screenshots documenting VLAN configuration and verification are stored in:
+![VLAN](screenshots/same-vlan-ping.png)
 
-```text
-VLAN/screenshots/
-```
----
+**Inter-VLAN Ping**
 
-## Related Configuration
-
-Switch configurations are stored in:
-
-```text
-Switching/configs/
-```
-
-Related switching documentation:
-
-```text
-Switching/
-├── VLAN/
-├── STP/
-├── EtherChannel-LACP/
-├── Port-Security/
-└── BPDU-Guard/
-```
+![VLAN](screenshots/inter-vlan-ping.png)

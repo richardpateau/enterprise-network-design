@@ -58,6 +58,8 @@ The interface immediately transitioned to an `err-disabled` state, dropping all 
 
 ![BPDU Guard](screenshots/hq-sw2-bpduguard-errdisabled.png)
 
+![BPDU Guard](screenshots/sh-interfaces-err-disabled.png)
+
 ---
 
 ### ️ What's Next?

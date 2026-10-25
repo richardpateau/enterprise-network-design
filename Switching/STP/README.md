@@ -210,7 +210,7 @@ A controlled topology change was executed to validate STP convergence behavior.
 
 ![STP](screenshots/hq-sw1-intentional-shutdown.png)
 
-**HQ-SW-1**
+**HQ-SW-1: Click to Enlarge**
 
 ![STP](screenshots/hq-sw1-sh-span-vlan10.png)
 
@@ -228,7 +228,7 @@ A controlled topology change was executed to validate STP convergence behavior.
 
 ---
 
-### ➡️ What's Next?
+### What's Next?
 
 With Spanning Tree Protocol fully configured, verified, and proven to converge rapidly during link failures, the next step is to explore the foundational Layer 2 segmentation that defines the network's broadcast domains.
 
