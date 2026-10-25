@@ -66,19 +66,52 @@ This repository is organized into modular, production-ready projects. Click on a
 ---
 
 ## High-Level Architecture
+
 **ITSM-Driven Service Request Fulfillment Engine**
 
 ![Automation](screenshots/jira-visio.png)
 
 ---
 
+**Automated Physical Hardware OS Upgrade Pipeline**
+
 ![Automation](screenshots/os-upgrade.visio.png)
 
 ---
 
+**Day 1 Zero-Touch Provisioning & NAC Integration**
+
 ![Automation](screenshots/nad-automation-visio.png)
 
 ---
+
+**Pre-Deployment Network Modeling & Reachability (Batfish)**
+
+![Automation](screenshots/bastfish-visio.png)
+
+---
+
+**Enterprise Network CI/CD Pipeline**
+
+![Automation](screenshots/ci-cd-visio.png)
+
+---
+
+**Ansible Jinja2 Templating & Mass Deployment Engine**
+
+![Automation](screenshots/jinja-2-visio.png)
+
+---
+
+**Ansible Intent-Based Network State Validator**
+
+![Automation](screenshots/ansible-vlan-visio.png)
+
+---
+
+**Day 2 Configuration Drift Auditor & Alerting**
+
+![Automation](screenshots/diff-visio.png)
 
 ## How to Navigate
 1. Browse the numbered folders (e.g., `05-Python-Service-Request-Provisioner`) to see individual project documentation.
