@@ -49,4 +49,4 @@ Reusable frameworks to ensure consistency across all future operational document
 
 ### Return to Main Portfolio
 
-- **[Enterprise Network Design & Implementation (Root)](../../README.md)**
+- **[Enterprise Network Design & Implementation (Root)](../README.md)**
