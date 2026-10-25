@@ -28,7 +28,7 @@ Access is dictated by the authenticated Windows identity. Two distinct identitie
    
    ![Network Admin Identity](screenshots/network-admin-shares.png)
    
-2. **802.1X Network User:** A standard domain account granted Read & Execute rights.
+2. **Network User:** A standard domain account granted Read & Execute rights.
    
    ![Network User Identity](screenshots/network-user-share.png)
 
@@ -107,10 +107,9 @@ The "802.1X Network User" referenced in this testing is the same identity authen
 
 ---
 
-## 7. Scope & Boundaries
+### ➡️ What's Next?
 
-This section documents **Windows File Share and NTFS permission enforcement**.
+With Windows File Shares and Role-Based Access Control fully configured and validated, the next step is to explore security visibility and audit compliance.
 
-**Not covered here:**
-- 802.1X Network Access Control configuration (covered in `Cisco-ISE/02-802.1X/`)
-- Active Directory Group Policy creation (covered in `Windows/02-DNS-GPO/`)
+Continue to the next module to explore Logging and SIEM Integration:
+- **[04 — Logging & SIEM Integration](../04-Logging-SIEM/)** – Windows Advanced Audit Policy, event log aggregation, and Splunk ingestion.

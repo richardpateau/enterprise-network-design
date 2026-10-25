@@ -55,4 +55,4 @@ The file share access model relies on Windows authentication and NTFS permission
 ### Next Section
 
 Continue to the detailed NTFS configuration, testing methodology, and evidence matrix for the file share deployment:
-- **[Configuration Details](configuration.md)** – NTFS configuration, testing methodology, and evidence.
+- **[Configuration Details](configuration.md)** – NTFS configuration, testing, and evidence.
