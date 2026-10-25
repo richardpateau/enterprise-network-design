@@ -76,11 +76,11 @@ quit
 Also import public (Let’s Encrypt) identity certificate for `labvpn.networkingnotebook.com` and note its trustpoint name (you will use it as `trustpoint sp`).
 
 **ASDM alternative:**
-Configuration
-Device Management
-Certificate Management
-CA Certificate > Azure Certificate
-Identity Certificate > domain (networkingnotebook.com) certificate
+1) Configuration
+2) Device Management
+3) Certificate Management
+4) CA Certificate > Azure Certificate
+5) Identity Certificate > domain (networkingnotebook.com) certificate
 ---
 
 ### ASA – Enable AnyConnect + External Browser
@@ -93,14 +93,14 @@ webvpn
 ```
 
 **ASDM: Click** 
-Configuration 
-Remote Access VPN 
-Network (Client) Access
-Secure Client External Browser
+1) Configuration 
+2) Remote Access VPN 
+3) Network (Client) Access
+4) Secure Client External Browser
 
 **Add: Configuration**
-Browse flash 
-Upload `external-sso-*.pkg`
+- Browse flash 
+- Upload `external-sso-*.pkg`
 
 ---
 
@@ -114,15 +114,15 @@ access-list SPLIT-TUNNEL standard permit 172.16.0.0 255.255.0.0
 ```
 
 **ASDM:** 
-Configuration
-Remote Access VPN → Network (Client) Access 
-Address Assignment 
-Address Pools
+1) Configuration
+2) Remote Access VPN → Network (Client) Access 
+3) Address Assignment 
+4) Address Pools
 
 **Add: Configuration**
-Starting IP Address
-Ending IP Address
-Subnet Mask
+- Starting IP Address
+- Ending IP Address
+- Subnet Mask
 ---
 
 ### Group Policy
@@ -141,8 +141,8 @@ group-policy Meridian-VPN-Policy attributes
 ```
 
 **ASDM: Click** 
-Remote Access VPN 
-Group Policy 
+1) Remote Access VPN 
+2) Group Policy 
 
 ---
 
@@ -160,8 +160,12 @@ tunnel-group Meridian-Entra-VPN webvpn-attributes
  saml identity-provider https://sts.windows.net/531c7c26-8290-451b-8304-0aee8f075ab2/
 ```
 
-**ASDM:** Configuration → Remote Access VPN → Network (Client) Access → AnyConnect Connection Profiles  
-(Set Authentication = SAML, Group Policy, Address Pool, External Browser, etc.)
+**ASDM:** 
+1) Configuration
+2) Remote Access VPN
+3) Network (Client) Access 
+4) AnyConnect Connection Profiles  
+5) (Set Authentication = SAML, Group Policy, Address Pool, External Browser, etc.)
 
 ---
 
@@ -183,19 +187,19 @@ webvpn
 
 **ASDM alternative** 
 
-Configuration 
-Remote Access VPN 
-Network (Client) Access 
-Secure Client Connection Profiles 
-Connection Profile (Edit) 
+1) Configuration 
+2) Remote Access VPN 
+3) Network (Client) Access 
+4) Secure Client Connection Profiles 
+5) Connection Profile (Edit) 
 
 **Configuration Parameters**
-Name = Meridian-Entra-VPN
-Method = SAML
-SAML Server = https://sts.windows.net/531c7c26-8290-451b-8304-0aee8f075ab2/
-IDP Trustpoit = AzureAD-SAML
-SAML Login Experience = VPN Client Embedded Browser
-Group Policy = Meridian-VPN-Policy 
+- Name = Meridian-Entra-VPN
+- Method = SAML
+- SAML Server = https://sts.windows.net/531c7c26-8290-451b-8304-0aee8f075ab2/
+- IDP Trustpoit = AzureAD-SAML
+- SAML Login Experience = VPN Client Embedded Browser
+- Group Policy = Meridian-VPN-Policy 
 ---
 
 ### NAT Exemption (Critical)

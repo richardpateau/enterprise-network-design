@@ -27,77 +27,77 @@
  
 **Parameters**
 
-Subscription = Azure Subscription 1 
-Resource Group Name = Meridian-RG
-Region = East US
+- Subscription = Azure Subscription 1 
+- Resource Group Name = Meridian-RG
+- Region = East US
 
 ### Configure Virtual Network (Mandatory)  
  
 **Parameters**
 
-Subscription = Azure Subscription 1
-Resource Group = Meridian-RG
-Virtual Network Name = Meridian-VNet 
-Address Space = (10.200.10.0/24, 10.200.20.0/24, 10.200.255.0/27) 
-GatewaySubnet = 10.200.255.0/27
+- Subscription = Azure Subscription 1
+- Resource Group = Meridian-RG
+- Virtual Network Name = Meridian-VNet 
+- Address Space = (10.200.10.0/24, 10.200.20.0/24, 10.200.255.0/27) 
+- GatewaySubnet = 10.200.255.0/27
 
 ### Configure Azure Local Network Gateway (Mandatory)
 
 **Parameters**
 
-Subscription = Azure Subscription 1 
-IP address = 96.246.138.240
+- Subscription = Azure Subscription 1 
+- IP address = 96.246.138.240
 
 **Addresses**
  
-10.10.0.0/16 
-10.20.0.0/16 
-10.30.0.0/16  
-10.40.0.0/16  
-10.50.0.0/16 
-10.255.0.0/16  
-172.16.0.0/16
-192.168.0.0/16 
-172.31.0.0/16
-169.254.0.0/16
-192.0.0.0/8
+- 10.10.0.0/16 
+- 10.20.0.0/16 
+- 10.30.0.0/16  
+- 10.40.0.0/16  
+- 10.50.0.0/16 
+- 10.255.0.0/16  
+- 172.16.0.0/16
+- 192.168.0.0/16 
+- 172.31.0.0/16
+- 169.254.0.0/16
+- 192.0.0.0/8
 
 ### Configure Azure NAT Gateway 
-Subscription = Azure Subscription 1 
-Resource Group = Meridian-RG
-Name = Meridian-NAT 
-SKU = StandardV2
-Region = East US 
-Public IP address (IPv4) = Meridian-Public-IP
-Virtual Network = Meridian-VNet
+- Subscription = Azure Subscription 1 
+- Resource Group = Meridian-RG
+- Name = Meridian-NAT 
+- SKU = StandardV2
+- Region = East US 
+- Public IP address (IPv4) = Meridian-Public-IP
+- Virtual Network = Meridian-VNet
 
 ### Configure Azure Virtual Network Gateway 
 
 **Parameters**
 
-Subscription = Azure Subscription 1 
-Name = Meridian-VPN-Gateway
-Resource Group = Meridian-RG
-Region = East US
-Gateway Type = VPN 
-SKU = VpnGw2AZ
+- Subscription = Azure Subscription 1 
+- Name = Meridian-VPN-Gateway
+- Resource Group = Meridian-RG
+- Region = East US
+- Gateway Type = VPN 
+- SKU = VpnGw2AZ
 
 **Public IP Address**
-Create New
-Name = Meridian-Public-IP
-Enable active-active mode = Disabled
+- Create New
+- Name = Meridian-Public-IP
+- Enable active-active mode = Disabled
 
 ### Configure Azure Connections (VPN) 
 
-Subscription = Azure Subscription 1 
-Resource Group = Meridian-RG
-Connection Type = Site-to-site (IPSec)
-Region = East US
-Name = Meridian-S2S
-Virtual Network Gateway = Meridian-VNG
-Local Network Gateway = Meridian-LNG
-Authentication = PSK
-IKE Protocol = IKEv2
+- Subscription = Azure Subscription 1 
+- Resource Group = Meridian-RG
+- Connection Type = Site-to-site (IPSec)
+- Region = East US
+- Name = Meridian-S2S
+- Virtual Network Gateway = Meridian-VNG
+- Local Network Gateway = Meridian-LNG
+- Authentication = PSK
+- IKE Protocol = IKEv2
 
 ### Configure Static Route 
 

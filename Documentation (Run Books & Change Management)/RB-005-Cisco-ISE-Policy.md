@@ -29,9 +29,9 @@
 ### Configure Network Device on Cisco ISE 
 
 **Click:**
-- Administration 
-- Network Resources
-- Network Devices 
+1) Administration 
+2) Network Resources
+3) Network Devices 
 
 **Add: Parameters**
 - Name = < device hostname > 
@@ -43,10 +43,10 @@
 ### Sync Active Directory 
 
 **Click:**
-- Administration
-- Identity Management
-- External Identity Sources 
-- Active Directory 
+1) Administration
+2) Identity Management
+3) External Identity Sources 
+4) Active Directory 
 
 **Parameters**
 Joint Point Name = Meridian-AD
@@ -55,20 +55,20 @@ Active Directory Domain = meridian.local
 ### Sync Active Directory Groups 
 
 **Click**
-- Administration
-- Identity Management
-- External Identity Sources
-- Meridian-AD
-- Groups 
-- Add > Select Groups from Directory 
+1) Administration
+2) Identity Management
+3) External Identity Sources
+4) Meridian-AD
+5) Groups 
+6) Add > Select Groups from Directory 
 
 ### Create Authorization Profile 
 
 **Click:**
-- Policy
-- Policy Elements
-- Results 
-- Authorization > Authorization Profile
+1) Policy
+2) Policy Elements
+3) Results 
+4) Authorization > Authorization Profile
 
 **Add: Parameters**
 - Name = MERIDIAN-VLAN10
@@ -79,9 +79,9 @@ Active Directory Domain = meridian.local
 ### Apply Policy 
 
 **Click:**
-- Policy 
-- Policy Sets > Deafult 
-- Authorization Policy 
+1) Policy 
+2) Policy Sets > Deafult 
+3) Authorization Policy 
 
 **Parameters**
 - Rule Name = VLAN 10 
