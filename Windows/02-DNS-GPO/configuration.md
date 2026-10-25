@@ -76,7 +76,7 @@ To protect domain credentials, a strict password policy was enforced:
 
 **Validation:** A test user attempting to set a weak password (`Test123456!`) was rejected by the system. A compliant password (`Q5/wV*3D'Z5$`) was successfully accepted.
 
-**Test123456!**
+**Failed Password: Test123456!**
 
 ![DNS](screenshots/password-fail.png)
 
@@ -84,7 +84,7 @@ To protect domain credentials, a strict password policy was enforced:
 
 https://github.com/user-attachments/assets/e293223a-94cd-4aec-8a15-3d6f9f961121
 
-**Q5/wV*3D'Z5$**
+**Successful Password: Q5/wV*3D'Z5$**
 
 ![DNS](screenshots/password-success.png)
 

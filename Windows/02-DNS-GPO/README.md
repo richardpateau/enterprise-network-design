@@ -68,5 +68,5 @@ DNS provides the foundational name resolution required for Active Directory func
 
 ### Next Section
 
-Continue to the detailed implementation steps, security baselines, and evidence matrix for the DNS and Group Policy deployment:
+Continue to the detailed implementation steps, security baselines, and evidence for the DNS and Group Policy deployment:
 - **[Configuration Details](configuration.md)** – Implementation details, security baselines, and evidence matrix.
