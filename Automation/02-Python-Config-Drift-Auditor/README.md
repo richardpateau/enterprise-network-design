@@ -5,9 +5,12 @@ This project is a production-grade Python automation framework designed to enfor
 
 This tool reduces the Mean Time to Detect (MTTD) unauthorized network changes from weeks to seconds, ensuring strict adherence to change control processes.
 
+**Live Video Execution: Please enlarge for clearer video**
+
+https://github.com/user-attachments/assets/a1af99ff-71a8-491b-be8c-215d48a04277
 ---
 
-## 🏗️ Architecture & Design Patterns
+## Architecture & Design Patterns
 
 ### 1. Modular Object-Oriented Design
 The codebase is strictly separated into logical modules to ensure maintainability:
