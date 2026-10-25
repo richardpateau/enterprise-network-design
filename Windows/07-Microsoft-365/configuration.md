@@ -38,7 +38,7 @@ Administrative roles were assigned to the test user to delegate specific managem
 ### 2.1 OneDrive & Exchange
 OneDrive administration was configured for cloud storage. Additionally, basic Exchange Online features, such as automatic email replies, were configured and tested.
 
-![365](screenshots/one-drive-overview.png)
+![365](screenshots/onedrive-overview.png)
 
 ![365](screenshots/one-drive-setting.png)
 
