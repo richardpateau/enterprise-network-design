@@ -80,14 +80,17 @@ To protect domain credentials, a strict password policy was enforced:
 
 ![DNS](screenshots/password-fail.png)
 
-**Please enlarge for clearer video**
+**Failure Execution: Please enlarge for clearer video**
+
+https://github.com/user-attachments/assets/e293223a-94cd-4aec-8a15-3d6f9f961121
 
 **Q5/wV*3D'Z5$**
 
 ![DNS](screenshots/password-success.png)
 
-**Please enlarge for clearer video**
+**Successful Execution: Please enlarge for clearer video**
 
+https://github.com/user-attachments/assets/8cbcd102-69ef-48f6-8ebe-429401b556a0
 
 ### 3.3 Account Lockout Policy
 To mitigate brute-force attacks, an account lockout policy was configured to temporarily disable accounts after a defined number of failed authentication attempts.
