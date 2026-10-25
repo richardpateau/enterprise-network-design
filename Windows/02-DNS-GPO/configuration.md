@@ -154,3 +154,12 @@ This section documents **Windows DNS and Group Policy**.
 - DHCP Scope Management (covered in `01-DHCP/`)
 - NTFS/File Share Permissions (covered in `03-File-Shares/`)
 - Event Log Auditing & SIEM (covered in `04-Logging-SIEM/`)
+
+---
+
+### ➡️ What's Next?
+
+With Windows DNS and Group Policy security baselines fully configured and validated, the next step is to explore role-based access control and file share permissions.
+
+Continue to the next module to explore File Shares and Access Control:
+- **[03 — File Shares & Access Control](../03-File-Shares/)** – NTFS permissions, share-level security, and role-based access control (RBAC) validation.
