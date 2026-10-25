@@ -12,7 +12,7 @@ This project represents the transition from "Read-Only" auditing to "Read-Write"
 ### 1. Jinja2 Templating Engine
 Instead of maintaining hundreds of static configuration files, a single `base_config.j2` blueprint is used. Ansible renders this template individually for each device by pulling variables directly from Nautobot, ensuring 100% accuracy for device-specific parameters.
 
-![Automation](screenshots/custom-fields-overview.png)
+![Automation](screenshots/jinja-2.png)
 
 ### 2. Safe, Idempotent Deployment
 The playbook utilizes the `cisco.ios.ios_config` module with `replace: block`. This ensures that the generated configuration is safely merged into the existing running-config, rather than wiping out the device. 
