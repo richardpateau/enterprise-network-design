@@ -132,7 +132,7 @@ The IPAM model maintains explicit relationships between IP addresses and interfa
 
 **API Python Object**
 
-![nautobot](screenshots/ip-address-object-json.png)
+![nautobot](screenshots/interface-to-ip-object-json.png)
 
 ---
 
