@@ -107,7 +107,7 @@ The "802.1X Network User" referenced in this testing is the same identity authen
 
 ---
 
-### ➡️ What's Next?
+### What's Next?
 
 With Windows File Shares and Role-Based Access Control fully configured and validated, the next step is to explore security visibility and audit compliance.
 
