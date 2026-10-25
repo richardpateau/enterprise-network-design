@@ -83,6 +83,8 @@ Below is visual proof of the physical OS upgrade workflow.
 
 **Live Execution: Please enlarge for clearer video**
 
+https://github.com/user-attachments/assets/e83aa885-9556-46dd-bacf-53748ee26343
+
 ### 3. Edge Case Testing (Dry Run)
 
 **Testing the strict validation to ensure the playbook correctly fails if the version does not match expectations**
@@ -107,7 +109,9 @@ Below is visual proof of the physical OS upgrade workflow.
 
 **
 
-### 🎥 Full Execution Video
-*   [Real-Time TFTP Download and Upgrade](media/tftp-download-real-time.mp4)
+### 🎥 TFTP Synchronized with Playbook Proof
+
+ Video
+* [Real-Time TFTP Download and Upgrade](media/tftp-download-real-time.mp4)
 
 ---
