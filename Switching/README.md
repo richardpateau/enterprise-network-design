@@ -33,6 +33,10 @@ The Meridian switching environment utilizes segmented VLANs, redundant uplinks, 
 
 *Note: The Ashburn DR site utilizes additional site-specific VLANs (110–150) for localized access networks, as detailed in the Ashburn site design documentation.*
 
+![Topology](screenshots/hq-sw1-vlan-brief.png)
+
+![Topology](screenshots/ash-sw3-vlan-brief.png)
+
 ---
 
 ## Switching Features
@@ -114,26 +118,8 @@ Switching/
 ├── Etherchannel/                      # LACP design & config
 ├── Port-Security/                     # Port Security design & config
 ├── BPDU-Guard/                        # BPDU Guard design & config
-│
-├── configs/                           # Raw switch configuration files
-│   ├── hq-sw1.txt
-│   ├── hq-sw2.txt
-│   ├── chi-sw1.txt
-│   ├── dal-sw1.txt
-│   ├── mia-sw1.txt
-│   └── ash-sw1.txt
-│   └── ...
-│
-└── verification/                      # Operational & functional testing
-    ├── README.md                      # Verification testing
-    ├── vlan-verification.md
-    ├── stp-verification.md
-    ├── lacp-verification.md
-    ├── port-security-verification.md
-    ├── bpdu-guard-verification.md
-    └── screenshots/
-```
 
+```
 ---
 
 ## Design Principles
