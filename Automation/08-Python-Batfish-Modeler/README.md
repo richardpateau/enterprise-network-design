@@ -5,7 +5,11 @@ Pushing configuration changes to a network based solely on text-based diffs is a
 
 **SSH being blocked (intentional failure): Please enlarge for clearer video**
 
+https://github.com/user-attachments/assets/0ca8c7f9-aa42-4fb7-befb-6e6505e1a056
+
 **Telnet not being blocked (intentional failure): Please enlarge for clearer video**
+
+https://github.com/user-attachments/assets/33e74d75-7349-4585-b756-d51483bf982d
 
 ---
 
