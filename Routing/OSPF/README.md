@@ -70,7 +70,7 @@ User-facing SVI (Switched Virtual Interface) and access VLAN interfaces are conf
 - **Benefit:** Advertises the connected subnet into the OSPF domain without attempting to form unnecessary (and potentially insecure) neighbor adjacencies with endpoint devices.
 - **Exception:** Transit interfaces and point-to-point links remain active to facilitate required neighbor relationships.
 
-![HSRP](screenshots/hq-r1-sh-standby-brief.png)
+![OSPF](screenshots/show-run-passive-interface-r1.png)
 
 ### Route Summarization
 Where applicable, ABRs are configured to summarize branch subnets before advertising them into Area 0, reducing the size of the backbone routing table and limiting the scope of topology change notifications (Type 3 LSAs).
