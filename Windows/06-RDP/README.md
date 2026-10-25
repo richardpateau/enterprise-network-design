@@ -12,6 +12,10 @@ RDP provides secure, encrypted remote graphical access to Windows servers and wo
 
 ![NTP](screenshots/rdp-visio.png)
 
+**Video Demonstration: Please enlarge for clearer video**
+
+https://github.com/user-attachments/assets/d85d925b-d4a4-49a6-93da-fd92e7a5c406
+
 ---
 
 ## Design Objectives
