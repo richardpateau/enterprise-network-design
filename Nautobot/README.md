@@ -73,7 +73,6 @@ This directory contains the proof of concept and operational validation of the N
 | :--- | :--- |
 | `README.md` | High-level architecture, objectives, and automation workflows. |
 | `configuration.md` | Data model setup, custom fields, and IPAM structure. |
-| `automation-examples/` | Python (`pynautobot`) scripts and Jinja2 templates demonstrating SOT-driven config generation. |
 | `screenshots/` | Visual evidence of the Nautobot UI, API queries, and successful automation runs. |
 
 ---
