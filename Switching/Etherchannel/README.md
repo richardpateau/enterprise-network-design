@@ -58,21 +58,6 @@ interface Port-channel1
 **Mode Selection:** Active/Active on both sides ensures LACP negotiation 
 initiates from either end, eliminating single-point-of-failure in negotiation.
 
-## Bundle Sizing Rationale
-
-- **Bundle Size:** 2-link bundles were implemented across all switch pairs.
-- **Rationale:** While LACP supports up to 8 active member links per bundle, a 2-link configuration was chosen to provide N+1 link-level redundancy while optimizing port availability within the simulated environment. 
-- **Scalability:** This design is fully scalable to 4 or 8 active links in a production deployment should aggregate bandwidth requirements increase.
-- **Load-Balancing:** Default `src-dst-ip` hashing is configured to ensure even traffic distribution across the active member links, preventing any single link from becoming a bottleneck.
-
-## Failure Behavior
-
-When a member link fails:
-- LACP detects loss within ~3 seconds
-- Port-channel remains **up** as long as ≥1 member is active
-- **No STP reconvergence** — Port-channel interface state unchanged
-- Verified via continuous ping test (see `configuration.md`)
-
 ## EtherChannel Inventory
 
 | Site       | Switch Pair              | Port-channel | Member Interfaces | Protocol |
@@ -84,16 +69,6 @@ When a member link fails:
 | Miami      | MIA-SW-1 ↔ MIA-SW-2     | Po1          | E0/1, E0/2        | LACP     |
 | Ashburn    | ASH-SW-3 ↔ ASH-SW-4     | Po1          | E0/2, E0/3        | LACP     |
 
-## Verification Approach
-
-All 12 switches verified. Representative evidence captured from:
-- HQ-SW-1 (primary HQ switch)
-- One switch per branch site (CHI-SW-1, DAL-SW-1, MIA-SW-1, ASH-SW-3)
-
-Full verification commands:
-- `show etherchannel summary` — Bundle status and member ports
-- `show lacp neighbor` — LACP adjacency validation
-- `show interfaces port-channel 1` — Logical interface state
 
 ## State Indicators
 
@@ -110,24 +85,81 @@ Group  Port-channel  Protocol  Ports
 - **P** = Physical interface bundled
 - **LACP** = Protocol in use
 
-## Evidence
+### HQ-SW-1 ↔ HQ-SW-2
 
-Screenshots: `Switching/EtherChannel-LACP/screenshots/`
+**EtherChannel Summary:**
 
-- `hq-sw1-etherchannel-summary.png` — HQ bundle verification
-- `hq-sw1-lacp-neighbor.png` — LACP adjacency proof
-- `hq-sw1-port-channel1.png` — Logical interface state
-- `chi-sw1-etherchannel-summary.png` — Branch representative
-- `dal-sw1-etherchannel-summary.png` — Branch representative
-- `mia-sw1-etherchannel-summary.png` — Branch representative
-- `ash-sw3-etherchannel-summary.png` — Ashburn variant (Et0/2 + Et0/3)
+![HQ-SW-1 EtherChannel Summary](screenshots/hq-sw1-etherchannel-summary.png)
 
-## Result
+**Observation:** Group 1, Po1(SU), LACP protocol. Both Et0/1 and Et0/2 
+show flag **P** (bundled). Port-channel is Layer 2 and in use.
 
-All LACP EtherChannels operational across HQ, branch, and DR sites. 
-Each bundle provides:
-- Functioning Port-channel interface
-- LACP aggregation protocol
-- Both physical members bundled
-- Established LACP neighbor relationship
-- Operational Layer 2 connectivity
+**LACP Neighbor:**
+
+![HQ-SW-1 LACP Neighbor](screenshots/hq-sw1-sh-lacp-neighbor.png)
+
+**Observation:** Both neighbors report flags **SA**:
+- **S** = Slow LACPDU (1-second intervals)
+- **A** = Active mode
+
+Partner Dev ID confirms adjacency with HQ-SW-2. Admin Key `0x0` / 
+Oper Key `0x1` match on both ports — consistent LACP parameter negotiation.
+
+**Port-Channel Interface State:**
+
+![HQ-SW-1 Port-Channel1](screenshots/hq-sw1-port-channel1.png)
+
+**Observation:** `Port-channel1 is up, line protocol is up (connected)`. 
+Members: `Et0/1 Et0/2`. Bandwidth: 20000 Kbit/sec (2 Gbps aggregate — 
+confirms both links active). Zero input/output errors.
+
+**HQ-SW-2 Independent Verification:**
+- Po1(SU), LACP, Et0/1(P) + Et0/2(P)
+- Port-channel1 up/up
+- LACP neighbor: HQ-SW-1
+
+---
+
+## 1. Functional Failure Testing (Resiliency)
+
+A core benefit of LACP is N+1 link redundancy. Functional testing was performed to prove that the logical bundle survives the loss of a physical member link without dropping active sessions.
+
+### Test Methodology
+1. **Baseline State:** Verified all member links were active `(P)` and initiated a continuous ICMP ping stream across the EtherChannel.
+2. **Failure Injection:** Intentionally shut down a single active member interface (e.g., `Ethernet0/1`) on the primary switch.
+3. **Observation:** Monitored the continuous ping, LACP neighbor state, and Port-Channel summary during the failure window.
+4. **Recovery:** Re-enabled the failed interface and verified LACP automatically renegotiated and re-bundled the link.
+
+### Test Results
+* **Zero Packet Loss:** The continuous ping stream experienced **0% packet loss** during the member link failure, proving sub-second traffic redistribution to the remaining active link(s).
+* **Logical Stability:** The `Port-channel 1` interface state remained `up/up` throughout the entire test.
+* **Automatic Recovery:** Upon re-enabling the physical interface, LACP successfully renegotiated, and the interface returned to the `(P)` bundled state without manual intervention.
+
+**LACP Test Topology**
+
+![LACP](screenshots/lacp-topology.png)
+
+**HQ-SW-1 e0/1 intentional shutdown**
+
+![STP](screenshots/hq-sw1-e0-1-shutdown.png)
+
+**HQ-SW-1 show etherchannel summary during failure**
+
+![STP](screenshots/hq-sw1-sh-etherchannel-during-failure.png)
+
+**HQ-SW-1 show etherchannel summary during failure**
+
+![STP](screenshots/hq-sw2-sh-etherchannel-during-failure.png)
+
+**PC1 unbroken ping during failure**
+
+![STP](screenshots/pc1-continuous-ping.png)
+
+---
+
+### What's Next?
+
+With link aggregation and physical redundancy fully configured and validated, the next step is to explore the Layer 2 access control mechanisms that secure endpoint-facing ports against unauthorized MAC addresses.
+
+Continue to the next module to explore Port Security implementation:
+- **[Port Security](../Port-Security/)** – MAC address limiting, sticky learning, violation modes, and endpoint access control.
