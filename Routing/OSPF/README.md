@@ -93,7 +93,7 @@ router ospf 10
  no passive-interface FastEthernet0/0   
  !
  ! --- Area 0: WAN Transit to Backbone ---
- network 172.16.20.0 0.0.0.3 area 0
+ network 172.16.0.0 0.0.0.3 area 0
  !
  ! --- Area 20: Local Site VLANs ---
  network 10.20.10.0 0.0.0.255 area 20
@@ -218,7 +218,7 @@ HSRP provides local first-hop redundancy (Active/Standby gateways), while OSPF h
 
 ---
 
-## 4. Verification Evidence Matrix
+## 4. Verification Evidence 
 
 | Verification Area | Command(s) Used | Status | Evidence File |
 | :--- | :--- | :---: | :--- |
@@ -236,4 +236,4 @@ HSRP provides local first-hop redundancy (Active/Standby gateways), while OSPF h
 With the dynamic OSPF routing protocol fully configured, validated, and proven to converge during failover scenarios, the next step is to explore the Layer 2 switching infrastructure that forms the foundation of the enterprise LAN.
 
 Continue to the next module to explore the Switching implementation:
--  **[Switching Configuration & Verification](../Switching/)** – VLAN segmentation, 802.1Q trunking, STP/RPVST+, LACP EtherChannels, and port security.
+-  **[Switching Configuration & Verification](../../Switching/)** – VLAN segmentation, 802.1Q trunking, STP/RPVST+, LACP EtherChannels, and port security.
