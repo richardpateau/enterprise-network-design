@@ -52,7 +52,7 @@ The Ashburn switching configuration uses VLANs 110–150 on the trunk infrastruc
 
 ### Headquarters
 
-The primary HQ access switches are:
+**The primary HQ access switches are:**
 
 - HQ-SW-1
 - HQ-SW-2
@@ -61,7 +61,7 @@ The primary HQ access switches are:
 
 HQ-SW-5 and HQ-EDGE-SW operate as infrastructure/uplink switches rather than endpoint access switches.
 
-HQ access switches use:
+**HQ access switches use:**
 
 - 802.1Q trunking
 - Access VLAN assignments
@@ -157,3 +157,12 @@ Beyond operational state, functional testing was performed to prove that Layer 2
 **Inter-VLAN Ping**
 
 ![VLAN](screenshots/inter-vlan-ping.png)
+
+---
+
+### What's Next?
+
+With the Layer 2 switching architecture, VLAN segmentation, and trunking fully configured and validated, the next step is to explore the enterprise Windows Server infrastructure that provides core network services.
+
+Continue to the next major module to explore the Windows implementation:
+- **[Windows Infrastructure](../Windows/)** – Active Directory, DNS, DHCP, Group Policy Objects (GPO), and Microsoft 365/Entra ID integration.
