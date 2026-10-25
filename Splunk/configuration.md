@@ -39,6 +39,8 @@ This integration allows the Authentication Monitoring dashboard to parse ISE-spe
 
 ![Splunk](screenshots/ise-passed-authentication.png)
 
+**Analyzing Successful ISE Authentication**
+
 ![Splunk](screenshots/ise-passed-authentication-2.png)
 
 ---
@@ -141,3 +143,23 @@ index=* (
 | **Meridian Network Security** | Isolated security-relevant event streams. |
 | **Meridian SIEM Overview** | Consolidated enterprise security posture and event volume. |
 | **Meridian Authentication** | ISE identity validation, success/failure ratios, and NAS breakdown. |
+
+![Splunk](screenshots/network-operations-dashboard.png)
+
+
+![Splunk](screenshots/network-security-dashboard.png)
+
+
+![Splunk](screenshots/siem-overview-dashboard.png)
+
+
+![Splunk](screenshots/authentication-dashboard.png)
+
+---
+
+### What's Next?
+
+With centralized log aggregation, SPL query development, and SIEM dashboards fully configured and validated, the next step is to explore the Infrastructure as Code (IaC) and NetDevOps pipelines that orchestrate this environment.
+
+Continue to the next major module to explore Network Automation:
+- **[Automation](../Automation/)** – Python and Ansible automation pipelines, ITSM integration, GitHub Actions CI/CD, and Batfish pre-deployment validation.
