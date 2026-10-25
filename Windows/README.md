@@ -1,9 +1,3 @@
-Here is the polished, portfolio-ready version of your top-level `Windows/README.md`. 
-
-I have elevated the language to emphasize **enterprise infrastructure standards, security baselines, and centralized management**, ensuring it perfectly matches the senior-engineer tone of the rest of your portfolio.
-
-***
-
 # Windows Infrastructure & Microsoft 365
 
 ## Overview
