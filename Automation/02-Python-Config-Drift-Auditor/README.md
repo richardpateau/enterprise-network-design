@@ -107,5 +107,11 @@ Below is visual proof of the compliance workflow in action.
 
 ![Automation](screenshots/edge-2-html-results.png)
 
-
 ---
+
+### What's Next?
+
+With configuration drift detection and compliance reporting fully automated, the next step is to validate that the network is actually forwarding traffic according to the intended design.
+
+Continue to the next module to explore Intent-Based Network State Validation:
+-  **[03 — Ansible Intent-Based Network State Validator](../03-Ansible-State-Validator/)** – Nautobot dynamic inventory, Layer 2/Layer 3 state validation, and regex-based assertions.
