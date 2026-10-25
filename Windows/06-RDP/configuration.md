@@ -44,7 +44,7 @@ https://github.com/user-attachments/assets/bd9072b5-1eef-4855-a0c9-b1bac05a9bb1
 
 ---
 
-### ➡️ What's Next?
+### What's Next?
 
 With Remote Desktop Protocol (RDP) securely configured and validated for remote administration, the final step in the Windows infrastructure module is to explore cloud integration and identity management.
 

@@ -59,8 +59,7 @@ The Microsoft 365 implementation is divided into three core pillars:
 
 ---
 
-## Scope & Boundaries
+### Next Section
 
-This section documents **Microsoft 365 tenant administration, user security, and native collaboration features**. 
-
-It focuses on the native cloud capabilities demonstrated in the lab. Advanced hybrid identity synchronization (e.g., Entra Connect), Conditional Access policies, or third-party integrations are outside the scope of this specific validation.
+Continue to the detailed implementation steps, testing methodology, and evidence matrix for the Microsoft 365 deployment:
+- **[Configuration Details](configuration.md)** – Implementation details, testing methodology, and evidence matrix.
