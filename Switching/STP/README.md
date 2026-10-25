@@ -6,15 +6,6 @@ This section documents Spanning Tree Protocol (STP) implementation and verificat
 
 The switching environment uses Rapid-PVST configuration to provide Layer 2 loop prevention and rapid convergence while maintaining VLAN-specific spanning-tree instances.
 
-STP is used to:
-
-- Prevent Layer 2 switching loops
-- Provide redundant Layer 2 paths
-- Determine forwarding and blocking ports
-- Establish a predictable root bridge
-- Protect endpoint-facing ports with PortFast and BPDU Guard
-- Maintain stable Layer 2 forwarding across redundant switch links
-
 ---
 
 ## STP Design
@@ -72,7 +63,6 @@ The HQ switching topology was verified using:
 ```text
 show spanning-tree root
 show spanning-tree vlan 10
-show spanning-tree interface <interface> detail
 ```
 
 The verification confirmed HQ-SW-1 as the root bridge for the documented HQ VLANs.
@@ -83,7 +73,6 @@ The other HQ switches use their available redundant paths to reach the root brid
 
 ![STP](screenshots/hq-sw1-stp-vlan-10.png)
 
-![STP](screenshots/hq-sw1-sh-int-e1-0-detail.png)
 
 #### Verified Root Paths
 
@@ -96,25 +85,143 @@ The other HQ switches use their available redundant paths to reach the root brid
 
 ---
 
-## Evidence
+## 7. STP Verification
 
-Screenshots and command output for this section are stored under:
+### HQ-SW-1
+
+VLAN 10 verification:
 
 ```text
-Switching/STP/screenshots/
+show spanning-tree vlan 10
 ```
 
-Recommended evidence includes:
+Result:
 
-- `show spanning-tree root`
-- `show spanning-tree vlan 10`
-- `show spanning-tree interface <endpoint> detail`
-- Endpoint PortFast/BPDU Guard configuration
+```text
+Root ID    Priority    24586
+           Address     aabb.cc00.0500
+           This bridge is the root
+```
+
+HQ-SW-1 is therefore the root bridge for VLAN 10.
+
+![STP](screenshots/hq-sw1-stp-vlan-10.png)
+
+### HQ-SW-2
+
+VLAN 10 verification showed:
+
+```text
+Root ID    Priority    24586
+           Address     aabb.cc00.0500
+           Cost        56
+           Port        65 (Port-channel1)
+```
+
+Port roles included:
+
+```text
+Et0/0    Desg FWD
+Et0/3    Altn BLK
+Po1      Root FWD
+```
+
+This confirms Port-channel1 as the root path toward HQ-SW-1 and Ethernet0/3 as an alternate blocking path.
+
+![STP](screenshots/hq-sw2-stp-vlan-10.png)
+
+### HQ-SW-3
+
+VLAN 10 verification showed:
+
+```text
+Root ID    Priority    24586
+           Address     aabb.cc00.0500
+           Cost        100
+           Port        4 (Ethernet0/3)
+```
+
+The root path is Ethernet0/3.
+
+The interface roles included:
+
+```text
+Et0/0    Desg FWD
+Et0/3    Root FWD
+Et1/0    Desg FWD
+Et1/1    Desg FWD
+Po1      Desg FWD
+```
+
+![STP](screenshots/hq-sw3-stp-vlan-10.png)
+
+### HQ-SW-4
+
+VLAN 10 verification showed:
+
+```text
+Root ID    Priority    24586
+           Address     aabb.cc00.0500
+           Cost        56
+           Port        65 (Port-channel1)
+```
+
+The root path is Port-channel1.
+
+The interface roles included:
+
+```text
+Et0/0    Desg FWD
+Et0/3    Desg FWD
+Po1      Root FWD
+```
+
+![STP](screenshots/hq-sw4-stp-vlan-10.png)
 
 ---
 
-## Scope
+## HQ Root Bridge Summary
 
-This section documents STP implementation and verification for the switching portion of the Meridian network.
+The verified HQ STP topology is:
 
-Routing protocols such as OSPF and BGP are documented separately under the routing documentation.
+![STP](screenshots/topology.png)
+
+## Functional Convergence Testing (Resiliency)
+
+Operational state only proves the network is healthy *today*. Functional testing proves the network will survive a failure *tomorrow*. 
+
+A controlled topology change was executed to validate STP convergence behavior.
+
+### Test Methodology
+1. **Pre-Failure State:** Captured baseline STP port roles, forwarding states, and initiated a continuous ping to the default gateway.
+2. **Failure Injection:** Intentionally shut down the active Root Port (or primary trunk link) on a downstream switch.
+3. **Post-Failure State:** Captured the new STP topology, verifying the Alternate port transitioned to Root Port/Forwarding state.
+
+### Convergence Results
+* **Topology Update:** The downstream switch successfully identified the loss of the primary path and promoted the Alternate port to Root Port.
+* **Traffic Restoration:** The continuous ping experienced a brief, acceptable interruption (sub-second to a few seconds, depending on STP mode) before successfully restoring Layer 2 connectivity.
+* **Loop Prevention:** No broadcast storms or MAC flapping were observed during the transition.
+
+**STP Test Topology**
+
+![STP](screenshots/stp-topology.png)
+
+**HQ-SW-1: Intentional Failure**
+
+![STP](screenshots/hq-sw1-intentional-shutdown.png)
+
+**HQ-SW-1**
+
+![STP](screenshots/hq-sw1-sh-span-vlan10.png)
+
+**HQ-SW-2**
+
+![STP](screenshots/hq-sw2-sh-span-vlan10.png)
+
+**HQ-SW-3**
+
+![STP](screenshots/hq-sw3-sh-span-vlan10.png)
+
+**HQ-SW-4**
+
+![STP](screenshots/hq-sw4-sh-span-vlan10.png)
