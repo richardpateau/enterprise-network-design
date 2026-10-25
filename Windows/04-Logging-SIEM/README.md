@@ -57,15 +57,9 @@ The logging workflow ensures that local Windows events are reliably forwarded to
 
 ---
 
-## Scope & Boundaries
-
-This section documents **Windows Security Auditing and basic Splunk log visibility**. 
-
-It demonstrates the successful ingestion and searching of Windows authentication events. It does not cover advanced SIEM capabilities such as custom correlation rules, automated alerting workflows, or dashboard creation, which are outside the scope of this specific validation.
-
 ---
 
-## Related Documentation
+### Next Section
 
-- **Account Security Policies:** `Windows/02-DNS-GPO/` (Password complexity and lockout thresholds)
-- **Network Access Control:** `Cisco-ISE/02-802.1X/` (Source of authentication requests)
+Continue to the detailed audit policy settings, testing methodology, and evidence matrix for the logging and SIEM integration:
+- **[Configuration Details](configuration.md)** – Audit policy settings, testing methodology, and evidence matrix.
