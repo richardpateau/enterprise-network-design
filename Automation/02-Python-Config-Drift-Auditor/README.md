@@ -49,6 +49,8 @@ Instead of outputting a messy terminal diff, the script parses the `difflib` out
 
 ![Automation](screenshots/conn.enable.png)
 
+Connecting -----> enable -----> send command -----> Disconnet
+
 ---
 
 ## Prerequisites & Setup
