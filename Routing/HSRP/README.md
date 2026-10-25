@@ -32,7 +32,6 @@ HQ-R1 acts as the primary Active router for all HQ VLANs, with HQ-R2 providing S
 | **60** | `10.10.60.0/24` | `10.10.60.2` | `10.10.60.3` | `10.10.60.1` | 60 |
 | **70** | `10.10.70.0/24` | `10.10.70.2` | `10.10.70.3` | `10.10.70.1` | 70 |
 
-*(HQ-R1 is configured with `standby <group> priority 110` and `standby <group> preempt`)*
 
 ![HSRP](hsrp-visio.png)
 
@@ -46,15 +45,13 @@ To ensure operational consistency, all branch sites follow the exact same addres
 | **Miami** | 10 – 70 | `10.40.x.2` | `10.40.x.3` | `10.40.x.1` |
 | **Ashburn** | 110 – 150| `10.50.y.2` | `10.50.y.3` | `10.50.y.1` |
 
-*(Where `x` or `y` represents the specific VLAN/subnet identifier, e.g., VLAN 110 uses `10.50.10.2`, `10.50.10.3`, and VIP `10.50.10.1`)*
-
 ---
 
 ## Configuration Model
 
 The following represents the standard configuration applied to the preferred (Active) router for a given VLAN:
 
-### Active Router Template (Preferred)
+### Active Router Example 
 ```cisco
 interface FastEthernet0/0.10
  encapsulation dot1Q 10
@@ -67,7 +64,7 @@ interface FastEthernet0/0.10
  standby 10 preempt
 ```
 
-### Standby Router Template (Secondary)
+### Standby Router Example
 ```cisco
 interface FastEthernet0/0.10
  encapsulation dot1Q 10
@@ -79,12 +76,11 @@ interface FastEthernet0/0.10
  standby 10 preempt
  ! Priority defaults to 100
 ```
-### Ashburn DR Site
+### Ashburn DR Site Example
+
 **Interfaces:** `FastEthernet0/0.x`
 **Active Router:** ASH-INTERNAL-1 | **Standby Router:** INTERNAL-2
-**Note:** Ashburn subinterfaces also integrate OSPF Area 50 directly on the interface.
 
-**Example Configuration (VLAN 110):**
 ```cisco
 ! ASH-INTERNAL-1 (Active)
 interface FastEthernet0/0.110
