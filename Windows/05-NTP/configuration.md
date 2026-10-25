@@ -75,10 +75,9 @@ NTP status and associations were verified on HQ-R2 to confirm synchronization.
 
 ---
 
-## 5. Scope & Boundaries
+### What's Next?
 
-This section documents **Time Synchronization via GPO and Cisco IOS verification**.
+With Windows NTP client configuration and Cisco time synchronization fully validated, the next step is to explore secure remote graphical administration of the Windows infrastructure.
 
-**Not covered here:**
-- General Group Policy architecture (covered in `02-DNS-GPO/`)
-- Syslog server configuration (covered in `04-Logging-SIEM/`)
+Continue to the next module to explore Remote Desktop Protocol (RDP):
+- **[06 — Remote Desktop Protocol (RDP)](../06-RDP/)** – Service configuration, Network Level Authentication (NLA), and functional validation of remote sessions.
