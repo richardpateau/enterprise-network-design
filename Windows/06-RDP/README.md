@@ -57,8 +57,7 @@ In a production enterprise environment, RDP is a high-value target for attackers
 
 ---
 
-## Scope & Boundaries
+### Next Section
 
-This section documents **basic RDP service configuration and connectivity validation**. 
-
-Advanced RDP security features (such as Remote Desktop Gateway, Smart Card authentication, or complex GPO restrictions) are outside the scope of this specific validation but are acknowledged as critical for production deployment.
+Continue to the detailed implementation steps, service configuration, and evidence matrix for the RDP deployment:
+- **[Configuration Details](configuration.md)** – Implementation details, functional testing, and evidence matrix.
