@@ -20,7 +20,7 @@ A test user was created and provisioned with the appropriate Microsoft 365 licen
 ### 1.2 Secure Authentication (MFA)
 To secure the cloud identity, an authentication method was added and Multi-Factor Authentication (MFA) was enforced. An interrupted authentication test was also captured to demonstrate MFA behavior.
 
-![365](screenshots/added-authentication-method.png)
+![365](screenshots/adding-authentication-method.png)
 
 ![365](screenshots/authentication-added.png)
 
