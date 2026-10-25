@@ -19,7 +19,7 @@ Every project is built around a central **Source of Truth (Nautobot)**, ensuring
 
 ---
 
-## Project Portfolio
+## Automation Tasks
 
 This repository is organized into modular, production-ready projects. Click on any folder to view its dedicated `README.md`, architecture diagrams, and execution videos.
 
@@ -69,7 +69,11 @@ This repository is organized into modular, production-ready projects. Click on a
 
 ![Automation](screenshots/jira-visio.png)
 
+---
+
 ![Automation](screenshots/os-upgrade.visio.png)
+
+---
 
 ![Automation](screenshots/nad-automation-visio.png)
 
