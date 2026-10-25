@@ -97,10 +97,17 @@ Below is visual proof of the validation framework in action.
 
 **Validating the framework's ability to catch intentional interface shutdowns**
 
-![Automation](screenshots/roas-drift-detected.png)
+![Automation](screenshots/raos-drift-detected.png)
 
 ### 🎥 Execution Videos
 *   [ROAS Validation Playbook Execution](media/roas_validation_playbook-2026-10-18_07.13.26.mp4)
 *   [VLAN Validation Playbook Execution](media/vlan-validation-playbook.mp4)
 
 ---
+
+### What's Next?
+
+With network state validation and intent-based compliance fully automated, the next step is to deploy standardized configurations across the entire fleet using Jinja2 templating.
+
+Continue to the next module to explore Ansible Jinja2 Templating & Mass Deployment:
+- **[04 — Ansible Jinja2 Templating & Mass Deployment Engine](../04-Ansible-Jinja2-Deployer/)** – Dynamic configuration rendering, safe dry-runs, and fleet-wide baseline deployment.
