@@ -15,9 +15,6 @@ A GPO named **"Meridian - Domain Time Synchronization"** was created to centrall
 
 ![NTP](screenshots/gpo-overview.png)
 
-![NTP](screenshots/ntp-gpo-added.png)
-
-![NTP](screenshots/gpo-report.png)
 
 ### 1.2 NTP Client Policy Settings
 Within the GPO, the "Configure Windows NTP Client" policy was enabled. This configures the Windows Time service (`w32time`) to synchronize with the domain hierarchy (NT5DS mode) or a specific external source.
@@ -33,7 +30,9 @@ After the GPO is applied, the Windows Time service must be verified on the endpo
 ### 2.1 Policy Mapping Verification
 PowerShell was used to confirm that the NTP GPO was successfully mapped to the Windows 10 client.
 
-![NTP](screenshots/policy-mapped.png)
+![NTP](screenshots/ntp-gpo-added.png)
+
+![NTP](screenshots/gpo-report.png)
 
 ### 2.2 Time Service Status
 The Windows 10 client was verified to have successfully applied the NTP configuration.
@@ -41,7 +40,7 @@ The Windows 10 client was verified to have successfully applied the NTP configur
 ### 2.3 Detailed PowerShell Validation
 Additional PowerShell commands (`w32tm /query /status`) were executed to verify the detailed state of the Windows Time service, including stratum level and last sync time.
 
-![NTP](screenshots/windows-successful-sync.png)
+![NTP](screenshots/windows-10-ntp.png)
 
 ---
 
