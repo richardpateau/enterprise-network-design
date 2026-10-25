@@ -58,18 +58,13 @@ The ultimate goal is centralized visibility. The Windows logs were verified with
 ### 4.1 Successful Logon in Splunk
 A Splunk search was executed to locate the successful and failed authentication events, confirming the Windows log was forwarded and indexed correctly.
 
-**Successful log**
+**Failed Splunk log**
 
 ![logs](screenshots/splunk-failed-auth.png)
 
-**Failed log**
+**Successful Splunk log**
 
 ![logs](screenshots/splunk-success-auth.png)
-
-### 4.2 General Windows Log Visibility
-A broader search confirms that Windows security events are consistently appearing in the Splunk index, providing the foundation for security monitoring.
-
-![logs](screenshots/meridian-logs.png)
 
 ---
 
@@ -84,7 +79,6 @@ A broader search confirms that Windows security events are consistently appearin
 | | `05-successful-logon-event.png` | Windows Event ID 4624 generated locally. |
 | | `06-account-lockout-event.png` | Windows Event ID 4740 generated locally. |
 | **SIEM Visibility** | `07-splunk-successful-logon.png` | Successful logon event visible in Splunk. |
-| | `08-splunk-windows-log.png` | General Windows log ingestion confirmed in Splunk. |
 
 ---
 
