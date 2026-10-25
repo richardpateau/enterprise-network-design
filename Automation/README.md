@@ -109,7 +109,7 @@ This repository is organized into modular, production-ready projects. Click on a
 
 ---
 
-**Day 2 Configuration Drift Auditor & Alerting**
+**Configuration Drift Auditor & Alerting**
 
 ![Automation](screenshots/diff-visio.png)
 
@@ -120,8 +120,17 @@ This repository is organized into modular, production-ready projects. Click on a
 ---
 
 ## Contact & Connect
-*   **Email:** [richardpateau@yahoo.com]
+*   **Email:** [richard.pateau@yahoo.com]
 *   **Portfolio Website:** [https://richardpateau.github.io/]
 *   **Blog:** [networkingnotebook.com]
 
 *Thank you for reviewing my work. I look forward to discussing how these automation principles can drive operational excellence for your team.*
+
+---
+
+### What's Next?
+
+With the high-level NetDevOps ecosystem and project portfolio overview established, the next step is to dive into the first automation project.
+
+Continue to the first module to explore Day 1 Zero-Touch Provisioning:
+- **[01 — Day 1 Zero-Touch Provisioning & NAC Integration](01-Python-NAD-Onboarding/)** – Python automation for Nautobot device creation, IPAM assignment, and Cisco ISE NAD configuration.
