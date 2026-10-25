@@ -184,7 +184,7 @@ Po1      Root FWD
 
 The verified HQ STP topology is:
 
-![STP](screenshots/topology.png)
+![STP](screenshots/stp-topology.png)
 
 ## Functional Convergence Testing (Resiliency)
 
