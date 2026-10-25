@@ -35,11 +35,15 @@ By relying on a standardized Jinja2 template, the script eliminates human copy-p
 *   **Regex Data Extraction:** Intelligently parses unstructured text fields from ITSM platforms.
 *   **State Management:** Dynamically handles Jira workflow transitions (e.g., mapping "Investigate" to "In Progress").
 
+**Jira REST API**
+
 ![Automation](screenshots/rest-api-jira.png)
 
-![Automation](screenshots/regex.png)
-
 ![Automation](screenshots/script-jira-status-change.png)
+
+**Regex**
+
+![Automation](screenshots/regex.png)
 
 **Regex Parse Execution vs JSON**
 
@@ -72,6 +76,8 @@ Below is visual proof of the end-to-end ITSM automation workflow.
 
 ![Automation](screenshots/jira-ticket-overview.png)
 
+**HQ-SW-1: show vlan brief without VLAN 90**
+
 ![Automation](screenshots/sw-1-before-config.png)
 
 ### 3. The Automation Engine
@@ -91,7 +97,7 @@ Below is visual proof of the end-to-end ITSM automation workflow.
 
 **The switch interface is now fully configured with the correct VLANs and descriptions**
 
-![Automation](screenshots/cofniguration-post-automation.png)
+![Automation](screenshots/configuration-post-automation.png)
 
 ### 5. Closed-Loop Feedback
 
