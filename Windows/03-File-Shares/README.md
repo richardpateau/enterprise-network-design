@@ -33,7 +33,7 @@ The file share access model relies on Windows authentication and NTFS permission
 - Granular NTFS permissions applied to the target directory.
 - Identity mapping for "Network Administrators" and "802.1X Network Users".
 
-![File Share](screenshots/nfts-permission.png)
+![File Share](screenshots/nfts-permissions.png)
 
 ### Functional Validation
 - **Positive Testing (Admin):** Verification of Read, Write, Create, and Delete operations.

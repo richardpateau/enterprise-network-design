@@ -157,7 +157,7 @@ This section documents **Windows DNS and Group Policy**.
 
 ---
 
-### ➡️ What's Next?
+### What's Next?
 
 With Windows DNS and Group Policy security baselines fully configured and validated, the next step is to explore role-based access control and file share permissions.
 
