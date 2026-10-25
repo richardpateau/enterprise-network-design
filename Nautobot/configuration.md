@@ -192,3 +192,10 @@ The structured SOT data enables multiple automation workflows:
 | **Location Hierarchy** | `location-object-json.png` | Site/location object structure |
 
 ---
+
+### What's Next?
+
+With the Network Source of Truth (SOT) fully configured, integrated with pynautobot, and validated, the next step is to explore the broader automation pipelines that leverage this SOT data.
+
+Continue to the next major module to explore the comprehensive automation implementation:
+-  **[Automation](../Automation/)** – Python and Ansible automation pipelines, ITSM integration, GitHub Actions CI/CD, and Batfish pre-deployment validation.
