@@ -110,7 +110,7 @@ After DORA completion, the client applies the assigned IP configuration. Verific
 ### 5.2 Default Gateway Configuration
 The client receives the default gateway address via DHCP Option 3 (Router). This enables the client to route traffic beyond its local subnet.
 
-![DHCP](screenshots/pc2-defualt-gateway.png)
+![DHCP](screenshots/pc2-default-gateway.png)
 
 ### 5.3 Successful DHCP Assignment Confirmation
 Windows network configuration confirms the interface obtained its address via DHCP (not static), with all parameters correctly applied.
@@ -171,8 +171,11 @@ This section documents **Windows DHCP implementation and client validation**.
 
 ---
 
-## Related Documentation
+---
 
-- **DNS & GPO:** `Windows/02-DNS-GPO/`
-- **Network Infrastructure:** `Switching/` and `Routing/`
-- **VPN/IPsec:** `Azure/03-Site-to-Site-VPN/`
+### What's Next?
+
+With the Windows DHCP implementation details, relay configuration, and evidence matrix fully documented, the next step is to explore domain name resolution and centralized security management.
+
+Continue to the next module to explore DNS and Group Policy:
+- **[02 — DNS & Group Policy (GPO)](../02-DNS-GPO/)** – Forward/Reverse lookup zones, Windows Defender Firewall rules, and security baseline enforcement.
