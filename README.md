@@ -49,6 +49,7 @@ This repository is organized into functional domains. Click on any folder to vie
 *   **[Grafana](./Grafana/)** — Advanced time-series monitoring using Telegraf and SNMP, featuring automated Ansible deployment of monitoring agents.
 
 ### Automation & DevOps
+*   **[Nautobot](./Nautobot/)** — Network Source of Truth (SOT) implementation featuring IPAM, device inventory, and API-driven automation. Includes `pynautobot` Python integration, Jinja2 template rendering, and dynamic inventory generation for Ansible.
 *   **[Automation](./Automation/)** — Python and Ansible automation pipelines. Includes ITSM-driven Jira provisioning, physical OS upgraders, GitHub Actions CI/CD pipelines, and Batfish pre-deployment mathematical modeling.
 
 ### Operations & Documentation
