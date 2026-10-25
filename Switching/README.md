@@ -64,7 +64,7 @@ Port Security provides an additional Layer 2 access-control mechanism on endpoin
 ### BPDU Guard
 BPDU Guard protects endpoint-facing PortFast interfaces from unexpected Spanning Tree BPDUs.
 - **Implementation:** Automatically places protected access ports into an `err-disabled` state upon detecting rogue switches, preventing accidental or malicious Layer 2 loops.
-- **Documentation:** [`BPDU-Guard/`](BPDU-Guard/)
+- **Documentation:** [`BPDU-Guard/`](BPDU%20Guard/)
 
 ---
 
@@ -134,9 +134,11 @@ This implementation is guided by core enterprise networking principles:
 
 ---
 
-## Related Documentation
+---
 
-- **Enterprise Standards:** [`docs/standards/`](../docs/standards/)
-- **Switch Configurations:** [`Switching/configs/`](configs/)
-- **Switching Verification:** [`Switching/verification/`](verification/)
-- **Project-Level Test Evidence:** Root-level `VLAN Config test/`, `STP/`, `LACP Testing/`, `Port Security Test/`, and `BPDU Guard/` directories.
+### What's Next?
+
+With the Layer 2 switching architecture fully documented, the next step is to explore the specific security controls that protect the network edge from rogue devices and Layer 2 attacks.
+
+Continue to the first switching security module to explore BPDU Guard implementation:
+- **[BPDU Guard](BPDU%20Guard/)** – Edge-port protection, rogue switch detection, and automatic err-disable response.
