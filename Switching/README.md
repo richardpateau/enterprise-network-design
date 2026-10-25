@@ -35,8 +35,6 @@ The Meridian switching environment utilizes segmented VLANs, redundant uplinks, 
 
 ![Topology](screenshots/hq-sw1-vlan-brief.png)
 
-![Topology](screenshots/ash-sw3-vlan-brief.png)
-
 ---
 
 ## Switching Features

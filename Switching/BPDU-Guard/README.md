@@ -35,7 +35,7 @@ Operational verification was performed across the enterprise to ensure consisten
 | **HQ** (HQ-SW-1) | `Ethernet1/0` | Yes | Yes | 0 | Designated Forwarding |
 | **HQ** (HQ-SW-2) | `Ethernet1/0` | Yes | Yes | 0 | Designated Forwarding |
 | **HQ** (HQ-SW-3) | `Ethernet1/0` | Yes | Yes | 0 | Designated Forwarding |
-| **HQ** (HQ-SW-4) | `Ethernet1/0` | Yes | Yes | N/A | Designated Forwarding |
+| **HQ** (HQ-SW-4) | `Ethernet1/0` | Yes | Yes | 0 | Designated Forwarding |
 | **Branches** (CHI, DAL, MIA) | Endpoint Access | Yes | Yes | 0 | Designated Forwarding |
 | **Ashburn DR** | Endpoint Access | Yes | Yes | 0 | Designated Forwarding |
 

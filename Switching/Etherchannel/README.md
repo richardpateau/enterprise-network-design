@@ -102,9 +102,6 @@ show flag **P** (bundled). Port-channel is Layer 2 and in use.
 - **S** = Slow LACPDU (1-second intervals)
 - **A** = Active mode
 
-Partner Dev ID confirms adjacency with HQ-SW-2. Admin Key `0x0` / 
-Oper Key `0x1` match on both ports — consistent LACP parameter negotiation.
-
 **Port-Channel Interface State:**
 
 ![HQ-SW-1 Port-Channel1](screenshots/hq-sw1-port-channel1.png)
@@ -147,7 +144,7 @@ A core benefit of LACP is N+1 link redundancy. Functional testing was performed 
 
 ![STP](screenshots/hq-sw1-sh-etherchannel-during-failure.png)
 
-**HQ-SW-1 show etherchannel summary during failure**
+**HQ-SW-2 show etherchannel summary during failure**
 
 ![STP](screenshots/hq-sw2-sh-etherchannel-during-failure.png)
 
