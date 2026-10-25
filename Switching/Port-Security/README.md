@@ -55,19 +55,7 @@ Secure Port  MaxSecureAddr  CurrentAddr  SecurityViolation  Security Action
 
 ![Port-Security](screenshots/hq-sw2-port-security-summary.png)
 
-## 1. Steady-State Operational Verification
-
-The following commands were utilized to verify the health and current state of the Port Security implementation.
-
-| Verification Area | Command | Validation Criteria |
-| :--- | :--- | :--- |
-| **Global Port Security State** | `show port-security` | • Port Security is enabled on target interfaces.<br>• Maximum allowed MAC addresses match the design.<br>• Current secure MAC counts align with expectations.<br>• Violation counters and modes are correctly displayed. |
-| **Granular Interface State** | `show port-security interface [id]` | • Port status is `Secure-up` (or `Secure-down` if awaiting first MAC).<br>• Violation mode is correctly set (`Restrict` or `Shutdown`).<br>• Sticky MAC learning is active where configured.<br>• Security violation count is at baseline (0 prior to testing). |
-| **Secure MAC Binding** | `show port-security address` | • Authorized MAC addresses are correctly learned and bound.<br>• MAC address type is listed as `SecureSticky`.<br>• MAC addresses are mapped to the correct VLAN and physical interface. |
-
----
-
-## 2. Functional Security Testing (Access Control)
+## Functional Security Testing (Access Control)
 
 Functional testing was performed to prove that the switch actively enforces the configured MAC address limits and responds appropriately to policy violations.
 
@@ -84,11 +72,11 @@ Functional testing was performed to prove that the switch actively enforces the 
 
 **Port-Security Test Topology**
 
-![Port-Security](screenshots/port-security-topology.png)
+![Port-Security](screenshots/port-security topology.png)
 
 **HQ-SW-2 show port-security: maximum mac-addresses full**
 
-![Port-Security](screenshots/sh-port-security-topology.png)
+![Port-Security](screenshots/sh-port-security.png)
 
 **Rogue PC unable to communicate via ping**
 
@@ -101,3 +89,12 @@ Functional testing was performed to prove that the switch actively enforces the 
 `*Sep 18 11:49:13.739: %PORT_SECURITY-2-PSECURE_VIOLATION: Security violation occurred, caused by MAC address 5014.e700.3c00 on port Ethernet1/0.`
 
 ![Port-Security](screenshots/port-security-restrict-syslog.png)
+
+---
+
+### What's Next?
+
+With endpoint MAC address security fully configured and validated, the next step is to explore the foundational Layer 2 loop prevention and topology management protocol.
+
+Continue to the next module to explore Spanning Tree Protocol (STP):
+- **[STP (Spanning Tree Protocol)](../STP/)** – Root bridge election, port roles, rapid reconvergence, and loop prevention testing.
