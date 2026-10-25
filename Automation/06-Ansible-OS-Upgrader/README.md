@@ -95,6 +95,8 @@ https://github.com/user-attachments/assets/e83aa885-9556-46dd-bacf-53748ee26343
 
 ![Automation](screenshots/playbook-fail-during-dry-run.png)
 
+**Assert Test**
+
 ![Automation](screenshots/playbook-validation.png)
 
 ### 4. Post-Upgrade Validation
@@ -111,11 +113,16 @@ https://github.com/user-attachments/assets/e83aa885-9556-46dd-bacf-53748ee26343
 
 ![Automation](screenshots/sh-flash-after.png)
 
-**
-
-### 🎥 TFTP Synchronized with Playbook Proof
+### TFTP Synchronized with Playbook Proof
 
  Video
 * [Real-Time TFTP Download and Upgrade](media/tftp-download-real-time.mp4)
 
 ---
+
+### What's Next?
+
+With physical hardware OS upgrades fully automated and safely validated, the final step in the infrastructure lifecycle is to enforce code quality, peer review, and safety gates before any changes reach production.
+
+Continue to the next module to explore Enterprise Network CI/CD:
+- **[07 — Enterprise Network CI/CD Pipeline](../07-Ansible-CICD-Pipeline/)** – GitHub Actions, self-hosted runners, `ansible-lint`, and pre-deployment dry-runs.
