@@ -2,13 +2,14 @@
 <module type="PYTHON_MODULE" version="4">
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/05-Python-Service-Request-Provisioner/myenv/lib/python3.12/site-packages/pip/_vendor" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/.venv" />
       <excludeFolder url="file://$MODULE_DIR$/01-Python-NAD-Onboarding/.venv" />
       <excludeFolder url="file://$MODULE_DIR$/02-Python-Config-Drift-Auditor/.venv" />
       <excludeFolder url="file://$MODULE_DIR$/05-Python-Service-Request-Provisioner/.venv" />
       <excludeFolder url="file://$MODULE_DIR$/08-Python-Batfish-Modeler/.venv" />
     </content>
-    <orderEntry type="jdk" jdkName="~/Documents/network-automation-engine-main/.venv" jdkType="Python SDK" />
+    <orderEntry type="jdk" jdkName="~/Documents/multi-vendor-sd-wan-lab/01-Fortinet-FortiGate/Project 15 NetDevOps/.venv" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
 </module>

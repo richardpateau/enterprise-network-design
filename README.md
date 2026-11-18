@@ -53,7 +53,7 @@ This repository is organized into functional domains. Click on any folder to vie
 *   **[Automation](./Automation/)** — Python and Ansible automation pipelines. Includes ITSM-driven Jira provisioning, physical OS upgraders, GitHub Actions CI/CD pipelines, and Batfish pre-deployment mathematical modeling.
 
 ### Operations & Documentation
-*   **[Documentation (Run Books & Diagrams)](./Documentation%20(Run%20Books%20&%20Diagrams)/)** — Standardized Change Requests (CR) and Run Books (RB) for enterprise operational procedures (e.g., OS Upgrades, SNMPv3 migration, 802.1X deployment).
+* **[Documentation (Run Books & Change Management)](<./Documentation (Run Books & Change Management)/>)** — Standardized Change Requests (CR) and Run Books (RB) demonstrating enterprise operational procedures (e.g., OS Upgrades, SNMPv3 migration, 802.1X deployment).
 
 ---
 

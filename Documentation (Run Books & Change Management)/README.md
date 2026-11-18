@@ -1,102 +1,69 @@
-# Network Incident Response Lab
+# Meridian Enterprise Network — Engineering Portfolio & Operations Documentation
 
-A PNETLab-based set of nine network incidents, each documented as a realistic root cause analysis (RCA) case with the evidence an employer can review.
+**Author:** Richard Pateau  
+**Environment:** Meridian Enterprise Lab (HQ, Ashburn Branch & Microsoft Azure Hybrid Core)
 
-Part of my networking portfolio: [richardpateau.github.io](https://richardpateau.github.io) | [Networking Notebook (blog)](https://networkingnotebook.com/) | [Enterprise Network Design](https://github.com/richardpateau/enterprise-network-design)
+This repository showcases production-grade **Configuration Runbooks** and **Change Management Plans** engineered for the Meridian multi-site enterprise network. Rather than raw configuration dumps, these documents demonstrate end-to-end network engineering discipline—covering architecture design, pre-change baselining, CLI/GUI implementation, packet- and session-level validation, and deterministic rollback planning.
 
-## Workflow
+---
 
-Every incident follows the same path:
+## Core Engineering Capabilities Demonstrated
 
-**Ticket → Symptoms → Investigation → Evidence → Root Cause → Fix → Verification → Close**
+* **Hybrid Cloud & Perimeter Security:** Engineered policy-based and route-based (VTI) IKEv2 IPsec VPNs across Cisco ASA firewalls and Microsoft Azure VPN Gateways, alongside Stateful Active/Standby High Availability failover.
+* **Identity-Driven Access Control (Zero Trust / NAC):** Integrated Cisco AnyConnect (Secure Client) with **Microsoft Entra ID SAML SSO & Conditional Access MFA**, and deployed **Cisco ISE 802.1X / MAB** authentication tied to Active Directory (`meridian.local`) with dynamic VLAN assignment.
+* **Network Automation & Source of Truth:** Built automated Cisco Catalyst OS upgrade workflows driven by **Ansible** and **Nautobot** dynamic inventory, incorporating Git linting and `--check` dry-run validation.
+* **Protocol Modernization & Hardening:** Executed standards-based migrations from Cisco-proprietary HSRP to VRRP and hardened monitoring infrastructure from SNMPv2 to authenticated SNMPv3 across PRTG and Grafana (Telegraf).
+* **Operational Governance:** Authored standardized Runbook and Change Request frameworks enforcing risk profiling, downtime estimation, pre/post-implementation verification, and tested backout procedures.
 
-## Purpose
+---
 
-This project shows how I approach network troubleshooting in an operations environment, not just that I can build a topology.
+## Implementation Runbooks (Architecture & Provisioning)
 
-The incidents are ordered roughly by increasing complexity. They start with a straightforward Layer 2/3 service failure and build toward protocol-internals problems (OSPF DBD/MTU, BGP prefix advertisement, HSRP redundancy logic), where the fix requires understanding why the protocol behaves the way it does, not just which command to run.
+Each runbook documents a complete service deployment from prerequisites through live verification (`show` outputs, SA counters, live logs, and packet captures).
 
-Each case produces:
+| ID | Document | Platforms & Protocols | What Was Built & Validated |
+| :--- | :--- | :--- | :--- |
+| **RB-CFG-001** | [RB-001-Site-to-Site-VPN.md](./RB-001-Site-to-Site-VPN.md) | Cisco ASA (`HQ-FW-1`, `ASH-FW-1`), IKEv2/IPsec | Deployed a site-to-site IKEv2 tunnel (AES-256 / SHA-256 / DH Group 14) with crypto maps, interesting traffic ACLs, and identity NAT exemption, verified via SA counters and Wireshark ESP/ISAKMP inspection. |
+| **RB-CFG-002** | [RB-002-Remote-Access-VPN.md](./RB-002-Remote-Access-VPN.md) | Cisco ASA (`HQ-FW-1`), AnyConnect, Microsoft Entra ID | Implemented remote-access VPN with external-browser SAML 2.0 authentication against Entra ID, Conditional Access MFA, Let's Encrypt/Azure trustpoints, split-tunneling, and NAT exemption. |
+| **RB-CFG-003** | [RB-003-Azure-Site-to-Site-VPN.md](./RB-003-Azure-Site-to-Site-VPN.md) | Cisco ASA (`HQ-FW-1`), Microsoft Azure (VNet, VNG, LNG) | Provisioned Azure East US networking (`Meridian-VNet`, `VpnGw2AZ`, Local Network Gateway) and terminated a route-based IKEv2 VTI (`Tunnel100`) back to on-premises HQ. |
+| **RB-CFG-004** | [RB-004-ASA-HA-Firewall.md](./RB-004-ASA-HA-Firewall.md) | Cisco ASA 9.24.x (`HQ-FW-1`, `HQ-FW-2`) | Configured Active/Standby stateful failover over a dedicated `GigabitEthernet0/5` link with dual-stack IPv4/IPv6 active and standby interface addressing. |
+| **RB-CFG-005** | [RB-005-Cisco-ISE-Policy.md](./RB-005-Cisco-ISE-Policy.md) | Cisco ISE, Active Directory (`meridian.local`), RADIUS | Onboarded network access devices into ISE, integrated AD identity groups, and authored 802.1X authorization profiles for dynamic VLAN enforcement. |
 
-- a ticket
-- CLI output
-- packet captures
-- monitoring screenshots
-- before/after configs
-- a written root-cause analysis
+---
 
-## Lab Environment
+## Change Management Plans (Migrations & Maintenance)
 
-A small enterprise-style network built in PNETLab and reused across incidents:
+Each Change Request illustrates structured risk management, live verification, and full backout syntax for production maintenance windows.
 
-- Access LAN and clients
-- Edge routing
-- Internal application network
-- WAN / ISP connectivity
-- Centralized logging and SNMP monitoring
+| CR # | Document | Risk / Impact | Scope & Engineering Execution |
+| :--- | :--- | :--- | :--- |
+| **CR-001** | [CR-001-HSRP-to-VRRP.md](./CR-001-HSRP-to-VRRP.md) | Medium / < 5 min | Migrated default-gateway redundancy on `HQ-R1` and `HQ-R2` (`f0/0.10`) from HSRP to open-standard VRRP to eliminate vendor lock-in. |
+| **CR-002** | [CR-002-OS-UPGRADE.md](./CR-002-OS-UPGRADE.md) | Medium / ~20 min per switch | Automated Catalyst 2960S IOS upgrades (`15.2(2)E8` → `15.2(2)E9`) via Ansible (`os_upgrade.yml`) and Nautobot inventory with dry-run verification and boot-variable rollback. |
+| **CR-003** | [CR-003-SNMPv2-to-SNMPv3.md](./CR-003-SNMPv2-to-SNMPv3.md) | Medium / Zero downtime | Migrated Core, Distribution, and Access devices from cleartext SNMPv2 communities to ACL-restricted SNMPv3 (`auth sha`) integrated with PRTG and Telegraf/Grafana. |
+| **CR-004** | [CR-004-8021X.md](./CR-004-8021X.md) | High / Zero downtime | Rolled out `aaa new-model`, RADIUS integration with Cisco ISE, and `multi-domain` 802.1X/MAB port controls across access switches with full authentication session validation. |
+| **CR-005** | [CR-005-PRTG-Threshold-Change.md](./CR-005-PRTG-Threshold-Change.md) | Medium / Zero downtime | Tuned PRTG CPU load warning/error thresholds (80% / 90%) on `HQ-R1` and validated alerting via simulated threshold triggers to reduce NOC alert fatigue. |
 
-![Lab topology](docs/lab-topology.png)
+---
 
-Each incident folder also contains the topology used for that specific case.
+## Standardized Documentation Frameworks
 
-**Platform and tools:** PNETLab, Cisco CSR1000v / IOSvL2, Wireshark / tcpdump, Splunk, SolarWinds NPM, ServiceNow-style ticketing.
+To ensure consistency and auditability across all operational work, this repository also includes the custom templates created for these workflows:
 
-## Incidents
+* **[runbook-template.md](./runbook-template.md)** — Baseline structure for provisioning SOPs, including Source of Truth (Nautobot/NetBox) checks, IPAM validation, and verification commands.
+* **[CR-Template.md](./CR-Template.md)** — Change governance template capturing business justification, risk profile, downtime estimates, pre/post-checks, and rollback syntax.
 
-| Incident | Symptom | Root cause | Skills shown |
-|---|---|---|---|
-| [INC-001](incidents/INC-001-DHCP-Failure/) | Clients cannot obtain an IP address | DHCP pool and default-router set for `10.10.20.0/24` while the LAN is `10.10.10.0/24` | DHCP, DORA, Wireshark, config mismatch |
-| [INC-002](incidents/INC-002-OSPF-Adjacency-Failure/) | Remote LAN unreachable, but R1 can ping R2 | Shared transit link configured in different OSPF areas, so the adjacency never reached FULL | OSPF states, routing table, packet analysis |
-| [INC-003](incidents/INC-003-ACL-Traffic-Blocked/) | Change meant to block Telnet also broke ping and HTTPS | Over-broad `deny ip`, then a leftover deny for TCP/443 | Extended ACLs, hit counters, two-stage RCA |
-| [INC-004](incidents/INC-004-OSPF-MTU-Mismatch/) | OSPF neighbor stuck in EXSTART, remote route missing | Interface MTU mismatch stalled the DBD exchange; fixed by matching MTU, not `ip ospf mtu-ignore` | MTU, DBD exchange, adjacency state machine |
-| [INC-005](incidents/INC-005-SNMP-Monitoring-Failure/) | SolarWinds shows R1 down, but ping and SSH work | SNMPv2c community typo (`NOC-R0` vs `NOC-RO`) | SNMP, SolarWinds, UDP/161, layered checks |
-| [INC-006](incidents/INC-006-DHCP-Relay-Failure/) | Clients fail to get addresses from a remote DHCP server | `ip helper-address` pointed at `10.20.20.11` instead of `10.20.20.1` | DHCP relay, helper-address, centralized DHCP |
-| [INC-007](incidents/INC-007-NAT-Translation-Failure/) | Internal traffic works, public hosts unreachable | NAT ACL matched `10.10.20.0/30` instead of the user LAN `10.10.10.0/24` | NAT/PAT, NAT ACL, translation table |
-| [INC-008](incidents/INC-008-BGP-Route-Advertisement-Failure/) | eBGP session Established, but the ISP has no route to the LAN | `network 10.10.100.0` did not match the `10.10.10.0/24` prefix in the routing table | eBGP, network statement, advertised-routes |
-| [INC-009](incidents/INC-009-HSRP-Failover-Failure/) | Gateway stops responding when the primary router fails | R2 configured with standby VIP `10.10.10.11` instead of `10.10.10.1` | HSRP, VIP mismatch, ARP, failover testing |
+---
 
-## How Each Incident Is Structured
+## Technologies & Platforms
 
-```
-INC-00X-Name/
-├── README.md
-├── topology/
-└── evidence/
-    ├── configs/
-    ├── pcaps/
-    └── screenshots/
-```
+| Domain | Stack |
+| :--- | :--- |
+| **Routing & Switching** | Cisco IOS / IOS-XE, HSRP, VRRP, OSPF, 802.1X, MAB, SNMPv3 |
+| **Firewalls & VPN** | Cisco ASA (Active/Standby HA, IKEv2 S2S, Route-Based VTI, AnyConnect / Secure Client) |
+| **Cloud & Identity** | Microsoft Azure (VNet, VPN Gateway, NAT Gateway), Microsoft Entra ID (SAML SSO, Conditional Access MFA), Active Directory |
+| **Security & NAC** | Cisco ISE (RADIUS, Dynamic VLAN Assignment), PKI / Let's Encrypt Certificates |
+| **Automation & Telemetry** | Ansible, Nautobot, Git, PRTG Network Monitor, Grafana, Telegraf, Wireshark |
 
-Every incident README includes: Ticket, Expected state, Symptoms, Investigation evidence, Root cause, Resolution, Verification, and Lessons learned.
+---
 
-## Tools and Methods
-
-**CLI:** Cisco routing, switching, DHCP, NAT, BGP, HSRP, ACL, and SNMP verification.
-
-**Packet analysis:** DHCP DORA, OSPF Hello/DBD, ACL drops, SNMP polling, NAT translation, HSRP/ARP failover.
-
-**Monitoring:** SolarWinds for device, interface, and routing neighbor status. Splunk for syslog correlation. Cases where monitoring showed nothing are documented as well.
-
-**Ticketing:** ServiceNow-style intake and resolution notes.
-
-## Where to Start
-
-If you only have a few minutes, these five show the most depth:
-
-- [INC-003 ACL](incidents/INC-003-ACL-Traffic-Blocked/): a two-stage fix, where the first change hid a second fault
-- [INC-004 OSPF MTU](incidents/INC-004-OSPF-MTU-Mismatch/): the link and Hellos were fine; the failure was inside the DBD exchange
-- [INC-007 NAT](incidents/INC-007-NAT-Translation-Failure/): proven with translation tables and before/after captures
-- [INC-008 BGP](incidents/INC-008-BGP-Route-Advertisement-Failure/): the session was healthy, but the wrong prefix was configured
-- [INC-009 HSRP](incidents/INC-009-HSRP-Failover-Failure/): failover tested with the primary still down
-
-## Notes
-
-- This is a lab environment, not a production network.
-- Faults were injected so the troubleshooting process could be documented end to end.
-- Monitoring gaps are included on purpose when SolarWinds or Splunk did not generate useful alerts.
-
-## Related
-
-- [Portfolio site](https://richardpateau.github.io)
-- [Enterprise Network Design](https://github.com/richardpateau/enterprise-network-design): the larger multi-site design project
-- [Networking Notebook](https://networkingnotebook.com/): technical writing on the protocols used in these labs
+*Note: All IP addressing, domains, and configurations documented in this portfolio reflect the isolated Meridian lab environment.*
