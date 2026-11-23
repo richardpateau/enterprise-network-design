@@ -1,9 +1,9 @@
-# Meridian Enterprise Network — Engineering Portfolio & Operations Documentation
+# Meridian Enterprise Network Operations Documentation
 
 **Author:** Richard Pateau  
 **Environment:** Meridian Enterprise Lab (HQ, Ashburn Branch & Microsoft Azure Hybrid Core)
 
-This repository showcases production-grade **Configuration Runbooks** and **Change Management Plans** engineered for the Meridian multi-site enterprise network. Rather than raw configuration dumps, these documents demonstrate end-to-end network engineering discipline—covering architecture design, pre-change baselining, CLI/GUI implementation, packet- and session-level validation, and deterministic rollback planning.
+This repository showcases production-grade **Configuration Runbooks** and **Change Management Plans** engineered for the Meridian multi-site enterprise network. Rather than raw configuration dumps, these documents demonstrate end-to-end network engineering discipline, covering architecture design, pre-change baselining, CLI/GUI implementation, packet and session-level validation, and deterministic rollback planning.
 
 ---
 
